@@ -1,84 +1,76 @@
 import React, { useState } from "react";
-import { styled, Container, Box } from '@mui/material';
-
-
-
-import Header from './header/Header';
-import Sidebar from './sidebar/Sidebar';
+import { styled, Container, Box } from "@mui/material";
+import Sidebar from "./sidebar/Sidebar";
 import { Outlet } from "react-router";
 import Topbar from "./header/Topbar";
-import Footer from "./footer/Footer";
 
-const MainWrapper = styled('div')(() => ({
-  display: 'flex',
-  //minHeight: '100vh',
-  width: '100%',
+const MainWrapper = styled("div")(() => ({
+  display: "flex",
+  width: "98vw",
+  height: "90vh",
+  overflow: "hidden",
 }));
 
-const PageWrapper = styled('div')(() => ({
-  display: 'flex',
+const PageWrapper = styled("div")(() => ({
+  display: "flex",
   flexGrow: 1,
- // paddingBottom: '60px',
-  flexDirection: 'column',
+  flexDirection: "column",
   zIndex: 1,
-  backgroundColor: 'transparent',
+  backgroundColor: "transparent",
+  height: "100%",
+  overflow: "hidden",
 }));
 
 const FullLayout = () => {
-
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
-  // const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
 
   return (
     <>
       {/* ------------------------------------------- */}
       {/* Topbar */}
       {/* ------------------------------------------- */}
-      <Topbar/>
-    <MainWrapper
-      className='mainwrapper'
-    >
+      <Topbar onOpenSidebar={() => setMobileSidebarOpen(true)} />
 
-      {/* ------------------------------------------- */}
-      {/* Sidebar */}
-      {/* ------------------------------------------- */}
-      <Sidebar isSidebarOpen={isSidebarOpen}
-        isMobileSidebarOpen={isMobileSidebarOpen}
-        onSidebarClose={() => setMobileSidebarOpen(false)} />
+      <MainWrapper className="mainwrapper">
+        {/* ------------------------------------------- */}
+        {/* Sidebar */}
+        {/* ------------------------------------------- */}
+        <Sidebar
+          isSidebarOpen={isSidebarOpen}
+          isMobileSidebarOpen={isMobileSidebarOpen}
+          onSidebarClose={() => setMobileSidebarOpen(false)}
+        />
 
-
-      {/* ------------------------------------------- */}
-      {/* Main Wrapper */}
-      {/* ------------------------------------------- */}
-      <PageWrapper
-        className="page-wrapper"
-      >
         {/* ------------------------------------------- */}
-        {/* Header */}
+        {/* Main Wrapper */}
         {/* ------------------------------------------- */}
-        <Header toggleSidebar={() => setSidebarOpen(!isSidebarOpen)} toggleMobileSidebar={() => setMobileSidebarOpen(true)} />
-        {/* ------------------------------------------- */}
-        {/* PageContent */}
-        {/* ------------------------------------------- */}
-        <Container sx={{
-          paddingTop: "20px",
-          maxWidth: '1200px',
-        }}
-        >
-          {/* ------------------------------------------- */}
-          {/* Page Route */}
-          {/* ------------------------------------------- */}
-          <Box sx={{ minHeight: 'calc(100vh - 250px)' }}>
-            <Outlet />
+        <PageWrapper className="page-wrapper">
+          <Box
+            sx={{
+              flexGrow: 1,
+              height: "100%",
+              padding: "20px",
+              margin: 0,
+              overflow: "hidden",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <Box
+              sx={{
+                flexGrow: 1,
+                height: "100%",
+                padding: 0,
+                margin: 0,
+                overflow: "hidden",
+              }}
+            >
+              <Outlet />
+            </Box>
           </Box>
-          {/* ------------------------------------------- */}
-          {/* End Page */}
-          {/* ------------------------------------------- */}
-        </Container>
-        <Footer />
-      </PageWrapper>
-    </MainWrapper>
+        </PageWrapper>
+      </MainWrapper>
     </>
   );
 };

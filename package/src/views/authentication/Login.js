@@ -1,14 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router';
-import { Grid, Box, Card, Stack, Typography } from '@mui/material';
+/**
+ * @fileoverview Login Page Interface
+ * A full login interface with gradient background, card-based layout,
+ * and authentication form integration.
+ *
+ * This component uses Material UI for layout and styling,
+ * and integrates the shared Logo + AuthLogin components.
+ *
+ * @author Rakshana
+ * @version 1.0.0
+ * @since 20 August, 2025
+ */
 
-// components
+import { Grid, Box, Card } from '@mui/material';
 import PageContainer from 'src/components/container/PageContainer';
 import Logo from 'src/layouts/full/shared/logo/Logo';
 import AuthLogin from './auth/AuthLogin';
 
+/**
+ * Login2 component
+ *
+ * @component
+ * @example
+ * return (
+ *   <Login2 />
+ * )
+ *
+ * @returns {JSX.Element} A styled login page with authentication form
+ */
 const Login2 = () => {
-  
   return (
     <PageContainer title="Login" description="this is Login page">
       <Box
@@ -36,36 +55,13 @@ const Login2 = () => {
               sm: 12,
               lg: 4,
               xl: 3
-            }}>
+            }}
+          >
             <Card elevation={9} sx={{ p: 4, zIndex: 1, width: '100%', maxWidth: '500px' }}>
               <Box display="flex" alignItems="center" justifyContent="center">
                 <Logo />
               </Box>
-              <AuthLogin
-                subtext={
-                  <Typography variant="subtitle1" textAlign="center" color="textSecondary" mb={1}>
-                    Your Social Campaigns
-                  </Typography>
-                }
-                subtitle={
-                  <Stack direction="row" spacing={1} justifyContent="center" mt={3}>
-                    <Typography color="textSecondary" variant="h6" fontWeight="500">
-                      New to Modernize?
-                    </Typography>
-                    <Typography
-                      component={Link}
-                      to="/auth/register"
-                      fontWeight="500"
-                      sx={{
-                        textDecoration: 'none',
-                        color: 'primary.main',
-                      }}
-                    >
-                      Create an account
-                    </Typography>
-                  </Stack>
-                }
-              />
+              <AuthLogin />
             </Card>
           </Grid>
         </Grid>

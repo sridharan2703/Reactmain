@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Inbox/Inbox.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Inbox">Inbox</a></li><li><a href="global.html#Login2">Login2</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Inbox/Inbox.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from "react";
+
+/**
+ * @fileoverview Task Inbox Interface
+ * A comprehensive task inbox component with advanced UI elements,
+ * interactive features, and enhanced visual design.
+ *
+ * @author Rakshana
+ * @version 2.0.0
+ * @since 20 August, 2025
+ */
+
+/**
+ * @typedef {Object} Task
+ * @property {number} id - Unique task identifier
+ * @property {string} name - Task name/description
+ * @property {string[]} assignees - Array of assignee initials
+ * @property {string} dueDate - Due date in MMM DD format
+ * @property {string} status - Current task status
+ * @property {string} statusColor - Color code for status indicator
+ * @property {string|null} priority - Task priority level
+ * @property {string|null} priorityColor - Color code for priority indicator
+ * @property {string} billableAmount - Estimated billable amount
+ * @property {string} hoursWorked - Hours worked on task
+ * @property {boolean} completed - Task completion status
+ * @property {number} progress - Progress percentage (0-100)
+ */
+
+/**
+ * @typedef {Object} TabItem
+ * @property {string} name - Tab display name
+ * @property {string} icon - Tab icon (emoji/unicode)
+ * @property {number} count - Item count for the tab
+ */
+
+const PageContainer = ({ title, description, children }) => (
+  &lt;div style={{ width: "100%", height: "100vh", overflow: "hidden" }}>
+    {children}
+  &lt;/div>
+);
+
+/**
+ * Main Task Inbox Component
+ * Displays a modern, feature-rich task management interface with
+ * enhanced visual elements, animations, and interactive components.
+ *
+ * @component
+ * @returns {React.ReactElement} The Task Inbox interface
+ *
+ * @example
+ * ```jsx
+ * &lt;Inbox />
+ * ```
+ */
+const Inbox = () => {
+/** Active tab state (with setter from useState) */
+const [activeTab, setActiveTab] = useState(1);
+
+/** Expanded groups state (with setter from useState) */
+const [expandedGroups, setExpandedGroups] = useState({ "front-end": true });
+
+/** View mode state (with setter from useState) */
+const [viewMode, setViewMode] = useState("table");
+
+/** Selected tasks state (with setter from useState) */
+const [selectedTasks, setSelectedTasks] = useState(new Set());
+
+
+  /**
+   * Navigation tabs configuration
+   * @type {TabItem[]}
+   */
+  const tabs = [
+    { name: "All task", icon: "👤", count: 0 },
+    { name: "Role 1", icon: "👤", count: 12 },
+    { name: "Role 2", icon: "👤", count: 3 },
+    { name: "Role 3", icon: "👤", count: 0 },
+    { name: "Role 4", icon: "👤", count: 5 },
+    { name: "Role 5", icon: "👤", count: 24 },
+  ];
+
+  /**
+   * Toggle group expansion state
+   * @param {string} groupName - Name of the group to toggle
+   */
+  const toggleGroup = (groupName) => {
+    setExpandedGroups((prev) => ({
+      ...prev,
+      [groupName]: !prev[groupName],
+    }));
+  };
+
+  /**
+   * Toggle task selection
+   * @param {number} taskId - ID of the task to toggle
+   */
+  const toggleTaskSelection = (taskId) => {
+    setSelectedTasks((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(taskId)) {
+        newSet.delete(taskId);
+      } else {
+        newSet.add(taskId);
+      }
+      return newSet;
+    });
+  };
+
+  /**
+   * Sample task data
+   * @type {Task[]}
+   */
+  const tasks = [
+    {
+      id: 1,
+      name: "Document breakpoints and media queries",
+      assignees: ["JD", "AM"],
+      dueDate: "Nov 13",
+      status: "Pending Review",
+      statusColor: "#8B5CF6",
+      priority: null,
+      billableAmount: "$600.00",
+      hoursWorked: "13h",
+      completed: false,
+      progress: 85,
+    },
+    {
+      id: 2,
+      name: "Convert mockups into HTML/CSS templates",
+      assignees: ["JD"],
+      dueDate: "Dec 4",
+      status: "In Progress",
+      statusColor: "#F59E0B",
+      priority: null,
+      billableAmount: "$2000.00",
+      hoursWorked: "8h",
+      completed: false,
+      progress: 60,
+    },
+
+    {
+      id: 4,
+      name: "Test website responsiveness",
+      assignees: ["JD", "AM"],
+      dueDate: "Dec 14",
+      status: "In Progress",
+      statusColor: "#F59E0B",
+      priority: "High",
+      priorityColor: "#EF4444",
+      billableAmount: "$1500.00",
+      hoursWorked: "11h 15m",
+      completed: false,
+      progress: 40,
+    },
+    {
+      id: 5,
+      name: "Optimize images and multimedia for all devices",
+      assignees: ["JD", "AM"],
+      dueDate: "Dec 7",
+      status: "In Progress",
+      statusColor: "#F59E0B",
+      priority: "Critical",
+      priorityColor: "#DC2626",
+      billableAmount: "$1000.00",
+      hoursWorked: "7h",
+      completed: false,
+      progress: 25,
+    },
+  ];
+
+  /**
+   * Status Chip Component
+   * Displays task status with appropriate styling
+   * @param {Object} props - Component props
+   * @param {string} props.status - Status text
+   * @param {string} props.color - Background color
+   * @returns {React.ReactElement} Status chip element
+   */
+  const StatusChip = ({ status, color }) => (
+    &lt;div
+      style={{
+        background: `linear-gradient(135deg, ${color}E6, ${color})`,
+        color: "white",
+        padding: "6px 14px",
+        borderRadius: "20px",
+        fontSize: "11px",
+        fontWeight: "600",
+        display: "inline-block",
+        textTransform: "uppercase",
+        letterSpacing: "0.5px",
+        boxShadow: `0 2px 8px ${color}40`,
+        border: `1px solid ${color}`,
+      }}
+    >
+      {status}
+    &lt;/div>
+  );
+
+  /**
+   * Priority Chip Component
+   * Displays task priority with appropriate styling
+   * @param {Object} props - Component props
+   * @param {string} props.priority - Priority text
+   * @param {string} props.color - Border and text color
+   * @returns {React.ReactElement} Priority chip element
+   */
+  const PriorityChip = ({ priority, color }) => (
+    &lt;div
+      style={{
+        background: `linear-gradient(135deg, ${color}15, ${color}08)`,
+        border: `2px solid ${color}`,
+        color: color,
+        padding: "4px 12px",
+        borderRadius: "18px",
+        fontSize: "11px",
+        fontWeight: "700",
+        display: "inline-block",
+        textTransform: "uppercase",
+        letterSpacing: "0.5px",
+        boxShadow: `0 2px 6px ${color}25`,
+      }}
+    >
+      ⚡ {priority}
+    &lt;/div>
+  );
+
+  /**
+   * Avatar Group Component
+   * Displays overlapping avatars for task assignees
+   * @param {Object} props - Component props
+   * @param {string[]} props.assignees - Array of assignee initials
+   * @returns {React.ReactElement} Avatar group element
+   */
+  const AvatarGroup = ({ assignees }) => {
+    const colors = ["#FF6B6B", "#4ECDC4", "#45B7D1", "#96CEB4", "#FFEAA7"];
+
+    return (
+      &lt;div style={{ display: "flex", alignItems: "center" }}>
+        {assignees.map((assignee, index) => (
+          &lt;div
+            key={index}
+            style={{
+              width: "36px",
+              height: "36px",
+              borderRadius: "50%",
+              background: `linear-gradient(135deg, ${
+                colors[index % colors.length]
+              }, ${colors[index % colors.length]}CC)`,
+              color: "white",
+              fontSize: "12px",
+              fontWeight: "700",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "3px solid white",
+              marginLeft: index > 0 ? "-12px" : "0",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+              position: "relative",
+              zIndex: assignees.length - index,
+              transition: "transform 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.transform = "scale(1.1) translateY(-2px)";
+              e.target.style.zIndex = "10";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "scale(1) translateY(0)";
+              e.target.style.zIndex = assignees.length - index;
+            }}
+          >
+            {assignee}
+          &lt;/div>
+        ))}
+      &lt;/div>
+    );
+  };
+
+  /**
+   * Progress Bar Component
+   * Displays task completion progress
+   * @param {Object} props - Component props
+   * @param {number} props.progress - Progress percentage (0-100)
+   * @param {string} props.color - Progress bar color
+   * @returns {React.ReactElement} Progress bar element
+   */
+  const ProgressBar = ({ progress, color }) => (
+    &lt;div
+      style={{
+        width: "60px",
+        height: "6px",
+        backgroundColor: "#E5E7EB",
+        borderRadius: "3px",
+        overflow: "hidden",
+        position: "relative",
+      }}
+    >
+      &lt;div
+        style={{
+          width: `${progress}%`,
+          height: "100%",
+          background: `linear-gradient(90deg, ${color}, ${color}CC)`,
+          borderRadius: "3px",
+          transition: "width 0.3s ease",
+          boxShadow: `0 0 6px ${color}40`,
+        }}
+      />
+    &lt;/div>
+  );
+
+  /**
+   * Modern button styles configuration
+   */
+  const buttonStyles = {
+    primary: {
+      background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      color: "white",
+      border: "none",
+      padding: "12px 24px",
+      borderRadius: "12px",
+      cursor: "pointer",
+      display: "flex",
+      alignItems: "center",
+      gap: "8px",
+      fontSize: "14px",
+      fontWeight: "600",
+      boxShadow: "0 4px 16px rgba(102, 126, 234, 0.4)",
+      transition: "all 0.3s ease",
+    },
+    secondary: {
+      background: "rgba(255, 255, 255, 0.9)",
+      color: "#6B7280",
+      border: "2px solid #E5E7EB",
+      padding: "10px 20px",
+      borderRadius: "12px",
+      cursor: "pointer",
+      display: "flex",
+      alignItems: "center",
+      gap: "8px",
+      fontSize: "14px",
+      fontWeight: "500",
+      backdropFilter: "blur(10px)",
+      transition: "all 0.3s ease",
+    },
+    chip: {
+      background: "rgba(255, 255, 255, 0.8)",
+      color: "#4B5563",
+      border: "1px solid #D1D5DB",
+      padding: "8px 16px",
+      borderRadius: "20px",
+      fontSize: "12px",
+      fontWeight: "500",
+      backdropFilter: "blur(5px)",
+      transition: "all 0.2s ease",
+    },
+  };
+
+  return (
+    &lt;PageContainer
+      title="Task Inbox"
+      description="Modern Task Management Interface"
+    >
+      &lt;div
+        style={{
+          background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+          minHeight: "100vh",
+          padding: 0,
+          margin: 0,
+        }}
+      >
+        {/* Main Container */}
+        &lt;div
+          style={{
+            background: "rgba(255, 255, 255, 0.95)",
+            backdropFilter: "blur(20px)",
+            minHeight: "100vh",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          {/* Header Section */}
+          &lt;div
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7))",
+              backdropFilter: "blur(20px)",
+              borderBottom: "1px solid rgba(229, 231, 235, 0.8)",
+              padding: "0 32px",
+            }}
+          >
+            {/* Navigation Tabs */}
+            &lt;div style={{ display: "flex", gap: "0", overflowX: "auto" }}>
+              {tabs.map((tab, index) => (
+                &lt;button
+                  key={index}
+                  onClick={() => setActiveTab(index)}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    padding: "20px 24px",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    cursor: "pointer",
+                    borderBottom:
+                      activeTab === index
+                        ? "3px solid #667eea"
+                        : "3px solid transparent",
+                    color: activeTab === index ? "#667eea" : "#6B7280",
+                    transition: "all 0.3s ease",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    position: "relative",
+                    whiteSpace: "nowrap",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (activeTab !== index) {
+                      e.target.style.color = "#4B5563";
+                      e.target.style.background = "rgba(102, 126, 234, 0.05)";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (activeTab !== index) {
+                      e.target.style.color = "#6B7280";
+                      e.target.style.background = "none";
+                    }
+                  }}
+                >
+                  &lt;span style={{ fontSize: "16px" }}>{tab.icon}&lt;/span>
+                  {tab.name}
+                  {tab.count > 0 &amp;&amp; (
+                    &lt;span
+                      style={{
+                        background:
+                          activeTab === index
+                            ? "linear-gradient(135deg, #667eea, #764ba2)"
+                            : "#9CA3AF",
+                        color: "white",
+                        fontSize: "10px",
+                        fontWeight: "700",
+                        padding: "2px 6px",
+                        borderRadius: "10px",
+                        minWidth: "18px",
+                        textAlign: "center",
+                      }}
+                    >
+                      {tab.count}
+                    &lt;/span>
+                  )}
+                &lt;/button>
+              ))}
+            &lt;/div>
+          &lt;/div>
+
+          {/* Action Bar */}
+          &lt;div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "24px 32px",
+              background: "rgba(249, 250, 251, 0.8)",
+              borderBottom: "1px solid rgba(229, 231, 235, 0.6)",
+            }}
+          >
+            &lt;div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+              &lt;button
+                style={buttonStyles.primary}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = "translateY(-2px)";
+                  e.target.style.boxShadow =
+                    "0 6px 20px rgba(102, 126, 234, 0.5)";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = "translateY(0)";
+                  e.target.style.boxShadow =
+                    "0 4px 16px rgba(102, 126, 234, 0.4)";
+                }}
+              >
+                &lt;span style={{ fontSize: "16px" }}>✨&lt;/span>
+                Add Task
+              &lt;/button>
+            &lt;/div>
+
+            &lt;div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              &lt;div style={{ display: "flex", gap: "8px" }}>
+                {["Ungrouped", "Task List", "Due Date", "Priority"].map(
+                  (filter) => (
+                    &lt;span
+                      key={filter}
+                      style={{
+                        ...buttonStyles.chip,
+                        cursor: "pointer",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.target.style.background = "rgba(102, 126, 234, 0.1)";
+                        e.target.style.borderColor = "#667eea";
+                        e.target.style.color = "#667eea";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.target.style.background = "rgba(255, 255, 255, 0.8)";
+                        e.target.style.borderColor = "#D1D5DB";
+                        e.target.style.color = "#4B5563";
+                      }}
+                    >
+                      {filter}
+                    &lt;/span>
+                  )
+                )}
+              &lt;/div>
+
+              &lt;button
+                style={{
+                  ...buttonStyles.secondary,
+                  padding: "12px",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.borderColor = "#667eea";
+                  e.target.style.color = "#667eea";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.borderColor = "#E5E7EB";
+                  e.target.style.color = "#6B7280";
+                }}
+              >
+                ⋯
+              &lt;/button>
+
+              &lt;button
+                style={buttonStyles.secondary}
+                onMouseEnter={(e) => {
+                  e.target.style.borderColor = "#667eea";
+                  e.target.style.color = "#667eea";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.borderColor = "#E5E7EB";
+                  e.target.style.color = "#6B7280";
+                }}
+              >
+                &lt;span>🗃️&lt;/span>
+                Export
+              &lt;/button>
+            &lt;/div>
+          &lt;/div>
+          &lt;br />
+
+          {/* Task Table */}
+          &lt;div style={{ flex: 1, padding: "0 32px 32px", overflow: "auto" }}>
+            &lt;div
+              style={{
+                background: "rgba(255, 255, 255, 0.9)",
+                borderRadius: "20px",
+                boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)",
+                overflow: "hidden",
+                backdropFilter: "blur(20px)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+              }}
+            >
+              &lt;table style={{ width: "100%", borderCollapse: "collapse" }}>
+                &lt;thead>
+                  &lt;tr
+                    style={{
+                      background:
+                        "linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1))",
+                    }}
+                  >
+                    {[
+                      "TASK",
+                      "ASSIGNED TO",
+                      "DUE DATE",
+                      "STATUS",
+                      "PRIORITY",
+                      "PROGRESS",
+                      "BILLABLE",
+                      "HOURS",
+                    ].map((header) => (
+                      &lt;th
+                        key={header}
+                        style={{
+                          padding: "20px 24px",
+                          textAlign: "left",
+                          fontSize: "12px",
+                          fontWeight: "700",
+                          color: "#667eea",
+                          textTransform: "uppercase",
+                          letterSpacing: "1px",
+                        }}
+                      >
+                        {header}
+                      &lt;/th>
+                    ))}
+                  &lt;/tr>
+                &lt;/thead>
+                &lt;tbody>
+                  {/* Group Header */}
+                  &lt;tr
+                    style={{
+                      background:
+                        "linear-gradient(135deg, rgba(249, 250, 251, 0.8), rgba(243, 244, 246, 0.8))",
+                    }}
+                  >&lt;/tr>
+
+                  {/* Task Rows */}
+                  {expandedGroups["front-end"] &amp;&amp;
+                    tasks.map((task, index) => (
+                      &lt;tr
+                        key={task.id}
+                        style={{
+                          borderTop: "1px solid rgba(229, 231, 235, 0.6)",
+                          transition: "all 0.3s ease",
+                          background: selectedTasks.has(task.id)
+                            ? "rgba(102, 126, 234, 0.05)"
+                            : "transparent",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = selectedTasks.has(
+                            task.id
+                          )
+                            ? "rgba(102, 126, 234, 0.08)"
+                            : "rgba(249, 250, 251, 0.8)";
+                          e.currentTarget.style.transform = "scale(1.002)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = selectedTasks.has(
+                            task.id
+                          )
+                            ? "rgba(102, 126, 234, 0.05)"
+                            : "transparent";
+                          e.currentTarget.style.transform = "scale(1)";
+                        }}
+                      >
+                        &lt;td style={{ padding: "20px 24px" }}>
+                          &lt;div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "16px",
+                            }}
+                          >
+                            &lt;input
+                              type="checkbox"
+                              checked={selectedTasks.has(task.id)}
+                              onChange={() => toggleTaskSelection(task.id)}
+                              style={{
+                                width: "18px",
+                                height: "18px",
+                                accentColor: "#667eea",
+                                borderRadius: "4px",
+                              }}
+                            />
+                            &lt;span
+                              style={{
+                                fontSize: "14px",
+                                fontWeight: "500",
+                                color: task.completed ? "#9CA3AF" : "#374151",
+                                textDecoration: task.completed
+                                  ? "line-through"
+                                  : "none",
+                              }}
+                            >
+                              {task.name}
+                            &lt;/span>
+                          &lt;/div>
+                        &lt;/td>
+                        &lt;td style={{ padding: "20px 24px" }}>
+                          &lt;AvatarGroup assignees={task.assignees} />
+                        &lt;/td>
+                        &lt;td style={{ padding: "20px 24px" }}>
+                          &lt;span
+                            style={{
+                              fontSize: "14px",
+                              color: "#6B7280",
+                              fontWeight: "500",
+                            }}
+                          >
+                            📅 {task.dueDate}
+                          &lt;/span>
+                        &lt;/td>
+                        &lt;td style={{ padding: "20px 24px" }}>
+                          &lt;StatusChip
+                            status={task.status}
+                            color={task.statusColor}
+                          />
+                        &lt;/td>
+                        &lt;td style={{ padding: "20px 24px" }}>
+                          {task.priority &amp;&amp; (
+                            &lt;PriorityChip
+                              priority={task.priority}
+                              color={task.priorityColor}
+                            />
+                          )}
+                        &lt;/td>
+                        &lt;td style={{ padding: "20px 24px" }}>
+                          &lt;div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                            }}
+                          >
+                            &lt;ProgressBar
+                              progress={task.progress}
+                              color={task.statusColor}
+                            />
+                            &lt;span
+                              style={{
+                                fontSize: "12px",
+                                color: "#6B7280",
+                                fontWeight: "500",
+                              }}
+                            >
+                              {task.progress}%
+                            &lt;/span>
+                          &lt;/div>
+                        &lt;/td>
+                        &lt;td style={{ padding: "20px 24px" }}>
+                          &lt;span
+                            style={{
+                              fontSize: "14px",
+                              color: "#059669",
+                              fontWeight: "600",
+                            }}
+                          >
+                            💰 {task.billableAmount}
+                          &lt;/span>
+                        &lt;/td>
+                        &lt;td style={{ padding: "20px 24px" }}>
+                          &lt;span
+                            style={{
+                              fontSize: "14px",
+                              color: "#6B7280",
+                              fontWeight: "500",
+                            }}
+                          >
+                            ⏱️ {task.hoursWorked}
+                          &lt;/span>
+                        &lt;/td>
+                      &lt;/tr>
+                    ))}
+                &lt;/tbody>
+              &lt;/table>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/PageContainer>
+  );
+};
+
+export default Inbox;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Wed Aug 20 2025 12:14:35 GMT+0530 (India Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

@@ -1,78 +1,56 @@
-import { useMediaQuery, Box, Drawer } from '@mui/material';
-import SidebarItems from './SidebarItems';
+import { useMediaQuery, Box, Drawer } from "@mui/material";
+import { useState } from "react";
+import SidebarItems from "./SidebarItems";
 import Scrollbar from "../../../components/custom-scroll/Scrollbar";
-import Upgrade from './Upgrade'
 
-const Sidebar = (props) => {
-
+const Sidebar = ({ isSidebarOpen, isMobileSidebarOpen, onSidebarClose }) => {
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
-  const sidebarWidth = '270px';
+  const [isHovered, setIsHovered] = useState(false);
 
-
+  const collapsedWidth = "64px";
+  const expandedWidth = "270px";
+  const sidebarWidth = isHovered ? expandedWidth : collapsedWidth;
 
   if (lgUp) {
+    // Desktop permanent sidebar
     return (
       <Box
         sx={{
           width: sidebarWidth,
           flexShrink: 0,
+          bgcolor: "background.paper",
+          transition: "width 0.3s ease",
+          borderRight: (theme) => `1px solid ${theme.palette.divider}`,
         }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
-        {/* ------------------------------------------- */}
-        {/* Sidebar for desktop */}
-        {/* ------------------------------------------- */}
-        <Drawer
-          anchor="left"
-          open={props.isSidebarOpen}
-          variant="permanent"
-          slotProps={{
-            paper: {
-              sx: {
-                width: sidebarWidth,
-                boxSizing: 'border-box',
-                top: '72px',
-              },
-            }
-          }}
-        >
-          {/* ------------------------------------------- */}
-          {/* Sidebar Box */}
-          {/* ------------------------------------------- */}
-          <Scrollbar sx={{ height: "calc(100% - 73px)" }}>
-            <Box>
-              {/* ------------------------------------------- */}
-              {/* Sidebar Items */}
-              {/* ------------------------------------------- */}
-              <SidebarItems />
-            </Box>
-          </Scrollbar>
-        </Drawer >
-      </Box >
+        <Scrollbar>
+          <SidebarItems isCollapsed={!isHovered} />
+        </Scrollbar>
+      </Box>
     );
   }
+
+  // Mobile / tablet Drawer
   return (
     <Drawer
-      anchor="left"
-      open={props.isMobileSidebarOpen}
-      onClose={props.onSidebarClose}
       variant="temporary"
-      slotProps={{
-        paper: {
-          sx: {
-
-            boxShadow: (theme) => theme.shadows[8],
-          },
-        }
+      open={isMobileSidebarOpen}
+      onClose={onSidebarClose}
+      ModalProps={{ keepMounted: true }}
+      sx={{
+        "& .MuiDrawer-paper": {
+          width: expandedWidth,
+          boxSizing: "border-box",
+        },
       }}
     >
-      <Scrollbar sx={{ height: "calc(100% - 73px)" }}>
-        {/* ------------------------------------------- */}
-        {/* Sidebar For Mobile */}
-        {/* ------------------------------------------- */}
-        <SidebarItems />
+      <Scrollbar>
+        <SidebarItems isCollapsed={false} />
       </Scrollbar>
-      <Upgrade />
     </Drawer>
   );
 };
+
 export default Sidebar;

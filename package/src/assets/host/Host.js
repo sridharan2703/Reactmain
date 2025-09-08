@@ -1,0 +1,1 @@
+export const HostName = 'https://wftest1.iitm.ac.in:5000';

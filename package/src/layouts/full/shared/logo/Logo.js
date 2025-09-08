@@ -1,5 +1,4 @@
 import { Link } from "react-router";
-import { ReactComponent as LogoDark1 } from "src/assets/images/logos/dark1-logo.svg";
 import { styled } from "@mui/material";
 
 const LinkStyled = styled(Link)(() => ({
@@ -19,7 +18,6 @@ const Logo = () => {
         alignItems: "center",
       }}
     >
-      <LogoDark1 />
     </LinkStyled>
   );
 };
