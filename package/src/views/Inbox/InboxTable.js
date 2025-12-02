@@ -1,260 +1,154 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
+import { DataGrid, useGridApiRef } from "@mui/x-data-grid";
 import {
-  IconFlame,
-  IconBolt,
-  IconFileText,
-  IconAlertTriangle,
-  IconExclamationMark,
-  IconStar,
-  IconStarFilled,
-  IconTag,
-  IconChevronDown,
-  IconChevronLeft,
-  IconChevronRight,
-  IconSquareRoundedLetterS,
-  IconLoader2,
-  IconAlertCircle
-} from "@tabler/icons-react";
-
+  Box,
+  Chip,
+  Avatar,
+  IconButton,
+  Menu,
+  MenuItem,
+  Typography,
+  CircularProgress,
+  Alert,
+  Tooltip,
+  alpha,
+  Fade,
+  Grow,
+} from "@mui/material";
+import {
+  Star as StarIcon,
+  StarBorder as StarBorderIcon,
+  Warning as WarningIcon,
+  KeyboardArrowDown as ArrowDownIcon,
+  AssistantPhoto as AssistantPhotoIcon,
+  Schedule as ScheduleIcon,
+  Brightness1 as DotIcon,
+} from "@mui/icons-material";
+import { isWebCryptoSupported } from "src/components/Decryption/Decrypt";
 import {
   decryptData,
-  validateJsonData,
-  isWebCryptoSupported,
-} from 'src/components/Decryption/Decrypt';
-import Cookies from 'js-cookie';
+  encryptPayloadForGo,
+} from "src/components/Encryption/EncryptionKey";
+import Cookies from "js-cookie";
+import { navigateWithTaskData } from "src/routes/Router.js";
+import { useNavigate } from "react-router-dom";
+import { HostName } from "src/assets/host/Host";
 
 const palette = {
-  primary: "#2563EB",
-  secondary: "#64748B",
+  primary: "#1e40af",
+  primaryDark: "#1e3a8a",
+  secondary: "#64748b",
   success: "#059669",
-  warning: "#D97706",
-  danger: "#DC2626",
-  info: "#0891B2",
-  neutral: "#374151",
-  light: "#F8FAFC",
-  white: "#FFFFFF",
-  border: "#E2E8F0",
-  hover: "#F1F5F9",
-  text: {
-    primary: "#1E293B",
-    secondary: "#64748B",
-    muted: "#94A3B8",
-  },
+  warning: "#d97706",
+  danger: "#dc2626",
+  info: "#0891b2",
+  purple: "#7c3aed",
+  slate: "#334155",
+  navy: "#1e293b",
+  gold: "#d97706",
+  emerald: "#047857",
+  background: "#f8fafc",
+  surface: "#ffffff",
 };
 
-const SmartTooltip = ({ children, content, visible }) => {
-  const [position, setPosition] = useState({ top: 0, left: 0 });
-  const [placement, setPlacement] = useState("bottom");
-  const tooltipRef = useRef(null);
-  const triggerRef = useRef(null);
-
-  useEffect(() => {
-    if (visible && tooltipRef.current && triggerRef.current) {
-      const tooltip = tooltipRef.current;
-      const trigger = triggerRef.current;
-      const triggerRect = trigger.getBoundingClientRect();
-      const tooltipRect = tooltip.getBoundingClientRect();
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-
-      let newPlacement = "bottom";
-      let top = triggerRect.bottom + 8;
-      let left = triggerRect.left + triggerRect.width / 2 - tooltipRect.width / 2;
-      
-      if (top + tooltipRect.height > viewportHeight - 10) {
-        newPlacement = "top";
-        top = triggerRect.top - tooltipRect.height - 8;
-      }
-
-      if (left < 10) {
-        left = triggerRect.left;
-      } else if (left + tooltipRect.width > viewportWidth - 10) {
-        left = triggerRect.right - tooltipRect.width;
-      }
-      
-      left = Math.max(10, Math.min(left, viewportWidth - tooltipRect.width - 10));
-      top = Math.max(10, Math.min(top, viewportHeight - tooltipRect.height - 10));
-
-      setPosition({ top, left });
-      setPlacement(newPlacement);
-    }
-  }, [visible]);
-
-  return (
-    <div ref={triggerRef} style={{ position: "relative", display: "inline-flex" }}>
-      {children}
-      {visible && (
-        <div
-          ref={tooltipRef}
-          style={{
-            position: "fixed",
-            top: `${position.top}px`,
-            left: `${position.left}px`,
-            background: "rgb(248, 250, 252)",
-            color: "rgb(0, 0, 0)",
-            padding: "8px 10px",
-            borderRadius: "12px",
-            fontSize: "12px",
-            fontWeight: "500",
-            whiteSpace: "nowrap",
-            zIndex: 999,
-            boxShadow: "0 8px 25px rgba(139, 92, 246, 0.3), 0 4px 12px rgba(0,0,0,0.15)",
-            pointerEvents: "none",
-            border: "1px solid rgba(255,255,255,0.1)",
-          }}
-        >
-          {content}
-          <div
-            style={{
-              position: "absolute",
-              top: "-6px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              width: 0,
-              height: 0,
-              borderLeft: "6px solid transparent",
-              borderRight: "6px solid transparent",
-              borderBottom: "6px solid rgb(248, 250, 252)",
-            }}
-          />
-        </div>
-      )}
-    </div>
-  );
+const getNumericDaysAgo = (dateString) => {
+  if (!dateString || dateString === "N/A") return 0;
+  const updated = new Date(dateString);
+  if (isNaN(updated.getTime())) return 0;
+  return Math.ceil(Math.abs(new Date() - updated) / (1000 * 60 * 60 * 24));
 };
 
-const PriorityIcon = ({ priority, color }) => {
-  const [showTooltip, setShowTooltip] = useState(false);
+const getDaysAgoText = (days) => {
+  if (days === 0) return "Today";
+  return days === 1 ? "1 day" : `${days} days`;
+};
 
+// REMOVED: getEmployeeName function is no longer needed
+
+const getHardcodedPriority = (coverPageNo, index, apiPriority) => {
+  // If API provides priority (e.g. "Critical"), use it
+  if (apiPriority) return apiPriority;
+
+  // Fallback logic if API priority is null
+  if (index === 0) return "sla";
+  if (coverPageNo === "REF/1001" || index % 5 === 1) return "high";
+  if (index % 7 === 0) return "critical";
+  return "other";
+};
+
+const PriorityCell = ({ priority }) => {
   const getPriorityConfig = (priority) => {
-    const priorityLower = priority?.toLowerCase() || "medium";
-    switch (priorityLower) {
+    switch (priority?.toLowerCase()) {
       case "sla":
-        return { icon: IconSquareRoundedLetterS, color: palette.danger, label: "SLA" };
+        return [{ type: "badge", text: "SLA", color: palette.danger }];
       case "critical":
-        return { icon: IconExclamationMark, color: palette.danger, label: "Critical" };
+        return [{ type: "icon", icon: <WarningIcon />, color: palette.danger }];
       case "high":
-        return { icon: IconFlame, color: palette.danger, label: "High" };
-      case "urgent":
-        return { icon: IconAlertTriangle, color: palette.warning, label: "Urgent" };
-      case "medium":
-        return { icon: IconBolt, color: palette.warning, label: "Medium" };
-      case "low":
-        return { icon: IconFileText, color: palette.secondary, label: "Low" };
+        return [
+          {
+            type: "icon",
+            icon: <AssistantPhotoIcon />,
+            color: palette.warning,
+          },
+        ];
       default:
-        return { icon: IconBolt, color: palette.secondary, label: "Medium" };
+        return [];
     }
   };
 
-  const config = getPriorityConfig(priority);
-  const IconComponent = config.icon;
+  const configs = getPriorityConfig(priority);
+  if (configs.length === 0) return <Box sx={{ minWidth: 40 }} />;
 
   return (
-    <SmartTooltip content={`${config.label} Priority`} visible={showTooltip}>
-      <div
-        style={{
-          padding: "6px",
-          borderRadius: "6px",
-          background: `${config.color}10`,
-          border: `1px solid ${config.color}20`,
-          cursor: "pointer",
-          transition: "all 0.2s ease",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-        onMouseEnter={(e) => {
-          setShowTooltip(true);
-          e.currentTarget.style.background = `${config.color}20`;
-          e.currentTarget.style.transform = "scale(1.05)";
-        }}
-        onMouseLeave={(e) => {
-          setShowTooltip(false);
-          e.currentTarget.style.background = `${config.color}10`;
-          e.currentTarget.style.transform = "scale(1)";
-        }}
-      >
-        <IconComponent size={16} color={config.color} stroke={1.5} />
-      </div>
-    </SmartTooltip>
+    <Box sx={{ display: "flex", gap: 0.5, alignItems: "center" }}>
+      {configs.map((config, index) => (
+        <Fade in key={index} timeout={300 + index * 100}>
+          <Box>
+            {config.type === "badge" ? (
+              <Chip
+                label={config.text}
+                size="small"
+                sx={{
+                  bgcolor: config.color,
+                  color: "white",
+                  fontWeight: 600,
+                  fontSize: "0.65rem",
+                  height: 24,
+                  borderRadius: 12,
+                }}
+              />
+            ) : (
+              <Box
+                sx={{
+                  p: 0.5,
+                  borderRadius: 12,
+                  bgcolor: config.color,
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                {React.cloneElement(config.icon, {
+                  sx: { fontSize: 16, color: "white" },
+                })}
+              </Box>
+            )}
+          </Box>
+        </Fade>
+      ))}
+    </Box>
   );
 };
 
-const ProfileAvatar = ({ initiator }) => {
-  const [showTooltip, setShowTooltip] = useState(false);
-
-  const getInitials = (name) => {
-    return name
-      .split(" ")
-      .map((n) => n[0])
-      .join("")
-      .toUpperCase()
-      .slice(0, 2);
-  };
-
-  const getAvatarColor = (name) => {
-    const colors = [palette.primary, palette.success, palette.info, palette.warning];
-    const hash = name.split("").reduce((a, b) => {
-      a = (a << 5) - a + b.charCodeAt(0);
-      return a & a;
-    }, 0);
-    return colors[Math.abs(hash) % colors.length];
-  };
-
-  const avatarColor = getAvatarColor(initiator);
-
-  return (
-    <SmartTooltip content={initiator} visible={showTooltip}>
-      <div
-        style={{
-          width: "36px",
-          height: "36px",
-          borderRadius: "8px",
-          background: `linear-gradient(135deg, ${avatarColor}, ${avatarColor}DD)`,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: palette.white,
-          fontSize: "13px",
-          fontWeight: "600",
-          cursor: "pointer",
-          transition: "all 0.2s ease",
-          border: `2px solid ${palette.white}`,
-          boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-        }}
-        onMouseEnter={(e) => {
-          setShowTooltip(true);
-          e.currentTarget.style.transform = "scale(1.05)";
-          e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
-        }}
-        onMouseLeave={(e) => {
-          setShowTooltip(false);
-          e.currentTarget.style.transform = "scale(1)";
-          e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.1)";
-        }}
-      >
-        {getInitials(initiator)}
-      </div>
-    </SmartTooltip>
-  );
-};
-
-const getAuthHeaders = async () => {
-  const encryptedToken = Cookies.get('HRToken');
-  return {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${encryptedToken}`,
-  };
-};
-
-const BadgeChip = ({ badge, coverPageNo, fetchTasks, badgeOptions }) => {
-  const [showDropdown, setShowDropdown] = useState(false);
+const BadgeCell = ({
+  badge,
+  coverPageNo,
+  onBadgeUpdate,
+  badgeOptions,
+  taskId,
+  apiToken,
+}) => {
+  const [anchorEl, setAnchorEl] = useState(null);
   const [updating, setUpdating] = useState(false);
-  const dropdownRef = useRef(null);
-
-  const API_BASE_URL = 'https://wftest1.iitm.ac.in:5000';
-  const API_TOKEN = 'HRFGVJISOVp1fncC';
-
   const badgeColors = {
     Later: palette.secondary,
     "On Hold": palette.warning,
@@ -264,480 +158,836 @@ const BadgeChip = ({ badge, coverPageNo, fetchTasks, badgeOptions }) => {
     Done: palette.success,
   };
 
-  const currentBadgeColor = badgeColors[badge] || palette.secondary;
-
-  const updateBadge = async (newBadgeId) => {
+  const updateBadge = async (
+    newBadgeId,
+    newBadgeDescription,
+    newStatus,
+    priority
+  ) => {
     setUpdating(true);
+    setAnchorEl(null);
+
     try {
-      const headers = await getAuthHeaders();
-      const response = await fetch(`${API_BASE_URL}/Inboxactivity`, {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify({
-          coverpageno: coverPageNo,
-          badge: newBadgeId,
-          token: API_TOKEN
-        })
-      });
+      const encryptedToken = Cookies.get("HRToken");
+      const headers = {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${encryptedToken}`,
+      };
+
+      const sessionId = Cookies.get("session_id");
+
+      // ✅ STEP 1: Create plain request payload
+      const requestData = {
+        P_id: sessionId,
+        badge: newBadgeId,
+        token: apiToken,
+        taskid: taskId,
+        starred: newStatus ? 1 : 0,
+        priority: priority,
+      };
+
+      console.log("🔐 UpdateBadge - Plain request:", requestData);
+
+      // ✅ STEP 2: Encrypt the payload
+      let encryptedPayloadData;
+      try {
+        encryptedPayloadData = await encryptPayloadForGo(requestData);
+        console.log("🔐 UpdateBadge - Encrypted payload created");
+        console.log(
+          "🔐 UpdateBadge - Encrypted length:",
+          encryptedPayloadData?.length
+        );
+      } catch (encryptError) {
+        console.error("❌ UpdateBadge - Encryption failed:", encryptError);
+        throw new Error("Failed to encrypt request data");
+      }
+
+      // ✅ STEP 3: Verify encryption worked
+      if (!encryptedPayloadData || typeof encryptedPayloadData !== "string") {
+        console.error(
+          "❌ UpdateBadge - Invalid encrypted data:",
+          encryptedPayloadData
+        );
+        throw new Error("Encryption returned invalid data");
+      }
+
+      // ✅ STEP 4: Send encrypted data
+      const response = await fetch(
+        `${HostName}/Inboxactivity`,
+        {
+          method: "POST",
+          headers,
+          body: JSON.stringify({ Data: encryptedPayloadData }), // Send encrypted
+        }
+      );
+
+      console.log("🔐 UpdateBadge - Response status:", response.status);
 
       if (!response.ok) {
-        throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
+        throw new Error(`HTTP Error: ${response.status}`);
       }
 
-      const encryptedResult = await response.json();
-      const decryptedData = await decryptData(encryptedResult.Data);
-      const result = JSON.parse(decryptedData);
-      
-      if (result.status === 200) {
-        if (fetchTasks) {
-          await fetchTasks();
+      // ✅ STEP 5: Handle encrypted response (optional)
+      const encryptedResponse = await response.json();
+      console.log("🔐 UpdateBadge - Encrypted response received");
+
+      if (encryptedResponse.Data) {
+        try {
+          // ✅ STEP 6: Decrypt the response
+          const decryptedData = await decryptData(encryptedResponse.Data);
+          console.log("🔓 UpdateBadge - Decrypted response:", decryptedData);
+
+          // Parse and validate response
+          let parsedResponse;
+          if (typeof decryptedData === "string") {
+            try {
+              parsedResponse = JSON.parse(decryptedData);
+            } catch {
+              parsedResponse = { message: decryptedData };
+            }
+          } else {
+            parsedResponse = decryptedData;
+          }
+
+          // Validate success
+          const isSuccess =
+            parsedResponse.Status === 200 ||
+            parsedResponse.status === 200 ||
+            parsedResponse.success === true ||
+            (parsedResponse.message &&
+              parsedResponse.message.toLowerCase().includes("success"));
+
+          if (!isSuccess) {
+            throw new Error(parsedResponse.message || "Badge update failed");
+          }
+
+          console.log("✅ UpdateBadge - Successfully updated badge");
+        } catch (decryptError) {
+          console.warn(
+            "⚠️ UpdateBadge - Could not decrypt response, but continuing:",
+            decryptError
+          );
+          // Continue even if decryption fails
         }
-      } else {
-        throw new Error(result.message || `Unexpected response status: ${result.status}`);
       }
+
+      // Call success callback
+      if (onBadgeUpdate) onBadgeUpdate(taskId, newBadgeDescription);
     } catch (error) {
-      console.error('Failed to update badge:', error);
+      console.error("❌ Failed to update badge:", error);
+      // Optional: Show error to user
+      // setError(error.message || "Failed to update badge");
     } finally {
       setUpdating(false);
     }
   };
 
-  const handleDropdownToggle = () => {
-    setShowDropdown(!showDropdown);
+  const badgeColor = badgeColors[badge] || palette.secondary;
+  const handleClick = (e) => {
+    e.stopPropagation();
+    if (!updating) setAnchorEl(e.currentTarget);
   };
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setShowDropdown(false);
-      }
-    };
-    if (showDropdown) document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [showDropdown]);
-
   return (
-    <div ref={dropdownRef} style={{ position: "relative" }}>
-      <div
-        onClick={handleDropdownToggle}
-        style={{
-          background: `${currentBadgeColor}10`,
-          border: `1px solid ${currentBadgeColor}30`,
-          color: currentBadgeColor,
-          padding: "6px 12px",
-          borderRadius: "6px",
-          fontSize: "11px",
-          fontWeight: "600",
-          display: "inline-flex",
-          alignItems: "center",
-          gap: "6px",
-          textTransform: "uppercase",
-          letterSpacing: "0.5px",
-          whiteSpace: "nowrap",
-          cursor: updating ? "not-allowed" : "pointer",
-          transition: "all 0.2s ease",
-          opacity: updating ? 0.7 : 1,
+    <>
+      <Chip
+        label={
+          updating ? (
+            <CircularProgress size={12} sx={{ color: "white" }} />
+          ) : (
+            badge
+          )
+        }
+        size="small"
+        deleteIcon={
+          <ArrowDownIcon sx={{ color: "white !important", fontSize: 14 }} />
+        }
+        onDelete={handleClick}
+        onClick={handleClick}
+        disabled={updating}
+        sx={{
+          bgcolor: badgeColor,
+          color: "white",
+          fontWeight: 500,
+          cursor: "pointer",
+          height: 24,
+          borderRadius: 12,
+          "& .MuiChip-label": { px: updating ? "12px" : "8px" },
+          "&:hover": {
+            bgcolor: alpha(badgeColor, 0.9),
+            transform: "translateY(-1px)",
+          },
         }}
-        onMouseEnter={(e) => { if (!updating) e.currentTarget.style.background = `${currentBadgeColor}20`; }}
-        onMouseLeave={(e) => { if (!updating) e.currentTarget.style.background = `${currentBadgeColor}10`; }}
+      />
+      <Menu
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={() => setAnchorEl(null)}
+        TransitionComponent={Grow}
+        slotProps={{
+          paper: {
+            sx: {
+              bgcolor: palette.navy,
+              color: "white",
+              borderRadius: "8px",
+            },
+          },
+        }}
       >
-        {updating ? <IconLoader2 size={12} style={{ animation: 'spin 1s linear infinite' }} /> : <IconTag size={12} stroke={1.5} />}
-        {badge}
-        <IconChevronDown size={12} stroke={1.5} />
-      </div>
-
-      {showDropdown && (
-        <div
-          style={{
-            position: "absolute",
-            top: "100%",
-            left: 0,
-            background: palette.white,
-            border: `1px solid ${palette.border}`,
-            borderRadius: "8px",
-            boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
-            zIndex: 1000,
-            minWidth: "160px",
-            marginTop: "4px",
-            overflow: "hidden",
-            maxHeight: "200px",
-            overflowY: "auto",
-          }}
-        >
-          {badgeOptions.map((option) => (
-            <div
-              key={option.statusid}
-              onClick={(e) => {
-                e.stopPropagation();
-                updateBadge(option.statusid);
-                setShowDropdown(false);
+        {badgeOptions.map((option) => (
+          <MenuItem
+            key={option.statusid}
+            onClick={() =>
+              updateBadge(option.statusid, option.statusdescription)
+            }
+            sx={{
+              gap: 1,
+              borderRadius: 8,
+              mx: 0.5,
+              my: 0.25,
+              "&:hover": {
+                bgcolor: alpha(palette.slate, 0.7),
+              },
+            }}
+          >
+            <DotIcon
+              fontSize="small"
+              sx={{
+                color:
+                  badgeColors[option.statusdescription] || palette.secondary,
+                fontSize: 12,
               }}
-              style={{
-                padding: "10px 14px",
-                cursor: "pointer",
-                fontSize: "12px",
-                color: badgeColors[option.statusdescription] || palette.text.secondary,
-                fontWeight: "500",
-                transition: "background-color 0.2s ease",
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = palette.hover; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = palette.white; }}
-            >
-              <IconTag size={14} stroke={1.5} />
-              {option.statusdescription}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+            />
+            {option.statusdescription}
+          </MenuItem>
+        ))}
+      </Menu>
+    </>
   );
 };
 
-const ProgressBar = ({ progress, color }) => (
-  <div style={{ width: "100px", height: "8px", backgroundColor: palette.border, borderRadius: "4px", overflow: "hidden", position: "relative" }}>
-    <div style={{ width: `${progress}%`, height: "100%", background: `linear-gradient(90deg, ${color || palette.primary}, ${color || palette.primary}DD)`, borderRadius: "4px", transition: "width 0.3s ease" }} />
-  </div>
-);
-
-const useResponsive = () => {
-  const [windowSize, setWindowSize] = useState({
-    width: typeof window !== "undefined" ? window.innerWidth : 1200,
-    height: typeof window !== "undefined" ? window.innerHeight : 800,
-  });
-
-  useEffect(() => {
-    const handleResize = () => setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  return {
-    isMobile: windowSize.width <= 768,
-    isTablet: windowSize.width <= 1024 && windowSize.width > 768,
-    isDesktop: windowSize.width > 1024,
-    width: windowSize.width,
-  };
-};
-
-const TaskTableDemo = () => {
-  const responsive = useResponsive();
+const TaskTableDemo = ({ activeRole, searchValue, isSidebarOpen }) => {
+  const navigate = useNavigate();
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedTasks, setSelectedTasks] = useState(new Set());
-  const [currentPage, setCurrentPage] = useState(1);
-  const [tasksPerPage, setTasksPerPage] = useState(10);
   const [badgeOptions, setBadgeOptions] = useState([]);
-  
-  const API_BASE_URL = 'https://wftest1.iitm.ac.in:5000';
-  const API_TOKEN = 'HRFGVJISOVp1fncC';
+  const [paginationModel, setPaginationModel] = useState({
+    page: 0,
+    pageSize: 10,
+  });
+  const gridRef = useRef();
+  const apiRef = useGridApiRef();
 
-  const transformApiData = (apiRecords, options) => {
-    const badgeMap = options.reduce((acc, option) => {
-      acc[option.statusid] = option.statusdescription;
-      return acc;
-    }, {});
+  const API_TOKEN = "HRFGVJISOVp1fncC";
+  const Role = Cookies.get("selectedRole");
 
-    return apiRecords.map((record, index) => ({
-      id: record.taskid || index + 1,
-      coverPageNo: record.coverpageno,
-      processName: record.processname,
-      initiator: record.employeeid,
-      priority: record.priority,
-      badge: badgeMap[record.badge] || record.badge, // Use description from map
-      badgeId: record.badgeid,
-      progress: Math.floor(Math.random() * 100),
-      updatedOn: record.updatedon ? new Date(record.updatedon).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : 'N/A',
-      favorite: record.starred === '1' || false,
-      statusColor: getStatusColor(badgeMap[record.badge] || record.badge),
-      taskId: record.taskid
-    }));
-  };
-
-  const getStatusColor = (badge) => {
-    switch(badge?.toLowerCase()) {
-      case 'done': return '#10B981';
-      case 'urgent': return '#EF4444';
-      case 'on hold': return '#F59E0B';
-      case 'later': return '#8B5CF6';
-      case 'review': return '#F59E0B';
-      default: return '#6B7280';
-    }
-  };
-
-  const fetchBadgeOptions = async () => {
-    try {
-      const headers = await getAuthHeaders();
-      const response = await fetch(`${API_BASE_URL}/Statusmaster`, {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify({ token: API_TOKEN, statusname: "Badge" })
-      });
-      if (!response.ok) throw new Error(`API request failed: ${response.status}`);
-      
-      const encryptedData = await response.json();
-      if (!encryptedData.Data) throw new Error('No encrypted data received for badges');
-      
-      const decryptedData = await decryptData(encryptedData.Data);
-      const parsedData = validateJsonData(decryptedData);
-
-      if (parsedData.Data && parsedData.Data.Records) {
-        setBadgeOptions(parsedData.Data.Records);
-      } else {
-        throw new Error('Invalid badge options structure');
-      }
-    } catch (err) {
-      console.error('Failed to fetch badge options:', err);
-      throw err;
-    }
-  };
-
-  const fetchTasks = async () => {
-    if (badgeOptions.length === 0) return; // Don't fetch tasks until options are ready
-    try {
-      const headers = await getAuthHeaders();
-      const response = await fetch(`${API_BASE_URL}/TaskInbox`, {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify({ token: API_TOKEN, empid: Cookies.get('EmpId'), assignedrole: null })
-      });
-      if (!response.ok) throw new Error(`API request failed: ${response.status}`);
-      
-      const encryptedData = await response.json();
-      if (!encryptedData.Data) throw new Error('No encrypted data received for tasks');
-      
-      const decryptedData = await decryptData(encryptedData.Data);
-      const parsedData = validateJsonData(decryptedData);
-      if (parsedData.Status !== 200) throw new Error(parsedData.message || 'API error');
-      
-      const transformedTasks = transformApiData(parsedData.Data.Records || [], badgeOptions);
-      setTasks(transformedTasks);
-    } catch (err) {
-      console.error('Error fetching tasks:', err);
-      setError(err.message || 'Failed to fetch tasks');
-    }
-  };
-
-  const updateStarred = async (coverPageNo, starred) => {
-    try {
-      const headers = await getAuthHeaders();
-      const response = await fetch(`${API_BASE_URL}/Inboxactivity`, {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify({
-          coverpageno: coverPageNo,
-          starred: starred ? 1 : 0,
-          token: API_TOKEN
-        })
-      });
-      return response.ok;
-    } catch (error) {
-      console.error('Failed to update starred status:', error);
-      return false;
-    }
-  };
-
-  const onToggleFavorite = async (taskId) => {
-    const task = tasks.find(t => t.id === taskId);
-    if (!task) return;
-    const newStarredStatus = !task.favorite;
-    setTasks(prevTasks => prevTasks.map(t => t.id === taskId ? { ...t, favorite: newStarredStatus } : t));
-    const success = await updateStarred(task.coverPageNo, newStarredStatus);
-    if (!success) {
-      setTasks(prevTasks => prevTasks.map(t => t.id === taskId ? { ...t, favorite: !newStarredStatus } : t));
-    } else {
-      await fetchTasks(); // Refresh data on success
-    }
-  };
+  // UPDATED: transformApiData to parse Name and ID from the string "ID - Name"
+  const transformApiData = (apiRecords, badgeMap) =>
+    apiRecords.map((item, index) => {
+      return {
+        id: item.taskid || index + 1,
+        coverPageNo: item.coverpageno,
+        processName: item.processname,
+        initiatorId: item.employeeid, // Extracted ID
+        employeeName: item.Name,
+        referenceNo: item.referenceno,
+        priority: getHardcodedPriority(item.coverpageno, index, item.priority),
+        badge: badgeMap[item.badge] || "Pending",
+        updatedOn: item.task_updatedon
+          ? new Date(item.task_updatedon).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            })
+          : "N/A",
+        favorite: item.starred === "1",
+        taskId: item.taskid,
+        path: item.path,
+        Component: item.component,
+        processid: item.processid,
+        remarks: item.remarks,
+        processkeyword: item.processkeyword,
+        activitySeqNo: item.activityseqno,
+        daysAgo: getNumericDaysAgo(item.task_updatedon),
+      };
+    });
 
   useEffect(() => {
-    const loadInitialData = async () => {
+    const loadData = async () => {
       setLoading(true);
       setError(null);
       try {
-        if (!isWebCryptoSupported()) throw new Error('WebCrypto API not supported');
-        await fetchBadgeOptions();
+        if (!isWebCryptoSupported())
+          throw new Error("WebCrypto API not supported");
+
+        const encryptedToken = Cookies.get("HRToken");
+        const headers = {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${encryptedToken}`,
+        };
+
+        // Statusmaster API call
+        const badgePayload = {
+          token: API_TOKEN,
+          statusname: "Badge",
+          session_id: Cookies.get("session_id"),
+        };
+
+        const encryptedBadgePayload = await encryptPayloadForGo(badgePayload);
+
+        const badgeResponse = await fetch(`${HostName}/Statusmaster`, {
+          method: "POST",
+          headers,
+          body: JSON.stringify({ Data: encryptedBadgePayload }),
+        });
+
+        if (!badgeResponse.ok)
+          throw new Error(`API Error: ${badgeResponse.status}`);
+
+        const badgeEncrypted = await badgeResponse.json();
+
+        if (!badgeEncrypted.Data) {
+          throw new Error("No data received from Statusmaster API");
+        }
+
+        const badgeDecrypted = await decryptData(badgeEncrypted.Data);
+        let options = [];
+
+        try {
+          const badgeParsed = JSON.parse(badgeDecrypted);
+          if (
+            badgeParsed.Data?.Records &&
+            Array.isArray(badgeParsed.Data.Records)
+          ) {
+            options = badgeParsed.Data.Records;
+          } else if (Array.isArray(badgeParsed.Records)) {
+            options = badgeParsed.Records;
+          } else if (Array.isArray(badgeParsed.Data)) {
+            options = badgeParsed.Data;
+          } else if (Array.isArray(badgeParsed)) {
+            options = badgeParsed;
+          }
+        } catch (parseError) {
+          if (typeof badgeDecrypted === "object" && badgeDecrypted !== null) {
+            if (Array.isArray(badgeDecrypted)) {
+              options = badgeDecrypted;
+            } else if (
+              badgeDecrypted.Data?.Records &&
+              Array.isArray(badgeDecrypted.Data.Records)
+            ) {
+              options = badgeDecrypted.Data.Records;
+            } else if (Array.isArray(badgeDecrypted.Records)) {
+              options = badgeDecrypted.Records;
+            }
+          }
+        }
+
+        setBadgeOptions(options);
+
+        const badgeMap = options.reduce((acc, opt) => {
+          acc[opt.statusid] = opt.statusdescription;
+          return acc;
+        }, {});
+
+        // TaskInbox API call
+        const bodyObj = {
+          token: API_TOKEN,
+          session_id: Cookies.get("session_id"),
+          empid: Cookies.get("EmpId"),
+          assignedrole: Role,
+        };
+
+        if (activeRole !== "All Task") {
+          bodyObj.assignedrole = activeRole;
+        }
+
+        const encryptedPayload = await encryptPayloadForGo(bodyObj);
+
+        const taskResponse = await fetch(`${HostName}/TaskInbox`, {
+          method: "POST",
+          headers,
+          body: JSON.stringify({ Data: encryptedPayload }),
+        });
+
+        if (!taskResponse.ok) {
+          const errorText = await taskResponse.text();
+          throw new Error(
+            `TaskInbox API Error: ${taskResponse.status} - ${errorText}`
+          );
+        }
+
+        const taskEncrypted = await taskResponse.json();
+
+        if (!taskEncrypted.Data) {
+          throw new Error("No encrypted data received from TaskInbox API");
+        }
+
+        const taskDecrypted = await decryptData(taskEncrypted.Data);
+
+        let taskParsed;
+        try {
+          taskParsed = JSON.parse(taskDecrypted);
+        } catch (parseError) {
+          if (typeof taskDecrypted === "object" && taskDecrypted !== null) {
+            taskParsed = taskDecrypted;
+          } else {
+            throw new Error("Invalid response format from TaskInbox API");
+          }
+        }
+
+        if (taskParsed.Status !== 200) {
+          throw new Error(
+            taskParsed.message || "TaskInbox API returned non-200 status"
+          );
+        }
+
+        const transformed = transformApiData(
+          taskParsed.Data.Records || [],
+          badgeMap
+        );
+
+        setTasks(transformed.sort((a, b) => a.daysAgo - b.daysAgo));
       } catch (err) {
-        setError(err.message || 'Failed to load initial data');
+        console.error("Failed to load task data:", err);
+        setError(err.message || "An unknown error occurred");
+      } finally {
         setLoading(false);
       }
     };
-    loadInitialData();
-  }, []);
+
+    loadData();
+  }, [activeRole]);
+
+  const filteredTasks = useMemo(() => {
+    if (!searchValue || searchValue.trim() === "") {
+      return tasks;
+    }
+    const lowerSearch = searchValue.toLowerCase().trim();
+    return tasks
+      .filter(
+        (task) =>
+          task.coverPageNo.toLowerCase().includes(lowerSearch) ||
+          task.processName.toLowerCase().includes(lowerSearch) ||
+          task.initiatorId.toLowerCase().includes(lowerSearch) ||
+          task.referenceNo.toLowerCase().includes(lowerSearch) ||
+          task.badge.toLowerCase().includes(lowerSearch) ||
+          task.updatedOn.toLowerCase().includes(lowerSearch)
+      )
+      .sort((a, b) => a.daysAgo - b.daysAgo);
+  }, [tasks, searchValue]);
+
+  
+  const updateStarred = async (task, newStatus, newBadgeId) => {
+    try {
+      const encryptedToken = Cookies.get("HRToken");
+      const headers = {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${encryptedToken}`,
+      };
+
+      // ✅ FIX: Get sessionId from cookies and include coverpageno
+      const sessionId = Cookies.get("session_id");
+
+      // ✅ FIX: Prepare complete request data with all required fields
+      const requestData = {
+        P_id: sessionId, // Now properly defined
+        session_id: sessionId, // Some endpoints need both
+        starred: newStatus ? 1 : 0,
+        token: API_TOKEN,
+        taskid: task.taskId,
+        priority: task.priority || 0,
+        badge: newBadgeId || task.badge || "", // Handle badge parameter
+      };
+
+      console.log("🔐 Plain request data:", requestData);
+
+      // Encrypt the payload using your service
+      const encryptedPayload = await encryptPayloadForGo(requestData);
+      console.log("🔐 Encrypted payload length:", encryptedPayload?.length);
+
+      // Send the encrypted payload in the correct format
+      const response = await fetch(
+        `${HostName}/Inboxactivity`,
+        {
+          method: "POST",
+          headers,
+          body: JSON.stringify({
+            Data: encryptedPayload, // This should be the encrypted string
+          }),
+        }
+      );
+
+      console.log("📥 Inboxactivity response status:", response.status);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const responseData = await response.json();
+      console.log("📥 Raw response received:", responseData);
+
+      // Handle encrypted response if it exists
+      if (responseData.Data) {
+        try {
+          const decryptedResponse = await decryptData(responseData.Data);
+          console.log("✅ Response decrypted successfully:", decryptedResponse);
+
+          // ✅ FIX: Validate the response
+          let parsedResponse;
+          if (typeof decryptedResponse === "string") {
+            try {
+              parsedResponse = JSON.parse(decryptedResponse);
+            } catch {
+              parsedResponse = { message: decryptedResponse };
+            }
+          } else {
+            parsedResponse = decryptedResponse;
+          }
+
+          // Check if operation was successful
+          const isSuccess =
+            parsedResponse.Status === 200 ||
+            parsedResponse.status === 200 ||
+            parsedResponse.success === true ||
+            (parsedResponse.message &&
+              parsedResponse.message.toLowerCase().includes("success"));
+
+          if (!isSuccess) {
+            throw new Error(parsedResponse.message || "Server returned error");
+          }
+        } catch (decryptError) {
+          console.warn("⚠️ Could not decrypt response:", decryptError.message);
+          // Continue even if decryption fails, as the HTTP request was successful
+        }
+      }
+
+      console.log("⭐ Favorite status updated successfully");
+    } catch (error) {
+      console.error("❌ Failed to update favorite status:", error);
+
+      // Revert the UI change on error
+      setTasks((prev) =>
+        prev.map((t) => (t.id === task.id ? { ...t, favorite: !newStatus } : t))
+      );
+    }
+  };
+
+  const handleBadgeUpdate = (taskId, newBadge) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.taskId === taskId ? { ...task, badge: newBadge } : task
+      )
+    );
+  };
+
+  const handleToggleFavorite = (id) => {
+    const task = tasks.find((t) => t.id === id);
+    if (!task) return;
+    const newStatus = !task.favorite;
+    setTasks((prev) =>
+      prev.map((t) => (t.id === id ? { ...t, favorite: newStatus } : t))
+    );
+
+    // ✅ FIX: Pass the current badge to maintain it
+    updateStarred(task, newStatus, task.badge);
+  };
+  const handleRowClick = (params) => {
+    const taskData = params.row;
+    const finalTaskData = {
+      TaskId: taskData.taskId,
+      Path: taskData.path,
+      Component: taskData.Component,
+      ProcessName: taskData.processName,
+      ProcessId: taskData.processid,
+      EmployeeId: taskData.initiatorId,
+      Status: taskData.badge,
+      UpdatedOn: taskData.updatedOn,
+      Remarks: taskData.remarks,
+      ProcessKeyword: taskData.processkeyword,
+      ActivitySeqNo: taskData.activitySeqNo,
+      IsTaskOpened: true,
+      CoverPageNo: taskData.coverPageNo,
+      ReferenceNo: taskData.referenceNo,
+    };
+    navigateWithTaskData(navigate, finalTaskData);
+  };
+
+  const debouncedResize = useMemo(() => {
+    let timeoutId;
+    return () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        apiRef.current?.resize?.();
+      }, 150);
+    };
+  }, [apiRef]);
 
   useEffect(() => {
-    const loadTasks = async () => {
-      if (badgeOptions.length > 0) {
-        await fetchTasks();
-        setLoading(false);
-      }
-    };
-    loadTasks();
-  }, [badgeOptions]);
+    if (loading || !gridRef.current) return;
+    const container = gridRef.current.querySelector(".MuiDataGrid-main");
+    if (!container) return;
+    const resizeObserver = new ResizeObserver(debouncedResize);
+    resizeObserver.observe(container);
+    return () => resizeObserver.disconnect();
+  }, [loading, debouncedResize]);
 
-  const onToggleTaskSelection = (taskId) => {
-    const newSelected = new Set(selectedTasks);
-    if (newSelected.has(taskId)) newSelected.delete(taskId);
-    else newSelected.add(taskId);
-    setSelectedTasks(newSelected);
-  };
+  useEffect(() => {
+    if (isSidebarOpen !== undefined) {
+      const timer = setTimeout(debouncedResize, 400);
+      return () => clearTimeout(timer);
+    }
+  }, [isSidebarOpen, debouncedResize]);
 
-  const indexOfLastTask = currentPage * tasksPerPage;
-  const indexOfFirstTask = indexOfLastTask - tasksPerPage;
-  const currentTasks = tasks.slice(indexOfFirstTask, indexOfLastTask);
-  const totalPages = Math.ceil(tasks.length / tasksPerPage);
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const handleTasksPerPageChange = (e) => {
-    setTasksPerPage(Number(e.target.value));
-    setCurrentPage(1);
-  };
-
-  const getGridTemplate = () => {
-    if (responsive.isMobile) return "1fr";
-    if (responsive.isTablet) return "40px 60px 140px minmax(0,1fr) 100px 80px 130px";
-    return "50px 70px 180px minmax(0,1fr) 120px 90px 160px 180px 140px";
-  };
-
-  if (loading) {
-    return (
-      <div style={{ padding: "24px", backgroundColor: palette.light, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "16px" }}>
-        <IconLoader2 size={32} color={palette.primary} style={{ animation: 'spin 1s linear infinite' }} />
-        <p style={{ color: palette.text.secondary, fontSize: "16px" }}>Loading tasks...</p>
-      </div>
-    );
-  }
+  const columns = [
+    {
+      field: "favorite",
+      headerName: "",
+      width: 40,
+      sortable: false,
+      flex: 0.3,
+      renderCell: (params) => (
+        <IconButton
+          size="small"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleToggleFavorite(params.row.id);
+          }}
+        >
+          {params.value ? (
+            <StarIcon sx={{ color: palette.gold, fontSize: 18 }} />
+          ) : (
+            <StarBorderIcon sx={{ color: palette.secondary, fontSize: 18 }} />
+          )}
+        </IconButton>
+      ),
+    },
+    {
+      field: "referenceNo",
+      headerName: "Reference No.",
+      flex: 0.9,
+      minWidth: 140,
+      renderCell: (params) => (
+        <Box
+          sx={{
+            display: "inline-flex",
+            px: 1,
+            py: 0.5,
+            borderRadius: 8,
+            bgcolor: alpha(palette.primary, 0.06),
+            "&:hover": { bgcolor: alpha(palette.primary, 0.1) },
+          }}
+        >
+          <Typography
+            component="span"
+            sx={{
+              color: palette.primary,
+              fontWeight: 600,
+              fontFamily: "monospace",
+              fontSize: "0.8rem",
+            }}
+          >
+            {params.value}
+          </Typography>
+        </Box>
+      ),
+    },
+    {
+      field: "processName",
+      headerName: "Process Name",
+      flex: 1.2,
+      minWidth: 150,
+      renderCell: (params) => (
+        <Typography
+          fontWeight={600}
+          color={palette.navy}
+          sx={{ fontSize: "0.85rem" }}
+        >
+          {params.value}
+        </Typography>
+      ),
+    },
+    {
+      field: "employeeName",
+      headerName: "employee info",
+      flex: 1,
+      minWidth: 160,
+      renderCell: (params) => (
+        <Tooltip title={`${params.value} (${params.row.initiatorId})`} arrow>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <Avatar
+              sx={{
+                width: 28,
+                height: 28,
+                bgcolor: palette.primary,
+                fontSize: "0.75rem",
+              }}
+            ></Avatar>
+            <Typography
+              variant="body2"
+              fontWeight={600}
+              sx={{ color: palette.navy, fontSize: "0.8rem" }}
+            >
+              {params.value}
+            </Typography>
+          </Box>
+        </Tooltip>
+      ),
+    },
+    {
+      field: "priority",
+      headerName: "Priority",
+      flex: 0.6,
+      minWidth: 80,
+      renderCell: (params) => <PriorityCell priority={params.value} />,
+    },
+    {
+      field: "updatedOn",
+      headerName: "No. of Days",
+      flex: 0.8,
+      minWidth: 120,
+      renderCell: (params) => {
+        const numericDaysAgo = params.row.daysAgo || 0,
+          daysAgoText = getDaysAgoText(numericDaysAgo),
+          isRecent = numericDaysAgo <= 1,
+          isOverdue = numericDaysAgo > 2;
+        return (
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+            }}
+          >
+            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+              <ScheduleIcon
+                sx={{
+                  color: isRecent
+                    ? palette.success
+                    : isOverdue
+                    ? palette.danger
+                    : palette.secondary,
+                  fontSize: 14,
+                }}
+              />
+              <Typography
+                variant="body2"
+                fontWeight={600}
+                sx={{
+                  color: isRecent
+                    ? palette.success
+                    : isOverdue
+                    ? palette.danger
+                    : palette.navy,
+                  fontSize: "0.75rem",
+                }}
+              >
+                {daysAgoText}
+              </Typography>
+            </Box>
+            <Typography
+              variant="caption"
+              sx={{ color: palette.secondary, fontSize: "0.65rem" }}
+            >
+              {params.value}
+            </Typography>
+          </Box>
+        );
+      },
+    },
+    {
+      field: "badge",
+      headerName: "Badge",
+      flex: 0.9,
+      minWidth: 110,
+      renderCell: (params) => (
+        <BadgeCell
+          badge={params.value}
+          coverPageNo={params.row.coverPageNo}
+          onBadgeUpdate={handleBadgeUpdate}
+          badgeOptions={badgeOptions}
+          taskId={params.row.taskId}
+          hostName={HostName}
+          apiToken={API_TOKEN}
+        />
+      ),
+    },
+  ];
 
   if (error) {
     return (
-      <div style={{ padding: "24px", backgroundColor: palette.light, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "16px" }}>
-        <IconAlertCircle size={32} color={palette.danger} />
-        <p style={{ color: palette.danger, fontSize: "16px", textAlign: "center" }}>{error}</p>
-        <button onClick={() => window.location.reload()} style={{ padding: "8px 16px", background: palette.primary, color: palette.white, border: "none", borderRadius: "6px", cursor: "pointer", fontSize: "14px", fontWeight: "500" }}>
-          Retry
-        </button>
-      </div>
-    );
-  }
-
-  if (responsive.isMobile) {
-    return (
-      <div style={{ padding: "16px", backgroundColor: palette.light, minHeight: "100vh" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-          {currentTasks.map((task, index) => (
-            <div key={task.id} style={{ background: palette.white, borderRadius: "12px", border: `1px solid ${palette.border}`, padding: "16px", boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "12px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <button onClick={() => onToggleFavorite(task.id)} style={{ background: "none", border: "none", cursor: "pointer", padding: "4px" }}>
-                    {task.favorite ? <IconStarFilled size={18} color={palette.warning} /> : <IconStar size={18} color={palette.text.muted} />}
-                  </button>
-                  <span style={{ fontSize: "12px", color: palette.text.secondary, fontFamily: "monospace" }}>#{String(indexOfFirstTask + index + 1).padStart(2, "0")}</span>
-                </div>
-                <PriorityIcon priority={task.priority} />
-              </div>
-              <div style={{ marginBottom: "8px" }}><span style={{ fontSize: "12px", color: palette.primary, fontWeight: "600", fontFamily: "monospace" }}>{task.coverPageNo}</span></div>
-              <div style={{ marginBottom: "12px" }}><h3 style={{ fontSize: "14px", fontWeight: "500", color: palette.text.primary, margin: 0, lineHeight: "1.4" }}>{task.processName}</h3></div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
-                <ProfileAvatar initiator={task.initiator} />
-                <BadgeChip badge={task.badge} coverPageNo={task.coverPageNo} fetchTasks={fetchTasks} badgeOptions={badgeOptions} />
-              </div>
-              <div style={{ marginTop: "12px", display: "flex", alignItems: "center", gap: "10px" }}>
-                <ProgressBar progress={task.progress} color={task.statusColor} />
-                <span style={{ fontSize: "12px", color: palette.text.secondary, fontWeight: "500" }}>{task.progress}%</span>
-              </div>
-              <div style={{ marginTop: "8px", textAlign: "right" }}><span style={{ fontSize: "12px", color: palette.text.muted }}>{task.updatedOn}</span></div>
-            </div>
-          ))}
-        </div>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "20px", padding: "16px", background: palette.white, borderRadius: "8px", border: `1px solid ${palette.border}` }}>
-          <button onClick={() => paginate(Math.max(1, currentPage - 1))} disabled={currentPage === 1} style={{ padding: "8px 12px", border: `1px solid ${palette.border}`, borderRadius: "6px", background: palette.white, cursor: "pointer", opacity: currentPage === 1 ? 0.5 : 1, display: "flex", alignItems: "center" }}><IconChevronLeft size={16} /></button>
-          <span style={{ fontSize: "14px", color: palette.text.secondary }}>Page {currentPage} of {totalPages}</span>
-          <button onClick={() => paginate(Math.min(totalPages, currentPage + 1))} disabled={currentPage === totalPages} style={{ padding: "8px 12px", border: `1px solid ${palette.border}`, borderRadius: "6px", background: palette.white, cursor: "pointer", opacity: currentPage === totalPages ? 0.5 : 1, display: "flex", alignItems: "center" }}><IconChevronRight size={16} /></button>
-        </div>
-      </div>
+      <Box sx={{ p: 3 }}>
+        <Alert severity="error" sx={{ borderRadius: 12 }}>
+          <b>Error loading tasks:</b> {error}
+        </Alert>
+      </Box>
     );
   }
 
   return (
-    <div style={{ padding: responsive.isTablet ? "16px" : "24px", backgroundColor: palette.light, minHeight: "100vh" }}>
-      <div style={{ background: palette.white, borderRadius: "12px", border: `1px solid ${palette.border}`, boxShadow: "0 4px 24px rgba(0,0,0,0.06)", overflow: "hidden" }}>
-        <div style={{ background: palette.light, padding: "16px 20px", borderBottom: `1px solid ${palette.border}`, display: "grid", gridTemplateColumns: getGridTemplate(), gap: "16px", fontSize: "12px", fontWeight: "600", color: palette.text.secondary, textTransform: "uppercase", letterSpacing: "0.5px", alignItems: "center" }}>
-          <div></div>
-          <div>Si.No.</div>
-          <div>Track ID</div>
-          <div>Process Name</div>
-          <div>Initiator</div>
-          <div>Priority</div>
-          <div>Status</div>
-          {!responsive.isTablet && <div>Progress</div>}
-          {!responsive.isTablet && <div>Updated</div>}
-        </div>
-        <div style={{ minHeight: "400px" }}>
-          {currentTasks.length === 0 ? (
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "200px", color: palette.text.muted }}>No tasks found</div>
-          ) : (
-            currentTasks.map((task, index) => (
-              <div
-                key={task.id}
-                style={{ display: "grid", gridTemplateColumns: getGridTemplate(), gap: "16px", alignItems: "center", padding: "16px 20px", borderBottom: `1px solid ${palette.border}`, transition: "all 0.2s ease", background: selectedTasks.has(task.id) ? `${palette.primary}08` : "transparent" }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = selectedTasks.has(task.id) ? `${palette.primary}12` : palette.hover; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = selectedTasks.has(task.id) ? `${palette.primary}08` : "transparent"; }}
-              >
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <button onClick={() => onToggleFavorite(task.id)} style={{ background: "none", border: "none", cursor: "pointer", transition: "transform 0.2s ease", display: "flex", alignItems: "center", justifyContent: "center", padding: "4px", borderRadius: "4px" }} onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.1)"; e.currentTarget.style.background = palette.hover; }} onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.background = "transparent"; }}>
-                    {task.favorite ? <IconStarFilled size={18} color={palette.warning} /> : <IconStar size={18} color={palette.text.muted} />}
-                  </button>
-                </div>
-                <div><span style={{ fontSize: "14px", fontWeight: "500", color: palette.text.secondary, fontFamily: "monospace" }}>{String(indexOfFirstTask + index + 1).padStart(2, "0")}</span></div>
-                <div><span style={{ fontSize: responsive.isTablet ? "12px" : "14px", fontWeight: "600", color: palette.primary, fontFamily: "monospace" }}>{task.coverPageNo}</span></div>
-                <div><span style={{ fontSize: responsive.isTablet ? "13px" : "14px", fontWeight: "500", color: palette.text.primary, lineHeight: "1.4" }} title={task.processName}>{task.processName}</span></div>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}><ProfileAvatar initiator={task.initiator} /></div>
-                <div style={{ display: "flex", gap: "6px", justifyContent: "center" }}><PriorityIcon priority={task.priority} /></div>
-                <div>
-                  <BadgeChip badge={task.badge} coverPageNo={task.coverPageNo} fetchTasks={fetchTasks} badgeOptions={badgeOptions} />
-                </div>
-                {!responsive.isTablet && (
-                  <>
-                    <div>
-                      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                        <ProgressBar progress={task.progress} color={task.statusColor || palette.primary} />
-                        <span style={{ fontSize: "12px", color: palette.text.secondary, fontWeight: "500", minWidth: "35px", fontFamily: "monospace" }}>{task.progress}%</span>
-                      </div>
-                    </div>
-                    <div><span style={{ fontSize: "13px", color: palette.text.secondary, fontWeight: "400" }}>{task.updatedOn}</span></div>
-                  </>
-                )}
-              </div>
-            ))
-          )}
-        </div>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 20px", borderTop: `1px solid ${palette.border}`, background: palette.light, flexWrap: responsive.isTablet ? "wrap" : "nowrap", gap: "12px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <span style={{ fontSize: "14px", color: palette.text.secondary, fontWeight: "500" }}>Show:</span>
-            <select value={tasksPerPage} onChange={handleTasksPerPageChange} style={{ padding: "6px 12px", border: `1px solid ${palette.border}`, borderRadius: "6px", fontSize: "14px", background: palette.white, color: palette.text.primary, fontWeight: "500", cursor: "pointer" }}>
-              <option value={10}>10</option><option value={25}>25</option><option value={50}>50</option>
-            </select>
-            <span style={{ fontSize: "14px", color: palette.text.secondary }}>entries</span>
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "12px", order: responsive.isTablet ? 3 : 2 }}><span style={{ fontSize: "14px", color: palette.text.secondary, fontWeight: "500" }}>{indexOfFirstTask + 1}–{Math.min(indexOfLastTask, tasks.length)} of {tasks.length}</span></div>
-          <div style={{ display: "flex", alignItems: "center", gap: "4px", order: responsive.isTablet ? 2 : 3 }}>
-            <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1} style={{ padding: "8px 12px", border: `1px solid ${palette.border}`, borderRadius: "6px", background: palette.white, cursor: "pointer", opacity: currentPage === 1 ? 0.5 : 1, color: palette.text.primary, display: "flex", alignItems: "center", transition: "all 0.2s ease" }} onMouseEnter={(e) => { if (currentPage !== 1) e.currentTarget.style.background = palette.hover; }} onMouseLeave={(e) => { e.currentTarget.style.background = palette.white; }}><IconChevronLeft size={16} /></button>
-            {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-              let pageNum;
-              if (totalPages <= 5) pageNum = i + 1;
-              else if (currentPage <= 3) pageNum = i + 1;
-              else if (currentPage >= totalPages - 2) pageNum = totalPages - 4 + i;
-              else pageNum = currentPage - 2 + i;
-              if (pageNum > totalPages || pageNum < 1) return null;
-              return (<button key={pageNum} onClick={() => paginate(pageNum)} style={{ padding: "8px 12px", border: `1px solid ${currentPage === pageNum ? palette.primary : palette.border}`, borderRadius: "6px", background: currentPage === pageNum ? palette.primary : palette.white, color: currentPage === pageNum ? palette.white : palette.text.primary, cursor: "pointer", minWidth: "40px", fontWeight: "600", transition: "all 0.2s ease" }} onMouseEnter={(e) => { if (currentPage !== pageNum) e.currentTarget.style.background = palette.hover; }} onMouseLeave={(e) => { if (currentPage !== pageNum) e.currentTarget.style.background = palette.white; }}>{pageNum}</button>);
-            })}
-            <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === totalPages} style={{ padding: "8px 12px", border: `1px solid ${palette.border}`, borderRadius: "6px", background: palette.white, cursor: "pointer", opacity: currentPage === totalPages ? 0.5 : 1, color: palette.text.primary, display: "flex", alignItems: "center", transition: "all 0.2s ease" }} onMouseEnter={(e) => { if (currentPage !== totalPages) e.currentTarget.style.background = palette.hover; }} onMouseLeave={(e) => { e.currentTarget.style.background = palette.white; }}><IconChevronRight size={16} /></button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Box
+      sx={{
+        width: "100%",
+        p: 2,
+        background: palette.background,
+        borderRadius: 5,
+      }}
+    >
+      <DataGrid
+        apiRef={apiRef}
+        ref={gridRef}
+        rows={filteredTasks}
+        columns={columns}
+        loading={loading}
+        paginationModel={paginationModel}
+        onPaginationModelChange={setPaginationModel}
+        pageSizeOptions={[10, 25, 50]}
+        getRowHeight={() => "auto"}
+        onRowClick={handleRowClick}
+        disableRowSelectionOnClick
+        autoHeight
+        sx={{
+          border: "none",
+          borderRadius: 5,
+          "& .MuiDataGrid-columnHeader, & .MuiDataGrid-cell": {
+            transition: "width 150ms ease-in-out",
+          },
+          "& .MuiDataGrid-cell:focus-within": {
+            outline: "none !important",
+          },
+          "& .MuiDataGrid-main": {
+            bgcolor: palette.surface,
+            borderRadius: "inherit",
+          },
+          "& .MuiDataGrid-columnHeader": {
+            background: " rgba(24, 82, 129, 1)",
+            py: 1.25,
+            color: "#ffffff",
+          },
+          "& .MuiDataGrid-columnHeaderTitle": {
+            fontWeight: 600,
+            fontSize: "0.8rem",
+            textTransform: "uppercase",
+          },
+          "& .MuiDataGrid-columnHeader .MuiSvgIcon-root": {
+            color: "white",
+          },
+          "& .MuiDataGrid-row": {
+            cursor: "pointer",
+            "&:hover": { bgcolor: alpha(palette.primary, 0.03) },
+          },
+          "& .MuiDataGrid-cell": {
+            borderBottom: `1px solid ${alpha(palette.slate, 0.08)}`,
+            py: 1.5,
+            alignItems: "center",
+          },
+          "& .MuiDataGrid-footerContainer": {
+            borderTop: `1px solid ${alpha(palette.slate, 0.1)}`,
+            bgcolor: palette.background,
+          },
+        }}
+      />
+    </Box>
   );
 };
 

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/ui/DatePicker.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-AdditionalDetails.html">AdditionalDetails</a><ul class='methods'><li data-type='method'><a href="module-AdditionalDetails.html#~AdditionalDetails">AdditionalDetails</a></li><li data-type='method'><a href="module-AdditionalDetails.html#~AdditionalDetails">AdditionalDetails</a></li></ul></li><li></li><li><a href="module-ApprovalForm.html">ApprovalForm</a><ul class='methods'><li data-type='method'><a href="module-ApprovalForm.html#~ApprovalForm">ApprovalForm</a></li><li data-type='method'><a href="module-ApprovalForm.html#~ApprovalForm">ApprovalForm</a></li></ul></li><li></li><li><a href="module-EmployeeVisitForm.html">EmployeeVisitForm</a><ul class='methods'><li data-type='method'><a href="module-EmployeeVisitForm.html#~EmployeeVisitForm">EmployeeVisitForm</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~EmployeeVisitForm">EmployeeVisitForm</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~stripNonEnglish">stripNonEnglish</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~stripNonEnglish">stripNonEnglish</a></li></ul></li><li></li><li><a href="module-SaveandHold.html">SaveandHold</a><ul class='methods'><li data-type='method'><a href="module-SaveandHold.html#~SaveandHold">SaveandHold</a></li><li data-type='method'><a href="module-SaveandHold.html#~SaveandHold">SaveandHold</a></li><li data-type='method'><a href="module-SaveandHold.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-SaveandHold.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-SaveandHold.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-SaveandHold.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-SaveandHold.html#~getToColumnHtml">getToColumnHtml</a></li><li data-type='method'><a href="module-SaveandHold.html#~getToColumnHtml">getToColumnHtml</a></li></ul></li><li></li><li><a href="module-components_Roadmap.html">components/Roadmap</a><ul class='methods'><li data-type='method'><a href="module-components_Roadmap.html#~Roadmap">Roadmap</a></li></ul></li><li><a href="module-src_components_UIShowcase.html">src/components/UIShowcase</a><ul class='methods'><li data-type='method'><a href="module-src_components_UIShowcase.html#~UIShowcase">UIShowcase</a></li></ul></li><li><a href="module-src_components_authentication_OtpVerification.html">src/components/authentication/OtpVerification</a><ul class='methods'><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~addTrustedDevice">addTrustedDevice</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~generateDeviceFingerprint">generateDeviceFingerprint</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~getDeviceInfo">getDeviceInfo</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~removeTrustedDevice">removeTrustedDevice</a></li></ul></li><li><a href="module-src_components_ui.html">src/components/ui</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui.html#~AnimatedSlide">AnimatedSlide</a></li><li data-type='method'><a href="module-src_components_ui.html#~CardStyle">CardStyle</a></li></ul></li><li></li><li></li><li></li><li><a href="module-src_components_ui_Alerts.html">src/components/ui/Alerts</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Alerts.html#~Alerts">Alerts</a></li></ul></li><li><a href="module-src_components_ui_Avatar.html">src/components/ui/Avatar</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Avatar.html#~Avatar">Avatar</a></li></ul></li><li><a href="module-src_components_ui_Badge.html">src/components/ui/Badge</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Badge.html#~Badge">Badge</a></li></ul></li><li><a href="module-src_components_ui_Button.html">src/components/ui/Button</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Button.html#~Button">Button</a></li><li data-type='method'><a href="module-src_components_ui_Button.html#~ButtonGroup">ButtonGroup</a></li><li data-type='method'><a href="module-src_components_ui_Button.html#~NavigationContainer">NavigationContainer</a></li></ul></li><li><a href="module-src_components_ui_Card.html">src/components/ui/Card</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Card.html#~Card">Card</a></li></ul></li><li><a href="module-src_components_ui_Checkbox.html">src/components/ui/Checkbox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Checkbox.html#~Checkbox">Checkbox</a></li></ul></li><li><a href="module-src_components_ui_DialogBox.html">src/components/ui/DialogBox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_DialogBox.html#~DialogBox">DialogBox</a></li></ul></li><li><a href="module-src_components_ui_Dropdown.html">src/components/ui/Dropdown</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Dropdown.html#~Dropdown">Dropdown</a></li></ul></li><li><a href="module-src_components_ui_Input.html">src/components/ui/Input</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Input.html#~Input">Input</a></li></ul></li><li><a href="module-src_components_ui_Pagination.html">src/components/ui/Pagination</a></li><li><a href="module-src_components_ui_PriorityIcon.html">src/components/ui/PriorityIcon</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_PriorityIcon.html#~PriorityIcon">PriorityIcon</a></li></ul></li><li><a href="module-src_components_ui_TextArea.html">src/components/ui/TextArea</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_TextArea.html#~TextArea">TextArea</a></li></ul></li><li><a href="module-src_layouts_full_header_Profile.html">src/layouts/full/header/Profile</a></li><li><a href="module-src_pages_Inbox_Inbox.html">src/pages/Inbox/Inbox</a></li><li><a href="module-src_services_EnhancedDynamicDecryption.html">src/services/EnhancedDynamicDecryption</a><ul class='methods'><li data-type='method'><a href="module-src_services_EnhancedDynamicDecryption.html#~base64ToArrayBuffer">base64ToArrayBuffer</a></li><li data-type='method'><a href="module-src_services_EnhancedDynamicDecryption.html#~getAuthHeaders">getAuthHeaders</a></li></ul></li><li><a href="module-src_views_authentication_auth_AuthLogin.html">src/views/authentication/auth/AuthLogin</a></li><li><a href="module-src_views_authentication_auth_encryption.html">src/views/authentication/auth/encryption</a><ul class='methods'><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.authenticateUser">authenticateUser</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.decryptGCM">decryptGCM</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.encryptECB">encryptECB</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getDecryptKeyFromCookies">getDecryptKeyFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getSessionIdFromCookies">getSessionIdFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getUserFromCookies">getUserFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.isUserAuthenticated">isUserAuthenticated</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.logoutUser">logoutUser</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~deleteCookie">deleteCookie</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~generate256BitKey">generate256BitKey</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~getAuthHeaders">getAuthHeaders</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~getCookie">getCookie</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~insertSessionData">insertSessionData</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~saveUserToCookies">saveUserToCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~setCookie">setCookie</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#CommentsHistory">CommentsHistory</a></li><li><a href="global.html#DateInput">DateInput</a></li><li><a href="global.html#DatePicker">DatePicker</a></li><li><a href="global.html#DateRangePicker">DateRangePicker</a></li><li><a href="global.html#DocumentUpload">DocumentUpload</a></li><li><a href="global.html#DropZone">DropZone</a></li><li><a href="global.html#FileUpload">FileUpload</a></li><li><a href="global.html#ImageUpload">ImageUpload</a></li><li><a href="global.html#InlineDateRangePicker">InlineDateRangePicker</a></li><li><a href="global.html#Login2">Login2</a></li><li><a href="global.html#MultiFileUpload">MultiFileUpload</a></li><li><a href="global.html#TaskCard">TaskCard</a></li><li><a href="global.html#TaskSummaryPage">TaskSummaryPage</a></li><li><a href="global.html#base64ToArrayBuffer">base64ToArrayBuffer</a></li><li><a href="global.html#decrypt">decrypt</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/ui/DatePicker.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @fileoverview
+ * Generic Date Picker Component Suite
+ * 
+ * This file provides a set of reusable, easy-to-use date input components:
+ *  - DatePicker: A single date input with label, helper text, and validation states.
+ *  - DateRangePicker: Two linked date inputs for selecting a start and end date.
+ *  - InlineDateRangePicker: A compact, inline version without labels.
+ *  - DateInput: Minimal single date field without extra labels or text.
+ * 
+ * These components are styled using Tailwind CSS for visual consistency and flexibility.
+ */
+
+import React from 'react';
+
+/**
+ * ✅ Single Date Picker Component
+ * 
+ * Displays a single date input with a label, error message, and helper text.
+ * Perfect for selecting one date (e.g., "Date of Birth", "Appointment Date", etc.)
+ *
+ * @param {Object} props - Component props.
+ * @param {string} [props.label] - The label text displayed above the date input.
+ * @param {string} props.value - The current selected date (in "YYYY-MM-DD" format).
+ * @param {Function} props.onChange - Function called when the user changes the date.
+ * @param {string} [props.minDate] - The earliest selectable date.
+ * @param {string} [props.maxDate] - The latest selectable date.
+ * @param {boolean} [props.error] - If true, shows red border and error helper text.
+ * @param {string} [props.helperText] - Text shown below the input (e.g., error message or hint).
+ * @param {boolean} [props.fullWidth=false] - Makes the component expand to full container width.
+ * @param {boolean} [props.required=false] - Marks the input as required with a red asterisk.
+ * @param {boolean} [props.disabled=false] - Disables the input (makes it non-editable and grayed out).
+ * @param {string} [props.className] - Additional CSS classes for customization.
+ * @param {Object} [props.props] - Any other props passed to the HTML `&lt;input>` element.
+ */
+export const DatePicker = ({
+  label,
+  value,
+  onChange,
+  minDate,
+  maxDate,
+  error,
+  helperText,
+  fullWidth = false,
+  required = false,
+  disabled = false,
+  className = '',
+  ...props
+}) => {
+  return (
+    &lt;div className={`inline-flex flex-col ${fullWidth ? 'w-full' : 'w-auto'} ${className}`}>
+      {/* Label Section */}
+      {label &amp;&amp; (
+        &lt;label className="text-xs font-normal text-gray-600 mb-1.5 tracking-wide">
+          {label}
+          {required &amp;&amp; &lt;span className="text-red-500 ml-0.5">*&lt;/span>}
+        &lt;/label>
+      )}
+
+      {/* Input Field */}
+      &lt;input
+        type="date"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        min={minDate}
+        max={maxDate}
+        disabled={disabled}
+        required={required}
+        className={`
+          px-3 py-2.5 
+          border border-gray-300 
+          rounded 
+          text-sm text-gray-900
+          bg-white
+          focus:outline-none focus:border-gray-400 focus:ring-0
+          transition-colors
+          ${error ? 'border-red-500' : 'border-gray-300'}
+          ${disabled ? 'bg-gray-100 cursor-not-allowed text-gray-500' : 'cursor-pointer'}
+          hover:border-gray-400
+        `}
+        style={{
+          colorScheme: 'light',
+          minWidth: '160px',
+        }}
+        {...props}
+      />
+
+      {/* Helper Text or Error Message */}
+      {helperText &amp;&amp; (
+        &lt;span className={`text-xs mt-1 ${error ? 'text-red-500' : 'text-gray-500'}`}>
+          {helperText}
+        &lt;/span>
+      )}
+    &lt;/div>
+  );
+};
+
+/**
+ * ✅ Date Range Picker
+ * 
+ * Displays two DatePicker components side by side for selecting a start and end date.
+ * Automatically restricts the "to" date to not be earlier than the "from" date.
+ * 
+ * Common use case: Selecting travel dates, project durations, event periods, etc.
+ *
+ * @param {Object} props - Component props.
+ * @param {string} [props.startLabel="Visit From"] - Label for the start date field.
+ * @param {string} [props.endLabel="Visit To"] - Label for the end date field.
+ * @param {string} props.startValue - The selected start date.
+ * @param {string} props.endValue - The selected end date.
+ * @param {Function} props.onStartChange - Called when the start date changes.
+ * @param {Function} props.onEndChange - Called when the end date changes.
+ * @param {string} [props.minDate] - The earliest allowed date.
+ * @param {string} [props.maxDate] - The latest allowed date.
+ * @param {boolean} [props.fullWidth=false] - Makes the component stretch across the container.
+ * @param {boolean} [props.error] - If true, displays the helper text as an error message.
+ * @param {string} [props.helperText] - Message shown when there’s an error or note.
+ * @param {string} [props.className] - Extra CSS classes for layout customization.
+ * @param {number} [props.gap=4] - Space (in Tailwind gap units) between the two fields.
+ */
+export const DateRangePicker = ({
+  startLabel = "Visit From",
+  endLabel = "Visit To",
+  startValue,
+  endValue,
+  onStartChange,
+  onEndChange,
+  minDate,
+  maxDate,
+  fullWidth = false,
+  error,
+  helperText,
+  className = '',
+  gap = 4,
+}) => {
+  return (
+    &lt;div className={`flex ${fullWidth ? 'w-full' : 'w-auto'} ${className}`} style={{ gap: `${gap * 0.25}rem` }}>
+      {/* Start Date */}
+      &lt;div className={fullWidth ? 'flex-1' : 'w-auto'}>
+        &lt;DatePicker
+          label={startLabel}
+          value={startValue}
+          onChange={onStartChange}
+          minDate={minDate}
+          maxDate={endValue || maxDate}
+          error={error}
+          helperText={error ? helperText : ''}
+        />
+      &lt;/div>
+
+      {/* End Date */}
+      &lt;div className={fullWidth ? 'flex-1' : 'w-auto'}>
+        &lt;DatePicker
+          label={endLabel}
+          value={endValue}
+          onChange={onEndChange}
+          minDate={startValue || minDate}
+          maxDate={maxDate}
+        />
+      &lt;/div>
+    &lt;/div>
+  );
+};
+
+/**
+ * ✅ Inline Date Range Picker
+ * 
+ * A compact version of the DateRangePicker.
+ * Designed for inline layouts where space is limited (e.g., search bars, filters).
+ * 
+ * Labels are replaced with placeholders for a minimalist design.
+ *
+ * @param {Object} props - Component props.
+ * @param {string} [props.startPlaceholder="Start Date"] - Placeholder text for the first input.
+ * @param {string} [props.endPlaceholder="End Date"] - Placeholder text for the second input.
+ * @param {string} props.startValue - The selected start date.
+ * @param {string} props.endValue - The selected end date.
+ * @param {Function} props.onStartChange - Called when the start date changes.
+ * @param {Function} props.onEndChange - Called when the end date changes.
+ * @param {string} [props.minDate] - Minimum selectable date.
+ * @param {string} [props.maxDate] - Maximum selectable date.
+ * @param {string} [props.className] - Custom class names for styling or layout tweaks.
+ */
+export const InlineDateRangePicker = ({
+  startPlaceholder = "Start Date",
+  endPlaceholder = "End Date",
+  startValue,
+  endValue,
+  onStartChange,
+  onEndChange,
+  minDate,
+  maxDate,
+  className = '',
+}) => {
+  return (
+    &lt;div className={`flex items-center gap-3 ${className}`}>
+      {/* Start Date Field */}
+      &lt;input
+        type="date"
+        value={startValue}
+        onChange={(e) => onStartChange(e.target.value)}
+        min={minDate}
+        max={endValue || maxDate}
+        placeholder={startPlaceholder}
+        className="
+          px-3 py-2.5 
+          border border-gray-300 
+          rounded 
+          text-sm text-gray-900
+          bg-white
+          focus:outline-none focus:border-gray-400 focus:ring-0
+          transition-colors
+          hover:border-gray-400
+          cursor-pointer
+        "
+        style={{ colorScheme: 'light', minWidth: '160px' }}
+      />
+
+      {/* Separator */}
+      &lt;span className="text-gray-400 text-sm">to&lt;/span>
+
+      {/* End Date Field */}
+      &lt;input
+        type="date"
+        value={endValue}
+        onChange={(e) => onEndChange(e.target.value)}
+        min={startValue || minDate}
+        max={maxDate}
+        placeholder={endPlaceholder}
+        className="
+          px-3 py-2.5 
+          border border-gray-300 
+          rounded 
+          text-sm text-gray-900
+          bg-white
+          focus:outline-none focus:border-gray-400 focus:ring-0
+          transition-colors
+          hover:border-gray-400
+          cursor-pointer
+        "
+        style={{ colorScheme: 'light', minWidth: '160px' }}
+      />
+    &lt;/div>
+  );
+};
+
+/**
+ * ✅ Minimal Single Date Input
+ * 
+ * The simplest version of a date field with no label or helper text.
+ * Ideal for use in forms where labels are handled elsewhere.
+ *
+ * @param {Object} props - Component props.
+ * @param {string} props.value - The selected date.
+ * @param {Function} props.onChange - Called when the date changes.
+ * @param {string} [props.minDate] - Minimum selectable date.
+ * @param {string} [props.maxDate] - Maximum selectable date.
+ * @param {string} [props.placeholder] - Placeholder text shown when no date is selected.
+ * @param {boolean} [props.disabled=false] - Disables the input when true.
+ * @param {string} [props.className] - Custom class names for extra styling.
+ * @param {Object} [props.props] - Any additional props for the input element.
+ */
+export const DateInput = ({
+  value,
+  onChange,
+  minDate,
+  maxDate,
+  placeholder,
+  disabled = false,
+  className = '',
+  ...props
+}) => {
+  return (
+    &lt;input
+      type="date"
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      min={minDate}
+      max={maxDate}
+      disabled={disabled}
+      placeholder={placeholder}
+      className={`
+        px-3 py-2.5 
+        border border-gray-300 
+        rounded 
+        text-sm text-gray-900
+        bg-white
+        focus:outline-none focus:border-gray-400 focus:ring-0
+        transition-colors
+        hover:border-gray-400
+        ${disabled ? 'bg-gray-100 cursor-not-allowed text-gray-500' : 'cursor-pointer'}
+        ${className}
+      `}
+      style={{ colorScheme: 'light', minWidth: '160px' }}
+      {...props}
+    />
+  );
+};
+
+/** ✅ Default export: The main DatePicker component */
+export default DatePicker;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Wed Nov 05 2025 11:24:43 GMT+0530 (India Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

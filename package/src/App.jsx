@@ -1,13 +1,34 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
+// import './App.css';
+// import { CssBaseline, ThemeProvider } from '@mui/material';
+// import { baselightTheme } from "./theme/DefaultColors";
+// import { RouterProvider } from 'react-router';
+// import router from "./routes/Router.js";
+// import TrackerProvider from "src/utils/TrackerProvider";
 
+// function App() {
+//   const theme = baselightTheme;
+
+//   return (
+//     <ThemeProvider theme={theme}>
+//       <CssBaseline />
+//       <TrackerProvider>
+//         <RouterProvider router={router} />
+//       </TrackerProvider>
+//     </ThemeProvider>
+//   );
+// }
+
+// export default App;
+
+
+
+
+// App.js - Keep this simple
+import './App.css';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-
 import { baselightTheme } from "./theme/DefaultColors";
 import { RouterProvider } from 'react-router';
-import router from "./routes/Router.js"
+import router from "./routes/Router.js";
 
 function App() {
   const theme = baselightTheme;
@@ -20,4 +41,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

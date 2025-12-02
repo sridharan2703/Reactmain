@@ -1,1384 +1,17 @@
-// // /**
-// //  * @fileoverview OTP Verification component for two-factor authentication
-// //  * @module src/components/authentication/OtpVerification
-// //  * @author Rakshana
-// //  * @date 22/07/2025
-// //  * @since 1.0.0
-// //  */
-
-// // import React, { useState, useEffect, useRef } from 'react';
-// // import {
-// //   Box,
-// //   TextField,
-// //   Button,
-// //   Alert,
-// //   CircularProgress,
-// //   Typography,
-// //   Checkbox,
-// //   FormControlLabel
-// // } from '@mui/material';
-// // import { Shield, Timer } from '@mui/icons-material';
-// // import Cookies from 'js-cookie';
-// // import {
-// //   decryptData,
-// //   validateJsonData,
-// //   isWebCryptoSupported,
-// // } from 'src/components/Decryption/Decrypt';
-// // import { HostName } from "src/assets/host/Host";
-
-// // const getAuthHeaders = async () => {
-// //   const encryptedToken = Cookies.get('HRToken');
-// //   return {
-// //     'Content-Type': 'application/json',
-// //     'Authorization': `Bearer ${encryptedToken}`,
-// //   };
-// // };
-
-// // const OtpVerification = ({
-// //   verifiedUser,
-// //   onOtpSuccess,
-// //   onResendOtp,
-// //   phoneNumber,
-// //   generatedOtp,
-// //   otpLoading = false,
-// //   trustDurationDays = 30,
-// //   sessionId
-// // }) => {
-// //   const [otp, setOtp] = useState('');
-// //   const [error, setError] = useState('');
-// //   const [success, setSuccess] = useState(false);
-// //   const [trustDevice, setTrustDevice] = useState(false);
-// //   const [isVerifying, setIsVerifying] = useState(false);
-// //   const [timeLeft, setTimeLeft] = useState(45);
-// //   const [isOtpExpired, setIsOtpExpired] = useState(false);
-// //   const [otpSentTime, setOtpSentTime] = useState(Date.now());
-// //   const timerRef = useRef(null);
-// //   //const API_BASE_URL = 'https://wftest1.iitm.ac.in:5000';
-// //   const API_TOKEN = 'HRFGVJISOVp1fncC';
-
-// //   const getUsername = () => {
-// //     const username = sessionStorage.getItem('username') ||
-// //                     localStorage.getItem('username') ||
-// //                     Cookies.get('username');
-// //     return username || '';
-// //   };
-
-// //   const startOtpTimer = () => {
-// //     setTimeLeft(45);
-// //     setIsOtpExpired(false);
-// //     setOtpSentTime(Date.now());
-
-// //     if (timerRef.current) {
-// //       clearInterval(timerRef.current);
-// //     }
-
-// //     timerRef.current = setInterval(() => {
-// //       setTimeLeft((prevTime) => {
-// //         if (prevTime <= 1) {
-// //           setIsOtpExpired(true);
-// //           clearInterval(timerRef.current);
-// //           return 0;
-// //         }
-// //         return prevTime - 1;
-// //       });
-// //     }, 1000);
-// //   };
-
-// //   useEffect(() => {
-// //     startOtpTimer();
-// //     return () => {
-// //       if (timerRef.current) {
-// //         clearInterval(timerRef.current);
-// //       }
-// //     };
-// //   }, []);
-
-// //   const handleOtpSubmit = async () => {
-// //     if (otp.trim() === '') {
-// //       setError('Please enter the OTP');
-// //       return;
-// //     }
-
-// //     if (otp.length !== 6) {
-// //       setError('OTP must be 6 digits');
-// //       return;
-// //     }
-
-// //     if (isOtpExpired) {
-// //       setError('OTP has expired. Please request a new OTP.');
-// //       return;
-// //     }
-
-// //     if (!isWebCryptoSupported()) {
-// //       setError('Web Crypto API not supported in this browser');
-// //       return;
-// //     }
-
-// //     setIsVerifying(true);
-// //     setError('');
-
-// //     try {
-// //       const username = getUsername();
-// //       if (!username) {
-// //         throw new Error('Username not found. Please login again.');
-// //       }
-
-// //       if (!sessionId) {
-// //         throw new Error('Session ID not found. Please login again.');
-// //       }
-
-// //       const headers = await getAuthHeaders();
-
-// //       const requestBody = {
-// //         token: API_TOKEN,
-// //         username: username,
-// //         mobileno: parseInt(phoneNumber?.replace(/\D/g, '') || '0'),
-// //         session_id: sessionId,
-// //         otp: parseInt(otp),
-// //         otpsendon: new Date(otpSentTime).toISOString(),
-// //         otpverifiedon: new Date().toISOString(),
-// //         status: 1,
-// //         updatedon: new Date().toISOString()
-// //       };
-
-// //       const response = await fetch(`${HostName}/Loginotpupdate`, {
-// //         method: 'POST',
-// //         headers: headers,
-// //         body: JSON.stringify(requestBody)
-// //       });
-
-// //       if (!response.ok) {
-// //         throw new Error(`HTTP error! status: ${response.status}`);
-// //       }
-
-// //       const encryptedData = await response.json();
-// //       if (!encryptedData.Data) {
-// //         throw new Error('No encrypted data received from API');
-// //       }
-
-// //       const decryptedData = await decryptData(encryptedData.Data);
-// //       const result = validateJsonData(decryptedData);
-
-// //       console.log('Decrypted OTP verification response:', result);
-
-// //       if (result.success && result.validcheck === '1' && result.message && result.message.includes('successfully') && result.session_id) {
-// //         setSuccess(true);
-// //         setError('');
-// //         Cookies.set('session_id', result.session_id, { expires: 7 });
-// //         if (timerRef.current) {
-// //           clearInterval(timerRef.current);
-// //         }
-
-// //         if (onOtpSuccess) {
-// //           onOtpSuccess({
-// //             user: {
-// //               ...verifiedUser,
-// //               username: username,
-// //               mobileNo: phoneNumber
-// //             },
-// //             trustDevice: trustDevice,
-// //             sessionId: result.session_id,
-// //             apiResponse: result
-// //           });
-// //         }
-// //       } else {
-// //         setError(result.message || 'OTP verification failed. Please try again.');
-// //       }
-// //     } catch (error) {
-// //       console.error('OTP verification error:', error);
-// //       setError(error.message || 'Network error occurred. Please check your connection and try again.');
-// //     } finally {
-// //       setIsVerifying(false);
-// //     }
-// //   };
-
-// //   const handleResendOtp = async () => {
-// //     try {
-// //       setError('');
-// //       setOtp('');
-// //       setSuccess(false);
-
-// //       if (!sessionId) {
-// //         throw new Error('Session ID not available. Please login again.');
-// //       }
-
-// //       await onResendOtp();
-// //       startOtpTimer();
-// //       setSuccess(true);
-// //       setTimeout(() => setSuccess(false), 3000);
-// //     } catch (error) {
-// //       setError(error.message || 'Failed to resend OTP. Please try again.');
-// //     }
-// //   };
-
-// //   const handleOtpChange = (e) => {
-// //     const value = e.target.value.replace(/\D/g, '');
-// //     setOtp(value);
-// //     if (error) setError('');
-// //   };
-
-// //   return (
-// //     <Box sx={{ mt: 2 }}>
-// //       {error && (
-// //         <Alert severity="error" sx={{ mb: 2, borderRadius: 2 }}>
-// //           {error}
-// //         </Alert>
-// //       )}
-
-// //       {success && (
-// //         <Alert severity="success" sx={{ mb: 2, borderRadius: 2 }}>
-// //           OTP sent successfully!
-// //         </Alert>
-// //       )}
-
-// //       {isOtpExpired && (
-// //         <Alert severity="warning" sx={{ mb: 2, borderRadius: 2 }}>
-// //           OTP has expired. Please click "Resend OTP" to get a new code.
-// //         </Alert>
-// //       )}
-
-// //       <Alert severity="info" sx={{ mb: 3, borderRadius: 2 }}>
-// //         Welcome, {verifiedUser?.username || getUsername()}. Please enter the OTP sent to your registered mobile number ending with ****{phoneNumber?.slice(-4) || ''}.
-// //       </Alert>
-
-// //       <Box sx={{ mb: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-// //         <Timer sx={{ mr: 1, fontSize: '1.2rem', color: isOtpExpired ? '#ef4444' : '#3b82f6' }} />
-// //         <Typography
-// //           variant="body2"
-// //           sx={{
-// //             fontWeight: 600,
-// //             color: isOtpExpired ? '#ef4444' : '#3b82f6'
-// //           }}
-// //         >
-// //           {isOtpExpired ? 'OTP Expired' : `OTP expires in: ${timeLeft}s`}
-// //         </Typography>
-// //       </Box>
-
-// //       <Box sx={{ mb: 3 }}>
-// //         <Typography variant="body2" sx={{ mb: 1, fontWeight: 500 }}>
-// //           Enter OTP
-// //         </Typography>
-// //         <TextField
-// //           fullWidth
-// //           value={otp}
-// //           onChange={handleOtpChange}
-// //           placeholder="Enter 6-digit OTP"
-// //           disabled={isOtpExpired}
-// //           inputProps={{
-// //             maxLength: 6,
-// //             pattern: '[0-9]*',
-// //             inputMode: 'numeric'
-// //           }}
-// //           sx={{
-// //             '& .MuiOutlinedInput-root': {
-// //               borderRadius: 2,
-// //               '&.Mui-disabled': {
-// //                 backgroundColor: '#f3f4f6'
-// //               }
-// //             }
-// //           }}
-// //         />
-// //       </Box>
-
-// //       <Box sx={{ mb: 3 }}>
-// //         <FormControlLabel
-// //           control={
-// //             <Checkbox
-// //               checked={trustDevice}
-// //               onChange={(e) => setTrustDevice(e.target.checked)}
-// //               sx={{
-// //                 color: '#3b82f6',
-// //                 '&.Mui-checked': {
-// //                   color: '#3b82f6',
-// //                 },
-// //               }}
-// //             />
-// //           }
-// //           label={
-// //             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-// //               <Shield sx={{ mr: 0.5, fontSize: '1rem', color: '#3b82f6' }} />
-// //               <Typography variant="body2">
-// //                 Trust this device for {trustDurationDays} days
-// //               </Typography>
-// //             </Box>
-// //           }
-// //         />
-// //         <Typography variant="caption" sx={{ color: '#6b7280', ml: 4, display: 'block' }}>
-// //           Skip OTP verification on this device. Only enable on your personal devices.
-// //         </Typography>
-// //       </Box>
-
-// //       <Button
-// //         variant="contained"
-// //         fullWidth
-// //         onClick={handleOtpSubmit}
-// //         disabled={otp.length !== 6 || isVerifying || isOtpExpired}
-// //         sx={{
-// //           py: 1.5,
-// //           borderRadius: 2,
-// //           background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
-// //           color: 'white',
-// //           fontWeight: 600,
-// //           fontSize: '0.875rem',
-// //           textTransform: 'none',
-// //           mb: 2,
-// //           '&:disabled': {
-// //             background: '#9ca3af',
-// //             color: 'white'
-// //           }
-// //         }}
-// //       >
-// //         {isVerifying ? (
-// //           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-// //             <CircularProgress size={20} sx={{ color: 'white' }} />
-// //             <span>Verifying...</span>
-// //           </Box>
-// //         ) : isOtpExpired ? 'OTP Expired' : 'Verify OTP'}
-// //       </Button>
-
-// //       <Button
-// //         variant="outlined"
-// //         fullWidth
-// //         onClick={handleResendOtp}
-// //         disabled={otpLoading || isVerifying || (!isOtpExpired && timeLeft > 0)}
-// //         sx={{
-// //           py: 1.5,
-// //           borderRadius: 2,
-// //           borderColor: '#3b82f6',
-// //           color: '#3b82f6',
-// //           fontWeight: 600,
-// //           fontSize: '0.875rem',
-// //           textTransform: 'none',
-// //           '&:hover': {
-// //             borderColor: '#1d4ed8',
-// //             backgroundColor: 'rgba(59, 130, 246, 0.04)'
-// //           },
-// //           '&:disabled': {
-// //             borderColor: '#9ca3af',
-// //             color: '#9ca3af'
-// //           }
-// //         }}
-// //       >
-// //         {otpLoading ? (
-// //           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-// //             <CircularProgress size={20} sx={{ color: '#3b82f6' }} />
-// //             <span>Sending...</span>
-// //           </Box>
-// //         ) : 'Resend OTP'}
-// //       </Button>
-// //     </Box>
-// //   );
-// // };
-
-// // export default OtpVerification;
-
-
-
-
-
-// // /**
-// //  * @fileoverview Enhanced OTP Verification component for two-factor authentication with navigation
-// //  * @module src/components/authentication/OtpVerification
-// //  * @author Rakshana
-// //  * @date 22/07/2025
-// //  * @since 1.0.0
-// //  */
-
-// // import React, { useState, useEffect, useRef } from 'react';
-// // import { useNavigate } from 'react-router-dom';
-// // import {
-// //   Box,
-// //   TextField,
-// //   Button,
-// //   Alert,
-// //   CircularProgress,
-// //   Typography,
-// //   Checkbox,
-// //   FormControlLabel
-// // } from '@mui/material';
-// // import { Shield, Timer } from '@mui/icons-material';
-// // import Cookies from 'js-cookie';
-// // import {
-// //   decryptData,
-// //   validateJsonData,
-// //   isWebCryptoSupported,
-// // } from 'src/components/Decryption/Decrypt';
-
-// // const getAuthHeaders = async () => {
-// //   const encryptedToken = Cookies.get('HRToken');
-// //   return {
-// //     'Content-Type': 'application/json',
-// //     'Authorization': `Bearer ${encryptedToken}`,
-// //   };
-// // };
-
-// // const OtpVerification = ({
-// //   verifiedUser,
-// //   onOtpSuccess,
-// //   onResendOtp,
-// //   phoneNumber,
-// //   generatedOtp,
-// //   otpLoading = false,
-// //   trustDurationDays = 30,
-// //   sessionId
-// // }) => {
-// //   const [otp, setOtp] = useState('');
-// //   const [error, setError] = useState('');
-// //   const [success, setSuccess] = useState(false);
-// //   const [trustDevice, setTrustDevice] = useState(false);
-// //   const [isVerifying, setIsVerifying] = useState(false);
-// //   const [timeLeft, setTimeLeft] = useState(45);
-// //   const [isOtpExpired, setIsOtpExpired] = useState(false);
-// //   const [otpSentTime, setOtpSentTime] = useState(Date.now());
-// //   const [resendAttempts, setResendAttempts] = useState(3);
-// //   const timerRef = useRef(null);
-// //   const navigate = useNavigate();
-// //   const API_BASE_URL = 'https://wftest1.iitm.ac.in:5000';
-// //   const API_TOKEN = 'HRFGVJISOVp1fncC';
-
-// //   const getUsername = () => {
-// //     const username = sessionStorage.getItem('username') ||
-// //                     localStorage.getItem('username') ||
-// //                     Cookies.get('username');
-// //     return username || '';
-// //   };
-
-// //   const startOtpTimer = () => {
-// //     setTimeLeft(45);
-// //     setIsOtpExpired(false);
-// //     setOtpSentTime(Date.now());
-
-// //     if (timerRef.current) {
-// //       clearInterval(timerRef.current);
-// //     }
-
-// //     timerRef.current = setInterval(() => {
-// //       setTimeLeft((prevTime) => {
-// //         if (prevTime <= 1) {
-// //           setIsOtpExpired(true);
-// //           clearInterval(timerRef.current);
-// //           return 0;
-// //         }
-// //         return prevTime - 1;
-// //       });
-// //     }, 1000);
-// //   };
-
-// //   useEffect(() => {
-// //     startOtpTimer();
-// //     return () => {
-// //       if (timerRef.current) {
-// //         clearInterval(timerRef.current);
-// //       }
-// //     };
-// //   }, []);
-
-// //   const handleOtpSubmit = async () => {
-// //     if (otp.trim() === '') {
-// //       setError('Please enter the OTP');
-// //       return;
-// //     }
-
-// //     if (otp.length !== 6) {
-// //       setError('OTP must be 6 digits');
-// //       return;
-// //     }
-
-// //     if (isOtpExpired) {
-// //       setError('OTP has expired. Please request a new OTP.');
-// //       return;
-// //     }
-
-// //     if (!isWebCryptoSupported()) {
-// //       setError('Web Crypto API not supported in this browser');
-// //       return;
-// //     }
-
-// //     setIsVerifying(true);
-// //     setError('');
-
-// //     try {
-// //       const username = getUsername();
-// //       if (!username) {
-// //         throw new Error('Username not found. Please login again.');
-// //       }
-
-// //       if (!sessionId) {
-// //         throw new Error('Session ID not found. Please login again.');
-// //       }
-
-// //       const headers = await getAuthHeaders();
-
-// //       const requestBody = {
-// //         token: API_TOKEN,
-// //         username: username,
-// //         mobileno: parseInt(phoneNumber?.replace(/\D/g, '') || '0'),
-// //         session_id: sessionId,
-// //         otp: parseInt(otp),
-// //         otpsendon: new Date(otpSentTime).toISOString(),
-// //         otpverifiedon: new Date().toISOString(),
-// //         status: 1,
-// //         updatedon: new Date().toISOString()
-// //       };
-
-// //       const response = await fetch(`${API_BASE_URL}/Loginotpupdate`, {
-// //         method: 'POST',
-// //         headers: headers,
-// //         body: JSON.stringify(requestBody)
-// //       });
-
-// //       if (!response.ok) {
-// //         throw new Error(`HTTP error! status: ${response.status}`);
-// //       }
-
-// //       const encryptedData = await response.json();
-// //       if (!encryptedData.Data) {
-// //         throw new Error('No encrypted data received from API');
-// //       }
-
-// //       const decryptedData = await decryptData(encryptedData.Data);
-// //       const result = validateJsonData(decryptedData);
-
-// //       console.log('Decrypted OTP verification response:', result);
-
-// //       if (result.success && result.validcheck === '1' && result.message && result.message.includes('successfully') && result.session_id) {
-// //         setSuccess(true);
-// //         setError('');
-// //         Cookies.set('session_id', result.session_id, { expires: 7 });
-// //         if (timerRef.current) {
-// //           clearInterval(timerRef.current);
-// //         }
-
-// //         if (onOtpSuccess) {
-// //           onOtpSuccess({
-// //             user: {
-// //               ...verifiedUser,
-// //               username: username,
-// //               mobileNo: phoneNumber
-// //             },
-// //             trustDevice: trustDevice,
-// //             sessionId: result.session_id,
-// //             apiResponse: result
-// //           });
-// //         }
-// //       } else {
-// //         setError(result.message || 'OTP verification failed. Please try again.');
-// //       }
-// //     } catch (error) {
-// //       console.error('OTP verification error:', error);
-// //       setError(error.message || 'Network error occurred. Please check your connection and try again.');
-// //     } finally {
-// //       setIsVerifying(false);
-// //     }
-// //   };
-
-// //   const handleResendOtp = async () => {
-// //     if (resendAttempts <= 0) {
-// //       setError('Maximum resend attempts reached. Redirecting to login screen...');
-// //       setTimeout(() => {
-// //         navigate('/login'); // Navigate back to AuthLogin screen
-// //       }, 2000);
-// //       return;
-// //     }
-
-// //     try {
-// //       setError('');
-// //       setOtp('');
-// //       setSuccess(false);
-
-// //       if (!sessionId) {
-// //         throw new Error('Session ID not available. Please login again.');
-// //       }
-
-// //       await onResendOtp();
-// //       setResendAttempts((prev) => prev - 1);
-// //       startOtpTimer();
-// //       setSuccess(true);
-// //       setTimeout(() => setSuccess(false), 3000);
-// //     } catch (error) {
-// //       setError(error.message || 'Failed to resend OTP. Please try again.');
-// //     }
-// //   };
-
-// //   const handleOtpChange = (e) => {
-// //     const value = e.target.value.replace(/\D/g, '');
-// //     setOtp(value);
-// //     if (error) setError('');
-// //   };
-
-// //   return (
-// //     <Box className="max-w-md mx-auto p-6 bg-white rounded-2xl shadow-lg transform transition-all duration-300 hover:shadow-xl">
-// //       {error && (
-// //         <Alert severity="error" className="mb-4 rounded-lg animate-pulse">
-// //           {error}
-// //         </Alert>
-// //       )}
-
-// //       {success && (
-// //         <Alert severity="success" className="mb-4 rounded-lg animate-pulse">
-// //           OTP sent successfully! {resendAttempts} attempts remaining.
-// //         </Alert>
-// //       )}
-
-// //       {isOtpExpired && (
-// //         <Alert severity="warning" className="mb-4 rounded-lg animate-pulse">
-// //           OTP has expired. {resendAttempts > 0 ? `Please click "Resend OTP" to get a new code (${resendAttempts} attempts left).` : 'No resend attempts left. Redirecting to login screen...'}
-// //         </Alert>
-// //       )}
-
-// //       <Alert severity="info" className="mb-6 rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50">
-// //         Welcome, {verifiedUser?.username || getUsername()}. Please enter the OTP sent to your registered mobile number ending with ****{phoneNumber?.slice(-4) || ''}.
-// //       </Alert>
-
-// //       <Box className="mb-4 flex items-center justify-center">
-// //         <Timer className={`mr-2 ${isOtpExpired ? 'text-red-500' : 'text-blue-500'}`} />
-// //         <Typography
-// //           variant="body2"
-// //           className={`font-semibold ${isOtpExpired ? 'text-red-500' : 'text-blue-500'}`}
-// //         >
-// //           {isOtpExpired ? 'OTP Expired' : `OTP expires in: ${timeLeft}s`}
-// //         </Typography>
-// //       </Box>
-
-// //       <Box className="mb-6">
-// //         <Typography variant="body2" className="mb-2 font-medium text-gray-700">
-// //           Enter OTP
-// //         </Typography>
-// //         <TextField
-// //           fullWidth
-// //           value={otp}
-// //           onChange={handleOtpChange}
-// //           placeholder="Enter 6-digit OTP"
-// //           disabled={isOtpExpired}
-// //           inputProps={{
-// //             maxLength: 6,
-// //             pattern: '[0-9]*',
-// //             inputMode: 'numeric'
-// //           }}
-// //           className="rounded-lg transition-all duration-200 hover:ring-2 hover:ring-blue-200 focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
-// //         />
-// //       </Box>
-
-// //       <Box className="mb-6">
-// //         <FormControlLabel
-// //           control={
-// //             <Checkbox
-// //               checked={trustDevice}
-// //               onChange={(e) => setTrustDevice(e.target.checked)}
-// //               className="text-blue-500"
-// //             />
-// //           }
-// //           label={
-// //             <Box className="flex items-center">
-// //               <Shield className="mr-1 text-blue-500 text-sm" />
-// //               <Typography variant="body2" className="text-gray-700">
-// //                 Trust this device for {trustDurationDays} days
-// //               </Typography>
-// //             </Box>
-// //           }
-// //         />
-// //         <Typography variant="caption" className="ml-8 block text-gray-500">
-// //           Skip OTP verification on this device. Only enable on your personal devices.
-// //         </Typography>
-// //       </Box>
-
-// //       <Button
-// //         variant="contained"
-// //         fullWidth
-// //         onClick={handleOtpSubmit}
-// //         disabled={otp.length !== 6 || isVerifying || isOtpExpired}
-// //         className="py-3 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold text-sm uppercase tracking-wide transform transition-all duration-200 hover:scale-105 disabled:bg-gray-400 disabled:scale-100"
-// //       >
-// //         {isVerifying ? (
-// //           <Box className="flex items-center gap-2">
-// //             <CircularProgress size={20} className="text-white" />
-// //             <span>Verifying...</span>
-// //           </Box>
-// //         ) : isOtpExpired ? 'OTP Expired' : 'Verify OTP'}
-// //       </Button>
-
-// //       <Button
-// //         variant="outlined"
-// //         fullWidth
-// //         onClick={handleResendOtp}
-// //         disabled={otpLoading || isVerifying || (!isOtpExpired && timeLeft > 0) || resendAttempts <= 0}
-// //         className="mt-4 py-3 rounded-lg border-blue-500 text-blue-500 font-semibold text-sm uppercase tracking-wide transform transition-all duration-200 hover:bg-blue-50 hover:scale-105 disabled:border-gray-400 disabled:text-gray-400 disabled:hover:bg-transparent disabled:hover:scale-100"
-// //       >
-// //         {otpLoading ? (
-// //           <Box className="flex items-center gap-2">
-// //             <CircularProgress size={20} className="text-blue-500" />
-// //             <span>Sending...</span>
-// //           </Box>
-// //         ) : `Resend OTP (${resendAttempts} left)`}
-// //       </Button>
-// //     </Box>
-// //   );
-// // };
-
-// // export default OtpVerification;
-
-
-// /**
-//  * @fileoverview Professional OTP Verification component with modern UI design
-//  * @module src/components/authentication/OtpVerification
-//  * @author Rakshana
-//  * @date 22/07/2025
-//  * @since 2.0.0
-//  */
-
-// import React, { useState, useEffect, useRef } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import {
-//   Box,
-//   TextField,
-//   Button,
-//   Alert,
-//   CircularProgress,
-//   Typography,
-//   Checkbox,
-//   FormControlLabel,
-//   Paper,
-//   Stack,
-//   Chip,
-//   IconButton,
-//   InputAdornment
-// } from '@mui/material';
-// import { 
-//   Shield, 
-//   Timer, 
-//   Security, 
-//   PhoneAndroid, 
-//   CheckCircle, 
-//   Error,
-//   Refresh,
-//   Lock,
-//   ArrowBack,
-//   Visibility,
-//   VisibilityOff
-// } from '@mui/icons-material';
-// import Cookies from 'js-cookie';
-// import {
-//   decryptData,
-//   validateJsonData,
-//   isWebCryptoSupported,
-// } from 'src/components/Decryption/Decrypt';
-
-// const getAuthHeaders = async () => {
-//   const encryptedToken = Cookies.get('HRToken');
-//   return {
-//     'Content-Type': 'application/json',
-//     'Authorization': `Bearer ${encryptedToken}`,
-//   };
-// };
-
-// // Individual OTP Input Component
-// const OtpInput = ({ value, onChange, disabled, autoFocus }) => {
-//   const inputRef = useRef(null);
-
-//   useEffect(() => {
-//     if (autoFocus && inputRef.current) {
-//       inputRef.current.focus();
-//     }
-//   }, [autoFocus]);
-
-//   const handleChange = (e) => {
-//     const val = e.target.value.replace(/\D/g, '');
-//     onChange(val);
-    
-//     // Move to next input if value is entered
-//     if (val && e.target.nextElementSibling) {
-//       e.target.nextElementSibling.focus();
-//     }
-//   };
-
-//   const handleKeyDown = (e) => {
-//     // Move to previous input on backspace if current input is empty
-//     if (e.key === 'Backspace' && !value && e.target.previousElementSibling) {
-//       e.target.previousElementSibling.focus();
-//     }
-//   };
-
-//   return (
-//     <TextField
-//       ref={inputRef}
-//       value={value}
-//       onChange={handleChange}
-//       onKeyDown={handleKeyDown}
-//       disabled={disabled}
-//       inputProps={{
-//         maxLength: 1,
-//         style: {
-//           textAlign: 'center',
-//           fontSize: '2rem',
-//           fontWeight: 'bold',
-//           height: '60px',
-//           padding: 0
-//         }
-//       }}
-//       sx={{
-//         width: '60px',
-//         height: '60px',
-//         '& .MuiOutlinedInput-root': {
-//           borderRadius: '12px',
-//           backgroundColor: disabled ? '#f5f5f5' : 'white',
-//           transition: 'all 0.2s ease',
-//           '& fieldset': {
-//             borderColor: '#e0e0e0',
-//             borderWidth: '2px'
-//           },
-//           '&:hover fieldset': {
-//             borderColor: disabled ? '#e0e0e0' : '#2196f3'
-//           },
-//           '&.Mui-focused fieldset': {
-//             borderColor: '#2196f3',
-//             borderWidth: '2px'
-//           },
-//           '&.Mui-error fieldset': {
-//             borderColor: '#f44336'
-//           }
-//         }
-//       }}
-//     />
-//   );
-// };
-
-// const OtpVerification = ({
-//   verifiedUser,
-//   onOtpSuccess,
-//   onResendOtp,
-//   phoneNumber,
-//   generatedOtp,
-//   otpLoading = false,
-//   trustDurationDays = 30,
-//   sessionId
-// }) => {
-//   const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']);
-//   const [error, setError] = useState('');
-//   const [success, setSuccess] = useState('');
-//   const [trustDevice, setTrustDevice] = useState(false);
-//   const [isVerifying, setIsVerifying] = useState(false);
-//   const [timeLeft, setTimeLeft] = useState(45);
-//   const [isOtpExpired, setIsOtpExpired] = useState(false);
-//   const [otpSentTime, setOtpSentTime] = useState(Date.now());
-//   const [resendAttempts, setResendAttempts] = useState(3);
-//   const [showRefreshCountdown, setShowRefreshCountdown] = useState(false);
-//   const [refreshCountdown, setRefreshCountdown] = useState(5);
-//   const timerRef = useRef(null);
-//   const refreshTimerRef = useRef(null);
-//   const navigate = useNavigate();
-//   const API_BASE_URL = 'https://wftest1.iitm.ac.in:5000';
-//   const API_TOKEN = 'HRFGVJISOVp1fncC';
-
-//   const getUsername = () => {
-//     const username = sessionStorage.getItem('username') ||
-//                     localStorage.getItem('username') ||
-//                     Cookies.get('username');
-//     return username || '';
-//   };
-
-//   const otp = otpValues.join('');
-
-//   const startRefreshCountdown = () => {
-//     setShowRefreshCountdown(true);
-//     setRefreshCountdown(5);
-//     setError(''); // Clear any existing errors
-
-//     refreshTimerRef.current = setInterval(() => {
-//       setRefreshCountdown((prevCount) => {
-//         if (prevCount <= 1) {
-//           clearInterval(refreshTimerRef.current);
-//           // Force page refresh using multiple methods to ensure it works
-//           try {
-//             window.location.reload(true); // Force reload from server
-//           } catch (e) {
-//             window.location.href = window.location.href; // Fallback method
-//           }
-//           return 0;
-//         }
-//         return prevCount - 1;
-//       });
-//     }, 1000);
-//   };
-
-// const startOtpTimer = () => {
-//   setTimeLeft(45);
-//   setIsOtpExpired(false);
-//   setOtpSentTime(Date.now());
-
-//   if (timerRef.current) {
-//     clearInterval(timerRef.current);
-//   }
-
-//   timerRef.current = setInterval(() => {
-//     setTimeLeft((prevTime) => {
-//       if (prevTime <= 1) {
-//         setIsOtpExpired(true);
-//         clearInterval(timerRef.current);
-        
-//         // Check if no resend attempts are left and refresh the page
-//         if (resendAttempts <= 0) {
-//           setTimeout(() => {
-//             window.location.reload(); // Refresh the entire page
-//           }, 1000); // Small delay to show the expired message
-//         }
-        
-//         return 0;
-//       }
-//       return prevTime - 1;
-//     });
-//   }, 1000);
-// };
-
-//   useEffect(() => {
-//     startOtpTimer();
-//     return () => {
-//       if (timerRef.current) {
-//         clearInterval(timerRef.current);
-//       }
-//       if (refreshTimerRef.current) {
-//         clearInterval(refreshTimerRef.current);
-//       }
-//     };
-//   }, []);
-
-//   const handleOtpChange = (index, value) => {
-//     const newOtpValues = [...otpValues];
-//     newOtpValues[index] = value;
-//     setOtpValues(newOtpValues);
-//     if (error) setError('');
-//   };
-
-//   const handleOtpSubmit = async () => {
-//     if (otp.length !== 6) {
-//       setError('Please enter all 6 digits of the OTP');
-//       return;
-//     }
-
-//     if (isOtpExpired) {
-//       setError('OTP has expired. Please request a new OTP.');
-//       return;
-//     }
-
-//     if (!isWebCryptoSupported()) {
-//       setError('Web Crypto API not supported in this browser');
-//       return;
-//     }
-
-//     setIsVerifying(true);
-//     setError('');
-
-//     try {
-//       const username = getUsername();
-//       if (!username) {
-//         throw new Error('Username not found. Please login again.');
-//       }
-
-//       if (!sessionId) {
-//         throw new Error('Session ID not found. Please login again.');
-//       }
-
-//       const headers = await getAuthHeaders();
-
-//       const requestBody = {
-//         token: API_TOKEN,
-//         username: username,
-//         mobileno: parseInt(phoneNumber?.replace(/\D/g, '') || '0'),
-//         session_id: sessionId,
-//         otp: parseInt(otp),
-//         otpsendon: new Date(otpSentTime).toISOString(),
-//         otpverifiedon: new Date().toISOString(),
-//         status: 1,
-//         updatedon: new Date().toISOString()
-//       };
-
-//       const response = await fetch(`${API_BASE_URL}/Loginotpupdate`, {
-//         method: 'POST',
-//         headers: headers,
-//         body: JSON.stringify(requestBody)
-//       });
-
-//       if (!response.ok) {
-//         throw new Error(`HTTP error! status: ${response.status}`);
-//       }
-
-//       const encryptedData = await response.json();
-//       if (!encryptedData.Data) {
-//         throw new Error('No encrypted data received from API');
-//       }
-
-//       const decryptedData = await decryptData(encryptedData.Data);
-//       const result = validateJsonData(decryptedData);
-
-//       if (result.success && result.validcheck === '1' && result.message && result.message.includes('successfully') && result.session_id) {
-//         setSuccess('OTP verified successfully! Redirecting...');
-//         setError('');
-//         Cookies.set('session_id', result.session_id, { expires: 7 });
-//         if (timerRef.current) {
-//           clearInterval(timerRef.current);
-//         }
-
-//         if (onOtpSuccess) {
-//           onOtpSuccess({
-//             user: {
-//               ...verifiedUser,
-//               username: username,
-//               mobileNo: phoneNumber
-//             },
-//             trustDevice: trustDevice,
-//             sessionId: result.session_id,
-//             apiResponse: result
-//           });
-//         }
-//       } else {
-//         setError(result.message || 'OTP verification failed. Please try again.');
-//       }
-//     } catch (error) {
-//       console.error('OTP verification error:', error);
-//       setError(error.message || 'Network error occurred. Please check your connection and try again.');
-//     } finally {
-//       setIsVerifying(false);
-//     }
-//   };
-
-// // const handleResendOtp = async () => {
-// //   if (resendAttempts <= 0) {
-// //     setError('Maximum resend attempts reached. Page will refresh when timer expires...');
-// //     return; // Remove the navigation logic, let the timer handle the refresh
-// //   }
-
-// //   try {
-// //     setError('');
-// //     setOtpValues(['', '', '', '', '', '']); // Clear OTP inputs - FIXED
-// //     setSuccess('');
-
-// //     if (!sessionId) {
-// //       throw new Error('Session ID not available. Please login again.');
-// //     }
-
-// //     await onResendOtp();
-// //     setResendAttempts((prev) => prev - 1);
-// //     startOtpTimer();
-// //     setSuccess('New verification code sent successfully!');
-// //     setTimeout(() => setSuccess(''), 3000);
-// //   } catch (error) {
-// //     setError(error.message || 'Failed to resend OTP. Please try again.');
-// //   }
-// // };
-
-
-
-// const handleResendOtp = async () => {
-//   if (resendAttempts <= 0) {
-//     setError('Maximum resend attempts reached. Page will refresh shortly...');
-//     startRefreshCountdown(); // Trigger immediate page refresh
-//     return;
-//   }
-
-//   try {
-//     setError('');
-//     setOtpValues(['', '', '', '', '', '']); // Clear OTP inputs - FIXED
-//     setSuccess('');
-
-//     if (!sessionId) {
-//       throw new Error('Session ID not available. Please login again.');
-//     }
-
-//     await onResendOtp();
-//     const newAttempts = resendAttempts - 1;
-//     setResendAttempts(newAttempts);
-    
-//     // Check if this was the last attempt
-//     if (newAttempts <= 0) {
-//       setError('This was your last resend attempt. Page will refresh shortly...');
-//       setTimeout(() => {
-//         startRefreshCountdown();
-//       }, 2000); // Give user time to read the message
-//       return;
-//     }
-    
-//     startOtpTimer();
-//     setSuccess('New verification code sent successfully!');
-//     setTimeout(() => setSuccess(''), 3000);
-//   } catch (error) {
-//     setError(error.message || 'Failed to resend OTP. Please try again.');
-//   }
-// };
-//   const getTimerChipColor = () => {
-//     if (isOtpExpired) return 'error';
-//     if (timeLeft <= 10) return 'error';
-//     if (timeLeft <= 20) return 'warning';
-//     return 'primary';
-//   };
-
-//   const formatTime = (seconds) => {
-//     const mins = Math.floor(seconds / 60);
-//     const secs = seconds % 60;
-//     return `${mins}:${secs.toString().padStart(2, '0')}`;
-//   };
-
-//   return (
-//     <Box
-//       sx={{
-//         minHeight: '50vh',
-//         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-//         display: 'flex',
-//         alignItems: 'center',
-//         justifyContent: 'center',
-//         p: 2
-//       }}
-//     >
-//       <Paper
-//         elevation={24}
-//         sx={{
-//           width: '100%',
-//           maxWidth: 500,
-//           borderRadius: 4,
-//           overflow: 'hidden',
-//           background: 'rgba(255, 255, 255, 0.95)',
-//           backdropFilter: 'blur(20px)'
-//         }}
-//       >
-//         {/* Header */}
-//         <Box
-//           sx={{
-//             background: 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)',
-//             color: 'white',
-//             p: 4,
-//             textAlign: 'center',
-//             position: 'relative'
-//           }}
-//         >
-//           <Box
-//             sx={{
-//               width: 80,
-//               height: 70,
-//               borderRadius: '50%',
-//               background: 'rgba(255, 255, 255, 0.15)',
-//               display: 'flex',
-//               alignItems: 'center',
-//               justifyContent: 'center',
-//               mx: 'auto',
-//               mb: 2,
-//               backdropFilter: 'blur(10px)'
-//             }}
-//           >
-//             <Security sx={{ fontSize: 40 }} />
-//           </Box>
-//           <Typography variant="h5" fontWeight="bold" gutterBottom>
-//             Two-Factor Authentication
-//           </Typography>
-//           <Typography variant="body2" sx={{ opacity: 0.9 }}>
-//             Enter the verification code sent to your mobile device
-//           </Typography>
-//         </Box>
-
-//         <Box sx={{ p: 4 }}>
-//           {/* User Info */}
-//           <Paper
-//             elevation={0}
-//             sx={{
-//               p: 3,
-//               mb: 3,
-//               background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
-//               borderRadius: 2
-//             }}
-//           >
-//             <Box display="flex" alignItems="center" mb={1}>
-//               <PhoneAndroid sx={{ color: '#1976d2', mr: 1 }} />
-//               <Typography variant="h6" fontWeight="600">
-//                 Welcome, {verifiedUser?.username || getUsername()}
-//               </Typography>
-//             </Box>
-//             <Typography variant="body2" color="text.secondary">
-//               Verification code sent to ••••••{phoneNumber?.slice(-4) || ''}
-//             </Typography>
-//           </Paper>
-
-//           {/* Timer */}
-//           <Box display="flex" justifyContent="center" mb={3}>
-//             <Chip
-//               icon={<Timer />}
-//               label={isOtpExpired ? 'Code Expired' : `${formatTime(timeLeft)}`}
-//               color={getTimerChipColor()}
-//               variant={isOtpExpired ? 'filled' : 'outlined'}
-//               sx={{
-//                 fontSize: '1rem',
-//                 height: 40,
-//                 '& .MuiChip-icon': {
-//                   fontSize: '1.2rem'
-//                 }
-//               }}
-//             />
-//           </Box>
-
-//           {/* Alerts */}
-//           {error && (
-//             <Alert 
-//               severity="error" 
-//               sx={{ mb: 3, borderRadius: 2 }}
-//               icon={<Error />}
-//             >
-//               {error}
-//             </Alert>
-//           )}
-
-//           {success && (
-//             <Alert 
-//               severity="success" 
-//               sx={{ mb: 3, borderRadius: 2 }}
-//               icon={<CheckCircle />}
-//             >
-//               {success}
-//             </Alert>
-//           )}
-
-//           {showRefreshCountdown && (
-//             <Alert 
-//               severity="info" 
-//               sx={{ mb: 3, borderRadius: 2 }}
-//               icon={<Refresh />}
-//             >
-//               Page will refresh in {refreshCountdown} seconds...
-//             </Alert>
-//           )}
-
-//           {/* OTP Input */}
-//           <Box sx={{ mb: 4 }}>
-//             <Typography 
-//               variant="body1" 
-//               fontWeight="600" 
-//               gutterBottom
-//               sx={{ display: 'flex', alignItems: 'center', mb: 2 }}
-//             >
-//               <Lock sx={{ mr: 1, color: 'text.secondary' }} />
-//               Enter 6-Digit Code
-//             </Typography>
-            
-//             <Stack direction="row" spacing={1} justifyContent="center">
-//               {otpValues.map((value, index) => (
-//                 <OtpInput
-//                   key={index}
-//                   value={value}
-//                   onChange={(val) => handleOtpChange(index, val)}
-//                   disabled={isOtpExpired || isVerifying}
-//                   autoFocus={index === 0}
-//                 />
-//               ))}
-//             </Stack>
-//           </Box>
-
-//           {/* Trust Device */}
-//           <Paper
-//             elevation={0}
-//             sx={{
-//               p: 2.5,
-//               mb: 4,
-//               backgroundColor: '#f8f9fa',
-//               borderRadius: 2,
-//               border: '1px solid #e9ecef'
-//             }}
-//           >
-//             <FormControlLabel
-//               control={
-//                 <Checkbox
-//                   checked={trustDevice}
-//                   onChange={(e) => setTrustDevice(e.target.checked)}
-//                   sx={{ color: '#1976d2' }}
-//                 />
-//               }
-//               label={
-//                 <Box>
-//                   <Box display="flex" alignItems="center" mb={0.5}>
-//                     <Shield sx={{ mr: 1, color: '#1976d2', fontSize: 20 }} />
-//                     <Typography variant="body1" fontWeight="500">
-//                       Trust this device for {trustDurationDays} days
-//                     </Typography>
-//                   </Box>
-//                   <Typography variant="caption" color="text.secondary">
-//                     Skip verification on this device. Only use on personal devices.
-//                   </Typography>
-//                 </Box>
-//               }
-//             />
-//           </Paper>
-
-//           {/* Action Buttons */}
-//           <Stack spacing={2}>
-//             <Button
-//               variant="contained"
-//               size="large"
-//               onClick={handleOtpSubmit}
-//               disabled={otp.length !== 6 || isVerifying || isOtpExpired}
-//               startIcon={isVerifying ? <CircularProgress size={20} /> : <CheckCircle />}
-//               sx={{
-//                 py: 2,
-//                 borderRadius: 2,
-//                 background: 'linear-gradient(135deg, #1976d2 0%, #1565c0 100%)',
-//                 fontSize: '1rem',
-//                 fontWeight: 'bold',
-//                 textTransform: 'none',
-//                 boxShadow: '0 8px 24px rgba(25, 118, 210, 0.3)',
-//                 '&:hover': {
-//                   background: 'linear-gradient(135deg, #1565c0 0%, #0d47a1 100%)',
-//                   boxShadow: '0 12px 32px rgba(25, 118, 210, 0.4)',
-//                 },
-//                 '&:disabled': {
-//                   background: '#bdbdbd',
-//                   boxShadow: 'none'
-//                 }
-//               }}
-//             >
-//               {isVerifying ? 'Verifying...' : 'Verify Code'}
-//             </Button>
-
-//             <Button
-//               variant="outlined"
-//               size="large"
-//               onClick={handleResendOtp}
-//               disabled={otpLoading || isVerifying || (!isOtpExpired && timeLeft > 0) || resendAttempts <= 0 || showRefreshCountdown}
-//               startIcon={otpLoading ? <CircularProgress size={20} /> : <Refresh />}
-//               sx={{
-//                 py: 2,
-//                 borderRadius: 2,
-//                 borderWidth: 2,
-//                 fontSize: '1rem',
-//                 fontWeight: 'bold',
-//                 textTransform: 'none',
-//                 '&:hover': {
-//                   borderWidth: 2,
-//                 }
-//               }}
-//             >
-//               {otpLoading ? 'Sending...' : `Resend Code (${resendAttempts} left)`}
-//             </Button>
-//           </Stack>
-
-//           {/* Footer */}
-//           <Box sx={{ mt: 4, textAlign: 'center' }}>
-//             <Typography variant="caption" color="text.secondary" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-//               <Lock sx={{ fontSize: 16, mr: 0.5 }} />
-//               Your session is secured with end-to-end encryption
-//             </Typography>
-//           </Box>
-//         </Box>
-//       </Paper>
-//     </Box>
-//   );
-// };
-
-// export default OtpVerification;
-
-
-
 /**
- * @fileoverview Simplified OTP Verification component
- * @module src/components/authentication/OtpVerification
+ * @file OTPVerification.js
+ * @description
+ * Main page for displaying office order modules as cards with counts.
+ * Updated: Fixed layout to handle dynamic table width and sidebar resizing.
+ * @module src/views/authentication/auth/OTPVerification
  * @author Rakshana
  * @date 22/07/2025
- * @since 2.0.0
+ * @since 1.0.0
+ * @modifiedby Rovita
+ * @modifiedon 26-11-2025
  */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -1388,16 +21,41 @@ import {
   CircularProgress,
   Typography,
   Paper,
-  Stack
+  Stack,
+  Checkbox,
+  FormControlLabel,
+  Divider,
+  Chip,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  IconButton,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemSecondaryAction
 } from '@mui/material';
-import { Security, Timer } from '@mui/icons-material';
+import { 
+  Security, 
+  Timer, 
+  DevicesOther, 
+  VerifiedUser, 
+  ExpandMore,
+  Delete 
+} from '@mui/icons-material';
 import Cookies from 'js-cookie';
+import { isWebCryptoSupported } from 'src/components/Decryption/Decrypt';
 import {
   decryptData,
-  validateJsonData,
-  isWebCryptoSupported,
-} from 'src/components/Decryption/Decrypt';
+  encryptPayloadForGo,
+} from 'src/components/Encryption/EncryptionKey';
 
+const TRUST_DURATION_DAYS = 30;
+
+/**
+ * Gets authentication headers with encrypted token
+ * @returns {Object} Headers object with authorization token
+ */
 const getAuthHeaders = async () => {
   const encryptedToken = Cookies.get('HRToken');
   return {
@@ -1406,60 +64,128 @@ const getAuthHeaders = async () => {
   };
 };
 
-// Simplified OTP Input Component
-const OtpInput = ({ value, onChange, disabled, autoFocus }) => {
-  const inputRef = useRef(null);
+/**
+ * Generates a unique device fingerprint based on browser and device characteristics
+ * @returns {string} A unique device fingerprint hash
+ */
+const generateDeviceFingerprint = () => {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  ctx.textBaseline = 'top';
+  ctx.font = '14px Arial';
+  ctx.fillText('Device fingerprint', 2, 2);
+  const fingerprint = [
+    navigator.userAgent,
+    navigator.language,
+    screen.width + 'x' + screen.height,
+    new Date().getTimezoneOffset(),
+    canvas.toDataURL(),
+    navigator.hardwareConcurrency || 'unknown',
+    navigator.deviceMemory || 'unknown'
+  ].join('|');
+  let hash = 0;
+  for (let i = 0; i < fingerprint.length; i++) {
+    const char = fingerprint.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
+  }
+  return Math.abs(hash).toString(16);
+};
 
-  useEffect(() => {
-    if (autoFocus && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [autoFocus]);
+/**
+ * Gets readable device information as a formatted string
+ * @returns {string} A string describing the device, browser, and OS
+ */
+const getDeviceInfo = () => {
+  const ua = navigator.userAgent;
+  let deviceType = 'Unknown Device';
+  let browser = 'Unknown Browser';
+  if (/Mobile|Android|iPhone|iPad/.test(ua)) {
+    if (/iPhone/.test(ua)) deviceType = 'iPhone';
+    else if (/iPad/.test(ua)) deviceType = 'iPad';
+    else if (/Android/.test(ua)) deviceType = 'Android Device';
+    else deviceType = 'Mobile Device';
+  } else {
+    deviceType = 'Desktop';
+  }
+  if (/Chrome/.test(ua)) browser = 'Chrome';
+  else if (/Firefox/.test(ua)) browser = 'Firefox';
+  else if (/Safari/.test(ua)) browser = 'Safari';
+  else if (/Edge/.test(ua)) browser = 'Edge';
 
+  return `${deviceType} - ${browser}`;
+};
+
+/**
+ * Individual OTP input component
+ */
+const OtpInput = forwardRef(({ value, onChange, disabled, index, onKeyDown, onPaste }, ref) => {
   const handleChange = (e) => {
-    const val = e.target.value.replace(/\D/g, '');
-    onChange(val);
-    
-    if (val && e.target.nextElementSibling) {
-      e.target.nextElementSibling.focus();
-    }
+    const val = e.target.value.replace(/\D/g, '').slice(0, 1);
+    onChange(index, val);
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Backspace' && !value && e.target.previousElementSibling) {
-      e.target.previousElementSibling.focus();
-    }
+    onKeyDown(e, index);
+  };
+
+  const handlePaste = (e) => {
+    onPaste(e, index);
   };
 
   return (
     <TextField
-      ref={inputRef}
+      inputRef={ref}
       value={value}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
+      onPaste={handlePaste}
       disabled={disabled}
       inputProps={{
         maxLength: 1,
-        style: { textAlign: 'center', fontSize: '1.5rem', fontWeight: '500' }
+        style: {
+          textAlign: 'center',
+          fontSize: '1.5rem',
+          fontWeight: '500',
+          padding: '12px 0'
+        },
+        autoComplete: 'one-time-code'
       }}
       sx={{
         width: '50px',
         '& .MuiOutlinedInput-root': {
           borderRadius: '8px',
-          '&:hover fieldset': { borderColor: disabled ? '#e0e0e0' : '#1976d2' },
-          '&.Mui-focused fieldset': { borderColor: '#1976d2' }
+          transition: 'all 0.2s ease-in-out',
+          '&:hover fieldset': {
+            borderColor: disabled ? '#e0e0e0' : '#1976d2',
+            borderWidth: '2px'
+          },
+          '&.Mui-focused fieldset': {
+            borderColor: '#1976d2',
+            borderWidth: '2px',
+            boxShadow: '0 0 0 3px rgba(25, 118, 210, 0.12)'
+          },
+          '& fieldset': {
+            transition: 'all 0.2s ease-in-out'
+          }
+        },
+        '& .MuiInputBase-input': {
+          transition: 'all 0.2s ease-in-out'
         }
       }}
     />
   );
-};
+});
 
+/**
+ * Main OTP Verification Component
+ * Handles OTP verification, trusted devices, and device management
+ */
 const OtpVerification = ({
   verifiedUser,
   onOtpSuccess,
   onResendOtp,
   phoneNumber,
-  generatedOtp,
   otpLoading = false,
   sessionId
 }) => {
@@ -1471,12 +197,24 @@ const OtpVerification = ({
   const [isOtpExpired, setIsOtpExpired] = useState(false);
   const [otpSentTime, setOtpSentTime] = useState(Date.now());
   const [resendAttempts, setResendAttempts] = useState(3);
+  const [trustThisDevice, setTrustThisDevice] = useState(false);
+  const [trustedDevices, setTrustedDevices] = useState([]);
+  const [isCurrentDeviceTrusted, setIsCurrentDeviceTrusted] = useState(false);
+  const [isSkippingOtp, setIsSkippingOtp] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
+  const [isCheckingTrustedDevice, setIsCheckingTrustedDevice] = useState(true);
+
   const timerRef = useRef(null);
+  const inputRefs = useRef([]);
+  inputRefs.current = otpValues.map((_, i) => inputRefs.current[i] ?? React.createRef());
+
   const navigate = useNavigate();
-  
-  const API_BASE_URL = 'https://wftest1.iitm.ac.in:5000';
   const API_TOKEN = 'HRFGVJISOVp1fncC';
 
+  /**
+   * Retrieves username from sessionStorage, localStorage, or cookies
+   * @returns {string} The username
+   */
   const getUsername = () => {
     const username = sessionStorage.getItem('username') ||
                     localStorage.getItem('username') ||
@@ -1484,8 +222,174 @@ const OtpVerification = ({
     return username || '';
   };
 
+  /**
+   * Checks if the current device is trusted for the given username
+   * @param {string} username - The username to check trusted devices for
+   * @returns {boolean} True if the device is trusted, false otherwise
+   */
+  const checkTrustedDevice = (username) => {
+    if (!username) return false;
+    
+    const deviceFingerprint = generateDeviceFingerprint();
+    const trustedDevicesData = localStorage.getItem(`trusted_devices_${username}`);
+
+    if (trustedDevicesData) {
+      try {
+        let devices = JSON.parse(trustedDevicesData);
+        const currentTime = new Date().getTime();
+        
+        // Filter out expired devices
+        const validDevices = devices.filter(device => currentTime < device.expiresAt);
+        
+        // Update storage with valid devices only
+        if (validDevices.length !== devices.length) {
+          localStorage.setItem(`trusted_devices_${username}`, JSON.stringify(validDevices));
+        }
+        
+        setTrustedDevices(validDevices);
+        
+        // Check if current device is trusted
+        const isTrusted = validDevices.some(device => device.fingerprint === deviceFingerprint);
+        return isTrusted;
+      } catch (error) {
+        return false;
+      }
+    }
+    
+    return false;
+  };
+
+  /**
+   * Adds the current device to the trusted devices list for the given username
+   * @param {string} username - The username to add the trusted device for
+   */
+  const addTrustedDevice = (username) => {
+    if (!username) return;
+
+    const deviceFingerprint = generateDeviceFingerprint();
+    const deviceInfo = getDeviceInfo();
+    const currentTime = new Date().getTime();
+    const expiresAt = currentTime + (TRUST_DURATION_DAYS * 24 * 60 * 60 * 1000);
+
+    const existingDevices = JSON.parse(
+      localStorage.getItem(`trusted_devices_${username}`) || '[]'
+    );
+
+    // Remove existing entry for this device if any
+    const filteredDevices = existingDevices.filter(
+      device => device.fingerprint !== deviceFingerprint
+    );
+
+    const newDevice = {
+      fingerprint: deviceFingerprint,
+      deviceInfo,
+      trustedAt: currentTime,
+      expiresAt,
+      location: 'Current Location'
+    };
+
+    const updatedDevices = [...filteredDevices, newDevice];
+    localStorage.setItem(`trusted_devices_${username}`, JSON.stringify(updatedDevices));
+    setTrustedDevices(updatedDevices);
+    setIsCurrentDeviceTrusted(true);
+  };
+
+  /**
+   * Removes a trusted device from the list for the given username
+   * @param {string} username - The username to remove the trusted device for
+   * @param {string} fingerprint - The fingerprint of the device to remove
+   */
+  const removeTrustedDevice = (username, fingerprint) => {
+    let existingDevices = JSON.parse(localStorage.getItem(`trusted_devices_${username}`) || '[]');
+    const updatedDevices = existingDevices.filter(device =>
+      device.fingerprint !== fingerprint
+    );
+    localStorage.setItem(`trusted_devices_${username}`, JSON.stringify(updatedDevices));
+    setTrustedDevices(updatedDevices);
+    setIsCurrentDeviceTrusted(checkTrustedDevice(username));
+    setSuccess('Device removed successfully.');
+    setTimeout(() => setSuccess(''), 3000);
+  };
+
+  /**
+   * Skip OTP verification for trusted devices
+   * @returns {boolean} True if skip was successful, false otherwise
+   */
+  const skipOtpForTrustedDevice = async () => {
+    const username = getUsername();
+    if (!username || !sessionId) {
+      setIsSkippingOtp(false);
+      setIsCheckingTrustedDevice(false);
+      return false;
+    }
+
+    try {
+      setIsSkippingOtp(true);
+      setSuccess('Trusted device detected. Skipping OTP verification...');
+
+      // Simulate successful verification for trusted device
+      const mockSuccessResponse = {
+        success: true,
+        message: 'OTP verification skipped - Trusted device',
+        session_id: sessionId,
+        Status: 200,
+        validcheck: '1'
+      };
+
+      // Set session cookies
+      Cookies.set('session_id', sessionId, { expires: 7 });
+      if (!Cookies.get('username')) {
+        Cookies.set('username', username, { expires: 7 });
+      }
+
+      // Clear timer
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+
+      const userData = {
+        ...verifiedUser,
+        username: username,
+        mobileNo: phoneNumber,
+      };
+
+      // Call success callback
+      if (onOtpSuccess) {
+        onOtpSuccess({
+          user: userData,
+          sessionId: sessionId,
+          apiResponse: mockSuccessResponse,
+          deviceTrusted: true,
+          skippedOtp: true,
+        });
+      } else {
+        navigate('/dashboard');
+      }
+
+      return true;
+    } catch (error) {
+      setError('Failed to skip OTP. Please enter verification code.');
+      setIsSkippingOtp(false);
+      setIsCheckingTrustedDevice(false);
+      return false;
+    }
+  };
+
   const otp = otpValues.join('');
 
+  /**
+   * Focuses on a specific OTP input field
+   * @param {number} index - The index of the input to focus
+   */
+  const focusInput = (index) => {
+    if (index >= 0 && index < 6 && inputRefs.current[index]?.current) {
+      inputRefs.current[index].current.focus();
+    }
+  };
+  
+  /**
+   * Starts the OTP countdown timer
+   */
   const startOtpTimer = () => {
     setTimeLeft(45);
     setIsOtpExpired(false);
@@ -1501,7 +405,7 @@ const OtpVerification = ({
           setIsOtpExpired(true);
           clearInterval(timerRef.current);
           if (resendAttempts <= 0) {
-            setTimeout(() => window.location.reload(), 1000);
+            setTimeout(() => window.location.reload(), 2000);
           }
           return 0;
         }
@@ -1510,23 +414,188 @@ const OtpVerification = ({
     }, 1000);
   };
 
+  /**
+   * Force refresh the page to clear all cached encryption data
+   */
+  const forcePageRefresh = () => {
+    sessionStorage.clear();
+    window.location.reload();
+  };
+
+  // Initialize component and check trusted device status
   useEffect(() => {
-    startOtpTimer();
+    const initializeComponent = async () => {
+      const username = getUsername();
+      
+      if (username && sessionId) {
+        // Check if device is trusted
+        const isTrusted = checkTrustedDevice(username);
+        setIsCurrentDeviceTrusted(isTrusted);
+
+        // Auto-skip OTP for trusted devices
+        if (isTrusted) {
+          await skipOtpForTrustedDevice();
+        } else {
+          // Only start timer if device is not trusted
+          startOtpTimer();
+          setTimeout(() => focusInput(0), 100);
+        }
+      } else {
+        // Start timer if no username/sessionId
+        startOtpTimer();
+        setTimeout(() => focusInput(0), 100);
+      }
+      
+      setIsInitialized(true);
+      setIsCheckingTrustedDevice(false);
+    };
+
+    const timeoutId = setTimeout(() => {
+      initializeComponent();
+    }, 100);
+
     return () => {
       if (timerRef.current) {
         clearInterval(timerRef.current);
       }
+      clearTimeout(timeoutId);
     };
-  }, []);
+  }, [sessionId]);
 
+  // Auto-submit OTP only for non-trusted devices
+  useEffect(() => {
+    if (otp.length === 6 && !isVerifying && !isOtpExpired && !isCurrentDeviceTrusted && isInitialized) {
+      handleOtpSubmit();
+    }
+  }, [otp, isInitialized]);
+
+  /**
+   * Handles OTP input changes and manages focus
+   * @param {number} index - The index of the changed input
+   * @param {string} value - The new value
+   */
   const handleOtpChange = (index, value) => {
     const newOtpValues = [...otpValues];
     newOtpValues[index] = value;
     setOtpValues(newOtpValues);
+    
     if (error) setError('');
+    if (success) setSuccess('');
+    if (value && index < 5) {
+      setTimeout(() => focusInput(index + 1), 10);
+    }
   };
 
+  /**
+   * Handles keyboard events for OTP inputs
+   * @param {Object} e - Keyboard event
+   * @param {number} index - The index of the input
+   */
+  const handleKeyDown = (e, index) => {
+    switch (e.key) {
+      case 'Backspace':
+        e.preventDefault();
+        const newValues = [...otpValues];
+        
+        if (otpValues[index]) {
+          newValues[index] = '';
+          setOtpValues(newValues);
+        } else if (index > 0) {
+          newValues[index - 1] = '';
+          setOtpValues(newValues);
+          focusInput(index - 1);
+        }
+        break;
+
+      case 'Delete':
+        e.preventDefault();
+        const deleteValues = [...otpValues];
+        deleteValues[index] = '';
+        setOtpValues(deleteValues);
+        break;
+
+      case 'ArrowLeft':
+        e.preventDefault();
+        focusInput(Math.max(0, index - 1));
+        break;
+
+      case 'ArrowRight':
+        e.preventDefault();
+        focusInput(Math.min(5, index + 1));
+        break;
+
+      case 'Home':
+        e.preventDefault();
+        focusInput(0);
+        break;
+
+      case 'End':
+        e.preventDefault();
+        focusInput(5);
+        break;
+
+      case 'Enter':
+        if (otp.length === 6) {
+          handleOtpSubmit();
+        }
+        break;
+
+      case '0': case '1': case '2': case '3': case '4':
+      case '5': case '6': case '7': case '8': case '9':
+        e.preventDefault();
+        handleOtpChange(index, e.key);
+        break;
+
+      default:
+        if (!/^\d$/.test(e.key) && !['Tab', 'Shift'].includes(e.key)) {
+          e.preventDefault();
+        }
+        break;
+    }
+  };
+
+  /**
+   * Handles paste events for OTP inputs
+   * @param {Object} e - Paste event
+   * @param {number} index - The index where paste occurred
+   */
+  const handlePaste = (e, index) => {
+    e.preventDefault();
+    const pastedData = e.clipboardData.getData('text').replace(/\D/g, '');
+    
+    if (pastedData.length > 0) {
+      const newOtpValues = [...otpValues];
+      const availableSlots = 6 - index;
+      const digitsToPaste = pastedData.slice(0, availableSlots);
+      
+      for (let i = 0; i < digitsToPaste.length; i++) {
+        if (index + i < 6) {
+          newOtpValues[index + i] = digitsToPaste[i];
+        }
+      }
+      
+      setOtpValues(newOtpValues);
+      
+      const nextFocusIndex = Math.min(index + digitsToPaste.length, 5);
+      setTimeout(() => focusInput(nextFocusIndex), 10);
+    }
+  };
+
+  /**
+   * Clears all OTP input fields
+   */
+  const clearOtpInputs = () => {
+    setOtpValues(['', '', '', '', '', '']);
+    setTimeout(() => focusInput(0), 100);
+  };
+
+  /**
+   * Submits OTP for verification
+   */
   const handleOtpSubmit = async () => {
+    // Don't proceed if device is trusted or not initialized
+    if (isCurrentDeviceTrusted || !isInitialized) return;
+
     if (otp.length !== 6) {
       setError('Please enter all 6 digits');
       return;
@@ -1537,8 +606,9 @@ const OtpVerification = ({
       return;
     }
 
-    if (!isWebCryptoSupported()) {
-      setError('Web Crypto API not supported');
+    // Additional validation
+    if (!sessionId) {
+      setError('Session expired. Please try again.');
       return;
     }
 
@@ -1560,7 +630,7 @@ const OtpVerification = ({
         token: API_TOKEN,
         username: username,
         mobileno: parseInt(phoneNumber?.replace(/\D/g, '') || '0'),
-        session_id: sessionId,
+        P_id: sessionId,
         otp: parseInt(otp),
         otpsendon: new Date(otpSentTime).toISOString(),
         otpverifiedon: new Date().toISOString(),
@@ -1568,65 +638,125 @@ const OtpVerification = ({
         updatedon: new Date().toISOString()
       };
 
-      const response = await fetch(`${API_BASE_URL}/Loginotpupdate`, {
+      // Check Web Crypto support before encryption
+      if (!isWebCryptoSupported()) {
+        throw new Error('Browser security features not supported. Please update your browser.');
+      }
+
+      const encryptedPayload = await encryptPayloadForGo(requestBody);
+      
+      const response = await fetch(`https://wftest1.iitm.ac.in:7007/Loginotpupdate`, {
         method: 'POST',
         headers: headers,
-        body: JSON.stringify(requestBody)
+        body: JSON.stringify({ Data: encryptedPayload }),
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const errorText = await response.text();
+        throw new Error(`Verification failed. Please try again.`);
       }
 
-      const encryptedData = await response.json();
-      if (!encryptedData.Data) {
-        throw new Error('No data received from server');
+      const responseData = await response.json();
+      
+      if (!responseData.Data) {
+        throw new Error('No response data received from server');
       }
 
-      const decryptedData = await decryptData(encryptedData.Data);
-      const result = validateJsonData(decryptedData);
+      // Decrypt the response
+      const decryptedData = await decryptData(responseData.Data);
+      let result = typeof decryptedData === 'string' ? JSON.parse(decryptedData) : decryptedData;
 
-      if (result.success && result.validcheck === '1' && result.message?.includes('successfully') && result.session_id) {
+      // Check for success
+      const isSuccess = 
+        result.success === true ||
+        result.success === 'true' ||
+        result.Status === 200 ||
+        result.validcheck === '1' ||
+        result.validcheck === 1;
+
+      if (isSuccess) {
+        const finalSessionId = result.session_id || result.P_id || sessionId;
+
         setSuccess('OTP verified successfully!');
-        setError('');
-        Cookies.set('session_id', result.session_id, { expires: 7 });
+        setResendAttempts(3);
         
+        // Set session cookies
+        Cookies.set('session_id', finalSessionId, { expires: 7 });
+        if (!Cookies.get('username')) {
+          Cookies.set('username', username, { expires: 7 });
+        }
+
+        // Add to trusted devices if checkbox is checked
+        if (trustThisDevice && !isCurrentDeviceTrusted) {
+          addTrustedDevice(username);
+          setSuccess('OTP verified successfully! Device trusted for 30 days.');
+        }
+
+        // Clear timer
         if (timerRef.current) {
           clearInterval(timerRef.current);
         }
 
+        const userData = {
+          ...verifiedUser,
+          username: username,
+          mobileNo: phoneNumber,
+        };
+
+        // Call success callback
         if (onOtpSuccess) {
           onOtpSuccess({
-            user: {
-              ...verifiedUser,
-              username: username,
-              mobileNo: phoneNumber
-            },
-            sessionId: result.session_id,
-            apiResponse: result
+            user: userData,
+            sessionId: finalSessionId,
+            apiResponse: result,
+            deviceTrusted: trustThisDevice || isCurrentDeviceTrusted,
+            skippedOtp: false,
           });
         }
       } else {
-        setError(result.message || 'OTP verification failed. Please try again.');
+        const errorMessage = result.message || 'Invalid OTP. Please try again.';
+        setError(errorMessage);
+        clearOtpInputs();
       }
     } catch (error) {
-      console.error('OTP verification error:', error);
-      setError(error.message || 'Network error. Please try again.');
+      // Enhanced error handling with automatic refresh for encryption issues
+      if (error.message.includes('Decryption failed') || 
+          error.message.includes('session') ||
+          error.message.includes('encryption') ||
+          error.message.includes('decryption')) {
+        
+        setError('Session conflict detected. Refreshing page...');
+        
+        // Auto-refresh after short delay
+        setTimeout(() => {
+          forcePageRefresh();
+        }, 2000);
+        
+      } else if (error.message.includes('Network') || error.message.includes('fetch')) {
+        setError('Network error. Please check your connection and try again.');
+      } else {
+        setError(error.message || 'OTP verification failed. Please try again.');
+      }
+      
+      clearOtpInputs();
     } finally {
       setIsVerifying(false);
     }
   };
 
+  /**
+   * Handles OTP resend functionality
+   */
   const handleResendOtp = async () => {
     if (resendAttempts <= 0) {
-      setError('Maximum resend attempts reached. Page will refresh shortly...');
+      setError('Maximum resend attempts reached. Refreshing page...');
       setTimeout(() => window.location.reload(), 3000);
       return;
     }
 
     try {
       setError('');
-      setOtpValues(['', '', '', '', '', '']);
+      clearOtpInputs();
       setSuccess('');
 
       if (!sessionId) {
@@ -1651,11 +781,63 @@ const OtpVerification = ({
     }
   };
 
+  /**
+   * Formats seconds into MM:SS format
+   * @param {number} seconds - Time in seconds
+   * @returns {string} Formatted time string
+   */
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
+
+  /**
+   * Formats timestamp into localized date string
+   * @param {number} timestamp - Unix timestamp
+   * @returns {string} Formatted date string
+   */
+  const formatDate = (timestamp) => new Date(timestamp).toLocaleDateString();
+
+  // Show loading page when checking trusted device status
+  if (isCheckingTrustedDevice || isSkippingOtp) {
+    return (
+      <Box
+        sx={{
+          backgroundColor: 'rgb(255, 255, 255)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          p: 2,
+          height: '100vh',
+        }}
+      >
+        <Paper
+          elevation={3}
+          sx={{
+            width: 400,
+            height: 200,
+            borderRadius: 3,
+            p: 4,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <CircularProgress size={40} sx={{ mb: 2 }} />
+          <Typography variant="h6" gutterBottom>
+            {isSkippingOtp ? 'Trusted Device Detected' : 'Checking Device Security...'}
+          </Typography>
+          <Typography variant="body2" color="text.secondary" textAlign="center">
+            {isSkippingOtp 
+              ? 'Skipping OTP verification for trusted device' 
+              : 'Verifying your device security status'}
+          </Typography>
+        </Paper>
+      </Box>
+    );
+  }
 
   return (
     <Box
@@ -1667,138 +849,332 @@ const OtpVerification = ({
         p: 2
       }}
     >
-<Paper
-  elevation={3}
-  sx={{
-    width: 380,
-    minHeight: 440,
-    borderRadius: 3,
-    p: 4,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-between'
-  }}
->
-  {/* Header */}
-  <Box sx={{ textAlign: 'center' }}>
-    <Box
-      sx={{
-        width: 56,
-        height: 56,
-        borderRadius: '50%',
-        backgroundColor: '#e3f2fd',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        mx: 'auto',
-        mb: 2
-      }}
-    >
-      <Security sx={{ fontSize: 28, color: '#1976d2' }} />
-    </Box>
-    <Typography variant="h6" fontWeight="600">
-      Verify OTP
-    </Typography>
-    <Typography variant="body2" color="text.secondary">
-      Code sent to ••••••{phoneNumber?.slice(-4) || ''}
-    </Typography>
-  </Box>
+      <Paper
+        elevation={3}
+        sx={{
+          width: 400,
+          minHeight: 520,
+          borderRadius: 3,
+          p: 4,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'space-between'
+        }}
+      >
+        {/* Header Section */}
+        <Box sx={{ textAlign: 'center' }}>
+          <Box
+            sx={{
+              width: 64,
+              height: 64,
+              borderRadius: '50%',
+              backgroundColor: '#e3f2fd',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              mx: 'auto',
+              mb: 2,
+              transition: 'all 0.3s ease'
+            }}
+          >
+            <Security sx={{ fontSize: 32, color: '#1976d2' }} />
+          </Box>
+          <Typography variant="h5" fontWeight="600" gutterBottom>
+            Verify OTP
+          </Typography>
+          <Typography variant="body1" color="text.secondary" sx={{ mb: 1 }}>
+            Code sent to ••••••{phoneNumber?.slice(-4) || ''}
+          </Typography>
+          <Typography variant="caption" color="text.secondary">
+            Enter the 6-digit code or paste it from your messages
+          </Typography>
 
-  {/* Timer */}
-  <Box display="flex" alignItems="center" justifyContent="center" mt={3} mb={1}>
-    <Timer
-      sx={{ mr: 1, color: timeLeft <= 10 ? '#f44336' : '#1976d2', fontSize: 20 }}
-    />
-    <Typography
-      variant="body2"
-      color={timeLeft <= 10 ? 'error' : 'primary'}
-      fontWeight="500"
-    >
-      {isOtpExpired ? 'Code Expired' : formatTime(timeLeft)}
-    </Typography>
-  </Box>
+          {/* Device Status Indicator */}
+          {isCurrentDeviceTrusted && trustedDevices.length > 0 && (
+            <Box sx={{ mt: 2 }}>
+              <Chip
+                icon={<VerifiedUser />}
+                label={`Trusted Device (${trustedDevices.length})`}
+                color="success"
+                variant="outlined"
+                size="small"
+                sx={{
+                  fontWeight: 500,
+                  animation: 'pulse 2s ease-in-out',
+                  '@keyframes pulse': {
+                    '0%, 100%': { opacity: 1 },
+                    '50%': { opacity: 0.7 }
+                  }
+                }}
+              />
+            </Box>
+          )}
+        </Box>
 
-  {/* Alerts */}
-  <Box sx={{ width: '100%', mb: 2 }}>
-    {error && (
-      <Alert severity="error" sx={{ borderRadius: 2, mb: 2 }}>
-        {error}
-      </Alert>
-    )}
-    {success && (
-      <Alert severity="success" sx={{ borderRadius: 2 }}>
-        {success}
-      </Alert>
-    )}
-  </Box>
+        {/* Timer Display */}
+        <Box display="flex" alignItems="center" justifyContent="center" mt={3} mb={2}>
+          <Timer
+            sx={{ 
+              mr: 1, 
+              color: timeLeft <= 10 ? '#f44336' : '#1976d2', 
+              fontSize: 22,
+              animation: timeLeft <= 10 ? 'pulse 1s infinite' : 'none',
+              '@keyframes pulse': {
+                '0%': { opacity: 1 },
+                '50%': { opacity: 0.5 },
+                '100%': { opacity: 1 }
+              }
+            }}
+          />
+          <Typography
+            variant="body1"
+            color={timeLeft <= 10 ? 'error' : 'primary'}
+            fontWeight="600"
+            sx={{ fontSize: '1.1rem' }}
+          >
+            {isOtpExpired ? 'Code Expired' : formatTime(timeLeft)}
+          </Typography>
+        </Box>
 
-  {/* OTP Input */}
-  <Box sx={{ width: '100%', mb: 3 }}>
-    <Typography variant="body1" fontWeight="500" gutterBottom textAlign="center">
-      Enter Code
-    </Typography>
+        {/* Alert Messages */}
+        <Box sx={{ width: '100%', mb: 2, minHeight: '60px' }}>
+          {error && (
+            <Alert 
+              severity="error" 
+              sx={{ 
+                borderRadius: 2, 
+                mb: 1,
+                animation: 'slideIn 0.3s ease-out',
+                '@keyframes slideIn': {
+                  '0%': { opacity: 0, transform: 'translateY(-10px)' },
+                  '100%': { opacity: 1, transform: 'translateY(0)' }
+                }
+              }}
+            >
+              {error}
+            </Alert>
+          )}
+          {success && (
+            <Alert 
+              severity="success" 
+              sx={{ 
+                borderRadius: 2,
+                animation: 'slideIn 0.3s ease-out'
+              }}
+            >
+              {success}
+            </Alert>
+          )}
+        </Box>
 
-    <Stack
-      direction="row"
-      spacing={1.5}
-      justifyContent="center"
-      alignItems="center"
-    >
-      {otpValues.map((value, index) => (
-        <OtpInput
-          key={index}
-          value={value}
-          onChange={(val) => handleOtpChange(index, val)}
-          disabled={isOtpExpired || isVerifying}
-          autoFocus={index === 0}
-        />
-      ))}
-    </Stack>
-  </Box>
+        {/* OTP Input Section */}
+        <Box sx={{ width: '100%', mb: 3 }}>
+          <Typography variant="body1" fontWeight="600" gutterBottom textAlign="center" sx={{ mb: 3 }}>
+            Enter Verification Code
+          </Typography>
 
-  {/* Buttons */}
-  <Stack spacing={2} sx={{ width: '100%' }}>
-    <Button
-      variant="contained"
-      size="large"
-      onClick={handleOtpSubmit}
-      disabled={otp.length !== 6 || isVerifying || isOtpExpired}
-      sx={{
-        py: 1.5,
-        borderRadius: 2,
-        textTransform: 'none',
-        fontWeight: '600'
-      }}
-    >
-      {isVerifying ? (
-        <CircularProgress size={20} sx={{ mr: 1 }} />
-      ) : null}
-      {isVerifying ? 'Verifying...' : 'Verify Code'}
-    </Button>
+          <Stack
+            direction="row"
+            spacing={2}
+            justifyContent="center"
+            alignItems="center"
+            sx={{ mb: 2 }}
+          >
+            {otpValues.map((value, index) => (
+              <OtpInput
+                key={index}
+                ref={inputRefs.current[index]}
+                value={value}
+                onChange={handleOtpChange}
+                onKeyDown={handleKeyDown}
+                onPaste={handlePaste}
+                disabled={isOtpExpired || isVerifying}
+                index={index}
+              />
+            ))}
+          </Stack>
 
-    <Button
-      variant="outlined"
-      size="large"
-      onClick={handleResendOtp}
-      disabled={
-        otpLoading || isVerifying || (!isOtpExpired && timeLeft > 0) || resendAttempts <= 0
-      }
-      sx={{
-        py: 1.5,
-        borderRadius: 2,
-        textTransform: 'none',
-        fontWeight: '600'
-      }}
-    >
-      {otpLoading ? (
-        <CircularProgress size={20} sx={{ mr: 1 }} />
-      ) : null}
-      {otpLoading ? 'Sending...' : `Resend Code (${resendAttempts} left)`}
-    </Button>
-  </Stack>
-</Paper>
+          <Typography 
+            variant="caption" 
+            color="text.secondary" 
+            textAlign="center" 
+            display="block"
+            sx={{ mt: 2 }}
+          >
+            {otp.length}/6 digits entered
+            {otp.length === 6 && ' • Auto-verifying...'}
+          </Typography>
 
+          {/* Trust Device Option */}
+          {!isCurrentDeviceTrusted && (
+            <>
+              <Divider sx={{ my: 2 }} />
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={trustThisDevice}
+                      onChange={(e) => setTrustThisDevice(e.target.checked)}
+                      color="primary"
+                      size="small"
+                    />
+                  }
+                  label={
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <DevicesOther sx={{ fontSize: 16, mr: 0.5, color: 'text.secondary' }} />
+                      <Typography variant="body2" color="text.secondary">
+                        Trust this device for 30 days
+                      </Typography>
+                    </Box>
+                  }
+                  sx={{ m: 0 }}
+                />
+              </Box>
+              <Typography
+                variant="caption"
+                color="text.secondary"
+                textAlign="center"
+                display="block"
+                sx={{ mt: 1 }}
+              >
+                Skip OTP verification on this device
+              </Typography>
+            </>
+          )}
+
+          {/* Manage Trusted Devices Section */}
+          {trustedDevices.length > 0 && (
+            <>
+              <Divider sx={{ my: 2 }} />
+              <Accordion sx={{ width: '100%' }} defaultExpanded={false}>
+                <AccordionSummary expandIcon={<ExpandMore />}>
+                  <Typography variant="body2" fontWeight="600">
+                    Manage Trusted Devices ({trustedDevices.length})
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <List sx={{ width: '100%' }}>
+                    {trustedDevices.map((device) => (
+                      <ListItem key={device.fingerprint} divider>
+                        <ListItemText
+                          primary={device.deviceInfo}
+                          secondary={
+                            <>
+                              <Typography component="span" variant="body2" color="text.primary">
+                                Trusted: {formatDate(device.trustedAt)} • Expires: {formatDate(device.expiresAt)}
+                              </Typography>
+                              {device.fingerprint === generateDeviceFingerprint() && (
+                                <Chip label="Current" size="small" color="primary" sx={{ ml: 1 }} />
+                              )}
+                            </>
+                          }
+                        />
+                        <ListItemSecondaryAction>
+                          <IconButton
+                            edge="end"
+                            onClick={() => {
+                              if (window.confirm('Remove this trusted device?')) {
+                                const username = getUsername();
+                                if (username) removeTrustedDevice(username, device.fingerprint);
+                              }
+                            }}
+                            disabled={device.fingerprint === generateDeviceFingerprint()}
+                          >
+                            <Delete fontSize="small" />
+                          </IconButton>
+                        </ListItemSecondaryAction>
+                      </ListItem>
+                    ))}
+                  </List>
+                  {trustedDevices.length === 0 && (
+                    <Typography variant="body2" color="text.secondary" textAlign="center">
+                      No trusted devices.
+                    </Typography>
+                  )}
+                </AccordionDetails>
+              </Accordion>
+            </>
+          )}
+        </Box>
+
+        {/* Action Buttons */}
+        <Stack spacing={2} sx={{ width: '100%' }}>
+          <Button
+            variant="contained"
+            size="large"
+            onClick={handleOtpSubmit}
+            disabled={otp.length !== 6 || isVerifying || isOtpExpired}
+            sx={{
+              py: 1.5,
+              borderRadius: 2,
+              textTransform: 'none',
+              fontWeight: '600',
+              fontSize: '1rem',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                transform: 'translateY(-1px)',
+                boxShadow: '0 4px 12px rgba(25, 118, 210, 0.3)'
+              }
+            }}
+          >
+            {isVerifying ? (
+              <>
+                <CircularProgress size={20} sx={{ mr: 1 }} />
+                Verifying...
+              </>
+            ) : (
+              'Verify Code'
+            )}
+          </Button>
+
+          <Button
+            variant="outlined"
+            size="large"
+            onClick={handleResendOtp}
+            disabled={
+              otpLoading || isVerifying || (!isOtpExpired && timeLeft > 0) || resendAttempts <= 0
+            }
+            sx={{
+              py: 1.5,
+              borderRadius: 2,
+              textTransform: 'none',
+              fontWeight: '600',
+              fontSize: '1rem',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                transform: 'translateY(-1px)',
+                borderWidth: '2px'
+              }
+            }}
+          >
+            {otpLoading ? (
+              <>
+                <CircularProgress size={20} sx={{ mr: 1 }} />
+                Sending...
+              </>
+            ) : (
+              `Resend Code (${resendAttempts} left)`
+            )}
+          </Button>
+
+          <Button
+            variant="text"
+            size="small"
+            onClick={clearOtpInputs}
+            disabled={isVerifying || otp.length === 0}
+            sx={{
+              textTransform: 'none',
+              color: 'text.secondary',
+              '&:hover': {
+                backgroundColor: 'rgba(0, 0, 0, 0.04)'
+              }
+            }}
+          >
+            Clear Code
+          </Button>
+        </Stack>
+      </Paper>
     </Box>
   );
 };

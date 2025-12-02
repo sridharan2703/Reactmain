@@ -1,3 +1,14 @@
+/**
+ * @fileoverview Header Data Configuration.
+ * @module HeaderData
+ * @description Defines the data structures used for various dropdown menus (Notifications, Profile, Apps, Pages) 
+ * in the application's header/topbar component.
+ * @author Rakshana
+ * @date 01/11/2025
+ * @since 1.0.0
+ * @imports
+ * - Static image and SVG assets for avatars and icons.
+ */
 import img1 from "src/assets/images/profile/user-1.jpg";
 import img2 from "src/assets/images/profile/user-2.jpg";
 import img3 from "src/assets/images/profile/user-3.jpg";
@@ -16,9 +27,17 @@ import ddIcon6 from "src/assets/images/svgs/icon-dd-lifebuoy.svg";
 import ddIcon7 from "src/assets/images/svgs/icon-dd-message-box.svg";
 import ddIcon8 from "src/assets/images/svgs/icon-dd-application.svg";
 
-//
-// Notifications dropdown
-//
+/**
+ * @typedef {Object} NotificationItem
+ * @property {string} avatar - URL or path to the user/event avatar image.
+ * @property {string} title - Main notification title.
+ * @property {string} subtitle - Secondary descriptive text.
+ */
+
+/**
+ * @constant {NotificationItem[]} notifications
+ * @description Array of data objects for the Notifications Dropdown menu.
+ */
 const notifications = [
   {
     avatar: img1,
@@ -62,9 +81,18 @@ const notifications = [
   },
 ];
 
-//
-// Profile dropdown
-//
+/**
+ * @typedef {Object} ProfileItem
+ * @property {string} href - Target URL path.
+ * @property {string} title - Main title/label.
+ * @property {string} subtitle - Secondary description.
+ * @property {string} icon - URL or path to the item's icon image.
+ */
+
+/**
+ * @constant {ProfileItem[]} profile
+ * @description Array of data objects for the User Profile Dropdown menu.
+ */
 const profile = [
   {
     href: "/user-profile",
@@ -86,8 +114,18 @@ const profile = [
   },
 ];
 
-// apps dropdown
+/**
+ * @typedef {Object} AppsLinkItem
+ * @property {string} href - Target URL path.
+ * @property {string} title - Main title/label (Application Name).
+ * @property {string} subtext - Secondary descriptive text.
+ * @property {string} avatar - URL or path to the application's icon image.
+ */
 
+/**
+ * @constant {AppsLinkItem[]} appsLink
+ * @description Array of data objects for the Quick Links/Apps Dropdown menu.
+ */
 const appsLink = [
   {
     href: "/apps/chats",
@@ -139,6 +177,16 @@ const appsLink = [
   },
 ];
 
+/**
+ * @typedef {Object} PageLinkItem
+ * @property {string} href - Target URL path.
+ * @property {string} title - Page title/label.
+ */
+
+/**
+ * @constant {PageLinkItem[]} pageLinks
+ * @description Array of data objects for the Pages Quick Links section.
+ */
 const pageLinks = [
   {
     href: "/pricing",
@@ -174,4 +222,5 @@ const pageLinks = [
   },
 ];
 
+// Export all data arrays
 export { notifications, profile, pageLinks, appsLink };

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/ui/Dialog.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-CardStyles.html">CardStyles</a></li><li><a href="module-src_components_Decryption_Decrypt.html">src/components/Decryption/Decrypt</a></li><li><a href="module-src_components_authentication_OtpVerification.html">src/components/authentication/OtpVerification</a></li><li><a href="module-src_layouts_full_header_Profile.html">src/layouts/full/header/Profile</a></li><li><a href="module-src_views_authentication_auth_AuthLogin.html">src/views/authentication/auth/AuthLogin</a></li><li><a href="module-src_views_authentication_auth_encryption.html">src/views/authentication/auth/encryption</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Login2">Login2</a></li><li><a href="global.html#TaskCard">TaskCard</a></li><li><a href="global.html#TaskSummaryPage">TaskSummaryPage</a></li><li><a href="global.html#base64ToArrayBuffer">base64ToArrayBuffer</a></li><li><a href="global.html#decrypt">decrypt</a></li><li><a href="global.html#dialogStyles">dialogStyles</a></li><li><a href="global.html#formElementStyles">formElementStyles</a></li><li><a href="global.html#statCardStyles">statCardStyles</a></li><li><a href="global.html#taskCardStyles">taskCardStyles</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/ui/Dialog.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file Contains style objects for modal dialog components.
+
+ */
+
+/**
+ * @type {Object&lt;string, React.CSSProperties|function>}
+ * @description Styles for the TaskDetailDialog component. Includes styles for the overlay, container, header, content, and dynamic styles for tabs.
+ */
+export const dialogStyles = {
+  overlay: {
+    position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    display: 'flex', justifyContent: 'center', alignItems: 'center',
+    zIndex: 1000, padding: '20px', overflowY: 'auto',
+  },
+  container: {
+    backgroundColor: '#f8fafc', borderRadius: '16px', width: '100%',
+    maxWidth: '900px', maxHeight: '90vh', display: 'flex',
+    flexDirection: 'column', boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+    position: 'relative', animation: 'slideIn 0.3s ease-out forwards',
+    overflow: 'hidden',
+  },
+  header: {
+    backgroundColor: '#3b82f6', color: 'white', padding: '20px 30px',
+    borderTopLeftRadius: '16px', borderTopRightRadius: '16px',
+    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+    gap: '20px', flexWrap: 'wrap'
+  },
+  headerTitle: { fontSize: '15px', fontWeight: '600', margin: 0 },
+  headerSubtitle: { marginLeft: '15px', color: '#e0f2fe' },
+  statusBadge: {
+    backgroundColor: '#fcd34d', color: '#92400e', padding: '6px 14px',
+    borderRadius: '9999px', fontSize: '13px', fontWeight: '600',
+    display: 'inline-flex', alignItems: 'center',
+  },
+  closeButton: {
+    background: 'none', border: 'none', color: 'white',
+    fontSize: '24px', cursor: 'pointer', padding: '5px', lineHeight: 1,
+  },
+  tabBar: {
+    backgroundColor: 'white', padding: '15px 30px',
+    borderBottom: '1px solid #e2e8f0', display: 'flex',
+    justifyContent: 'space-between', alignItems: 'center',
+    flexWrap: 'wrap', gap: '15px'
+  },
+  tabButton: (isActive) => ({
+    padding: '8px 15px',
+    backgroundColor: isActive ? '#eff6ff' : 'transparent',
+    color: isActive ? '#1d4ed8' : '#4b5563',
+    border: 'none', borderRadius: '6px', fontWeight: '600',
+    cursor: 'pointer', fontSize: '14px',
+    transition: 'background-color 0.2s ease, color 0.2s ease',
+  }),
+  exportButton: {
+    backgroundColor: '#059669', color: 'white', padding: '10px 20px',
+    borderRadius: '8px', border: 'none', fontSize: '14px',
+    fontWeight: '600', cursor: 'pointer', display: 'flex',
+    alignItems: 'center', gap: '8px', transition: 'background-color 0.2s ease',
+  },
+  contentArea: {
+    padding: '30px', display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: '25px', overflowY: 'auto', flexGrow: 1,
+  },
+  section: {
+    backgroundColor: 'white', borderRadius: '12px',
+    padding: '25px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+  },
+  sectionTitle: {
+    fontSize: '18px', fontWeight: '600', color: '#111827',
+    margin: '0 0 20px 0', display: 'flex',
+    alignItems: 'center', gap: '10px'
+  },
+  icon: { color: '#3b82f6' },
+  reviewPointContainer: { gridColumn: '1 / -1' },
+  reviewPoint: {
+    backgroundColor: '#fef3c7', borderLeft: '4px solid #fcd34d',
+    padding: '10px 15px', borderRadius: '8px',
+    fontSize: '14px', color: '#4b5563',
+  },
+  originalValue: { textDecoration: 'line-through', color: '#9ca3af' },
+  newValue: { fontWeight: '600', color: '#d97706' },
+  assigneeAvatar: (borderColor) => ({
+    width: '80px', height: '80px', borderRadius: '50%',
+    backgroundColor: borderColor, display: 'flex',
+    alignItems: 'center', justifyContent: 'center',
+    fontSize: '32px', fontWeight: 'bold', color: 'white',
+    marginBottom: '15px', overflow: 'hidden',
+  }),
+  assigneeName: { fontSize: '18px', fontWeight: '600', color: '#111827', marginBottom: '5px' },
+  assigneeRole: { fontSize: '14px', color: '#6B7280' },
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Thu Sep 11 2025 16:21:16 GMT+0530 (India Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

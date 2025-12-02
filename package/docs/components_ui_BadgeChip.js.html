@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/ui/BadgeChip.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-src_components_Decryption_Decrypt.html">src/components/Decryption/Decrypt</a></li><li><a href="module-src_components_UIShowcase.html">src/components/UIShowcase</a><ul class='methods'><li data-type='method'><a href="module-src_components_UIShowcase.html#~UIShowcase">UIShowcase</a></li></ul></li><li><a href="module-src_components_authentication_OtpVerification.html">src/components/authentication/OtpVerification</a></li><li><a href="module-src_components_ui.html">src/components/ui</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui.html#~BadgeChip">BadgeChip</a></li><li data-type='method'><a href="module-src_components_ui.html#~ProgressBar">ProgressBar</a></li><li data-type='method'><a href="module-src_components_ui.html#~TaskCard">TaskCard</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-src_components_ui_Alerts.html">src/components/ui/Alerts</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Alerts.html#~Alerts">Alerts</a></li></ul></li><li><a href="module-src_components_ui_Avatar.html">src/components/ui/Avatar</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Avatar.html#~Avatar">Avatar</a></li></ul></li><li><a href="module-src_components_ui_Badge.html">src/components/ui/Badge</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Badge.html#~Badge">Badge</a></li></ul></li><li><a href="module-src_components_ui_Button.html">src/components/ui/Button</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Button.html#~Button">Button</a></li></ul></li><li><a href="module-src_components_ui_Card.html">src/components/ui/Card</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Card.html#~Card">Card</a></li></ul></li><li><a href="module-src_components_ui_Checkbox.html">src/components/ui/Checkbox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Checkbox.html#~Checkbox">Checkbox</a></li></ul></li><li><a href="module-src_components_ui_DialogBox.html">src/components/ui/DialogBox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_DialogBox.html#~DialogBox">DialogBox</a></li></ul></li><li><a href="module-src_components_ui_Dropdown.html">src/components/ui/Dropdown</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Dropdown.html#~Dropdown">Dropdown</a></li></ul></li><li><a href="module-src_components_ui_Input.html">src/components/ui/Input</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Input.html#~Input">Input</a></li></ul></li><li><a href="module-src_components_ui_Pagination.html">src/components/ui/Pagination</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Pagination.html#~Pagination">Pagination</a></li></ul></li><li><a href="module-src_components_ui_PriorityIcon.html">src/components/ui/PriorityIcon</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_PriorityIcon.html#~PriorityIcon">PriorityIcon</a></li></ul></li><li><a href="module-src_components_ui_TextArea.html">src/components/ui/TextArea</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_TextArea.html#~TextArea">TextArea</a></li></ul></li><li><a href="module-src_layouts_full_header_Profile.html">src/layouts/full/header/Profile</a></li><li><a href="module-src_views_authentication_auth_AuthLogin.html">src/views/authentication/auth/AuthLogin</a></li><li><a href="module-src_views_authentication_auth_encryption.html">src/views/authentication/auth/encryption</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Login2">Login2</a></li><li><a href="global.html#TaskSummaryPage">TaskSummaryPage</a></li><li><a href="global.html#base64ToArrayBuffer">base64ToArrayBuffer</a></li><li><a href="global.html#decrypt">decrypt</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/ui/BadgeChip.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from "react";
+
+/**
+ * @fileoverview BadgeChip component.
+ * Displays a small pill-shaped badge with a text label.
+ * Useful for statuses like "In Progress" or "Completed".
+ * @module src/components/ui
+ * @date 12/09/2025
+ * @since 1.0.0
+ */
+
+/**
+ * BadgeChip Component
+ * Renders a badge with customizable background and text color.
+ *
+ * 📝 Example:
+ * Input:
+ * &lt;BadgeChip text="In Progress" color="#2563EB" />
+ *
+ * Output:
+ * A pill-shaped blue badge containing the words "In Progress".
+ *
+ * @param {Object} props
+ * @param {string} props.text - The text inside the badge.
+ * @param {string} [props.color="#6B7280"] - Background color of the badge.
+ * @param {string} [props.textColor="white"] - Text color inside the badge.
+ * @returns {JSX.Element} Badge chip component.
+ */
+const BadgeChip = ({ text, color = "#6B7280", textColor = "white" }) => {
+  return (
+    &lt;span
+      style={{
+        display: "inline-block",
+        padding: "4px 10px",
+        borderRadius: "9999px",
+        fontSize: "12px",
+        fontWeight: "600",
+        backgroundColor: color,
+        color: textColor,
+        whiteSpace: "nowrap",
+      }}
+    >
+      {text}
+    &lt;/span>
+  );
+};
+
+export default BadgeChip;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Fri Sep 12 2025 15:29:29 GMT+0530 (India Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,2161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>views/TaskSummary/TaskSummary.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-AdditionalDetails.html">AdditionalDetails</a><ul class='methods'><li data-type='method'><a href="module-AdditionalDetails.html#~AdditionalDetails">AdditionalDetails</a></li><li data-type='method'><a href="module-AdditionalDetails.html#~AdditionalDetails">AdditionalDetails</a></li></ul></li><li></li><li><a href="module-ApprovalForm.html">ApprovalForm</a><ul class='methods'><li data-type='method'><a href="module-ApprovalForm.html#~ApprovalForm">ApprovalForm</a></li><li data-type='method'><a href="module-ApprovalForm.html#~ApprovalForm">ApprovalForm</a></li></ul></li><li></li><li><a href="module-EmployeeVisitForm.html">EmployeeVisitForm</a><ul class='methods'><li data-type='method'><a href="module-EmployeeVisitForm.html#~EmployeeVisitForm">EmployeeVisitForm</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~EmployeeVisitForm">EmployeeVisitForm</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~stripNonEnglish">stripNonEnglish</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~stripNonEnglish">stripNonEnglish</a></li></ul></li><li></li><li><a href="module-SaveandHold.html">SaveandHold</a><ul class='methods'><li data-type='method'><a href="module-SaveandHold.html#~SaveandHold">SaveandHold</a></li><li data-type='method'><a href="module-SaveandHold.html#~SaveandHold">SaveandHold</a></li><li data-type='method'><a href="module-SaveandHold.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-SaveandHold.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-SaveandHold.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-SaveandHold.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-SaveandHold.html#~getToColumnHtml">getToColumnHtml</a></li><li data-type='method'><a href="module-SaveandHold.html#~getToColumnHtml">getToColumnHtml</a></li></ul></li><li></li><li><a href="module-components_Roadmap.html">components/Roadmap</a><ul class='methods'><li data-type='method'><a href="module-components_Roadmap.html#~Roadmap">Roadmap</a></li></ul></li><li><a href="module-src_components_UIShowcase.html">src/components/UIShowcase</a><ul class='methods'><li data-type='method'><a href="module-src_components_UIShowcase.html#~UIShowcase">UIShowcase</a></li></ul></li><li><a href="module-src_components_authentication_OtpVerification.html">src/components/authentication/OtpVerification</a><ul class='methods'><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~addTrustedDevice">addTrustedDevice</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~generateDeviceFingerprint">generateDeviceFingerprint</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~getDeviceInfo">getDeviceInfo</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~removeTrustedDevice">removeTrustedDevice</a></li></ul></li><li><a href="module-src_components_ui.html">src/components/ui</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui.html#~AnimatedSlide">AnimatedSlide</a></li><li data-type='method'><a href="module-src_components_ui.html#~CardStyle">CardStyle</a></li></ul></li><li></li><li></li><li></li><li><a href="module-src_components_ui_Alerts.html">src/components/ui/Alerts</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Alerts.html#~Alerts">Alerts</a></li></ul></li><li><a href="module-src_components_ui_Avatar.html">src/components/ui/Avatar</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Avatar.html#~Avatar">Avatar</a></li></ul></li><li><a href="module-src_components_ui_Badge.html">src/components/ui/Badge</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Badge.html#~Badge">Badge</a></li></ul></li><li><a href="module-src_components_ui_Button.html">src/components/ui/Button</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Button.html#~Button">Button</a></li><li data-type='method'><a href="module-src_components_ui_Button.html#~ButtonGroup">ButtonGroup</a></li><li data-type='method'><a href="module-src_components_ui_Button.html#~NavigationContainer">NavigationContainer</a></li></ul></li><li><a href="module-src_components_ui_Card.html">src/components/ui/Card</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Card.html#~Card">Card</a></li></ul></li><li><a href="module-src_components_ui_Checkbox.html">src/components/ui/Checkbox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Checkbox.html#~Checkbox">Checkbox</a></li></ul></li><li><a href="module-src_components_ui_DialogBox.html">src/components/ui/DialogBox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_DialogBox.html#~DialogBox">DialogBox</a></li></ul></li><li><a href="module-src_components_ui_Dropdown.html">src/components/ui/Dropdown</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Dropdown.html#~Dropdown">Dropdown</a></li></ul></li><li><a href="module-src_components_ui_Input.html">src/components/ui/Input</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Input.html#~Input">Input</a></li></ul></li><li><a href="module-src_components_ui_Pagination.html">src/components/ui/Pagination</a></li><li><a href="module-src_components_ui_PriorityIcon.html">src/components/ui/PriorityIcon</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_PriorityIcon.html#~PriorityIcon">PriorityIcon</a></li></ul></li><li><a href="module-src_components_ui_TextArea.html">src/components/ui/TextArea</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_TextArea.html#~TextArea">TextArea</a></li></ul></li><li><a href="module-src_layouts_full_header_Profile.html">src/layouts/full/header/Profile</a></li><li><a href="module-src_pages_Inbox_Inbox.html">src/pages/Inbox/Inbox</a></li><li><a href="module-src_services_EnhancedDynamicDecryption.html">src/services/EnhancedDynamicDecryption</a><ul class='methods'><li data-type='method'><a href="module-src_services_EnhancedDynamicDecryption.html#~base64ToArrayBuffer">base64ToArrayBuffer</a></li><li data-type='method'><a href="module-src_services_EnhancedDynamicDecryption.html#~getAuthHeaders">getAuthHeaders</a></li></ul></li><li><a href="module-src_views_authentication_auth_AuthLogin.html">src/views/authentication/auth/AuthLogin</a></li><li><a href="module-src_views_authentication_auth_encryption.html">src/views/authentication/auth/encryption</a><ul class='methods'><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.authenticateUser">authenticateUser</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.decryptGCM">decryptGCM</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.encryptECB">encryptECB</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getDecryptKeyFromCookies">getDecryptKeyFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getSessionIdFromCookies">getSessionIdFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getUserFromCookies">getUserFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.isUserAuthenticated">isUserAuthenticated</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.logoutUser">logoutUser</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~deleteCookie">deleteCookie</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~generate256BitKey">generate256BitKey</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~getAuthHeaders">getAuthHeaders</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~getCookie">getCookie</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~insertSessionData">insertSessionData</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~saveUserToCookies">saveUserToCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~setCookie">setCookie</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#CommentsHistory">CommentsHistory</a></li><li><a href="global.html#DateInput">DateInput</a></li><li><a href="global.html#DatePicker">DatePicker</a></li><li><a href="global.html#DateRangePicker">DateRangePicker</a></li><li><a href="global.html#DocumentUpload">DocumentUpload</a></li><li><a href="global.html#DropZone">DropZone</a></li><li><a href="global.html#FileUpload">FileUpload</a></li><li><a href="global.html#ImageUpload">ImageUpload</a></li><li><a href="global.html#InlineDateRangePicker">InlineDateRangePicker</a></li><li><a href="global.html#Login2">Login2</a></li><li><a href="global.html#MultiFileUpload">MultiFileUpload</a></li><li><a href="global.html#TaskCard">TaskCard</a></li><li><a href="global.html#TaskSummaryPage">TaskSummaryPage</a></li><li><a href="global.html#base64ToArrayBuffer">base64ToArrayBuffer</a></li><li><a href="global.html#decrypt">decrypt</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">views/TaskSummary/TaskSummary.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+// import React, { useState, useEffect } from 'react';
+// import TaskCard from './TaskCards';
+
+// /**
+//  * @file This file contains the main page component for displaying a summary of tasks.
+//  * It manages the state for tasks, pagination, and dialog visibility.
+//  */
+// const tasksData = [
+//     {
+//       id: '1',
+//       title: 'Outstation Intimation Application',
+//       priority: 'medium',
+//       status: 'Completed',
+//       statusColor: '#059669',
+//       bgColor: '#ECFDF5',
+//       borderColor: '#34D399',
+//       initiated: '16-08-2023',
+//       employeeId: '101',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: 'P1234567',
+//       country: 'India',
+//       fromDate: '01-09-2023',
+//       toDate: '05-09-2023',
+//       placeOfVisit: 'Bangalore',
+//       ticketType: 'Economy',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '24 days',
+//       rating: 5
+//     },
+//     {
+//       id: '2',
+//       title: 'LTC Application Processing Request',
+//       priority: 'high',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '12-06-2023',
+//       employeeId: '202',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Passport Renewal',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '89 days',
+//       rating: 4
+//     },
+//     {
+//       id: '3',
+//       title: 'Medical Reimbursement Claim Submission',
+//       priority: 'medium',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '12-06-2023',
+//       employeeId: '315',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '89 days',
+//       rating: 3
+//     },
+//     {
+//       id: '4',
+//       title: 'Training Program Enrollment and Approval',
+//       priority: 'low',
+//       status: 'In Progress',
+//       statusColor: '#3caea3',
+//       bgColor: '#EFF6FF',
+//       borderColor: '#3caea3',
+//       initiated: '12-06-2023',
+//       employeeId: '404',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '89 days',
+//       rating: 4
+//     },
+//     {
+//       id: '5',
+//       title: 'Annual Performance Review Scheduling',
+//       priority: 'high',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '12-06-2023',
+//       employeeId: '505',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Passport Renewal',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '89 days',
+//       rating: 2
+//     },
+//     {
+//       id: '6',
+//       title: 'Equipment Purchase Request Approval',
+//       priority: 'medium',
+//       status: 'On Hold',
+//       statusColor: '#DE3163',
+//       bgColor: '#F9FAFB',
+//       borderColor: '#D1D5DB',
+//       initiated: '12-06-2023',
+//       employeeId: '606',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '89 days',
+//       rating: 3
+//     },
+//     {
+//       id: '7',
+//       title: 'Four Wheeler Vehicle Application Form',
+//       priority: 'high',
+//       status: 'Completed',
+//       statusColor: '#059669',
+//       bgColor: '#ECFDF5',
+//       borderColor: '#34D399',
+//       initiated: '08-05-2023',
+//       employeeId: '707',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Other',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Elumalai N', role: 'Assistant Engineer', department: 'Technical' },
+//       elapsed: '124 days',
+//       rating: 5
+//     },
+//     {
+//       id: '8',
+//       title: 'Project Assignment Request for New Task',
+//       priority: 'high',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '08-05-2023',
+//       employeeId: '808',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Priya Sharma', role: 'Senior Engineer', department: 'Engineering' },
+//       elapsed: '124 days',
+//       rating: 4
+//     },
+//     {
+//       id: '9',
+//       title: 'Conference Participation Approval Request',
+//       priority: 'medium',
+//       status: 'In Progress',
+//       statusColor: '#3caea3',
+//       bgColor: '#EFF6FF',
+//       borderColor: '#3caea3',
+//       initiated: '08-05-2023',
+//       employeeId: '909',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Other',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Rajesh Kumar', role: 'Research Scientist', department: 'R&amp;D' },
+//       elapsed: '124 days',
+//       rating: 4
+//     },
+//     {
+//       id: '10',
+//       title: 'Certification Reimbursement Submission',
+//       priority: 'low',
+//       status: 'Completed',
+//       statusColor: '#059669',
+//       bgColor: '#ECFDF5',
+//       borderColor: '#34D399',
+//       initiated: '08-05-2023',
+//       employeeId: '1010',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Anita Desai', role: 'QA Specialist', department: 'Quality Assurance' },
+//       elapsed: '126 days',
+//       rating: 5
+//     },
+//     {
+//       id: '11',
+//       title: 'Office Supply Request Approval',
+//       priority: 'low',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '01-08-2023',
+//       employeeId: '1111',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Other',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'John Doe', role: 'Office Assistant', department: 'Admin' },
+//       elapsed: '30 days',
+//       rating: 4
+//     },
+//     {
+//       id: '12',
+//       title: 'New Employee Onboarding Checklist',
+//       priority: 'high',
+//       status: 'In Progress',
+//       statusColor: '#3caea3',
+//       bgColor: '#EFF6FF',
+//       borderColor: '#3caea3',
+//       initiated: '05-07-2023',
+//       employeeId: '1212',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Jane Smith', role: 'HR Manager', department: 'HR' },
+//       elapsed: '60 days',
+//       rating: 5
+//     },
+//     {
+//       id: '13',
+//       title: 'Software License Renewal',
+//       priority: 'medium',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '10-06-2023',
+//       employeeId: '1313',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Other',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Bob Johnson', role: 'IT Specialist', department: 'IT' },
+//       elapsed: '90 days',
+//       rating: 3
+//     },
+//     {
+//       id: '14',
+//       title: 'Leave Request Approval',
+//       priority: 'low',
+//       status: 'Completed',
+//       statusColor: '#059669',
+//       bgColor: '#ECFDF5',
+//       borderColor: '#34D399',
+//       initiated: '15-05-2023',
+//       employeeId: '1414',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Alice Brown', role: 'Marketing Executive', department: 'Marketing' },
+//       elapsed: '110 days',
+//       rating: 4
+//     },
+//     {
+//       id: '15',
+//       title: 'Travel Expense Reimbursement',
+//       priority: 'high',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '20-04-2023',
+//       employeeId: '1515',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Other',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Charlie Green', role: 'Sales Manager', department: 'Sales' },
+//       elapsed: '140 days',
+//       rating: 3
+//     },
+// ];
+
+// /**
+//  * The main component for the task summary page. It renders a grid of tasks,
+//  * handles pagination, and manages the detail view dialog.
+//  *
+//  * @component
+//  * @returns {JSX.Element} The rendered TaskSummaryPage component.
+//  */
+// const TaskSummaryPage = () => {
+//   /** @state {Array&lt;object>} tasks - The list of all task objects. */
+//   const [tasks, setTasks] = useState([]);
+//   /** @state {number} currentPage - The currently active page number for pagination. */
+//   const [currentPage, setCurrentPage] = useState(1);
+//   /** @state {boolean} isDialogOpen - Controls the visibility of the task detail dialog. */
+//   const [isDialogOpen, setIsDialogOpen] = useState(false);
+//   /** @state {object|null} selectedTask - The task object currently being viewed or edited in the dialog. */
+//   const [selectedTask, setSelectedTask] = useState(null);
+
+//   /**
+//    * Effect hook to load initial task data.
+//    * Simulates an API call by setting state from mock data on component mount.
+//    */
+//   useEffect(() => {
+//     setTasks(tasksData);
+//   }, []);
+
+//   /** @constant {number} - The number of tasks to display per page. */
+//   const TASKS_PER_PAGE = 10;
+
+//   /**
+//    * Generates a style object for a task's priority tag based on its priority level.
+//    * @param {('high'|'medium'|'low')} priority - The priority level of the task.
+//    * @returns {React.CSSProperties} A CSS properties object with colors for the priority tag.
+//    */
+//   const getPriorityStyles = (priority) => {
+//     switch (priority) {
+//       case 'high': return { color: '#B91C1C', backgroundColor: '#FEF2F2' };
+//       case 'medium': return { color: '#ed553b', backgroundColor: '#FFFBEB' };
+//       case 'low': return { color: '#059669', backgroundColor: '#ECFDF5' };
+//       default: return { color: '#4B5563', backgroundColor: '#F3F4F6' };
+//     }
+//   };
+
+//   /**
+//    * Renders a set of 5 stars to represent a rating.
+//    * @param {number} rating - The rating value (0-5).
+//    * @returns {Array&lt;JSX.Element>} An array of SVG star elements.
+//    */
+//   const renderStars = (rating) => {
+//     const stars = [];
+//     for (let i = 1; i &lt;= 5; i++) {
+//       stars.push(
+//         &lt;svg key={i} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill={i &lt;= rating ? '#ed553b' : '#E5E7EB'} stroke={i &lt;= rating ? '#ed553b' : '#E5E7EB'} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" >
+//           &lt;polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">&lt;/polygon>
+//         &lt;/svg>
+//       );
+//     }
+//     return stars;
+//   };
+
+//   /**
+//    * Opens the task detail dialog and sets the selected task.
+//    * @param {object} task - The task object to display in the dialog.
+//    */
+//   const openTaskDetailDialog = (task) => {
+//     setSelectedTask(task);
+//     setIsDialogOpen(true);
+//   };
+
+//   /**
+//    * Closes the task detail dialog and clears the selected task.
+//    */
+//   const closeTaskDetailDialog = () => {
+//     setIsDialogOpen(false);
+//     setSelectedTask(null);
+//   };
+//   const indexOfLastTask = currentPage * TASKS_PER_PAGE;
+//   const indexOfFirstTask = indexOfLastTask - TASKS_PER_PAGE;
+//   const currentTasks = tasks.slice(indexOfFirstTask, indexOfLastTask);
+//   const totalPages = Math.ceil(tasks.length / TASKS_PER_PAGE);
+
+//   const pageNumbers = [];
+//   let startPage = Math.max(1, currentPage - 2);
+//   let endPage = Math.min(totalPages, currentPage + 2);
+
+//   if (endPage - startPage + 1 &lt; 5 &amp;&amp; totalPages > 5) {
+//       if (currentPage - startPage &lt; 2) { endPage = Math.min(totalPages, startPage + 4); }
+//       else if (endPage - currentPage &lt; 2) { startPage = Math.max(1, endPage - 4); }
+//   } else if (totalPages &lt;= 5) {
+//       startPage = 1; endPage = totalPages;
+//   }
+//   for (let i = startPage; i &lt;= endPage; i++) { pageNumbers.push(i); }
+//   const pageStyles = {
+//     container: { maxWidth: '1700px', margin: '0 auto' },
+//     grid: { display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' },
+//     main: { marginBottom: '40px' },
+//     paginationContainer: { display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', marginTop: '40px' }
+//   };
+
+//   return (
+//     &lt;div style={pageStyles.container}>
+//       &lt;main style={pageStyles.main}>
+//         &lt;div style={pageStyles.grid}>
+//           {currentTasks.map((task) => (
+//             &lt;TaskCard
+//               key={task.id}
+//               task={task}
+//               getPriorityStyles={getPriorityStyles}
+//               openDialog={openTaskDetailDialog}
+//             />
+//           ))}
+//         &lt;/div>
+//       &lt;/main>
+
+//       &lt;footer style={pageStyles.paginationContainer}>
+//         &lt;button onClick={() => setCurrentPage(Math.max(1, currentPage - 1))} disabled={currentPage === 1}>Previous&lt;/button>
+//         {pageNumbers.map((pageNum) => (
+//           &lt;button key={pageNum} onClick={() => setCurrentPage(pageNum)} style={{ fontWeight: currentPage === pageNum ? 'bold' : 'normal' }}>{pageNum}&lt;/button>
+//         ))}
+//         &lt;button onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))} disabled={currentPage === totalPages}>Next&lt;/button>
+//       &lt;/footer>
+
+
+//     &lt;/div>
+//   );
+// };
+
+// export default TaskSummaryPage;
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import TaskCard from './TaskCards';
+// import Pagination from 'src/components/ui/Pagination.js';
+// const tasksData = [
+//     {
+//       id: '1',
+//       title: 'Outstation Intimation Application',
+//       priority: 'medium',
+//       status: 'Completed',
+//       statusColor: '#3caea3',
+//       bgColor: '#ECFDF5',
+//       borderColor: '#3caea3',
+//       initiated: '16-08-2023',
+//       employeeId: '101',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: 'P1234567',
+//       country: 'India',
+//       fromDate: '01-09-2023',
+//       toDate: '05-09-2023',
+//       placeOfVisit: 'Bangalore',
+//       ticketType: 'Economy',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '24 days',
+//       rating: 5
+//     },
+//     {
+//       id: '2',
+//       title: 'LTC Application Processing Request',
+//       priority: 'high',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '12-06-2023',
+//       employeeId: '202',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Passport Renewal',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '89 days',
+//       rating: 4
+//     },
+//     {
+//       id: '3',
+//       title: 'Medical Reimbursement Claim Submission',
+//       priority: 'medium',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '12-06-2023',
+//       employeeId: '315',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '89 days',
+//       rating: 3
+//     },
+//     {
+//       id: '4',
+//       title: 'Training Program Enrollment and Approval',
+//       priority: 'low',
+//       status: 'In Progress',
+//       statusColor: '#f6d55c',
+//       bgColor: '#EFF6FF',
+//       borderColor: '#f6d55c',
+//       initiated: '12-06-2023',
+//       employeeId: '404',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '89 days',
+//       rating: 4
+//     },
+//     {
+//       id: '5',
+//       title: 'Annual Performance Review Scheduling',
+//       priority: 'high',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '12-06-2023',
+//       employeeId: '505',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Passport Renewal',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '89 days',
+//       rating: 2
+//     },
+//     {
+//       id: '6',
+//       title: 'Equipment Purchase Request Approval',
+//       priority: 'medium',
+//       status: 'On Hold',
+//       statusColor: '#173f5f',
+//       bgColor: '#F9FAFB',
+//       borderColor: '#173f5f',
+//       initiated: '12-06-2023',
+//       employeeId: '606',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '89 days',
+//       rating: 3
+//     },
+//     {
+//       id: '7',
+//       title: 'Four Wheeler Vehicle Application Form',
+//       priority: 'high',
+//       status: 'Completed',
+//       statusColor: '#3caea3',
+//       bgColor: '#ECFDF5',
+//       borderColor: '#3caea3',
+//       initiated: '08-05-2023',
+//       employeeId: '707',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Other',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Elumalai N', role: 'Assistant Engineer', department: 'Technical' },
+//       elapsed: '124 days',
+//       rating: 5
+//     },
+//     {
+//       id: '8',
+//       title: 'Project Assignment Request for New Task',
+//       priority: 'high',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '08-05-2023',
+//       employeeId: '808',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Priya Sharma', role: 'Senior Engineer', department: 'Engineering' },
+//       elapsed: '124 days',
+//       rating: 4
+//     },
+//     {
+//       id: '9',
+//       title: 'Conference Participation Approval Request',
+//       priority: 'medium',
+//       status: 'In Progress',
+//       statusColor: '#f6d55c',
+//       bgColor: '#EFF6FF',
+//       borderColor: '#f6d55c',
+//       initiated: '08-05-2023',
+//       employeeId: '909',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Other',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Rajesh Kumar', role: 'Research Scientist', department: 'R&amp;D' },
+//       elapsed: '124 days',
+//       rating: 4
+//     },
+//     {
+//       id: '10',
+//       title: 'Certification Reimbursement Submission',
+//       priority: 'low',
+//       status: 'Completed',
+//       statusColor: '#3caea3',
+//       bgColor: '#ECFDF5',
+//       borderColor: '#3caea3',
+//       initiated: '08-05-2023',
+//       employeeId: '1010',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Anita Desai', role: 'QA Specialist', department: 'Quality Assurance' },
+//       elapsed: '126 days',
+//       rating: 5
+//     },
+//     {
+//       id: '11',
+//       title: 'Office Supply Request Approval',
+//       priority: 'low',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '01-08-2023',
+//       employeeId: '1111',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Other',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'John Doe', role: 'Office Assistant', department: 'Admin' },
+//       elapsed: '30 days',
+//       rating: 4
+//     },
+//     {
+//       id: '12',
+//       title: 'New Employee Onboarding Checklist',
+//       priority: 'high',
+//       status: 'In Progress',
+//       statusColor: '#f6d55c',
+//       bgColor: '#EFF6FF',
+//       borderColor: '#f6d55c',
+//       initiated: '05-07-2023',
+//       employeeId: '1212',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Jane Smith', role: 'HR Manager', department: 'HR' },
+//       elapsed: '60 days',
+//       rating: 5
+//     },
+//     {
+//       id: '13',
+//       title: 'Software License Renewal',
+//       priority: 'medium',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '10-06-2023',
+//       employeeId: '1313',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Other',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Bob Johnson', role: 'IT Specialist', department: 'IT' },
+//       elapsed: '90 days',
+//       rating: 3
+//     },
+//     {
+//       id: '14',
+//       title: 'Leave Request Approval',
+//       priority: 'low',
+//       status: 'Completed',
+//       statusColor: '#3caea3',
+//       bgColor: '#ECFDF5',
+//       borderColor: '#3caea3',
+//       initiated: '15-05-2023',
+//       employeeId: '1414',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Alice Brown', role: 'Marketing Executive', department: 'Marketing' },
+//       elapsed: '110 days',
+//       rating: 4
+//     },
+//     {
+//       id: '15',
+//       title: 'Travel Expense Reimbursement',
+//       priority: 'high',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '20-04-2023',
+//       employeeId: '1515',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Other',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Charlie Green', role: 'Sales Manager', department: 'Sales' },
+//       elapsed: '140 days',
+//       rating: 3
+//     },
+// ];
+
+// /**
+//  * The main component for the task summary page. Renders tasks with pagination.
+//  */
+// const TaskSummaryPage = () => {
+//   const [tasks, setTasks] = useState([]);
+//   const [currentPage, setCurrentPage] = useState(1);
+//   const [isDialogOpen, setIsDialogOpen] = useState(false);
+//   const [selectedTask, setSelectedTask] = useState(null);
+
+//   useEffect(() => {
+//     setTasks(tasksData);
+//   }, []);
+
+//   const TASKS_PER_PAGE = 10;
+
+//   const getPriorityStyles = (priority) => {
+//     switch (priority) {
+//       case 'high': return { color: '#B91C1C', backgroundColor: '#FEF2F2' };
+//       case 'medium': return { color: '#ed553b', backgroundColor: '#FFFBEB' };
+//       case 'low': return { color: '#059669', backgroundColor: '#ECFDF5' };
+//       default: return { color: '#4B5563', backgroundColor: '#F3F4F6' };
+//     }
+//   };
+
+//   const openTaskDetailDialog = (task) => {
+//     setSelectedTask(task);
+//     setIsDialogOpen(true);
+//   };
+
+//   const closeTaskDetailDialog = () => {
+//     setIsDialogOpen(false);
+//     setSelectedTask(null);
+//   };
+
+//   const indexOfLastTask = currentPage * TASKS_PER_PAGE;
+//   const indexOfFirstTask = indexOfLastTask - TASKS_PER_PAGE;
+//   const currentTasks = tasks.slice(indexOfFirstTask, indexOfLastTask);
+//   const totalPages = Math.ceil(tasks.length / TASKS_PER_PAGE);
+
+//   const pageStyles = {
+//     container: { maxWidth: '1700px', margin: '0 auto' },
+//     grid: { display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' },
+//     main: { marginBottom: '40px' },
+//     paginationContainer: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '40px' }
+//   };
+
+//   return (
+//     &lt;div style={pageStyles.container}>
+//       &lt;main style={pageStyles.main}>
+//         &lt;div style={pageStyles.grid}>
+//           {currentTasks.map((task) => (
+//             &lt;TaskCard
+//               key={task.id}
+//               task={task}
+//               getPriorityStyles={getPriorityStyles}
+//               openDialog={openTaskDetailDialog}
+//             />
+//           ))}
+//         &lt;/div>
+//       &lt;/main>
+
+//       &lt;footer style={pageStyles.paginationContainer}>
+//         &lt;Pagination
+//           count={totalPages}      // total pages
+//           page={currentPage}      // current active page
+//           onChange={(e, value) => setCurrentPage(value)} // update page
+//         />
+//       &lt;/footer>
+//     &lt;/div>
+//   );
+// };
+
+// export default TaskSummaryPage;
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import TaskCard from './TaskCards';
+// import Pagination from 'src/components/ui/Pagination.js';
+
+// const tasksData = [
+//     {
+//       id: '1',
+//       title: 'Outstation Intimation Application',
+//       priority: 'medium',
+//       status: 'Completed',
+//       statusColor: '#3caea3',
+//       bgColor: '#ECFDF5',
+//       borderColor: '#3caea3',
+//       initiated: '16-08-2023',
+//       employeeId: '101',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: 'P1234567',
+//       country: 'India',
+//       fromDate: '01-09-2023',
+//       toDate: '05-09-2023',
+//       placeOfVisit: 'Bangalore',
+//       ticketType: 'Economy',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '24 days',
+//       rating: 5
+//     },
+//     {
+//       id: '2',
+//       title: 'LTC Application Processing Request',
+//       priority: 'high',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '12-06-2023',
+//       employeeId: '202',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Passport Renewal',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '89 days',
+//       rating: 4
+//     },
+//     {
+//       id: '3',
+//       title: 'Medical Reimbursement Claim Submission',
+//       priority: 'medium',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '12-06-2023',
+//       employeeId: '315',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '89 days',
+//       rating: 3
+//     },
+//     {
+//       id: '4',
+//       title: 'Training Program Enrollment and Approval',
+//       priority: 'low',
+//       status: 'In Progress',
+//       statusColor: '#f6d55c',
+//       bgColor: '#EFF6FF',
+//       borderColor: '#f6d55c',
+//       initiated: '12-06-2023',
+//       employeeId: '404',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '89 days',
+//       rating: 4
+//     },
+//     {
+//       id: '5',
+//       title: 'Annual Performance Review Scheduling',
+//       priority: 'high',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '12-06-2023',
+//       employeeId: '505',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Passport Renewal',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '89 days',
+//       rating: 2
+//     },
+//     {
+//       id: '6',
+//       title: 'Equipment Purchase Request Approval',
+//       priority: 'medium',
+//       status: 'On Hold',
+//       statusColor: '#173f5f',
+//       bgColor: '#F9FAFB',
+//       borderColor: '#173f5f',
+//       initiated: '12-06-2023',
+//       employeeId: '606',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+//       elapsed: '89 days',
+//       rating: 3
+//     },
+//     {
+//       id: '7',
+//       title: 'Four Wheeler Vehicle Application Form',
+//       priority: 'high',
+//       status: 'Completed',
+//       statusColor: '#3caea3',
+//       bgColor: '#ECFDF5',
+//       borderColor: '#3caea3',
+//       initiated: '08-05-2023',
+//       employeeId: '707',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Other',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Elumalai N', role: 'Assistant Engineer', department: 'Technical' },
+//       elapsed: '124 days',
+//       rating: 5
+//     },
+//     {
+//       id: '8',
+//       title: 'Project Assignment Request for New Task',
+//       priority: 'high',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '08-05-2023',
+//       employeeId: '808',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Priya Sharma', role: 'Senior Engineer', department: 'Engineering' },
+//       elapsed: '124 days',
+//       rating: 4
+//     },
+//     {
+//       id: '9',
+//       title: 'Conference Participation Approval Request',
+//       priority: 'medium',
+//       status: 'In Progress',
+//       statusColor: '#f6d55c',
+//       bgColor: '#EFF6FF',
+//       borderColor: '#f6d55c',
+//       initiated: '08-05-2023',
+//       employeeId: '909',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Other',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Rajesh Kumar', role: 'Research Scientist', department: 'R&amp;D' },
+//       elapsed: '124 days',
+//       rating: 4
+//     },
+//     {
+//       id: '10',
+//       title: 'Certification Reimbursement Submission',
+//       priority: 'low',
+//       status: 'Completed',
+//       statusColor: '#3caea3',
+//       bgColor: '#ECFDF5',
+//       borderColor: '#3caea3',
+//       initiated: '08-05-2023',
+//       employeeId: '1010',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Anita Desai', role: 'QA Specialist', department: 'Quality Assurance' },
+//       elapsed: '126 days',
+//       rating: 5
+//     },
+//     {
+//       id: '11',
+//       title: 'Office Supply Request Approval',
+//       priority: 'low',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '01-08-2023',
+//       employeeId: '1111',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Other',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'John Doe', role: 'Office Assistant', department: 'Admin' },
+//       elapsed: '30 days',
+//       rating: 4
+//     },
+//     {
+//       id: '12',
+//       title: 'New Employee Onboarding Checklist',
+//       priority: 'high',
+//       status: 'In Progress',
+//       statusColor: '#f6d55c',
+//       bgColor: '#EFF6FF',
+//       borderColor: '#f6d55c',
+//       initiated: '05-07-2023',
+//       employeeId: '1212',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Jane Smith', role: 'HR Manager', department: 'HR' },
+//       elapsed: '60 days',
+//       rating: 5
+//     },
+//     {
+//       id: '13',
+//       title: 'Software License Renewal',
+//       priority: 'medium',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '10-06-2023',
+//       employeeId: '1313',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Other',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Bob Johnson', role: 'IT Specialist', department: 'IT' },
+//       elapsed: '90 days',
+//       rating: 3
+//     },
+//     {
+//       id: '14',
+//       title: 'Leave Request Approval',
+//       priority: 'low',
+//       status: 'Completed',
+//       statusColor: '#3caea3',
+//       bgColor: '#ECFDF5',
+//       borderColor: '#3caea3',
+//       initiated: '15-05-2023',
+//       employeeId: '1414',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Visa',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Alice Brown', role: 'Marketing Executive', department: 'Marketing' },
+//       elapsed: '110 days',
+//       rating: 4
+//     },
+//     {
+//       id: '15',
+//       title: 'Travel Expense Reimbursement',
+//       priority: 'high',
+//       status: 'Pending',
+//       statusColor: '#ed553b',
+//       bgColor: '#FFFBEB',
+//       borderColor: '#ed553b',
+//       initiated: '20-04-2023',
+//       employeeId: '1515',
+//       dateOfAppointment: '22-06-2008',
+//       nocFor: 'Other',
+//       passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+//       assignee: { name: 'Charlie Green', role: 'Sales Manager', department: 'Sales' },
+//       elapsed: '140 days',
+//       rating: 3
+//     },
+// ];
+
+// /**
+//  * The main component for the task summary page. Renders tasks with pagination and filters.
+//  */
+// const TaskSummaryPage = () => {
+//   const [tasks, setTasks] = useState([]);
+//   const [filteredTasks, setFilteredTasks] = useState([]);
+//   const [currentPage, setCurrentPage] = useState(1);
+//   const [isDialogOpen, setIsDialogOpen] = useState(false);
+//   const [selectedTask, setSelectedTask] = useState(null);
+  
+//   // Filter states
+//   const [filters, setFilters] = useState({
+//     search: '',
+//     status: 'all',
+//     priority: 'all',
+//     department: 'all',
+//     rating: 'all',
+//     sortBy: 'initiated',
+//     sortOrder: 'desc'
+//   });
+
+//   useEffect(() => {
+//     setTasks(tasksData);
+//     setFilteredTasks(tasksData);
+//   }, []);
+
+//   // Apply filters whenever tasks or filters change
+//   useEffect(() => {
+//     let filtered = [...tasks];
+
+//     // Search filter
+//     if (filters.search) {
+//       filtered = filtered.filter(task =>
+//         task.title.toLowerCase().includes(filters.search.toLowerCase()) ||
+//         task.assignee.name.toLowerCase().includes(filters.search.toLowerCase()) ||
+//         task.employeeId.includes(filters.search)
+//       );
+//     }
+
+//     // Status filter
+//     if (filters.status !== 'all') {
+//       filtered = filtered.filter(task => task.status === filters.status);
+//     }
+
+//     // Priority filter
+//     if (filters.priority !== 'all') {
+//       filtered = filtered.filter(task => task.priority === filters.priority);
+//     }
+
+//     // Department filter
+//     if (filters.department !== 'all') {
+//       filtered = filtered.filter(task => task.assignee.department === filters.department);
+//     }
+
+//     // Rating filter
+//     if (filters.rating !== 'all') {
+//       const ratingValue = parseInt(filters.rating);
+//       filtered = filtered.filter(task => task.rating === ratingValue);
+//     }
+
+//     // Sorting
+//     filtered.sort((a, b) => {
+//       let aValue, bValue;
+      
+//       switch (filters.sortBy) {
+//         case 'title':
+//           aValue = a.title.toLowerCase();
+//           bValue = b.title.toLowerCase();
+//           break;
+//         case 'priority':
+//           const priorityOrder = { 'high': 3, 'medium': 2, 'low': 1 };
+//           aValue = priorityOrder[a.priority];
+//           bValue = priorityOrder[b.priority];
+//           break;
+//         case 'status':
+//           aValue = a.status.toLowerCase();
+//           bValue = b.status.toLowerCase();
+//           break;
+//         case 'rating':
+//           aValue = a.rating;
+//           bValue = b.rating;
+//           break;
+//         case 'elapsed':
+//           aValue = parseInt(a.elapsed.split(' ')[0]);
+//           bValue = parseInt(b.elapsed.split(' ')[0]);
+//           break;
+//         case 'initiated':
+//         default:
+//           aValue = new Date(a.initiated.split('-').reverse().join('-'));
+//           bValue = new Date(b.initiated.split('-').reverse().join('-'));
+//           break;
+//       }
+
+//       if (filters.sortOrder === 'asc') {
+//         return aValue &lt; bValue ? -1 : aValue > bValue ? 1 : 0;
+//       } else {
+//         return aValue > bValue ? -1 : aValue &lt; bValue ? 1 : 0;
+//       }
+//     });
+
+//     setFilteredTasks(filtered);
+//     setCurrentPage(1); // Reset to first page when filters change
+//   }, [tasks, filters]);
+
+//   const handleFilterChange = (filterType, value) => {
+//     setFilters(prev => ({ ...prev, [filterType]: value }));
+//   };
+
+//   const clearAllFilters = () => {
+//     setFilters({
+//       search: '',
+//       status: 'all',
+//       priority: 'all',
+//       department: 'all',
+//       rating: 'all',
+//       sortBy: 'initiated',
+//       sortOrder: 'desc'
+//     });
+//   };
+
+//   // Get unique values for filter options
+//   const getUniqueValues = (key) => {
+//     if (key === 'department') {
+//       return [...new Set(tasks.map(task => task.assignee.department))];
+//     }
+//     return [...new Set(tasks.map(task => task[key]))];
+//   };
+
+//   const TASKS_PER_PAGE = 10;
+
+//   const getPriorityStyles = (priority) => {
+//     switch (priority) {
+//       case 'high': return { color: '#B91C1C', backgroundColor: '#FEF2F2' };
+//       case 'medium': return { color: '#ed553b', backgroundColor: '#FFFBEB' };
+//       case 'low': return { color: '#059669', backgroundColor: '#ECFDF5' };
+//       default: return { color: '#4B5563', backgroundColor: '#F3F4F6' };
+//     }
+//   };
+
+//   const openTaskDetailDialog = (task) => {
+//     setSelectedTask(task);
+//     setIsDialogOpen(true);
+//   };
+
+//   const closeTaskDetailDialog = () => {
+//     setIsDialogOpen(false);
+//     setSelectedTask(null);
+//   };
+
+//   const indexOfLastTask = currentPage * TASKS_PER_PAGE;
+//   const indexOfFirstTask = indexOfLastTask - TASKS_PER_PAGE;
+//   const currentTasks = filteredTasks.slice(indexOfFirstTask, indexOfLastTask);
+//   const totalPages = Math.ceil(filteredTasks.length / TASKS_PER_PAGE);
+
+//   const pageStyles = {
+//     container: { maxWidth: '1700px', margin: '0 auto' },
+//     filtersBar: { 
+//       display: 'flex', 
+//       alignItems: 'center', 
+//       gap: '12px', 
+//       padding: '16px 20px', 
+//       backgroundColor: '#ffffff', 
+//       borderRadius: '12px', 
+//       boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', 
+//       marginBottom: '24px',
+//       border: '1px solid #e5e7eb',
+//       flexWrap: 'wrap'
+//     },
+//     searchContainer: { 
+//       flex: '2', 
+//       minWidth: '300px', 
+//       position: 'relative' 
+//     },
+//     searchInput: {
+//       width: '100%',
+//       padding: '10px 40px 10px 16px',
+//       border: '1px solid #d1d5db',
+//       borderRadius: '8px',
+//       fontSize: '14px',
+//       backgroundColor: '#f9fafb',
+//       transition: 'all 0.2s ease',
+//       outline: 'none',
+//     },
+//     searchIcon: {
+//       position: 'absolute',
+//       right: '12px',
+//       top: '50%',
+//       transform: 'translateY(-50%)',
+//       color: '#9ca3af',
+//       fontSize: '16px'
+//     },
+//     filterSelect: {
+//       padding: '10px 12px',
+//       border: '1px solid #d1d5db',
+//       borderRadius: '8px',
+//       fontSize: '13px',
+//       backgroundColor: '#ffffff',
+//       color: '#374151',
+//       fontWeight: '500',
+//       minWidth: '120px',
+//       cursor: 'pointer',
+//       transition: 'all 0.2s ease',
+//       outline: 'none',
+//     },
+//     filterSelectFocus: {
+//       borderColor: '#3b82f6',
+//       boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.1)',
+//     },
+//     sortContainer: {
+//       display: 'flex',
+//       gap: '8px',
+//       alignItems: 'center'
+//     },
+//     sortSelect: {
+//       padding: '8px 10px',
+//       border: '1px solid #d1d5db',
+//       borderRadius: '6px',
+//       fontSize: '12px',
+//       backgroundColor: '#ffffff',
+//       color: '#6b7280',
+//       minWidth: '100px',
+//       cursor: 'pointer'
+//     },
+//     clearButton: {
+//       padding: '10px 16px',
+//       backgroundColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+//       background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+//       border: 'none',
+//       borderRadius: '8px',
+//       color: '#ffffff',
+//       fontSize: '13px',
+//       fontWeight: '600',
+//       cursor: 'pointer',
+//       transition: 'all 0.2s ease',
+//       boxShadow: '0 2px 4px rgba(102, 126, 234, 0.3)',
+//       whiteSpace: 'nowrap'
+//     },
+//     resultsInfo: {
+//       display: 'flex',
+//       alignItems: 'center',
+//       gap: '8px',
+//       fontSize: '13px',
+//       color: '#6b7280',
+//       fontWeight: '500',
+//       whiteSpace: 'nowrap'
+//     },
+//     resultsCount: {
+//       backgroundColor: '#f3f4f6',
+//       padding: '4px 8px',
+//       borderRadius: '12px',
+//       fontSize: '12px',
+//       fontWeight: '600',
+//       color: '#374151'
+//     },
+//     grid: { display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' },
+//     main: { marginBottom: '40px' },
+//     paginationContainer: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '40px' }
+//   };
+
+//   return (
+//     &lt;div style={pageStyles.container}>
+//       {/* Compact Filters Bar */}
+//       &lt;div style={pageStyles.filtersBar}>
+//         {/* Search */}
+//         &lt;div style={pageStyles.searchContainer}>
+//           &lt;input
+//             type="text"
+//             placeholder="🔍 Search tasks, assignees, or IDs..."
+//             value={filters.search}
+//             onChange={(e) => handleFilterChange('search', e.target.value)}
+//             style={pageStyles.searchInput}
+//             onFocus={(e) => e.target.style.backgroundColor = '#ffffff'}
+//             onBlur={(e) => e.target.style.backgroundColor = '#f9fafb'}
+//           />
+//         &lt;/div>
+
+//         {/* Quick Filters */}
+//         &lt;select
+//           value={filters.status}
+//           onChange={(e) => handleFilterChange('status', e.target.value)}
+//           style={pageStyles.filterSelect}
+//         >
+//           &lt;option value="all">📋 All Status&lt;/option>
+//           &lt;option value="Completed">✅ Completed&lt;/option>
+//           &lt;option value="Pending">⏳ Pending&lt;/option>
+//           &lt;option value="In Progress">🔄 In Progress&lt;/option>
+//           &lt;option value="On Hold">⏸️ On Hold&lt;/option>
+//         &lt;/select>
+
+//         &lt;select
+//           value={filters.priority}
+//           onChange={(e) => handleFilterChange('priority', e.target.value)}
+//           style={pageStyles.filterSelect}
+//         >
+//           &lt;option value="all">🎯 All Priority&lt;/option>
+//           &lt;option value="high">🔴 High&lt;/option>
+//           &lt;option value="medium">🟡 Medium&lt;/option>
+//           &lt;option value="low">🟢 Low&lt;/option>
+//         &lt;/select>
+
+//         &lt;select
+//           value={filters.department}
+//           onChange={(e) => handleFilterChange('department', e.target.value)}
+//           style={pageStyles.filterSelect}
+//         >
+//           &lt;option value="all">🏢 All Depts&lt;/option>
+//           {getUniqueValues('department').map(dept => (
+//             &lt;option key={dept} value={dept}>{dept}&lt;/option>
+//           ))}
+//         &lt;/select>
+
+      
+
+//         {/* Compact Sort */}
+//         &lt;div style={pageStyles.sortContainer}>
+//           &lt;select
+//             value={filters.sortBy}
+//             onChange={(e) => handleFilterChange('sortBy', e.target.value)}
+//             style={pageStyles.sortSelect}
+//           >
+//             &lt;option value="initiated">📅 Date&lt;/option>
+//             &lt;option value="title">📝 Title&lt;/option>
+//             &lt;option value="priority">🎯 Priority&lt;/option>
+//             &lt;option value="status">📋 Status&lt;/option>
+    
+//             &lt;option value="elapsed">⏱️ Time&lt;/option>
+//           &lt;/select>
+//           &lt;button
+//             onClick={() => handleFilterChange('sortOrder', filters.sortOrder === 'desc' ? 'asc' : 'desc')}
+//             style={{
+//               ...pageStyles.sortSelect,
+//               width: '40px',
+//               textAlign: 'center',
+//               fontWeight: 'bold'
+//             }}
+//             title={`Sort ${filters.sortOrder === 'desc' ? 'Ascending' : 'Descending'}`}
+//           >
+//             {filters.sortOrder === 'desc' ? '↓' : '↑'}
+//           &lt;/button>
+//         &lt;/div>
+
+//         {/* Results &amp; Clear */}
+//         &lt;div style={pageStyles.resultsInfo}>
+//           &lt;span style={pageStyles.resultsCount}>
+//             {filteredTasks.length}/{tasks.length}
+//           &lt;/span>
+//         &lt;/div>
+
+//         &lt;button 
+//           style={pageStyles.clearButton}
+//           onClick={clearAllFilters}
+//           onMouseEnter={(e) => e.target.style.transform = 'translateY(-1px)'}
+//           onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
+//           title="Clear all filters"
+//         >
+//           ✨ Reset
+//         &lt;/button>
+//       &lt;/div>
+
+//       &lt;main style={pageStyles.main}>
+//         &lt;div style={pageStyles.grid}>
+//           {currentTasks.map((task) => (
+//             &lt;TaskCard
+//               key={task.id}
+//               task={task}
+//               getPriorityStyles={getPriorityStyles}
+//               openDialog={openTaskDetailDialog}
+//             />
+//           ))}
+//         &lt;/div>
+
+//         {filteredTasks.length === 0 &amp;&amp; (
+//           &lt;div style={{ 
+//             textAlign: 'center', 
+//             padding: '60px 20px', 
+//             color: '#6b7280',
+//             backgroundColor: '#f9fafb',
+//             borderRadius: '12px',
+//             border: '2px dashed #d1d5db'
+//           }}>
+//             &lt;div style={{ fontSize: '48px', marginBottom: '16px' }}>🔍&lt;/div>
+//             &lt;h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px', color: '#374151' }}>No tasks found&lt;/h3>
+//             &lt;p>Try adjusting your search criteria or clear the filters to see all tasks.&lt;/p>
+//           &lt;/div>
+//         )}
+//       &lt;/main>
+
+//       {filteredTasks.length > 0 &amp;&amp; (
+//         &lt;footer style={pageStyles.paginationContainer}>
+//           &lt;Pagination
+//             count={totalPages}      // total pages
+//             page={currentPage}      // current active page
+//             onChange={(e, value) => setCurrentPage(value)} // update page
+//           />
+//         &lt;/footer>
+//       )}
+//     &lt;/div>
+//   );
+// };
+
+// export default TaskSummaryPage;
+
+
+import React, { useState, useEffect } from 'react';
+import TaskCard from './TaskCards'; 
+import TaskDetailDialog from './TaskDialog';
+import Pagination from 'src/components/ui/Pagination.js';
+
+const tasksData = [
+    {
+      id: '1',
+      title: 'Outstation Intimation Application',
+      priority: 'medium',
+      status: 'Completed',
+      statusColor: '#3caea3',
+      bgColor: '#ECFDF5',
+      borderColor: '#3caea3',
+      initiated: '16-08-2025',
+      employeeId: '115',
+      dateOfAppointment: '22-06-2008',
+      nocFor: 'Visa',
+      passportNumber: '-',
+      country: '-',
+      fromDate: '-',
+      toDate: '-',
+      placeOfVisit: '-',
+      ticketType: '-',
+      assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+      elapsed: '24 days',
+      rating: 5
+    },
+    {
+      id: '2',
+      title: 'LTC Application Processing Request',
+      priority: 'high',
+      status: 'Pending',
+      statusColor: '#ed553b',
+      bgColor: '#FFFBEB',
+      borderColor: '#ed553b',
+      initiated: '12-06-2023',
+      employeeId: '202',
+      dateOfAppointment: '22-06-2008',
+      nocFor: 'Passport Renewal',
+      passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+      assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+      elapsed: '89 days',
+      rating: 4
+    },
+    {
+      id: '3',
+      title: 'Medical Reimbursement Claim Submission',
+      priority: 'medium',
+      status: 'Pending',
+      statusColor: '#ed553b',
+      bgColor: '#FFFBEB',
+      borderColor: '#ed553b',
+      initiated: '12-06-2023',
+      employeeId: '315',
+      dateOfAppointment: '22-06-2008',
+      nocFor: 'Visa',
+      passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+      assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+      elapsed: '89 days',
+      rating: 3
+    },
+    {
+      id: '4',
+      title: 'Training Program Enrollment and Approval',
+      priority: 'low',
+      status: 'In Progress',
+      statusColor: '#f6d55c',
+      bgColor: '#EFF6FF',
+      borderColor: '#f6d55c',
+      initiated: '12-06-2023',
+      employeeId: '404',
+      dateOfAppointment: '22-06-2008',
+      nocFor: 'Visa',
+      passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+      assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+      elapsed: '89 days',
+      rating: 4
+    },
+    {
+      id: '5',
+      title: 'Annual Performance Review Scheduling',
+      priority: 'high',
+      status: 'Pending',
+      statusColor: '#ed553b',
+      bgColor: '#FFFBEB',
+      borderColor: '#ed553b',
+      initiated: '12-06-2023',
+      employeeId: '505',
+      dateOfAppointment: '22-06-2008',
+      nocFor: 'Passport Renewal',
+      passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+      assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+      elapsed: '89 days',
+      rating: 2
+    },
+    {
+      id: '6',
+      title: 'Equipment Purchase Request Approval',
+      priority: 'medium',
+      status: 'On Hold',
+      statusColor: '#173f5f',
+      bgColor: '#F9FAFB',
+      borderColor: '#173f5f',
+      initiated: '12-06-2023',
+      employeeId: '606',
+      dateOfAppointment: '22-06-2008',
+      nocFor: 'Visa',
+      passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+      assignee: { name: 'Arun E', role: 'Jr. Tech Superintendent', department: 'CC' },
+      elapsed: '89 days',
+      rating: 3
+    },
+    {
+      id: '7',
+      title: 'Four Wheeler Vehicle Application Form',
+      priority: 'high',
+      status: 'Completed',
+      statusColor: '#3caea3',
+      bgColor: '#ECFDF5',
+      borderColor: '#3caea3',
+      initiated: '08-05-2023',
+      employeeId: '707',
+      dateOfAppointment: '22-06-2008',
+      nocFor: 'Other',
+      passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+      assignee: { name: 'Elumalai N', role: 'Assistant Engineer', department: 'Technical' },
+      elapsed: '124 days',
+      rating: 5
+    },
+    {
+      id: '8',
+      title: 'Project Assignment Request for New Task',
+      priority: 'high',
+      status: 'Pending',
+      statusColor: '#ed553b',
+      bgColor: '#FFFBEB',
+      borderColor: '#ed553b',
+      initiated: '08-05-2023',
+      employeeId: '808',
+      dateOfAppointment: '22-06-2008',
+      nocFor: 'Visa',
+      passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+      assignee: { name: 'Priya Sharma', role: 'Senior Engineer', department: 'Engineering' },
+      elapsed: '124 days',
+      rating: 4
+    },
+    {
+      id: '9',
+      title: 'Conference Participation Approval Request',
+      priority: 'medium',
+      status: 'In Progress',
+      statusColor: '#f6d55c',
+      bgColor: '#EFF6FF',
+      borderColor: '#f6d55c',
+      initiated: '08-05-2023',
+      employeeId: '909',
+      dateOfAppointment: '22-06-2008',
+      nocFor: 'Other',
+      passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+      assignee: { name: 'Rajesh Kumar', role: 'Research Scientist', department: 'R&amp;D' },
+      elapsed: '124 days',
+      rating: 4
+    },
+    {
+      id: '10',
+      title: 'Certification Reimbursement Submission',
+      priority: 'low',
+      status: 'Completed',
+      statusColor: '#3caea3',
+      bgColor: '#ECFDF5',
+      borderColor: '#3caea3',
+      initiated: '08-05-2023',
+      employeeId: '1010',
+      dateOfAppointment: '22-06-2008',
+      nocFor: 'Visa',
+      passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+      assignee: { name: 'Anita Desai', role: 'QA Specialist', department: 'Quality Assurance' },
+      elapsed: '126 days',
+      rating: 5
+    },
+    {
+      id: '11',
+      title: 'Office Supply Request Approval',
+      priority: 'low',
+      status: 'Pending',
+      statusColor: '#ed553b',
+      bgColor: '#FFFBEB',
+      borderColor: '#ed553b',
+      initiated: '01-08-2023',
+      employeeId: '1111',
+      dateOfAppointment: '22-06-2008',
+      nocFor: 'Other',
+      passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+      assignee: { name: 'John Doe', role: 'Office Assistant', department: 'Admin' },
+      elapsed: '30 days',
+      rating: 4
+    },
+    {
+      id: '12',
+      title: 'New Employee Onboarding Checklist',
+      priority: 'high',
+      status: 'In Progress',
+      statusColor: '#f6d55c',
+      bgColor: '#EFF6FF',
+      borderColor: '#f6d55c',
+      initiated: '05-07-2023',
+      employeeId: '1212',
+      dateOfAppointment: '22-06-2008',
+      nocFor: 'Visa',
+      passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+      assignee: { name: 'Jane Smith', role: 'HR Manager', department: 'HR' },
+      elapsed: '60 days',
+      rating: 5
+    },
+    {
+      id: '13',
+      title: 'Software License Renewal',
+      priority: 'medium',
+      status: 'Pending',
+      statusColor: '#ed553b',
+      bgColor: '#FFFBEB',
+      borderColor: '#ed553b',
+      initiated: '10-06-2023',
+      employeeId: '1313',
+      dateOfAppointment: '22-06-2008',
+      nocFor: 'Other',
+      passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+      assignee: { name: 'Bob Johnson', role: 'IT Specialist', department: 'IT' },
+      elapsed: '90 days',
+      rating: 3
+    },
+    {
+      id: '14',
+      title: 'Leave Request Approval',
+      priority: 'low',
+      status: 'Completed',
+      statusColor: '#3caea3',
+      bgColor: '#ECFDF5',
+      borderColor: '#3caea3',
+      initiated: '15-05-2023',
+      employeeId: '1414',
+      dateOfAppointment: '22-06-2008',
+      nocFor: 'Visa',
+      passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+      assignee: { name: 'Alice Brown', role: 'Marketing Executive', department: 'Marketing' },
+      elapsed: '110 days',
+      rating: 4
+    },
+    {
+      id: '15',
+      title: 'Travel Expense Reimbursement',
+      priority: 'high',
+      status: 'Pending',
+      statusColor: '#ed553b',
+      bgColor: '#FFFBEB',
+      borderColor: '#ed553b',
+      initiated: '20-04-2023',
+      employeeId: '1515',
+      dateOfAppointment: '22-06-2008',
+      nocFor: 'Other',
+      passportNumber: '-', country: '-', fromDate: '-', toDate: '-', placeOfVisit: '-', ticketType: '-',
+      assignee: { name: 'Charlie Green', role: 'Sales Manager', department: 'Sales' },
+      elapsed: '140 days',
+      rating: 3
+    },
+];
+
+/**
+ * The main component for the task summary page. Renders tasks with pagination and filters.
+ */
+const TaskSummaryPage = () => {
+  const [tasks, setTasks] = useState([]);
+  const [filteredTasks, setFilteredTasks] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [selectedTask, setSelectedTask] = useState(null);
+  
+  // Filter states
+  const [filters, setFilters] = useState({
+    search: '',
+    status: 'In Progress',
+    priority: 'all',
+    department: 'all',
+    rating: 'all',
+    sortBy: 'initiated',
+    sortOrder: 'desc'
+  });
+
+  useEffect(() => {
+    setTasks(tasksData);
+    setFilteredTasks(tasksData);
+  }, []);
+
+  // Apply filters whenever tasks or filters change
+  useEffect(() => {
+    let filtered = [...tasks];
+
+    // Search filter
+    if (filters.search) {
+      filtered = filtered.filter(task =>
+        task.title.toLowerCase().includes(filters.search.toLowerCase()) ||
+        task.assignee.name.toLowerCase().includes(filters.search.toLowerCase()) ||
+        task.employeeId.includes(filters.search)
+      );
+    }
+
+    // Status filter
+    if (filters.status !== 'all') {
+      filtered = filtered.filter(task => task.status === filters.status);
+    }
+
+    // Priority filter
+    if (filters.priority !== 'all') {
+      filtered = filtered.filter(task => task.priority === filters.priority);
+    }
+
+    // Department filter
+    if (filters.department !== 'all') {
+      filtered = filtered.filter(task => task.assignee.department === filters.department);
+    }
+
+    // Rating filter
+    if (filters.rating !== 'all') {
+      const ratingValue = parseInt(filters.rating);
+      filtered = filtered.filter(task => task.rating === ratingValue);
+    }
+
+    // Sorting
+    filtered.sort((a, b) => {
+      let aValue, bValue;
+      
+      switch (filters.sortBy) {
+        case 'title':
+          aValue = a.title.toLowerCase();
+          bValue = b.title.toLowerCase();
+          break;
+        case 'priority':
+          const priorityOrder = { 'high': 3, 'medium': 2, 'low': 1 };
+          aValue = priorityOrder[a.priority];
+          bValue = priorityOrder[b.priority];
+          break;
+        case 'status':
+          aValue = a.status.toLowerCase();
+          bValue = b.status.toLowerCase();
+          break;
+        case 'rating':
+          aValue = a.rating;
+          bValue = b.rating;
+          break;
+        case 'elapsed':
+          aValue = parseInt(a.elapsed.split(' ')[0]);
+          bValue = parseInt(b.elapsed.split(' ')[0]);
+          break;
+        case 'initiated':
+        default:
+          aValue = new Date(a.initiated.split('-').reverse().join('-'));
+          bValue = new Date(b.initiated.split('-').reverse().join('-'));
+          break;
+      }
+
+      if (filters.sortOrder === 'asc') {
+        return aValue &lt; bValue ? -1 : aValue > bValue ? 1 : 0;
+      } else {
+        return aValue > bValue ? -1 : aValue &lt; bValue ? 1 : 0;
+      }
+    });
+
+    setFilteredTasks(filtered);
+    setCurrentPage(1); // Reset to first page when filters change
+  }, [tasks, filters]);
+
+  const handleFilterChange = (filterType, value) => {
+    setFilters(prev => ({ ...prev, [filterType]: value }));
+  };
+
+  const clearAllFilters = () => {
+    setFilters({
+      search: '',
+      status: 'all',
+      priority: 'all',
+      department: 'all',
+      rating: 'all',
+      sortBy: 'initiated',
+      sortOrder: 'desc'
+    });
+  };
+
+  // Get unique values for filter options
+  const getUniqueValues = (key) => {
+    if (key === 'department') {
+      return [...new Set(tasks.map(task => task.assignee.department))];
+    }
+    return [...new Set(tasks.map(task => task[key]))];
+  };
+
+  const TASKS_PER_PAGE = 10;
+
+  const getPriorityStyles = (priority) => {
+    switch (priority) {
+      case 'high': return { color: '#B91C1C', backgroundColor: '#FEF2F2' };
+      case 'medium': return { color: '#ed553b', backgroundColor: '#FFFBEB' };
+      case 'low': return { color: '#059669', backgroundColor: '#ECFDF5' };
+      default: return { color: '#4B5563', backgroundColor: '#F3F4F6' };
+    }
+  };
+
+  const openTaskDetailDialog = (task) => {
+    setSelectedTask(task);
+    setIsDialogOpen(true);
+  };
+
+  const closeTaskDetailDialog = () => {
+    setIsDialogOpen(false);
+    setSelectedTask(null);
+  };
+
+  const indexOfLastTask = currentPage * TASKS_PER_PAGE;
+  const indexOfFirstTask = indexOfLastTask - TASKS_PER_PAGE;
+  const currentTasks = filteredTasks.slice(indexOfFirstTask, indexOfLastTask);
+  const totalPages = Math.ceil(filteredTasks.length / TASKS_PER_PAGE);
+
+  const pageStyles = {
+    container: { maxWidth: '1700px', margin: '0 auto' },
+    filtersBar: { 
+      display: 'flex', 
+      alignItems: 'center', 
+      gap: '12px', 
+      padding: '16px 20px', 
+      backgroundColor: '#ffffff', 
+      borderRadius: '12px', 
+      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', 
+      marginBottom: '24px',
+      border: '1px solid #e5e7eb',
+      flexWrap: 'wrap'
+    },
+    searchContainer: { 
+      flex: '2', 
+      minWidth: '300px', 
+      position: 'relative' 
+    },
+    searchInput: {
+      width: '100%',
+      padding: '10px 40px 10px 16px',
+      border: '1px solid #d1d5db',
+      borderRadius: '8px',
+      fontSize: '14px',
+      backgroundColor: '#f9fafb',
+      transition: 'all 0.2s ease',
+      outline: 'none',
+    },
+    searchIcon: {
+      position: 'absolute',
+      right: '12px',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      color: '#9ca3af',
+      fontSize: '16px'
+    },
+    filterSelect: {
+      padding: '10px 12px',
+      border: '1px solid #d1d5db',
+      borderRadius: '8px',
+      fontSize: '13px',
+      backgroundColor: '#ffffff',
+      color: '#374151',
+      fontWeight: '500',
+      minWidth: '120px',
+      cursor: 'pointer',
+      transition: 'all 0.2s ease',
+      outline: 'none',
+    },
+    filterSelectFocus: {
+      borderColor: '#3b82f6',
+      boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.1)',
+    },
+    sortContainer: {
+      display: 'flex',
+      gap: '8px',
+      alignItems: 'center'
+    },
+    sortSelect: {
+      padding: '8px 10px',
+      border: '1px solid #d1d5db',
+      borderRadius: '6px',
+      fontSize: '12px',
+      backgroundColor: '#ffffff',
+      color: '#6b7280',
+      minWidth: '100px',
+      cursor: 'pointer'
+    },
+    clearButton: {
+      padding: '10px 16px',
+      backgroundColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      border: 'none',
+      borderRadius: '8px',
+      color: '#ffffff',
+      fontSize: '13px',
+      fontWeight: '600',
+      cursor: 'pointer',
+      transition: 'all 0.2s ease',
+      boxShadow: '0 2px 4px rgba(102, 126, 234, 0.3)',
+      whiteSpace: 'nowrap'
+    },
+    resultsInfo: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      fontSize: '13px',
+      color: '#6b7280',
+      fontWeight: '500',
+      whiteSpace: 'nowrap'
+    },
+    resultsCount: {
+      backgroundColor: '#f3f4f6',
+      padding: '4px 8px',
+      borderRadius: '12px',
+      fontSize: '12px',
+      fontWeight: '600',
+      color: '#374151'
+    },
+    grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '24px' }, // Adjusted for better responsiveness
+    main: { marginBottom: '40px' },
+    paginationContainer: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '40px' }
+  };
+
+  return (
+    &lt;div style={pageStyles.container}>
+      {/* Compact Filters Bar */}
+      &lt;div style={pageStyles.filtersBar}>
+        {/* Search */}
+        &lt;div style={pageStyles.searchContainer}>
+          &lt;input
+            type="text"
+            placeholder="🔍 Search tasks, assignees, or IDs..."
+            value={filters.search}
+            onChange={(e) => handleFilterChange('search', e.target.value)}
+            style={pageStyles.searchInput}
+            onFocus={(e) => e.target.style.backgroundColor = '#ffffff'}
+            onBlur={(e) => e.target.style.backgroundColor = '#f9fafb'}
+          />
+        &lt;/div>
+
+        {/* Quick Filters */}
+        &lt;select
+          value={filters.status}
+          onChange={(e) => handleFilterChange('status', e.target.value)}
+          style={pageStyles.filterSelect}
+        >
+          &lt;option value="all">📋 All Status&lt;/option>
+          &lt;option value="Completed">✅ Completed&lt;/option>
+          &lt;option value="Pending">⏳ Pending&lt;/option>
+          &lt;option value="In Progress">🔄 In Progress&lt;/option>
+          &lt;option value="On Hold">⏸️ On Hold&lt;/option>
+        &lt;/select>
+
+        &lt;select
+          value={filters.priority}
+          onChange={(e) => handleFilterChange('priority', e.target.value)}
+          style={pageStyles.filterSelect}
+        >
+          &lt;option value="all">🎯 All Priority&lt;/option>
+          &lt;option value="high">🔴 High&lt;/option>
+          &lt;option value="medium">🟡 Medium&lt;/option>
+          &lt;option value="low">🟢 Low&lt;/option>
+        &lt;/select>
+
+        &lt;select
+          value={filters.department}
+          onChange={(e) => handleFilterChange('department', e.target.value)}
+          style={pageStyles.filterSelect}
+        >
+          &lt;option value="all">🏢 All Depts&lt;/option>
+          {getUniqueValues('department').map(dept => (
+            &lt;option key={dept} value={dept}>{dept}&lt;/option>
+          ))}
+        &lt;/select>
+
+        {/* Compact Sort */}
+        &lt;div style={pageStyles.sortContainer}>
+          &lt;select
+            value={filters.sortBy}
+            onChange={(e) => handleFilterChange('sortBy', e.target.value)}
+            style={pageStyles.sortSelect}
+          >
+            &lt;option value="initiated">📅 Date&lt;/option>
+            &lt;option value="title">📝 Title&lt;/option>
+            &lt;option value="priority">🎯 Priority&lt;/option>
+            &lt;option value="status">📋 Status&lt;/option>
+            &lt;option value="elapsed">⏱️ Time&lt;/option>
+          &lt;/select>
+          &lt;button
+            onClick={() => handleFilterChange('sortOrder', filters.sortOrder === 'desc' ? 'asc' : 'desc')}
+            style={{
+              ...pageStyles.sortSelect,
+              width: '40px',
+              textAlign: 'center',
+              fontWeight: 'bold'
+            }}
+            title={`Sort ${filters.sortOrder === 'desc' ? 'Ascending' : 'Descending'}`}
+          >
+            {filters.sortOrder === 'desc' ? '↓' : '↑'}
+          &lt;/button>
+        &lt;/div>
+
+        {/* Results &amp; Clear */}
+        &lt;div style={pageStyles.resultsInfo}>
+          &lt;span style={pageStyles.resultsCount}>
+            {filteredTasks.length}/{tasks.length}
+          &lt;/span>
+        &lt;/div>
+
+        &lt;button 
+          style={pageStyles.clearButton}
+          onClick={clearAllFilters}
+          onMouseEnter={(e) => e.target.style.transform = 'translateY(-1px)'}
+          onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
+          title="Clear all filters"
+        >
+          ✨ Reset
+        &lt;/button>
+      &lt;/div>
+
+      &lt;main style={pageStyles.main}>
+        &lt;div style={pageStyles.grid}>
+          {currentTasks.map((task) => (
+            &lt;TaskCard
+              key={task.id}
+              task={task}
+              getPriorityStyles={getPriorityStyles}
+              openDialog={openTaskDetailDialog} // Pass the dialog opener function
+            />
+          ))}
+        &lt;/div>
+
+        {filteredTasks.length === 0 &amp;&amp; (
+          &lt;div style={{ 
+            textAlign: 'center', 
+            padding: '60px 20px', 
+            color: '#6b7280',
+            backgroundColor: '#f9fafb',
+            borderRadius: '12px',
+            border: '2px dashed #d1d5db'
+          }}>
+            &lt;div style={{ fontSize: '48px', marginBottom: '16px' }}>🔍&lt;/div>
+            &lt;h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px', color: '#374151' }}>No tasks found&lt;/h3>
+            &lt;p>Try adjusting your search criteria or clear the filters to see all tasks.&lt;/p>
+          &lt;/div>
+        )}
+      &lt;/main>
+
+     {filteredTasks.length > 0 &amp;&amp; (
+  &lt;footer style={pageStyles.paginationContainer}>
+    &lt;Pagination
+      filteredTasks={filteredTasks}
+      totalPages={totalPages}
+      currentPage={currentPage}
+      setCurrentPage={setCurrentPage}
+    
+      responsive={{ isTablet: false }}
+    />
+  &lt;/footer>
+)}
+
+
+      {/* The Task Detail Dialog Component */}
+      &lt;TaskDetailDialog
+        open={isDialogOpen}
+        onClose={closeTaskDetailDialog}
+        task={selectedTask} 
+      />
+    &lt;/div>
+  );
+};
+
+export default TaskSummaryPage;</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Wed Nov 05 2025 11:24:43 GMT+0530 (India Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

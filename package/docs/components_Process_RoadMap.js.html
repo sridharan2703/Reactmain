@@ -1,0 +1,3667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/Process/RoadMap.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-AdditionalDetails.html">AdditionalDetails</a><ul class='methods'><li data-type='method'><a href="module-AdditionalDetails.html#~AdditionalDetails">AdditionalDetails</a></li><li data-type='method'><a href="module-AdditionalDetails.html#~AdditionalDetails">AdditionalDetails</a></li></ul></li><li></li><li><a href="module-ApprovalForm.html">ApprovalForm</a><ul class='methods'><li data-type='method'><a href="module-ApprovalForm.html#~ApprovalForm">ApprovalForm</a></li><li data-type='method'><a href="module-ApprovalForm.html#~ApprovalForm">ApprovalForm</a></li></ul></li><li></li><li><a href="module-EmployeeVisitForm.html">EmployeeVisitForm</a><ul class='methods'><li data-type='method'><a href="module-EmployeeVisitForm.html#~EmployeeVisitForm">EmployeeVisitForm</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~EmployeeVisitForm">EmployeeVisitForm</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~stripNonEnglish">stripNonEnglish</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~stripNonEnglish">stripNonEnglish</a></li></ul></li><li></li><li><a href="module-SaveandHold.html">SaveandHold</a><ul class='methods'><li data-type='method'><a href="module-SaveandHold.html#~SaveandHold">SaveandHold</a></li><li data-type='method'><a href="module-SaveandHold.html#~SaveandHold">SaveandHold</a></li><li data-type='method'><a href="module-SaveandHold.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-SaveandHold.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-SaveandHold.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-SaveandHold.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-SaveandHold.html#~getToColumnHtml">getToColumnHtml</a></li><li data-type='method'><a href="module-SaveandHold.html#~getToColumnHtml">getToColumnHtml</a></li></ul></li><li></li><li><a href="module-components_Roadmap.html">components/Roadmap</a><ul class='methods'><li data-type='method'><a href="module-components_Roadmap.html#~Roadmap">Roadmap</a></li></ul></li><li><a href="module-src_components_UIShowcase.html">src/components/UIShowcase</a><ul class='methods'><li data-type='method'><a href="module-src_components_UIShowcase.html#~UIShowcase">UIShowcase</a></li></ul></li><li><a href="module-src_components_authentication_OtpVerification.html">src/components/authentication/OtpVerification</a><ul class='methods'><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~addTrustedDevice">addTrustedDevice</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~generateDeviceFingerprint">generateDeviceFingerprint</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~getDeviceInfo">getDeviceInfo</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~removeTrustedDevice">removeTrustedDevice</a></li></ul></li><li><a href="module-src_components_ui.html">src/components/ui</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui.html#~AnimatedSlide">AnimatedSlide</a></li><li data-type='method'><a href="module-src_components_ui.html#~CardStyle">CardStyle</a></li></ul></li><li></li><li></li><li></li><li><a href="module-src_components_ui_Alerts.html">src/components/ui/Alerts</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Alerts.html#~Alerts">Alerts</a></li></ul></li><li><a href="module-src_components_ui_Avatar.html">src/components/ui/Avatar</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Avatar.html#~Avatar">Avatar</a></li></ul></li><li><a href="module-src_components_ui_Badge.html">src/components/ui/Badge</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Badge.html#~Badge">Badge</a></li></ul></li><li><a href="module-src_components_ui_Button.html">src/components/ui/Button</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Button.html#~Button">Button</a></li><li data-type='method'><a href="module-src_components_ui_Button.html#~ButtonGroup">ButtonGroup</a></li><li data-type='method'><a href="module-src_components_ui_Button.html#~NavigationContainer">NavigationContainer</a></li></ul></li><li><a href="module-src_components_ui_Card.html">src/components/ui/Card</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Card.html#~Card">Card</a></li></ul></li><li><a href="module-src_components_ui_Checkbox.html">src/components/ui/Checkbox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Checkbox.html#~Checkbox">Checkbox</a></li></ul></li><li><a href="module-src_components_ui_DialogBox.html">src/components/ui/DialogBox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_DialogBox.html#~DialogBox">DialogBox</a></li></ul></li><li><a href="module-src_components_ui_Dropdown.html">src/components/ui/Dropdown</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Dropdown.html#~Dropdown">Dropdown</a></li></ul></li><li><a href="module-src_components_ui_Input.html">src/components/ui/Input</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Input.html#~Input">Input</a></li></ul></li><li><a href="module-src_components_ui_Pagination.html">src/components/ui/Pagination</a></li><li><a href="module-src_components_ui_PriorityIcon.html">src/components/ui/PriorityIcon</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_PriorityIcon.html#~PriorityIcon">PriorityIcon</a></li></ul></li><li><a href="module-src_components_ui_TextArea.html">src/components/ui/TextArea</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_TextArea.html#~TextArea">TextArea</a></li></ul></li><li><a href="module-src_layouts_full_header_Profile.html">src/layouts/full/header/Profile</a></li><li><a href="module-src_pages_Inbox_Inbox.html">src/pages/Inbox/Inbox</a></li><li><a href="module-src_services_EnhancedDynamicDecryption.html">src/services/EnhancedDynamicDecryption</a><ul class='methods'><li data-type='method'><a href="module-src_services_EnhancedDynamicDecryption.html#~base64ToArrayBuffer">base64ToArrayBuffer</a></li><li data-type='method'><a href="module-src_services_EnhancedDynamicDecryption.html#~getAuthHeaders">getAuthHeaders</a></li></ul></li><li><a href="module-src_views_authentication_auth_AuthLogin.html">src/views/authentication/auth/AuthLogin</a></li><li><a href="module-src_views_authentication_auth_encryption.html">src/views/authentication/auth/encryption</a><ul class='methods'><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.authenticateUser">authenticateUser</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.decryptGCM">decryptGCM</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.encryptECB">encryptECB</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getDecryptKeyFromCookies">getDecryptKeyFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getSessionIdFromCookies">getSessionIdFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getUserFromCookies">getUserFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.isUserAuthenticated">isUserAuthenticated</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.logoutUser">logoutUser</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~deleteCookie">deleteCookie</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~generate256BitKey">generate256BitKey</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~getAuthHeaders">getAuthHeaders</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~getCookie">getCookie</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~insertSessionData">insertSessionData</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~saveUserToCookies">saveUserToCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~setCookie">setCookie</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#CommentsHistory">CommentsHistory</a></li><li><a href="global.html#DateInput">DateInput</a></li><li><a href="global.html#DatePicker">DatePicker</a></li><li><a href="global.html#DateRangePicker">DateRangePicker</a></li><li><a href="global.html#DocumentUpload">DocumentUpload</a></li><li><a href="global.html#DropZone">DropZone</a></li><li><a href="global.html#FileUpload">FileUpload</a></li><li><a href="global.html#ImageUpload">ImageUpload</a></li><li><a href="global.html#InlineDateRangePicker">InlineDateRangePicker</a></li><li><a href="global.html#Login2">Login2</a></li><li><a href="global.html#MultiFileUpload">MultiFileUpload</a></li><li><a href="global.html#TaskCard">TaskCard</a></li><li><a href="global.html#TaskSummaryPage">TaskSummaryPage</a></li><li><a href="global.html#base64ToArrayBuffer">base64ToArrayBuffer</a></li><li><a href="global.html#decrypt">decrypt</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/Process/RoadMap.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// // // // /**
+// // // //  * @fileoverview Compact Roadmap component
+// // // //  * @module components/Roadmap
+// // // //  * @author Rakshana
+// // // //  * @date 12/08/2025
+// // // //  */
+// // // // import React, { useRef } from 'react';
+// // // // import {
+// // // //   Box,
+// // // //   Typography,
+// // // //   Card,
+// // // //   CardContent,
+// // // //   useMediaQuery,
+// // // //   useTheme
+// // // // } from '@mui/material';
+
+// // // // const customFontStyles = {
+// // // //   fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+// // // //   fontSize: "12px",
+// // // //   fontWeight: 400,
+// // // // };
+
+// // // // /**
+// // // //  * Compact NOC Process Roadmap Component with 7 steps
+// // // //  * @param {Object} props - Component props
+// // // //  * @param {number} props.currentStep - Current active step (0-based index)
+// // // //  * @param {Array} props.completedSteps - Array of completed step indices
+// // // //  * @param {Array} props.rejectedSteps - Array of rejected step indices
+// // // //  * @returns {JSX.Element} The rendered roadmap component
+// // // //  */
+// // // // const NOCRoadmap = ({
+// // // //   currentStep = 2, // Admin2 DA is current (0-indexed: 0=Employee, 1=Manager, 2=Admin2 DA)
+// // // //   completedSteps = [0, 1], // Employee Submission and Manager Approval completed
+// // // //   rejectedSteps = []
+// // // // }) => {
+// // // //   const theme = useTheme();
+// // // //   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+// // // //   const scrollRef = useRef(null);
+
+// // // //   const roadmapSteps = [
+// // // //     {
+// // // //       id: 1,
+// // // //       title: "Employee Submission",
+// // // //       description: "Submit NOC application",
+// // // //       color: "#ef4444",
+// // // //       bgColor: "rgba(239, 68, 68, 0.05)",
+// // // //     },
+// // // //     {
+// // // //       id: 2,
+// // // //       title: "Manager Approval",
+// // // //       description: "Direct manager review",
+// // // //       color: "#10b981",
+// // // //       bgColor: "rgba(16, 185, 129, 0.05)",
+// // // //     },
+// // // //     {
+// // // //       id: 3,
+// // // //       title: "Admin2 DA",
+// // // //       description: "DA documentation review",
+// // // //       color: "#3b82f6",
+// // // //       bgColor: "rgba(59, 130, 246, 0.05)",
+// // // //     },
+// // // //     {
+// // // //       id: 4,
+// // // //       title: "Admin2 Superintendent",
+// // // //       description: "Superintendent approval",
+// // // //       color: "#8b5cf6",
+// // // //       bgColor: "rgba(139, 92, 246, 0.05)",
+// // // //     },
+// // // //     {
+// // // //       id: 5,
+// // // //       title: "AR",
+// // // //       description: "Legal compliance check",
+// // // //       color: "#f59e0b",
+// // // //       bgColor: "rgba(245, 158, 11, 0.05)",
+// // // //     },
+// // // //     {
+// // // //       id: 6,
+// // // //       title: "DR",
+// // // //       description: "Final NOC preparation",
+// // // //       color: "#06b6d4",
+// // // //       bgColor: "rgba(6, 182, 212, 0.05)",
+// // // //     },
+// // // //     {
+// // // //       id: 7,
+// // // //       title: "Certificate Issuance",
+// // // //       description: "Official NOC certificate",
+// // // //       color: "#84cc16",
+// // // //       bgColor: "rgba(132, 204, 22, 0.05)",
+// // // //     }
+// // // //   ];
+
+// // // //   const getStepStatus = (stepIndex) => {
+// // // //     if (rejectedSteps.includes(stepIndex)) return 'rejected';
+// // // //     if (completedSteps.includes(stepIndex)) return 'completed';
+// // // //     if (stepIndex === currentStep) return 'current';
+// // // //     if (stepIndex &lt; currentStep) return 'completed';
+// // // //     return 'pending';
+// // // //   };
+
+// // // //   const getStepStyles = (step, index, status) => {
+// // // //     let borderColor = '#e5e7eb';
+// // // //     let backgroundColor = '#ffffff';
+// // // //     let shadowIntensity = '0 1px 3px rgba(0, 0, 0, 0.05)';
+
+// // // //     switch (status) {
+// // // //       case 'completed':
+// // // //         borderColor = '#10b981'; // Green for completed
+// // // //         backgroundColor = 'rgba(16, 185, 129, 0.05)';
+// // // //         shadowIntensity = '0 2px 8px rgba(16, 185, 129, 0.15)';
+// // // //         break;
+// // // //       case 'rejected':
+// // // //         borderColor = '#ef4444';
+// // // //         backgroundColor = 'rgba(239, 68, 68, 0.02)';
+// // // //         shadowIntensity = '0 2px 8px rgba(239, 68, 68, 0.15)';
+// // // //         break;
+// // // //       case 'current':
+// // // //         borderColor = '#f59e0b'; // Orange/Amber for ongoing
+// // // //         backgroundColor = 'rgba(245, 158, 11, 0.05)';
+// // // //         shadowIntensity = '0 4px 12px rgba(245, 158, 11, 0.25)';
+// // // //         break;
+// // // //       case 'pending':
+// // // //         borderColor = '#3b82f6'; // Blue for future steps
+// // // //         backgroundColor = 'rgba(59, 130, 246, 0.02)';
+// // // //         shadowIntensity = '0 1px 3px rgba(59, 130, 246, 0.1)';
+// // // //         break;
+// // // //     }
+
+// // // //     return { borderColor, backgroundColor, shadowIntensity };
+// // // //   };
+
+// // // //   const getStepNumberColor = (status) => {
+// // // //     switch (status) {
+// // // //       case 'completed':
+// // // //         return '#10b981'; // Green for completed
+// // // //       case 'rejected':
+// // // //         return '#ef4444';
+// // // //       case 'current':
+// // // //         return '#f59e0b'; // Orange/Amber for ongoing
+// // // //       default:
+// // // //         return '#3b82f6'; // Blue for future steps
+// // // //     }
+// // // //   };
+
+// // // //   const ConnectorLine = ({ status }) => {
+// // // //     let lineColor = '#3b82f6'; // Blue for future steps
+// // // //     if (status === 'completed') lineColor = '#10b981'; // Green for completed
+// // // //     if (status === 'rejected') lineColor = '#ef4444';
+// // // //     if (status === 'current') lineColor = '#f59e0b'; // Orange for ongoing
+
+// // // //     return (
+// // // //       &lt;Box
+// // // //         sx={{
+// // // //           width: 30, // Reduced from 40
+// // // //           height: 3,
+// // // //           backgroundColor: lineColor,
+// // // //           borderRadius: '2px',
+// // // //           position: 'relative',
+// // // //           mx: 1,
+// // // //           '&amp;::after': {
+// // // //             content: '""',
+// // // //             position: 'absolute',
+// // // //             right: -2, // Reduced from -3
+// // // //             top: '50%',
+// // // //             transform: 'translateY(-50%)',
+// // // //             width: 0,
+// // // //             height: 0,
+// // // //             borderLeft: `4px solid ${lineColor}`, // Reduced from 6px
+// // // //             borderTop: '2px solid transparent', // Reduced from 3px
+// // // //             borderBottom: '2px solid transparent', // Reduced from 3px
+// // // //           }
+// // // //         }}
+// // // //       />
+// // // //     );
+// // // //   };
+
+// // // //   return (
+// // // //     &lt;Card
+// // // //       sx={{
+// // // //         mb: 2,
+// // // //         borderRadius: '12px',
+// // // //         border: '1px solid #e2e8f0',
+// // // //         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
+// // // //         overflow: 'hidden',
+// // // //         background: 'linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)',
+// // // //       }}
+// // // //     >
+// // // //       &lt;CardContent sx={{ p: 0 }}>
+// // // //         {/* Scrollable Steps Container */}
+// // // //         &lt;Box sx={{ position: 'relative', px: 1, py: 1 }}> {/* Increased padding */}
+// // // //           {/* Steps Container */}
+// // // //           &lt;Box
+// // // //             ref={scrollRef}
+// // // //             sx={{
+// // // //               display: 'flex',
+// // // //               overflowX: 'auto',
+// // // //               scrollbarWidth: 'thin',
+// // // //               scrollbarColor: '#cbd5e1 #f1f5f9',
+// // // //               '&amp;::-webkit-scrollbar': {
+// // // //                 height: '8px',
+// // // //               },
+// // // //               '&amp;::-webkit-scrollbar-track': {
+// // // //                 backgroundColor: '#f1f5f9',
+// // // //                 borderRadius: '4px',
+// // // //               },
+// // // //               '&amp;::-webkit-scrollbar-thumb': {
+// // // //                 backgroundColor: '#cbd5e1',
+// // // //                 borderRadius: '4px',
+// // // //                 '&amp;:hover': {
+// // // //                   backgroundColor: '#94a3b8',
+// // // //                 },
+// // // //               },
+// // // //               gap: 1,
+// // // //               py: 3,
+// // // //               pb: 2,
+// // // //               px: 2,
+// // // //             }}
+// // // //           >
+// // // //             {roadmapSteps.map((step, index) => {
+// // // //               const status = getStepStatus(index);
+// // // //               const styles = getStepStyles(step, index, status);
+
+// // // //               return (
+// // // //                 &lt;React.Fragment key={step.id}>
+// // // //                   {/* Step Card */}
+// // // //                   &lt;Box
+// // // //                     sx={{
+// // // //                       minWidth: 200,
+// // // //                       maxWidth: 200,
+// // // //                       position: 'relative'
+// // // //                     }}
+// // // //                   >
+// // // //                     {/* Step Number Badge */}
+// // // //                     &lt;Box
+// // // //                       sx={{
+// // // //                         position: 'absolute',
+// // // //                         top: -8,
+// // // //                         left: 12,
+// // // //                         zIndex: 2,
+// // // //                         width: 28,
+// // // //                         height: 28,
+// // // //                         borderRadius: '50%',
+// // // //                         backgroundColor: getStepNumberColor(status),
+// // // //                         color: 'white',
+// // // //                         display: 'flex',
+// // // //                         alignItems: 'center',
+// // // //                         justifyContent: 'center',
+// // // //                         fontSize: '0.875rem',
+// // // //                         fontWeight: 700,
+// // // //                         boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+// // // //                         border: '2px solid white'
+// // // //                       }}
+// // // //                     >
+// // // //                       {step.id}
+// // // //                     &lt;/Box>
+
+// // // //                     {/* Main Step Card */}
+// // // //                     &lt;Card
+// // // //                       sx={{
+// // // //                         height:80,
+// // // //                         border: status === 'current' ? `3px solid ${styles.borderColor}` : `2px solid ${styles.borderColor}`, // Thicker border for current
+// // // //                         backgroundColor: styles.backgroundColor,
+// // // //                         borderRadius: '12px',
+// // // //                         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+// // // //                         transform: status === 'current' ? 'scale(1.08)' : 'scale(1)', // More pronounced scale
+// // // //                         boxShadow: status === 'current' ? '0 8px 25px rgba(245, 158, 11, 0.4)' : styles.shadowIntensity, // Enhanced shadow for current
+// // // //                         position: 'relative',
+// // // //                         overflow: 'visible',
+// // // //                         animation: status === 'current' ? 'pulse 2s infinite' : 'none', // Add pulse animation
+// // // //                         '@keyframes pulse': {
+// // // //                           '0%, 100%': {
+// // // //                             boxShadow: '0 8px 25px rgba(245, 158, 11, 0.4)',
+// // // //                           },
+// // // //                           '50%': {
+// // // //                             boxShadow: '0 8px 35px rgba(245, 158, 11, 0.6)',
+// // // //                           },
+// // // //                         },
+// // // //                         '&amp;:hover': {
+// // // //                           transform: status === 'current' ? 'scale(1.08)' : 'scale(1.01)',
+// // // //                           boxShadow: status === 'current' ? '0 12px 30px rgba(245, 158, 11, 0.5)' : '0 6px 16px rgba(0,0,0,0.1)'
+// // // //                         }
+// // // //                       }}
+// // // //                     >
+// // // //                       &lt;CardContent sx={{ p: 2, pt: 3 }}>
+// // // //                         &lt;Typography
+// // // //                           variant="h6"
+// // // //                           sx={{
+// // // //                             ...customFontStyles,
+// // // //                             fontWeight: status === 'current' ? 700 : 600, // Bold for current activity
+// // // //                             fontSize: '0.875rem',
+// // // //                             color: status === 'pending' ? '#1e40af' : status === 'current' ? '#92400e' : '#065f46', // Blue for future, amber-dark for current, green-dark for completed
+// // // //                             mb: 0.5,
+// // // //                             lineHeight: 1.2
+// // // //                           }}
+// // // //                         >
+// // // //                           {step.title}
+// // // //                         &lt;/Typography>
+
+// // // //                         &lt;Typography
+// // // //                           variant="body2"
+// // // //                           sx={{
+// // // //                             ...customFontStyles,
+// // // //                             fontSize: '0.75rem',
+// // // //                             color: status === 'pending' ? '#1e40af' : status === 'current' ? '#92400e' : '#065f46', // Different colors for each state
+// // // //                             lineHeight: 1.4,
+// // // //                           }}
+// // // //                         >
+// // // //                           {step.description}
+// // // //                         &lt;/Typography>
+// // // //                       &lt;/CardContent>
+// // // //                     &lt;/Card>
+// // // //                   &lt;/Box>
+
+// // // //                   {/* Connector Line (except for last step) */}
+// // // //                   {index &lt; roadmapSteps.length - 1 &amp;&amp; (
+// // // //                     &lt;Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
+// // // //                       &lt;ConnectorLine status={status} />
+// // // //                     &lt;/Box>
+// // // //                   )}
+// // // //                 &lt;/React.Fragment>
+// // // //               );
+// // // //             })}
+// // // //           &lt;/Box>
+// // // //         &lt;/Box>
+// // // //       &lt;/CardContent>
+// // // //     &lt;/Card>
+// // // //   );
+// // // // };
+
+// // // // export default NOCRoadmap;
+
+// // //model 1
+
+// // // /**
+// // //  * @fileoverview Compact Roadmap component
+// // //  * @module components/Roadmap
+// // //  * @author Rakshana
+// // //  * @date 12/08/2025
+// // //  */
+// // // import React, { useRef, useState, useEffect } from 'react';
+// // // import {
+// // //   Box,
+// // //   Typography,
+// // //   Card,
+// // //   CardContent,
+// // //   useMediaQuery,
+// // //   useTheme
+// // // } from '@mui/material';
+// // // import Cookies from "js-cookie";
+// // // import {
+// // //   decryptData,
+// // //   validateJsonData,
+// // //   isWebCryptoSupported,
+// // // } from "src/components/Decryption/Decrypt"; // Adjust path as needed
+
+// // // const customFontStyles = {
+// // //   fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+// // //   fontSize: "12px",
+// // //   fontWeight: 400,
+// // // };
+
+// // // const getAuthHeaders = async () => {
+// // //   const encryptedToken = Cookies.get("HRToken");
+// // //   return {
+// // //     "Content-Type": "application/json",
+// // //     Authorization: `Bearer ${encryptedToken}`,
+// // //   };
+// // // };
+
+// // // /**
+// // //  * Compact NOC Process Roadmap Component with dynamic steps
+// // //  * Dynamically fetches flow data from API to determine steps, completed/rejected steps
+// // //  * @param {Object} props - Component props
+// // //  * @param {number} props.currentActivity - Current active activity (1-based index from ActivitySeqNo)
+// // //  * @returns {JSX.Element} The rendered roadmap component
+// // //  */
+// // // const NOCRoadmap = ({
+// // //   currentActivity = 3 // Default to Admin2 DA (1-based: 1=Employee, 2=Manager, 3=Admin2 DA)
+// // // }) => {
+// // //   const theme = useTheme();
+// // //   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+// // //   const scrollRef = useRef(null);
+
+// // //   const [roadmapSteps, setRoadmapSteps] = useState([]);
+// // //   const [completedSteps, setCompletedSteps] = useState([]);
+// // //   const [rejectedSteps, setRejectedSteps] = useState([]);
+// // //   const [loading, setLoading] = useState(true);
+
+// // //   const currentStep = 2 // Convert to 0-based for internal logic
+
+// // //   // Dynamic color palette for steps (cycled if more steps than palette)
+// // //   const stepsPalette = [
+// // //     { color: "#ef4444", bgColor: "rgba(239, 68, 68, 0.05)" },
+// // //     { color: "#10b981", bgColor: "rgba(16, 185, 129, 0.05)" },
+// // //     { color: "#3b82f6", bgColor: "rgba(59, 130, 246, 0.05)" },
+// // //     { color: "#8b5cf6", bgColor: "rgba(139, 92, 246, 0.05)" },
+// // //     { color: "#f59e0b", bgColor: "rgba(245, 158, 11, 0.05)" },
+// // //     { color: "#06b6d4", bgColor: "rgba(6, 182, 212, 0.05)" },
+// // //     { color: "#84cc16", bgColor: "rgba(132, 204, 22, 0.05)" }
+// // //   ];
+
+// // //   useEffect(() => {
+// // //     const fetchFlow = async () => {
+// // //       if (!isWebCryptoSupported()) {
+// // //         console.warn("WebCrypto not supported, falling back to defaults");
+// // //         setLoading(false);
+// // //         // Fallback: Use a minimal dynamic structure if needed, but since dynamic, set empty
+// // //         setRoadmapSteps([]);
+// // //         setCompletedSteps([]);
+// // //         setRejectedSteps([]);
+// // //         return;
+// // //       }
+
+// // //       try {
+// // //         setLoading(true);
+// // //         const role = Cookies.get("selectedRole") || "Registrar";
+// // //         const payload = {
+// // //           "token": "HRFGVJISOVp1fncC",
+// // //           "ProcessId": 1,
+// // //           "Current_Activity": currentActivity,
+// // //           "Conditions": {
+// // //             "choice": role
+// // //           }
+// // //         };
+
+// // //         const headers = await getAuthHeaders();
+// // //         const response = await fetch("https://wftest1.iitm.ac.in:5555/Getflow", {
+// // //           method: "POST",
+// // //           headers,
+// // //           body: JSON.stringify(payload)
+// // //         });
+
+// // //         if (!response.ok) {
+// // //           throw new Error(`HTTP Error: ${response.status}`);
+// // //         }
+
+// // //         const encryptedResult = await response.json();
+// // //         if (!encryptedResult.Data) {
+// // //           throw new Error("No encrypted data received");
+// // //         }
+
+// // //         const decryptedData = await decryptData(encryptedResult.Data);
+// // //         const parsedData = validateJsonData(decryptedData);
+
+// // //         // Updated success check: Handle string success codes
+// // //         if (!parsedData.Status || !parsedData.Status.startsWith("HRM-BUS-SUC")) {
+// // //           throw new Error(parsedData.message || `API Error: ${parsedData.Status}`);
+// // //         }
+
+// // //         // Status mapping based on flags table (flgcode -> state)
+// // //         const statusMap = {
+// // //           "1": "pending",      // PENDING
+// // //           "2": "completed",    // APPROVED
+// // //           "3": "current",      // CURRENT
+// // //           "4": "pending",      // NEXT (treat as pending)
+// // //           "5": "pending",      // NO_REJECTION (no change)
+// // //           "6": "rejected",     // DEFAULT_REJECTION
+// // //           "7": "rejected"      // CUSTOM_REJECTION
+// // //         };
+
+// // //         const records = parsedData.Data.Records || [];
+// // //         console.log("Parsed flow records:", records); // Debug log
+
+// // //         // Dynamically build roadmapSteps from records (sorted by step_no)
+// // //         const sortedRecords = records.sort((a, b) => (a.step_no || 0) - (b.step_no || 0));
+// // //         const dynamicSteps = sortedRecords.map((r, index) => {
+// // //           const paletteIndex = index % stepsPalette.length;
+// // //           return {
+// // //             id: r.step_no || index + 1,
+// // //             title: r.activity_name || `Activity ${r.step_no || index + 1}`,
+// // //             description: r.role_name || `Step ${r.step_no || index + 1} details`,
+// // //             color: stepsPalette[paletteIndex].color,
+// // //             bgColor: stepsPalette[paletteIndex].bgColor,
+// // //           };
+// // //         });
+
+// // //         setRoadmapSteps(dynamicSteps);
+
+// // //         // Filter and map using lowercase field names and statusMap
+// // //         const completed = sortedRecords
+// // //           .filter((r) => statusMap[r.status] === "completed")
+// // //           .map((r) => (r.step_no || 1) - 1) // Use step_no (1-based)
+// // //           .filter((i) => i >= 0 &amp;&amp; i &lt; dynamicSteps.length);
+
+// // //         const rejected = sortedRecords
+// // //           .filter((r) => statusMap[r.status] === "rejected")
+// // //           .map((r) => (r.step_no || 1) - 1)
+// // //           .filter((i) => i >= 0 &amp;&amp; i &lt; dynamicSteps.length);
+
+// // //         // Override with API data; fallback assumes priors are completed if not specified
+// // //         setCompletedSteps(completed);
+// // //         setRejectedSteps(rejected);
+// // //       } catch (error) {
+// // //         console.error("Failed to fetch NOC flow:", error);
+// // //         // Fallback: Assume all prior steps completed (but since steps are dynamic, use empty or minimal)
+// // //         setRoadmapSteps([]);
+// // //         setCompletedSteps(Array.from({ length: currentStep }, (_, i) => i));
+// // //         setRejectedSteps([]);
+// // //       } finally {
+// // //         setLoading(false);
+// // //       }
+// // //     };
+
+// // //     fetchFlow();
+// // //   }, [currentActivity]);
+
+// // //   const getStepStatus = (stepIndex) => {
+// // //     if (rejectedSteps.includes(stepIndex)) return 'rejected';
+// // //     if (completedSteps.includes(stepIndex)) return 'completed';
+// // //     if (stepIndex === currentStep) return 'current';
+// // //     if (stepIndex &lt; currentStep) return 'completed'; // Fallback for prior steps
+// // //     return 'pending';
+// // //   };
+
+// // //   const getStepStyles = (step, index, status) => {
+// // //     let borderColor = '#e5e7eb';
+// // //     let backgroundColor = '#ffffff';
+// // //     let shadowIntensity = '0 1px 3px rgba(0, 0, 0, 0.05)';
+
+// // //     switch (status) {
+// // //       case 'completed':
+// // //         borderColor = '#10b981'; // Green for completed
+// // //         backgroundColor = 'rgba(16, 185, 129, 0.05)';
+// // //         shadowIntensity = '0 2px 8px rgba(16, 185, 129, 0.15)';
+// // //         break;
+// // //       case 'rejected':
+// // //         borderColor = '#ef4444';
+// // //         backgroundColor = 'rgba(239, 68, 68, 0.02)';
+// // //         shadowIntensity = '0 2px 8px rgba(239, 68, 68, 0.15)';
+// // //         break;
+// // //       case 'current':
+// // //         borderColor = '#f59e0b'; // Orange/Amber for ongoing
+// // //         backgroundColor = 'rgba(245, 158, 11, 0.05)';
+// // //         shadowIntensity = '0 4px 12px rgba(245, 158, 11, 0.25)';
+// // //         break;
+// // //       case 'pending':
+// // //         borderColor = '#3b82f6'; // Blue for future steps
+// // //         backgroundColor = 'rgba(59, 130, 246, 0.02)';
+// // //         shadowIntensity = '0 1px 3px rgba(59, 130, 246, 0.1)';
+// // //         break;
+// // //     }
+
+// // //     return { borderColor, backgroundColor, shadowIntensity };
+// // //   };
+
+// // //   const getStepNumberColor = (status) => {
+// // //     switch (status) {
+// // //       case 'completed':
+// // //         return '#10b981'; // Green for completed
+// // //       case 'rejected':
+// // //         return '#ef4444';
+// // //       case 'current':
+// // //         return '#f59e0b'; // Orange/Amber for ongoing
+// // //       default:
+// // //         return '#3b82f6'; // Blue for future steps
+// // //     }
+// // //   };
+
+// // //   const ConnectorLine = ({ status }) => {
+// // //     let lineColor = '#3b82f6'; // Blue for future steps
+// // //     if (status === 'completed') lineColor = '#10b981'; // Green for completed
+// // //     if (status === 'rejected') lineColor = '#ef4444';
+// // //     if (status === 'current') lineColor = '#f59e0b'; // Orange for ongoing
+
+// // //     return (
+// // //       &lt;Box
+// // //         sx={{
+// // //           width: 30, // Reduced from 40
+// // //           height: 3,
+// // //           backgroundColor: lineColor,
+// // //           borderRadius: '2px',
+// // //           position: 'relative',
+// // //           mx: 1,
+// // //           '&amp;::after': {
+// // //             content: '""',
+// // //             position: 'absolute',
+// // //             right: -2, // Reduced from -3
+// // //             top: '50%',
+// // //             transform: 'translateY(-50%)',
+// // //             width: 0,
+// // //             height: 0,
+// // //             borderLeft: `4px solid ${lineColor}`, // Reduced from 6px
+// // //             borderTop: '2px solid transparent', // Reduced from 3px
+// // //             borderBottom: '2px solid transparent', // Reduced from 3px
+// // //           }
+// // //         }}
+// // //       />
+// // //     );
+// // //   };
+
+// // //   if (loading) {
+// // //     return (
+// // //       &lt;Card sx={{ mb: 2, p: 2, textAlign: 'center' }}>
+// // //         &lt;Typography variant="body2" color="textSecondary">
+// // //           Loading roadmap...
+// // //         &lt;/Typography>
+// // //       &lt;/Card>
+// // //     );
+// // //   }
+
+// // //   if (roadmapSteps.length === 0) {
+// // //     return (
+// // //       &lt;Card sx={{ mb: 2, p: 2, textAlign: 'center' }}>
+// // //         &lt;Typography variant="body2" color="textSecondary">
+// // //           No roadmap steps available.
+// // //         &lt;/Typography>
+// // //       &lt;/Card>
+// // //     );
+// // //   }
+
+// // //   return (
+// // //     &lt;Card
+// // //       sx={{
+// // //         mb: 2,
+// // //         borderRadius: '12px',
+// // //         border: '1px solid #e2e8f0',
+// // //         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
+// // //         overflow: 'hidden',
+// // //         background: 'linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)',
+// // //       }}
+// // //     >
+// // //       &lt;CardContent sx={{ p: 0 }}>
+// // //         {/* Scrollable Steps Container */}
+// // //         &lt;Box sx={{ position: 'relative', px: 1, py: 1 }}> {/* Increased padding */}
+// // //           {/* Steps Container */}
+// // //           &lt;Box
+// // //             ref={scrollRef}
+// // //             sx={{
+// // //               display: 'flex',
+// // //               overflowX: 'auto',
+// // //               scrollbarWidth: 'thin',
+// // //               scrollbarColor: '#cbd5e1 #f1f5f9',
+// // //               '&amp;::-webkit-scrollbar': {
+// // //                 height: '8px',
+// // //               },
+// // //               '&amp;::-webkit-scrollbar-track': {
+// // //                 backgroundColor: '#f1f5f9',
+// // //                 borderRadius: '4px',
+// // //               },
+// // //               '&amp;::-webkit-scrollbar-thumb': {
+// // //                 backgroundColor: '#cbd5e1',
+// // //                 borderRadius: '4px',
+// // //                 '&amp;:hover': {
+// // //                   backgroundColor: '#94a3b8',
+// // //                 },
+// // //               },
+// // //               gap: 1,
+// // //               py: 3,
+// // //               pb: 2,
+// // //               px: 2,
+// // //             }}
+// // //           >
+// // //             {roadmapSteps.map((step, index) => {
+// // //               const status = getStepStatus(index);
+// // //               const styles = getStepStyles(step, index, status);
+
+// // //               return (
+// // //                 &lt;React.Fragment key={step.id}>
+// // //                   {/* Step Card */}
+// // //                   &lt;Box
+// // //                     sx={{
+// // //                       minWidth: 200,
+// // //                       maxWidth: 200,
+// // //                       position: 'relative'
+// // //                     }}
+// // //                   >
+// // //                     {/* Step Number Badge */}
+// // //                     &lt;Box
+// // //                       sx={{
+// // //                         position: 'absolute',
+// // //                         top: -8,
+// // //                         left: 12,
+// // //                         zIndex: 2,
+// // //                         width: 28,
+// // //                         height: 28,
+// // //                         borderRadius: '50%',
+// // //                         backgroundColor: getStepNumberColor(status),
+// // //                         color: 'white',
+// // //                         display: 'flex',
+// // //                         alignItems: 'center',
+// // //                         justifyContent: 'center',
+// // //                         fontSize: '0.875rem',
+// // //                         fontWeight: 700,
+// // //                         boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+// // //                         border: '2px solid white'
+// // //                       }}
+// // //                     >
+// // //                       {step.id}
+// // //                     &lt;/Box>
+
+// // //                     {/* Main Step Card */}
+// // //                     &lt;Card
+// // //                       sx={{
+// // //                         height:80,
+// // //                         border: status === 'current' ? `3px solid ${styles.borderColor}` : `2px solid ${styles.borderColor}`, // Thicker border for current
+// // //                         backgroundColor: styles.backgroundColor,
+// // //                         borderRadius: '12px',
+// // //                         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+// // //                         transform: status === 'current' ? 'scale(1.08)' : 'scale(1)', // More pronounced scale
+// // //                         boxShadow: status === 'current' ? '0 8px 25px rgba(245, 158, 11, 0.4)' : styles.shadowIntensity, // Enhanced shadow for current
+// // //                         position: 'relative',
+// // //                         overflow: 'visible',
+// // //                         animation: status === 'current' ? 'pulse 2s infinite' : 'none', // Add pulse animation
+// // //                         '@keyframes pulse': {
+// // //                           '0%, 100%': {
+// // //                             boxShadow: '0 8px 25px rgba(245, 158, 11, 0.4)',
+// // //                           },
+// // //                           '50%': {
+// // //                             boxShadow: '0 8px 35px rgba(245, 158, 11, 0.6)',
+// // //                           },
+// // //                         },
+// // //                         '&amp;:hover': {
+// // //                           transform: status === 'current' ? 'scale(1.08)' : 'scale(1.01)',
+// // //                           boxShadow: status === 'current' ? '0 12px 30px rgba(245, 158, 11, 0.5)' : '0 6px 16px rgba(0,0,0,0.1)'
+// // //                         }
+// // //                       }}
+// // //                     >
+// // //                       &lt;CardContent sx={{ p: 2, pt: 3 }}>
+// // //                         &lt;Typography
+// // //                           variant="h6"
+// // //                           sx={{
+// // //                             ...customFontStyles,
+// // //                             fontWeight: status === 'current' ? 700 : 600, // Bold for current activity
+// // //                             fontSize: '0.875rem',
+// // //                             color: status === 'pending' ? '#1e40af' : status === 'current' ? '#92400e' : '#065f46', // Blue for future, amber-dark for current, green-dark for completed
+// // //                             mb: 0.5,
+// // //                             lineHeight: 1.2
+// // //                           }}
+// // //                         >
+// // //                           {step.title}
+// // //                         &lt;/Typography>
+
+// // //                         &lt;Typography
+// // //                           variant="body2"
+// // //                           sx={{
+// // //                             ...customFontStyles,
+// // //                             fontSize: '0.75rem',
+// // //                             color: status === 'pending' ? '#1e40af' : status === 'current' ? '#92400e' : '#065f46', // Different colors for each state
+// // //                             lineHeight: 1.4,
+// // //                           }}
+// // //                         >
+// // //                           {step.description}
+// // //                         &lt;/Typography>
+// // //                       &lt;/CardContent>
+// // //                     &lt;/Card>
+// // //                   &lt;/Box>
+
+// // //                   {/* Connector Line (except for last step) */}
+// // //                   {index &lt; roadmapSteps.length - 1 &amp;&amp; (
+// // //                     &lt;Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
+// // //                       &lt;ConnectorLine status={status} />
+// // //                     &lt;/Box>
+// // //                   )}
+// // //                 &lt;/React.Fragment>
+// // //               );
+// // //             })}
+// // //           &lt;/Box>
+// // //         &lt;/Box>
+// // //       &lt;/CardContent>
+// // //     &lt;/Card>
+// // //   );
+// // // };
+
+// // // export default NOCRoadmap;
+
+// // // /////With api implemented
+// // // /**
+// // //  * @fileoverview Compact Roadmap component
+// // //  * @module components/Roadmap
+// // //  * @author Rakshana
+// // //  * @date 12/08/2025
+// // //  */
+// // // import React, { useRef, useState, useEffect } from 'react';
+// // // import {
+// // //   Box,
+// // //   Typography,
+// // //   Card,
+// // //   CardContent,
+// // //   useMediaQuery,
+// // //   useTheme
+// // // } from '@mui/material';
+// // // import Cookies from "js-cookie";
+// // // import {
+// // //   decryptData,
+// // //   validateJsonData,
+// // //   isWebCryptoSupported,
+// // // } from "src/components/Decryption/Decrypt"; // Adjust path as needed
+
+// // // const customFontStyles = {
+// // //   fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+// // //   fontSize: "12px",
+// // //   fontWeight: 400,
+// // // };
+
+// // // const getAuthHeaders = async () => {
+// // //   const encryptedToken = Cookies.get("HRToken");
+// // //   return {
+// // //     "Content-Type": "application/json",
+// // //     Authorization: `Bearer ${encryptedToken}`,
+// // //   };
+// // // };
+
+// // // /**
+// // //  * Compact NOC Process Roadmap Component with dynamic steps
+// // //  * Dynamically fetches flow data from API to determine steps, completed/rejected steps
+// // //  * @param {Object} props - Component props
+// // //  * @param {number} props.activitySeqNo - Current active activity (1-based index from ActivitySeqNo)
+// // //  * @returns {JSX.Element} The rendered roadmap component
+// // //  */
+// // // const NOCRoadmap = ({
+// // //   activitySeqNo = 3 // Default to Admin2 DA (1-based: 1=Employee, 2=Manager, 3=Admin2 DA)
+// // // }) => {
+// // //   const theme = useTheme();
+// // //   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+// // //   const scrollRef = useRef(null);
+
+// // //   const [roadmapSteps, setRoadmapSteps] = useState([]);
+// // //   const [completedSteps, setCompletedSteps] = useState([]);
+// // //   const [rejectedSteps, setRejectedSteps] = useState([]);
+// // //   const [loading, setLoading] = useState(true);
+
+// // //   const currentActivity = activitySeqNo;
+// // //   const currentStep = currentActivity - 1; // Convert to 0-based for internal logic
+
+// // //   // Dynamic color palette for steps (cycled if more steps than palette)
+// // //   const stepsPalette = [
+// // //     { color: "#ef4444", bgColor: "rgba(239, 68, 68, 0.05)" },
+// // //     { color: "#10b981", bgColor: "rgba(16, 185, 129, 0.05)" },
+// // //     { color: "#3b82f6", bgColor: "rgba(59, 130, 246, 0.05)" },
+// // //     { color: "#8b5cf6", bgColor: "rgba(139, 92, 246, 0.05)" },
+// // //     { color: "#f59e0b", bgColor: "rgba(245, 158, 11, 0.05)" },
+// // //     { color: "#06b6d4", bgColor: "rgba(6, 182, 212, 0.05)" },
+// // //     { color: "#84cc16", bgColor: "rgba(132, 204, 22, 0.05)" }
+// // //   ];
+
+// // //   useEffect(() => {
+// // //     const fetchFlow = async () => {
+// // //       if (!isWebCryptoSupported()) {
+// // //         console.warn("WebCrypto not supported, falling back to defaults");
+// // //         setLoading(false);
+// // //         // Fallback: Use a minimal dynamic structure if needed, but since dynamic, set empty
+// // //         setRoadmapSteps([]);
+// // //         setCompletedSteps([]);
+// // //         setRejectedSteps([]);
+// // //         return;
+// // //       }
+
+// // //       try {
+// // //         setLoading(true);
+// // //         const role = Cookies.get("selectedRole") || "Registrar";
+// // //         const payload = {
+// // //           "token": "HRFGVJISOVp1fncC",
+// // //           "ProcessId": 1,
+// // //           "Current_Activity": currentActivity,
+// // //           "Conditions": {
+// // //             "choice": role
+// // //           }
+// // //         };
+
+// // //         const headers = await getAuthHeaders();
+// // //         const response = await fetch("https://wftest1.iitm.ac.in:5555/Getflow", {
+// // //           method: "POST",
+// // //           headers,
+// // //           body: JSON.stringify(payload)
+// // //         });
+
+// // //         if (!response.ok) {
+// // //           throw new Error(`HTTP Error: ${response.status}`);
+// // //         }
+
+// // //         const encryptedResult = await response.json();
+// // //         if (!encryptedResult.Data) {
+// // //           throw new Error("No encrypted data received");
+// // //         }
+
+// // //         const decryptedData = await decryptData(encryptedResult.Data);
+// // //         const parsedData = validateJsonData(decryptedData);
+
+// // //         // Updated success check: Handle string success codes
+// // //         if (!parsedData.Status || !parsedData.Status.startsWith("HRM-BUS-SUC")) {
+// // //           throw new Error(parsedData.message || `API Error: ${parsedData.Status}`);
+// // //         }
+
+// // //         // Status mapping based on flags table (flgcode -> state)
+// // //         const statusMap = {
+// // //           "1": "pending",      // PENDING
+// // //           "2": "completed",    // APPROVED
+// // //           "3": "current",      // CURRENT
+// // //           "4": "pending",      // NEXT (treat as pending)
+// // //           "5": "pending",      // NO_REJECTION (no change)
+// // //           "6": "rejected",     // DEFAULT_REJECTION
+// // //           "7": "rejected"      // CUSTOM_REJECTION
+// // //         };
+
+// // //         const records = parsedData.Data.Records || [];
+// // //         console.log("Parsed flow records:", records); // Debug log
+
+// // //         // Dynamically build roadmapSteps from records (sorted by step_no)
+// // //         const sortedRecords = records.sort((a, b) => (a.step_no || 0) - (b.step_no || 0));
+// // //         const dynamicSteps = sortedRecords.map((r, index) => {
+// // //           const paletteIndex = index % stepsPalette.length;
+// // //           return {
+// // //             id: r.step_no || index + 1,
+// // //             title: r.activity_name || `Activity ${r.step_no || index + 1}`,
+// // //             description: r.role_name || `Step ${r.step_no || index + 1} details`,
+// // //             color: stepsPalette[paletteIndex].color,
+// // //             bgColor: stepsPalette[paletteIndex].bgColor,
+// // //           };
+// // //         });
+
+// // //         setRoadmapSteps(dynamicSteps);
+
+// // //         // Filter and map using lowercase field names and statusMap
+// // //         const completed = sortedRecords
+// // //           .filter((r) => statusMap[r.status] === "completed")
+// // //           .map((r) => (r.step_no || 1) - 1) // Use step_no (1-based)
+// // //           .filter((i) => i >= 0 &amp;&amp; i &lt; dynamicSteps.length);
+
+// // //         const rejected = sortedRecords
+// // //           .filter((r) => statusMap[r.status] === "rejected")
+// // //           .map((r) => (r.step_no || 1) - 1)
+// // //           .filter((i) => i >= 0 &amp;&amp; i &lt; dynamicSteps.length);
+
+// // //         // Override with API data; fallback assumes priors are completed if not specified
+// // //         setCompletedSteps(completed);
+// // //         setRejectedSteps(rejected);
+// // //       } catch (error) {
+// // //         console.error("Failed to fetch NOC flow:", error);
+// // //         // Fallback: Assume all prior steps completed (but since steps are dynamic, use empty or minimal)
+// // //         setRoadmapSteps([]);
+// // //         setCompletedSteps(Array.from({ length: currentStep }, (_, i) => i));
+// // //         setRejectedSteps([]);
+// // //       } finally {
+// // //         setLoading(false);
+// // //       }
+// // //     };
+
+// // //     fetchFlow();
+// // //   }, [currentActivity]);
+
+// // //   const getStepStatus = (stepIndex) => {
+// // //     if (rejectedSteps.includes(stepIndex)) return 'rejected';
+// // //     if (completedSteps.includes(stepIndex)) return 'completed';
+// // //     if (stepIndex === currentStep) return 'current';
+// // //     if (stepIndex &lt; currentStep) return 'completed'; // Fallback for prior steps
+// // //     return 'pending';
+// // //   };
+
+// // //   const getStepStyles = (step, index, status) => {
+// // //     let borderColor = '#e5e7eb';
+// // //     let backgroundColor = '#ffffff';
+// // //     let shadowIntensity = '0 1px 3px rgba(0, 0, 0, 0.05)';
+
+// // //     switch (status) {
+// // //       case 'completed':
+// // //         borderColor = '#10b981'; // Green for completed
+// // //         backgroundColor = 'rgba(16, 185, 129, 0.05)';
+// // //         shadowIntensity = '0 2px 8px rgba(16, 185, 129, 0.15)';
+// // //         break;
+// // //       case 'rejected':
+// // //         borderColor = '#ef4444';
+// // //         backgroundColor = 'rgba(239, 68, 68, 0.02)';
+// // //         shadowIntensity = '0 2px 8px rgba(239, 68, 68, 0.15)';
+// // //         break;
+// // //       case 'current':
+// // //         borderColor = '#f59e0b'; // Orange/Amber for ongoing
+// // //         backgroundColor = 'rgba(245, 158, 11, 0.05)';
+// // //         shadowIntensity = '0 4px 12px rgba(245, 158, 11, 0.25)';
+// // //         break;
+// // //       case 'pending':
+// // //         borderColor = '#3b82f6'; // Blue for future steps
+// // //         backgroundColor = 'rgba(59, 130, 246, 0.02)';
+// // //         shadowIntensity = '0 1px 3px rgba(59, 130, 246, 0.1)';
+// // //         break;
+// // //     }
+
+// // //     return { borderColor, backgroundColor, shadowIntensity };
+// // //   };
+
+// // //   const getStepNumberColor = (status) => {
+// // //     switch (status) {
+// // //       case 'completed':
+// // //         return '#10b981'; // Green for completed
+// // //       case 'rejected':
+// // //         return '#ef4444';
+// // //       case 'current':
+// // //         return '#f59e0b'; // Orange/Amber for ongoing
+// // //       default:
+// // //         return '#3b82f6'; // Blue for future steps
+// // //     }
+// // //   };
+
+// // //   const ConnectorLine = ({ status }) => {
+// // //     let lineColor = '#3b82f6'; // Blue for future steps
+// // //     if (status === 'completed') lineColor = '#10b981'; // Green for completed
+// // //     if (status === 'rejected') lineColor = '#ef4444';
+// // //     if (status === 'current') lineColor = '#f59e0b'; // Orange for ongoing
+
+// // //     return (
+// // //       &lt;Box
+// // //         sx={{
+// // //           width: 30, // Reduced from 40
+// // //           height: 3,
+// // //           backgroundColor: lineColor,
+// // //           borderRadius: '2px',
+// // //           position: 'relative',
+// // //           mx: 1,
+// // //           '&amp;::after': {
+// // //             content: '""',
+// // //             position: 'absolute',
+// // //             right: -2, // Reduced from -3
+// // //             top: '50%',
+// // //             transform: 'translateY(-50%)',
+// // //             width: 0,
+// // //             height: 0,
+// // //             borderLeft: `4px solid ${lineColor}`, // Reduced from 6px
+// // //             borderTop: '2px solid transparent', // Reduced from 3px
+// // //             borderBottom: '2px solid transparent', // Reduced from 3px
+// // //           }
+// // //         }}
+// // //       />
+// // //     );
+// // //   };
+
+// // //   if (loading) {
+// // //     return (
+// // //       &lt;Card sx={{ mb: 2, p: 2, textAlign: 'center' }}>
+// // //         &lt;Typography variant="body2" color="textSecondary">
+// // //           Loading roadmap...
+// // //         &lt;/Typography>
+// // //       &lt;/Card>
+// // //     );
+// // //   }
+
+// // //   if (roadmapSteps.length === 0) {
+// // //     return (
+// // //       &lt;Card sx={{ mb: 2, p: 2, textAlign: 'center' }}>
+// // //         &lt;Typography variant="body2" color="textSecondary">
+// // //           No roadmap steps available.
+// // //         &lt;/Typography>
+// // //       &lt;/Card>
+// // //     );
+// // //   }
+
+// // //   return (
+// // //     &lt;Card
+// // //       sx={{
+// // //         mb: 2,
+// // //         borderRadius: '12px',
+// // //         border: '1px solid #e2e8f0',
+// // //         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
+// // //         overflow: 'hidden',
+// // //         background: 'linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)',
+// // //       }}
+// // //     >
+// // //       &lt;CardContent sx={{ p: 0 }}>
+// // //         {/* Scrollable Steps Container */}
+// // //         &lt;Box sx={{ position: 'relative', px: 1, py: 1 }}> {/* Increased padding */}
+// // //           {/* Steps Container */}
+// // //           &lt;Box
+// // //             ref={scrollRef}
+// // //             sx={{
+// // //               display: 'flex',
+// // //               overflowX: 'auto',
+// // //               scrollbarWidth: 'thin',
+// // //               scrollbarColor: '#cbd5e1 #f1f5f9',
+// // //               '&amp;::-webkit-scrollbar': {
+// // //                 height: '8px',
+// // //               },
+// // //               '&amp;::-webkit-scrollbar-track': {
+// // //                 backgroundColor: '#f1f5f9',
+// // //                 borderRadius: '4px',
+// // //               },
+// // //               '&amp;::-webkit-scrollbar-thumb': {
+// // //                 backgroundColor: '#cbd5e1',
+// // //                 borderRadius: '4px',
+// // //                 '&amp;:hover': {
+// // //                   backgroundColor: '#94a3b8',
+// // //                 },
+// // //               },
+// // //               gap: 1,
+// // //               py: 3,
+// // //               pb: 2,
+// // //               px: 2,
+// // //             }}
+// // //           >
+// // //             {roadmapSteps.map((step, index) => {
+// // //               const status = getStepStatus(index);
+// // //               const styles = getStepStyles(step, index, status);
+
+// // //               return (
+// // //                 &lt;React.Fragment key={step.id}>
+// // //                   {/* Step Card */}
+// // //                   &lt;Box
+// // //                     sx={{
+// // //                       minWidth: 200,
+// // //                       maxWidth: 200,
+// // //                       position: 'relative'
+// // //                     }}
+// // //                   >
+// // //                     {/* Step Number Badge */}
+// // //                     &lt;Box
+// // //                       sx={{
+// // //                         position: 'absolute',
+// // //                         top: -8,
+// // //                         left: 12,
+// // //                         zIndex: 2,
+// // //                         width: 28,
+// // //                         height: 28,
+// // //                         borderRadius: '50%',
+// // //                         backgroundColor: getStepNumberColor(status),
+// // //                         color: 'white',
+// // //                         display: 'flex',
+// // //                         alignItems: 'center',
+// // //                         justifyContent: 'center',
+// // //                         fontSize: '0.875rem',
+// // //                         fontWeight: 700,
+// // //                         boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+// // //                         border: '2px solid white'
+// // //                       }}
+// // //                     >
+// // //                       {step.id}
+// // //                     &lt;/Box>
+
+// // //                     {/* Main Step Card */}
+// // //                     &lt;Card
+// // //                       sx={{
+// // //                         height:80,
+// // //                         border: status === 'current' ? `3px solid ${styles.borderColor}` : `2px solid ${styles.borderColor}`, // Thicker border for current
+// // //                         backgroundColor: styles.backgroundColor,
+// // //                         borderRadius: '12px',
+// // //                         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+// // //                         transform: status === 'current' ? 'scale(1.08)' : 'scale(1)', // More pronounced scale
+// // //                         boxShadow: status === 'current' ? '0 8px 25px rgba(245, 158, 11, 0.4)' : styles.shadowIntensity, // Enhanced shadow for current
+// // //                         position: 'relative',
+// // //                         overflow: 'visible',
+// // //                         animation: status === 'current' ? 'pulse 2s infinite' : 'none', // Add pulse animation
+// // //                         '@keyframes pulse': {
+// // //                           '0%, 100%': {
+// // //                             boxShadow: '0 8px 25px rgba(245, 158, 11, 0.4)',
+// // //                           },
+// // //                           '50%': {
+// // //                             boxShadow: '0 8px 35px rgba(245, 158, 11, 0.6)',
+// // //                           },
+// // //                         },
+// // //                         '&amp;:hover': {
+// // //                           transform: status === 'current' ? 'scale(1.08)' : 'scale(1.01)',
+// // //                           boxShadow: status === 'current' ? '0 12px 30px rgba(245, 158, 11, 0.5)' : '0 6px 16px rgba(0,0,0,0.1)'
+// // //                         }
+// // //                       }}
+// // //                     >
+// // //                       &lt;CardContent sx={{ p: 2, pt: 3 }}>
+// // //                         &lt;Typography
+// // //                           variant="h6"
+// // //                           sx={{
+// // //                             ...customFontStyles,
+// // //                             fontWeight: status === 'current' ? 700 : 600, // Bold for current activity
+// // //                             fontSize: '0.875rem',
+// // //                             color: status === 'pending' ? '#1e40af' : status === 'current' ? '#92400e' : '#065f46', // Blue for future, amber-dark for current, green-dark for completed
+// // //                             mb: 0.5,
+// // //                             lineHeight: 1.2
+// // //                           }}
+// // //                         >
+// // //                           {step.title}
+// // //                         &lt;/Typography>
+
+// // //                         &lt;Typography
+// // //                           variant="body2"
+// // //                           sx={{
+// // //                             ...customFontStyles,
+// // //                             fontSize: '0.75rem',
+// // //                             color: status === 'pending' ? '#1e40af' : status === 'current' ? '#92400e' : '#065f46', // Different colors for each state
+// // //                             lineHeight: 1.4,
+// // //                           }}
+// // //                         >
+// // //                           {step.description}
+// // //                         &lt;/Typography>
+// // //                       &lt;/CardContent>
+// // //                     &lt;/Card>
+// // //                   &lt;/Box>
+
+// // //                   {/* Connector Line (except for last step) */}
+// // //                   {index &lt; roadmapSteps.length - 1 &amp;&amp; (
+// // //                     &lt;Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
+// // //                       &lt;ConnectorLine status={status} />
+// // //                     &lt;/Box>
+// // //                   )}
+// // //                 &lt;/React.Fragment>
+// // //               );
+// // //             })}
+// // //           &lt;/Box>
+// // //         &lt;/Box>
+// // //       &lt;/CardContent>
+// // //     &lt;/Card>
+// // //   );
+// // // };
+
+// // // export default NOCRoadmap;
+
+// // //Model 2
+
+// // /**
+// //  * @fileoverview Compact Roadmap component
+// //  * @module components/Roadmap
+// //  * @author Rakshana
+// //  * @date 12/08/2025
+// //  */
+// // import React, { useRef, useState, useEffect } from "react";
+// // import {
+// //   Box,
+// //   Typography,
+// //   Card,
+// //   CardContent,
+// //   useMediaQuery,
+// //   useTheme,
+// //   Chip,
+// //   LinearProgress,
+// //   IconButton,
+// // } from "@mui/material";
+// // import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+// // import ErrorIcon from "@mui/icons-material/Error";
+// // import ScheduleIcon from "@mui/icons-material/Schedule";
+// // import PendingActionsIcon from "@mui/icons-material/PendingActions";
+// // import Cookies from "js-cookie";
+// // import {
+// //   decryptData,
+// //   validateJsonData,
+// //   isWebCryptoSupported,
+// // } from "src/components/Decryption/Decrypt"; // Adjust path as needed
+
+// // const customFontStyles = {
+// //   fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+// //   fontSize: "11px",
+// //   fontWeight: 500,
+// // };
+
+// // const getAuthHeaders = async () => {
+// //   const encryptedToken = Cookies.get("HRToken");
+// //   return {
+// //     "Content-Type": "application/json",
+// //     Authorization: `Bearer ${encryptedToken}`,
+// //   };
+// // };
+
+// // /**
+// //  * Compact NOC Process Roadmap Component with dynamic steps
+// //  * Dynamically fetches flow data from API to determine steps, completed/rejected steps
+// //  * @param {Object} props - Component props
+// //  * @param {number} props.currentActivity - Current active activity (1-based index from ActivitySeqNo)
+// //  * @returns {JSX.Element} The rendered roadmap component
+// //  */
+// // const NOCRoadmap = ({
+// //   currentActivity = 3, // Default to Admin2 DA (1-based: 1=Employee, 2=Manager, 3=Admin2 DA)
+// // }) => {
+// //   const theme = useTheme();
+// //   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+// //   const scrollRef = useRef(null);
+
+// //   const [roadmapSteps, setRoadmapSteps] = useState([]);
+// //   const [completedSteps, setCompletedSteps] = useState([]);
+// //   const [rejectedSteps, setRejectedSteps] = useState([]);
+// //   const [loading, setLoading] = useState(true);
+
+// //   const currentStep = 2; // Convert to 0-based for internal logic
+// //   const sessionid = Cookies.get("session_id");
+
+// //   // Enhanced dynamic color palette for steps (cycled if more steps than palette)
+// //   const stepsPalette = [
+// //     {
+// //       color: "#ef4444",
+// //       bgColor:
+// //         "linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.02))",
+// //     },
+// //     {
+// //       color: "#10b981",
+// //       bgColor:
+// //         "linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(16, 185, 129, 0.02))",
+// //     },
+// //     {
+// //       color: "#3b82f6",
+// //       bgColor:
+// //         "linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(59, 130, 246, 0.02))",
+// //     },
+// //     {
+// //       color: "#8b5cf6",
+// //       bgColor:
+// //         "linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(139, 92, 246, 0.02))",
+// //     },
+// //     {
+// //       color: "#f59e0b",
+// //       bgColor:
+// //         "linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(245, 158, 11, 0.02))",
+// //     },
+// //     {
+// //       color: "#06b6d4",
+// //       bgColor:
+// //         "linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(6, 182, 212, 0.02))",
+// //     },
+// //     {
+// //       color: "#84cc16",
+// //       bgColor:
+// //         "linear-gradient(135deg, rgba(132, 204, 22, 0.08), rgba(132, 204, 22, 0.02))",
+// //     },
+// //   ];
+
+// //   useEffect(() => {
+// //     const fetchFlow = async () => {
+// //       if (!isWebCryptoSupported()) {
+// //         console.warn("WebCrypto not supported, falling back to defaults");
+// //         setLoading(false);
+// //         // Fallback: Use a minimal dynamic structure if needed, but since dynamic, set empty
+// //         setRoadmapSteps([]);
+// //         setCompletedSteps([]);
+// //         setRejectedSteps([]);
+// //         return;
+// //       }
+
+// //       try {
+// //         setLoading(true);
+// //         const role = Cookies.get("selectedRole") || "Registrar";
+// //         const payload = {
+// //           token: "HRFGVJISOVp1fncC",
+// //           session_id: sessionid,
+// //           ProcessId: 1,
+// //           Current_Activity: 4,
+// //           Conditions: {
+// //             choice: "Registrar",
+// //           },
+// //         };
+
+// //         const headers = await getAuthHeaders();
+// //         const response = await fetch(
+// //           "https://wftest1.iitm.ac.in:5555/Getflow",
+// //           {
+// //             method: "POST",
+// //             headers,
+// //             body: JSON.stringify(payload),
+// //           }
+// //         );
+
+// //         if (!response.ok) {
+// //           throw new Error(`HTTP Error: ${response.status}`);
+// //         }
+
+// //         const encryptedResult = await response.json();
+// //         if (!encryptedResult.Data) {
+// //           throw new Error("No encrypted data received");
+// //         }
+
+// //         const decryptedData = await decryptData(encryptedResult.Data);
+// //         const parsedData = validateJsonData(decryptedData);
+
+// //         // Updated success check: Handle string success codes
+// //         if (
+// //           !parsedData.Status ||
+// //           !parsedData.Status.startsWith("HRM-BUS-SUC")
+// //         ) {
+// //           throw new Error(
+// //             parsedData.message || `API Error: ${parsedData.Status}`
+// //           );
+// //         }
+
+// //         // Status mapping based on flags table (flgcode -> state)
+// //         const statusMap = {
+// //           1: "pending", // PENDING
+// //           2: "completed", // APPROVED
+// //           3: "current", // CURRENT
+// //           4: "pending", // NEXT (treat as pending)
+// //           5: "pending", // NO_REJECTION (no change)
+// //           6: "rejected", // DEFAULT_REJECTION
+// //           7: "rejected", // CUSTOM_REJECTION
+// //         };
+
+// //         const records = parsedData.Data.Records || [];
+// //         console.log("Parsed flow records:", records); // Debug log
+
+// //         // Dynamically build roadmapSteps from records (sorted by step_no)
+// //         const sortedRecords = records.sort(
+// //           (a, b) => (a.step_no || 0) - (b.step_no || 0)
+// //         );
+// //         const dynamicSteps = sortedRecords.map((r, index) => {
+// //           const paletteIndex = index % stepsPalette.length;
+// //           return {
+// //             id: r.step_no || index + 1,
+// //             title: r.activity_name || `Activity ${r.step_no || index + 1}`,
+// //             description:
+// //               r.role_name || `Step ${r.step_no || index + 1} details`,
+// //             color: stepsPalette[paletteIndex].color,
+// //             bgColor: stepsPalette[paletteIndex].bgColor,
+// //           };
+// //         });
+
+// //         setRoadmapSteps(dynamicSteps);
+
+// //         // Filter and map using lowercase field names and statusMap
+// //         const completed = sortedRecords
+// //           .filter((r) => statusMap[r.status] === "completed")
+// //           .map((r) => (r.step_no || 1) - 1) // Use step_no (1-based)
+// //           .filter((i) => i >= 0 &amp;&amp; i &lt; dynamicSteps.length);
+
+// //         const rejected = sortedRecords
+// //           .filter((r) => statusMap[r.status] === "rejected")
+// //           .map((r) => (r.step_no || 1) - 1)
+// //           .filter((i) => i >= 0 &amp;&amp; i &lt; dynamicSteps.length);
+
+// //         // Override with API data; fallback assumes priors are completed if not specified
+// //         setCompletedSteps(completed);
+// //         setRejectedSteps(rejected);
+// //       } catch (error) {
+// //         console.error("Failed to fetch NOC flow:", error);
+// //         // Fallback: Assume all prior steps completed (but since steps are dynamic, use empty or minimal)
+// //         setRoadmapSteps([]);
+// //         setCompletedSteps(Array.from({ length: currentStep }, (_, i) => i));
+// //         setRejectedSteps([]);
+// //       } finally {
+// //         setLoading(false);
+// //       }
+// //     };
+
+// //     fetchFlow();
+// //   }, [currentActivity]);
+
+// //   const getStepStatus = (stepIndex) => {
+// //     if (rejectedSteps.includes(stepIndex)) return "rejected";
+// //     if (completedSteps.includes(stepIndex)) return "completed";
+// //     if (stepIndex === currentStep) return "current";
+// //     if (stepIndex &lt; currentStep) return "completed"; // Fallback for prior steps
+// //     return "pending";
+// //   };
+
+// //   const getStepStyles = (step, index, status) => {
+// //     let borderColor = "#e5e7eb";
+// //     let backgroundColor = "#ffffff";
+// //     let shadowIntensity = "0 1px 3px rgba(0, 0, 0, 0.05)";
+
+// //     switch (status) {
+// //       case "completed":
+// //         borderColor = "#10b981"; // Green for completed
+// //         backgroundColor = "rgba(16, 185, 129, 0.05)";
+// //         shadowIntensity = "0 2px 8px rgba(16, 185, 129, 0.15)";
+// //         break;
+// //       case "rejected":
+// //         borderColor = "#ef4444";
+// //         backgroundColor = "rgba(239, 68, 68, 0.02)";
+// //         shadowIntensity = "0 2px 8px rgba(239, 68, 68, 0.15)";
+// //         break;
+// //       case "current":
+// //         borderColor = "#f59e0b"; // Orange/Amber for ongoing
+// //         backgroundColor = "rgba(245, 158, 11, 0.05)";
+// //         shadowIntensity = "0 4px 12px rgba(245, 158, 11, 0.25)";
+// //         break;
+// //       case "pending":
+// //         borderColor = "#3b82f6"; // Blue for future steps
+// //         backgroundColor = "rgba(59, 130, 246, 0.02)";
+// //         shadowIntensity = "0 1px 3px rgba(59, 130, 246, 0.1)";
+// //         break;
+// //     }
+
+// //     return { borderColor, backgroundColor, shadowIntensity };
+// //   };
+
+// //   const getStepNumberColor = (status) => {
+// //     switch (status) {
+// //       case "completed":
+// //         return "#10b981"; // Green for completed
+// //       case "rejected":
+// //         return "#ef4444";
+// //       case "current":
+// //         return "#f59e0b"; // Orange/Amber for ongoing
+// //       default:
+// //         return "#3b82f6"; // Blue for future steps
+// //     }
+// //   };
+
+// //   const getStatusIcon = (status) => {
+// //     switch (status) {
+// //       case "completed":
+// //         return &lt;CheckCircleIcon sx={{ fontSize: "16px", color: "#10b981" }} />;
+// //       case "rejected":
+// //         return &lt;ErrorIcon sx={{ fontSize: "16px", color: "#ef4444" }} />;
+// //       case "current":
+// //         return &lt;ScheduleIcon sx={{ fontSize: "16px", color: "#f59e0b" }} />;
+// //       default:
+// //         return (
+// //           &lt;PendingActionsIcon sx={{ fontSize: "16px", color: "#3b82f6" }} />
+// //         );
+// //     }
+// //   };
+
+// //   const ConnectorLine = ({ status }) => {
+// //     let lineColor = "#3b82f6"; // Blue for future steps
+// //     if (status === "completed") lineColor = "#10b981"; // Green for completed
+// //     if (status === "rejected") lineColor = "#ef4444";
+// //     if (status === "current") lineColor = "#f59e0b"; // Orange for ongoing
+
+// //     return (
+// //       &lt;Box
+// //         sx={{
+// //           width: 20, // Further reduced for compactness
+// //           height: 2,
+// //           backgroundColor: lineColor,
+// //           borderRadius: "1px",
+// //           position: "relative",
+// //           mx: 0.5,
+// //           "&amp;::after": {
+// //             content: '""',
+// //             position: "absolute",
+// //             right: -1,
+// //             top: "50%",
+// //             transform: "translateY(-50%)",
+// //             width: 0,
+// //             height: 0,
+// //             borderLeft: `3px solid ${lineColor}`,
+// //             borderTop: "1px solid transparent",
+// //             borderBottom: "1px solid transparent",
+// //           },
+// //         }}
+// //       />
+// //     );
+// //   };
+
+// //   if (loading) {
+// //     return (
+// //       &lt;Card sx={{ mb: 1.5, p: 1.5, textAlign: "center", borderRadius: "8px" }}>
+// //         &lt;Typography
+// //           variant="body2"
+// //           color="textSecondary"
+// //           sx={{ fontSize: "0.75rem" }}
+// //         >
+// //           Loading roadmap...
+// //         &lt;/Typography>
+// //       &lt;/Card>
+// //     );
+// //   }
+
+// //   if (roadmapSteps.length === 0) {
+// //     return (
+// //       &lt;Card sx={{ mb: 1.5, p: 1.5, textAlign: "center", borderRadius: "8px" }}>
+// //         &lt;Typography
+// //           variant="body2"
+// //           color="textSecondary"
+// //           sx={{ fontSize: "0.75rem" }}
+// //         >
+// //           No roadmap steps available.
+// //         &lt;/Typography>
+// //       &lt;/Card>
+// //     );
+// //   }
+
+// //   // Calculate progress
+// //   const totalSteps = roadmapSteps.length;
+// //   const progress =
+// //     ((completedSteps.length + (currentStep >= 0 ? 1 : 0)) / totalSteps) * 100;
+
+// //   return (
+// //     &lt;Card
+// //       sx={{
+// //         mb: 1.5,
+// //         borderRadius: "10px",
+// //         border: "1px solid #e2e8f0",
+// //         boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+// //         overflow: "hidden",
+// //         background: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)",
+// //       }}
+// //     >
+// //       {/* Progress Bar */}
+// //       &lt;Box sx={{ px: 2, pt: 1.5, pb: 0.5 }}>
+// //         &lt;LinearProgress
+// //           variant="determinate"
+// //           value={progress}
+// //           sx={{
+// //             height: 4,
+// //             borderRadius: 2,
+// //             backgroundColor: "rgba(0,0,0,0.08)",
+// //             "&amp; .MuiLinearProgress-bar": {
+// //               borderRadius: 2,
+// //               background: "linear-gradient(90deg, #10b981, #3b82f6)",
+// //             },
+// //           }}
+// //         />
+// //         &lt;Typography
+// //           variant="caption"
+// //           sx={{
+// //             color: "text.secondary",
+// //             fontSize: "0.7rem",
+// //             display: "block",
+// //             textAlign: "right",
+// //             mt: 0.25,
+// //           }}
+// //         >
+// //           {Math.round(progress)}% Complete
+// //         &lt;/Typography>
+// //       &lt;/Box>
+
+// //       &lt;CardContent sx={{ p: 0 }}>
+// //         {/* Scrollable Steps Container */}
+// //         &lt;Box sx={{ position: "relative", px: 1, py: 0.5 }}>
+// //           {/* Steps Container */}
+// //           &lt;Box
+// //             ref={scrollRef}
+// //             sx={{
+// //               display: "flex",
+// //               overflowX: "auto",
+// //               scrollbarWidth: "none",
+// //               msOverflowStyle: "none",
+// //               "&amp;::-webkit-scrollbar": {
+// //                 display: "none",
+// //               },
+// //               gap: 0.5,
+// //               py: 2,
+// //               pb: 1.5,
+// //               px: 1.5,
+// //             }}
+// //           >
+// //             {roadmapSteps.map((step, index) => {
+// //               const status = getStepStatus(index);
+// //               const styles = getStepStyles(step, index, status);
+
+// //               return (
+// //                 &lt;React.Fragment key={step.id}>
+// //                   {/* Step Card */}
+// //                   &lt;Box
+// //                     sx={{
+// //                       minWidth: isMobile ? 140 : 160,
+// //                       maxWidth: isMobile ? 140 : 160,
+// //                       position: "relative",
+// //                     }}
+// //                   >
+// //                     {/* Step Number Badge */}
+// //                     &lt;Box
+// //                       sx={{
+// //                         position: "absolute",
+// //                         top: -6,
+// //                         left: 8,
+// //                         zIndex: 2,
+// //                         width: 24,
+// //                         height: 24,
+// //                         borderRadius: "50%",
+// //                         backgroundColor: getStepNumberColor(status),
+// //                         color: "white",
+// //                         display: "flex",
+// //                         alignItems: "center",
+// //                         justifyContent: "center",
+// //                         fontSize: "0.75rem",
+// //                         fontWeight: 700,
+// //                         boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+// //                         border: "2px solid white",
+// //                       }}
+// //                     >
+// //                       {step.id}
+// //                     &lt;/Box>
+
+// //                     {/* Main Step Card */}
+// //                     &lt;Card
+// //                       sx={{
+// //                         height: isMobile ? 60 : 65,
+// //                         border:
+// //                           status === "current"
+// //                             ? `2px solid ${styles.borderColor}`
+// //                             : `1px solid ${styles.borderColor}`,
+// //                         background: `linear-gradient(135deg, ${styles.backgroundColor}, rgba(255,255,255,0.8))`,
+// //                         borderRadius: "10px",
+// //                         transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+// //                         transform:
+// //                           status === "current" ? "scale(1.05)" : "scale(1)",
+// //                         boxShadow:
+// //                           status === "current"
+// //                             ? `0 6px 20px rgba(${
+// //                                 status === "current" ? "245, 158, 11" : "0,0,0"
+// //                               }, 0.3)`
+// //                             : styles.shadowIntensity,
+// //                         position: "relative",
+// //                         overflow: "visible",
+// //                         "&amp;:hover": {
+// //                           transform:
+// //                             status === "current"
+// //                               ? "scale(1.05)"
+// //                               : "scale(1.02)",
+// //                           boxShadow:
+// //                             status === "current"
+// //                               ? `0 10px 30px rgba(${
+// //                                   status === "current"
+// //                                     ? "245, 158, 11"
+// //                                     : "0,0,0"
+// //                                 }, 0.4)`
+// //                               : "0 4px 12px rgba(0,0,0,0.1)",
+// //                         },
+// //                       }}
+// //                     >
+// //                       &lt;CardContent sx={{ p: 1.2, pt: 2.5, pb: 1 }}>
+// //                         {/* Status Icon */}
+// //                         &lt;Box
+// //                           sx={{
+// //                             position: "absolute",
+// //                             top: -10,
+// //                             right: 4,
+// //                             zIndex: 1,
+// //                           }}
+// //                         >
+// //                           {getStatusIcon(status)}
+// //                         &lt;/Box>
+
+// //                         &lt;Typography
+// //                           variant="h6"
+// //                           sx={{
+// //                             ...customFontStyles,
+// //                             fontWeight: status === "current" ? 700 : 600,
+// //                             fontSize: isMobile ? "0.75rem" : "0.8rem",
+// //                             color:
+// //                               status === "pending"
+// //                                 ? "#1e40af"
+// //                                 : status === "current"
+// //                                 ? "#92400e"
+// //                                 : "#065f46",
+// //                             mb: 0.25,
+// //                             lineHeight: 1.1,
+// //                             display: "-webkit-box",
+// //                             WebkitLineClamp: 1,
+// //                             WebkitBoxOrient: "vertical",
+// //                             overflow: "hidden",
+// //                           }}
+// //                         >
+// //                           {step.title}
+// //                         &lt;/Typography>
+
+// //                         &lt;Typography
+// //                           variant="body2"
+// //                           sx={{
+// //                             ...customFontStyles,
+// //                             fontSize: isMobile ? "0.65rem" : "0.7rem",
+// //                             color:
+// //                               status === "pending"
+// //                                 ? "#1e40af"
+// //                                 : status === "current"
+// //                                 ? "#92400e"
+// //                                 : "#065f46",
+// //                             lineHeight: 1.2,
+// //                             display: "-webkit-box",
+// //                             WebkitLineClamp: 1,
+// //                             WebkitBoxOrient: "vertical",
+// //                             overflow: "hidden",
+// //                           }}
+// //                         >
+// //                           {step.description}
+// //                         &lt;/Typography>
+
+// //                         {/* Status Chip for rejected/current */}
+// //                         {(status === "rejected" || status === "current") &amp;&amp; (
+// //                           &lt;Chip
+// //                             label={
+// //                               status === "rejected" ? "Rejected" : "In Progress"
+// //                             }
+// //                             size="small"
+// //                             sx={{
+// //                               position: "absolute",
+// //                               bottom: -6,
+// //                               left: "50%",
+// //                               transform: "translateX(-50%)",
+// //                               fontSize: "0.6rem",
+// //                               height: 16,
+// //                               backgroundColor:
+// //                                 status === "rejected" ? "#ef4444" : "#f59e0b",
+// //                               "&amp; .MuiChip-label": { px: 0.5 },
+// //                             }}
+// //                           />
+// //                         )}
+// //                       &lt;/CardContent>
+// //                     &lt;/Card>
+// //                   &lt;/Box>
+
+// //                   {/* Connector Line (except for last step) */}
+// //                   {index &lt; roadmapSteps.length - 1 &amp;&amp; (
+// //                     &lt;Box
+// //                       sx={{ display: "flex", alignItems: "center", mt: 0.5 }}
+// //                     >
+// //                       &lt;ConnectorLine status={status} />
+// //                     &lt;/Box>
+// //                   )}
+// //                 &lt;/React.Fragment>
+// //               );
+// //             })}
+// //           &lt;/Box>
+// //         &lt;/Box>
+// //       &lt;/CardContent>
+// //     &lt;/Card>
+// //   );
+// // };
+
+// // export default NOCRoadmap;
+
+
+// // /**
+// //  * @fileoverview Compact Roadmap component
+// //  * @module components/Roadmap
+// //  * @author Rakshana
+// //  * @date 12/08/2025
+// //  */
+// // import React, { useRef, useState, useEffect } from "react";
+// // import {
+// //   Box,
+// //   Typography,
+// //   Card,
+// //   CardContent,
+// //   useMediaQuery,
+// //   useTheme,
+// //   Chip,
+// //   LinearProgress,
+// //   IconButton,
+// // } from "@mui/material";
+// // import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+// // import ErrorIcon from "@mui/icons-material/Error";
+// // import ScheduleIcon from "@mui/icons-material/Schedule";
+// // import PendingActionsIcon from "@mui/icons-material/PendingActions";
+// // import Cookies from "js-cookie";
+// // import {
+// //   decryptData,
+// //   validateJsonData,
+// //   isWebCryptoSupported,
+// // } from "src/components/Decryption/Decrypt"; // Adjust path as needed
+
+// // const customFontStyles = {
+// //   fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+// //   fontSize: "11px",
+// //   fontWeight: 500,
+// // };
+
+// // const getAuthHeaders = async () => {
+// //   const encryptedToken = Cookies.get("HRToken");
+// //   return {
+// //     "Content-Type": "application/json",
+// //     Authorization: `Bearer ${encryptedToken}`,
+// //   };
+// // };
+
+// // /**
+// //  * Compact Process Roadmap Component with dynamic steps
+// //  * Dynamically fetches flow data from API to determine steps, completed/rejected steps
+// //  * @param {Object} props - Component props
+// //  * @param {number} props.processId - Process ID for the workflow (default 1)
+// //  * @param {number} props.currentActivity - Current active activity (1-based index from ActivitySeqNo)
+// //  * @param {string} props.signingAuthority - Signing authority for conditions (default "Registrar")
+// //  * @param {string} props.sessionId - Session ID for API calls
+// //  * @returns {JSX.Element} The rendered roadmap component
+// //  */
+// // const Roadmap = ({
+// //   processId = 1,
+// //   currentActivity = 1,
+// //   signingAuthority = "Registrar",
+// //   sessionId,
+// // }) => {
+// //   const theme = useTheme();
+// //   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+// //   const scrollRef = useRef(null);
+
+// //   const [roadmapSteps, setRoadmapSteps] = useState([]);
+// //   const [completedSteps, setCompletedSteps] = useState([]);
+// //   const [rejectedSteps, setRejectedSteps] = useState([]);
+// //   const [loading, setLoading] = useState(true);
+
+// //   const currentStep = currentActivity - 1; // Convert to 0-based for internal logic
+
+// //   // Enhanced dynamic color palette for steps (cycled if more steps than palette)
+// //   const stepsPalette = [
+// //     {
+// //       color: "#ef4444",
+// //       bgColor:
+// //         "linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.02))",
+// //     },
+// //     {
+// //       color: "#10b981",
+// //       bgColor:
+// //         "linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(16, 185, 129, 0.02))",
+// //     },
+// //     {
+// //       color: "#3b82f6",
+// //       bgColor:
+// //         "linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(59, 130, 246, 0.02))",
+// //     },
+// //     {
+// //       color: "#8b5cf6",
+// //       bgColor:
+// //         "linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(139, 92, 246, 0.02))",
+// //     },
+// //     {
+// //       color: "#f59e0b",
+// //       bgColor:
+// //         "linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(245, 158, 11, 0.02))",
+// //     },
+// //     {
+// //       color: "#06b6d4",
+// //       bgColor:
+// //         "linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(6, 182, 212, 0.02))",
+// //     },
+// //     {
+// //       color: "#84cc16",
+// //       bgColor:
+// //         "linear-gradient(135deg, rgba(132, 204, 22, 0.08), rgba(132, 204, 22, 0.02))",
+// //     },
+// //   ];
+
+// //   useEffect(() => {
+// //     const fetchFlow = async () => {
+// //       if (!isWebCryptoSupported()) {
+// //         console.warn("WebCrypto not supported, falling back to defaults");
+// //         setLoading(false);
+// //         // Fallback: Use a minimal dynamic structure if needed, but since dynamic, set empty
+// //         setRoadmapSteps([]);
+// //         setCompletedSteps([]);
+// //         setRejectedSteps([]);
+// //         return;
+// //       }
+
+// //       // Use provided sessionId, fallback to cookies
+// //       const effectiveSessionId = sessionId || Cookies.get("session_id");
+// //       if (!effectiveSessionId) {
+// //         console.error("Session ID missing");
+// //         setLoading(false);
+// //         return;
+// //       }
+
+// //       try {
+// //         setLoading(true);
+// //         const role = Cookies.get("selectedRole") || signingAuthority;
+// //         const payload = {
+// //           token: "HRFGVJISOVp1fncC",
+// //           session_id: effectiveSessionId,
+// //           ProcessId: processId,
+// //           Current_Activity: currentActivity,
+// //           Conditions: {
+// //             choice: signingAuthority,
+// //           },
+// //         };
+
+// //         const headers = await getAuthHeaders();
+// //         const response = await fetch(
+// //           "https://wftest1.iitm.ac.in:5555/Getflow",
+// //           {
+// //             method: "POST",
+// //             headers,
+// //             body: JSON.stringify(payload),
+// //           }
+// //         );
+
+// //         if (!response.ok) {
+// //           throw new Error(`HTTP Error: ${response.status}`);
+// //         }
+
+// //         const encryptedResult = await response.json();
+// //         if (!encryptedResult.Data) {
+// //           throw new Error("No encrypted data received");
+// //         }
+
+// //         const decryptedData = await decryptData(encryptedResult.Data);
+// //         const parsedData = validateJsonData(decryptedData);
+
+// //         // Updated success check: Handle string success codes
+// //         if (
+// //           !parsedData.Status ||
+// //           !parsedData.Status.startsWith("HRM-BUS-SUC")
+// //         ) {
+// //           throw new Error(
+// //             parsedData.message || `API Error: ${parsedData.Status}`
+// //           );
+// //         }
+
+// //         // Status mapping based on flags table (flgcode -> state)
+// //         const statusMap = {
+// //           1: "pending", // PENDING
+// //           2: "completed", // APPROVED
+// //           3: "current", // CURRENT
+// //           4: "pending", // NEXT (treat as pending)
+// //           5: "pending", // NO_REJECTION (no change)
+// //           6: "rejected", // DEFAULT_REJECTION
+// //           7: "rejected", // CUSTOM_REJECTION
+// //         };
+
+// //         const records = parsedData.Data.Records || [];
+// //         console.log("Parsed flow records:", records); // Debug log
+
+// //         // Dynamically build roadmapSteps from records (sorted by step_no)
+// //         const sortedRecords = records.sort(
+// //           (a, b) => (a.step_no || 0) - (b.step_no || 0)
+// //         );
+// //         const dynamicSteps = sortedRecords.map((r, index) => {
+// //           const paletteIndex = index % stepsPalette.length;
+// //           return {
+// //             id: r.step_no || index + 1,
+// //             title: r.activity_name || `Activity ${r.step_no || index + 1}`,
+// //             description:
+// //               r.role_name || `Step ${r.step_no || index + 1} details`,
+// //             color: stepsPalette[paletteIndex].color,
+// //             bgColor: stepsPalette[paletteIndex].bgColor,
+// //           };
+// //         });
+
+// //         setRoadmapSteps(dynamicSteps);
+
+// //         // Filter and map using lowercase field names and statusMap
+// //         const completed = sortedRecords
+// //           .filter((r) => statusMap[r.status] === "completed")
+// //           .map((r) => (r.step_no || 1) - 1) // Use step_no (1-based)
+// //           .filter((i) => i >= 0 &amp;&amp; i &lt; dynamicSteps.length);
+
+// //         const rejected = sortedRecords
+// //           .filter((r) => statusMap[r.status] === "rejected")
+// //           .map((r) => (r.step_no || 1) - 1)
+// //           .filter((i) => i >= 0 &amp;&amp; i &lt; dynamicSteps.length);
+
+// //         // Override with API data; fallback assumes priors are completed if not specified
+// //         setCompletedSteps(completed);
+// //         setRejectedSteps(rejected);
+// //       } catch (error) {
+// //         console.error("Failed to fetch flow:", error);
+// //         // Fallback: Assume all prior steps completed (but since steps are dynamic, use empty or minimal)
+// //         setRoadmapSteps([]);
+// //         setCompletedSteps(Array.from({ length: currentStep }, (_, i) => i));
+// //         setRejectedSteps([]);
+// //       } finally {
+// //         setLoading(false);
+// //       }
+// //     };
+
+// //     fetchFlow();
+// //   }, [processId, currentActivity, signingAuthority, sessionId]);
+
+// //   const getStepStatus = (stepIndex) => {
+// //     if (rejectedSteps.includes(stepIndex)) return "rejected";
+// //     if (completedSteps.includes(stepIndex)) return "completed";
+// //     if (stepIndex === currentStep) return "current";
+// //     if (stepIndex &lt; currentStep) return "completed"; // Fallback for prior steps
+// //     return "pending";
+// //   };
+
+// //   const getStepStyles = (step, index, status) => {
+// //     let borderColor = "#e5e7eb";
+// //     let backgroundColor = "#ffffff";
+// //     let shadowIntensity = "0 1px 3px rgba(0, 0, 0, 0.05)";
+
+// //     switch (status) {
+// //       case "completed":
+// //         borderColor = "#10b981"; // Green for completed
+// //         backgroundColor = "rgba(16, 185, 129, 0.05)";
+// //         shadowIntensity = "0 2px 8px rgba(16, 185, 129, 0.15)";
+// //         break;
+// //       case "rejected":
+// //         borderColor = "#ef4444";
+// //         backgroundColor = "rgba(239, 68, 68, 0.02)";
+// //         shadowIntensity = "0 2px 8px rgba(239, 68, 68, 0.15)";
+// //         break;
+// //       case "current":
+// //         borderColor = "#f59e0b"; // Orange/Amber for ongoing
+// //         backgroundColor = "rgba(245, 158, 11, 0.05)";
+// //         shadowIntensity = "0 4px 12px rgba(245, 158, 11, 0.25)";
+// //         break;
+// //       case "pending":
+// //         borderColor = "#3b82f6"; // Blue for future steps
+// //         backgroundColor = "rgba(59, 130, 246, 0.02)";
+// //         shadowIntensity = "0 1px 3px rgba(59, 130, 246, 0.1)";
+// //         break;
+// //     }
+
+// //     return { borderColor, backgroundColor, shadowIntensity };
+// //   };
+
+// //   const getStepNumberColor = (status) => {
+// //     switch (status) {
+// //       case "completed":
+// //         return "#10b981"; // Green for completed
+// //       case "rejected":
+// //         return "#ef4444";
+// //       case "current":
+// //         return "#f59e0b"; // Orange/Amber for ongoing
+// //       default:
+// //         return "#3b82f6"; // Blue for future steps
+// //     }
+// //   };
+
+// //   const getStatusIcon = (status) => {
+// //     switch (status) {
+// //       case "completed":
+// //         return &lt;CheckCircleIcon sx={{ fontSize: "16px", color: "#10b981" }} />;
+// //       case "rejected":
+// //         return &lt;ErrorIcon sx={{ fontSize: "16px", color: "#ef4444" }} />;
+// //       case "current":
+// //         return &lt;ScheduleIcon sx={{ fontSize: "16px", color: "#f59e0b" }} />;
+// //       default:
+// //         return (
+// //           &lt;PendingActionsIcon sx={{ fontSize: "16px", color: "#3b82f6" }} />
+// //         );
+// //     }
+// //   };
+
+// //   const ConnectorLine = ({ status }) => {
+// //     let lineColor = "#3b82f6"; // Blue for future steps
+// //     if (status === "completed") lineColor = "#10b981"; // Green for completed
+// //     if (status === "rejected") lineColor = "#ef4444";
+// //     if (status === "current") lineColor = "#f59e0b"; // Orange for ongoing
+
+// //     return (
+// //       &lt;Box
+// //         sx={{
+// //           width: 20, // Further reduced for compactness
+// //           height: 2,
+// //           backgroundColor: lineColor,
+// //           borderRadius: "1px",
+// //           position: "relative",
+// //           mx: 0.5,
+// //           "&amp;::after": {
+// //             content: '""',
+// //             position: "absolute",
+// //             right: -1,
+// //             top: "50%",
+// //             transform: "translateY(-50%)",
+// //             width: 0,
+// //             height: 0,
+// //             borderLeft: `3px solid ${lineColor}`,
+// //             borderTop: "1px solid transparent",
+// //             borderBottom: "1px solid transparent",
+// //           },
+// //         }}
+// //       />
+// //     );
+// //   };
+
+// //   if (loading) {
+// //     return (
+// //       &lt;Card sx={{ mb: 1.5, p: 1.5, textAlign: "center", borderRadius: "8px" }}>
+// //         &lt;Typography
+// //           variant="body2"
+// //           color="textSecondary"
+// //           sx={{ fontSize: "0.75rem" }}
+// //         >
+// //           Loading roadmap...
+// //         &lt;/Typography>
+// //       &lt;/Card>
+// //     );
+// //   }
+
+// //   if (roadmapSteps.length === 0) {
+// //     return (
+// //       &lt;Card sx={{ mb: 1.5, p: 1.5, textAlign: "center", borderRadius: "8px" }}>
+// //         &lt;Typography
+// //           variant="body2"
+// //           color="textSecondary"
+// //           sx={{ fontSize: "0.75rem" }}
+// //         >
+// //           No roadmap steps available.
+// //         &lt;/Typography>
+// //       &lt;/Card>
+// //     );
+// //   }
+
+// //   // Calculate progress
+// //   const totalSteps = roadmapSteps.length;
+// //   const progress =
+// //     ((completedSteps.length + (currentStep >= 0 ? 1 : 0)) / totalSteps) * 100;
+
+// //   return (
+// //     &lt;Card
+// //       sx={{
+// //         mb: 1.5,
+// //         borderRadius: "10px",
+// //         border: "1px solid #e2e8f0",
+// //         boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+// //         overflow: "hidden",
+// //         background: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)",
+// //       }}
+// //     >
+// //       {/* Progress Bar */}
+// //       &lt;Box sx={{ px: 2, pt: 1.5, pb: 0.5 }}>
+// //         &lt;LinearProgress
+// //           variant="determinate"
+// //           value={progress}
+// //           sx={{
+// //             height: 4,
+// //             borderRadius: 2,
+// //             backgroundColor: "rgba(0,0,0,0.08)",
+// //             "&amp; .MuiLinearProgress-bar": {
+// //               borderRadius: 2,
+// //               background: "linear-gradient(90deg, #10b981, #3b82f6)",
+// //             },
+// //           }}
+// //         />
+// //         &lt;Typography
+// //           variant="caption"
+// //           sx={{
+// //             color: "text.secondary",
+// //             fontSize: "0.7rem",
+// //             display: "block",
+// //             textAlign: "right",
+// //             mt: 0.25,
+// //           }}
+// //         >
+// //           {Math.round(progress)}% Complete
+// //         &lt;/Typography>
+// //       &lt;/Box>
+
+// //       &lt;CardContent sx={{ p: 0 }}>
+// //         {/* Scrollable Steps Container */}
+// //         &lt;Box sx={{ position: "relative", px: 1, py: 0.5 }}>
+// //           {/* Steps Container */}
+// //           &lt;Box
+// //             ref={scrollRef}
+// //             sx={{
+// //               display: "flex",
+// //               overflowX: "auto",
+// //               scrollbarWidth: "none",
+// //               msOverflowStyle: "none",
+// //               "&amp;::-webkit-scrollbar": {
+// //                 display: "none",
+// //               },
+// //               gap: 0.5,
+// //               py: 2,
+// //               pb: 1.5,
+// //               px: 1.5,
+// //             }}
+// //           >
+// //             {roadmapSteps.map((step, index) => {
+// //               const status = getStepStatus(index);
+// //               const styles = getStepStyles(step, index, status);
+
+// //               return (
+// //                 &lt;React.Fragment key={step.id}>
+// //                   {/* Step Card */}
+// //                   &lt;Box
+// //                     sx={{
+// //                       minWidth: isMobile ? 140 : 160,
+// //                       maxWidth: isMobile ? 140 : 160,
+// //                       position: "relative",
+// //                     }}
+// //                   >
+// //                     {/* Step Number Badge */}
+// //                     &lt;Box
+// //                       sx={{
+// //                         position: "absolute",
+// //                         top: -6,
+// //                         left: 8,
+// //                         zIndex: 2,
+// //                         width: 24,
+// //                         height: 24,
+// //                         borderRadius: "50%",
+// //                         backgroundColor: getStepNumberColor(status),
+// //                         color: "white",
+// //                         display: "flex",
+// //                         alignItems: "center",
+// //                         justifyContent: "center",
+// //                         fontSize: "0.75rem",
+// //                         fontWeight: 700,
+// //                         boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+// //                         border: "2px solid white",
+// //                       }}
+// //                     >
+// //                       {step.id}
+// //                     &lt;/Box>
+
+// //                     {/* Main Step Card */}
+// //                     &lt;Card
+// //                       sx={{
+// //                         height: isMobile ? 60 : 65,
+// //                         border:
+// //                           status === "current"
+// //                             ? `2px solid ${styles.borderColor}`
+// //                             : `1px solid ${styles.borderColor}`,
+// //                         background: `linear-gradient(135deg, ${styles.backgroundColor}, rgba(255,255,255,0.8))`,
+// //                         borderRadius: "10px",
+// //                         transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+// //                         transform:
+// //                           status === "current" ? "scale(1.05)" : "scale(1)",
+// //                         boxShadow:
+// //                           status === "current"
+// //                             ? `0 6px 20px rgba(${
+// //                                 status === "current" ? "245, 158, 11" : "0,0,0"
+// //                               }, 0.3)`
+// //                             : styles.shadowIntensity,
+// //                         position: "relative",
+// //                         overflow: "visible",
+// //                         "&amp;:hover": {
+// //                           transform:
+// //                             status === "current"
+// //                               ? "scale(1.05)"
+// //                               : "scale(1.02)",
+// //                           boxShadow:
+// //                             status === "current"
+// //                               ? `0 10px 30px rgba(${
+// //                                   status === "current"
+// //                                     ? "245, 158, 11"
+// //                                     : "0,0,0"
+// //                                 }, 0.4)`
+// //                               : "0 4px 12px rgba(0,0,0,0.1)",
+// //                         },
+// //                       }}
+// //                     >
+// //                       &lt;CardContent sx={{ p: 1.2, pt: 2.5, pb: 1 }}>
+// //                         {/* Status Icon */}
+// //                         &lt;Box
+// //                           sx={{
+// //                             position: "absolute",
+// //                             top: -10,
+// //                             right: 4,
+// //                             zIndex: 1,
+// //                           }}
+// //                         >
+// //                           {getStatusIcon(status)}
+// //                         &lt;/Box>
+
+// //                         &lt;Typography
+// //                           variant="h6"
+// //                           sx={{
+// //                             ...customFontStyles,
+// //                             fontWeight: status === "current" ? 700 : 600,
+// //                             fontSize: isMobile ? "0.75rem" : "0.8rem",
+// //                             color:
+// //                               status === "pending"
+// //                                 ? "#1e40af"
+// //                                 : status === "current"
+// //                                 ? "#92400e"
+// //                                 : "#065f46",
+// //                             mb: 0.25,
+// //                             lineHeight: 1.1,
+// //                             display: "-webkit-box",
+// //                             WebkitLineClamp: 1,
+// //                             WebkitBoxOrient: "vertical",
+// //                             overflow: "hidden",
+// //                           }}
+// //                         >
+// //                           {step.title}
+// //                         &lt;/Typography>
+
+// //                         &lt;Typography
+// //                           variant="body2"
+// //                           sx={{
+// //                             ...customFontStyles,
+// //                             fontSize: isMobile ? "0.65rem" : "0.7rem",
+// //                             color:
+// //                               status === "pending"
+// //                                 ? "#1e40af"
+// //                                 : status === "current"
+// //                                 ? "#92400e"
+// //                                 : "#065f46",
+// //                             lineHeight: 1.2,
+// //                             display: "-webkit-box",
+// //                             WebkitLineClamp: 1,
+// //                             WebkitBoxOrient: "vertical",
+// //                             overflow: "hidden",
+// //                           }}
+// //                         >
+// //                           {step.description}
+// //                         &lt;/Typography>
+
+// //                         {/* Status Chip for rejected/current */}
+// //                         {(status === "rejected" || status === "current") &amp;&amp; (
+// //                           &lt;Chip
+// //                             label={
+// //                               status === "rejected" ? "Rejected" : "In Progress"
+// //                             }
+// //                             size="small"
+// //                             sx={{
+// //                               position: "absolute",
+// //                               bottom: -6,
+// //                               left: "50%",
+// //                               transform: "translateX(-50%)",
+// //                               fontSize: "0.6rem",
+// //                               height: 16,
+// //                               backgroundColor:
+// //                                 status === "rejected" ? "#ef4444" : "#f59e0b",
+// //                               "&amp; .MuiChip-label": { px: 0.5 },
+// //                             }}
+// //                           />
+// //                         )}
+// //                       &lt;/CardContent>
+// //                     &lt;/Card>
+// //                   &lt;/Box>
+
+// //                   {/* Connector Line (except for last step) */}
+// //                   {index &lt; roadmapSteps.length - 1 &amp;&amp; (
+// //                     &lt;Box
+// //                       sx={{ display: "flex", alignItems: "center", mt: 0.5 }}
+// //                     >
+// //                       &lt;ConnectorLine status={status} />
+// //                     &lt;/Box>
+// //                   )}
+// //                 &lt;/React.Fragment>
+// //               );
+// //             })}
+// //           &lt;/Box>
+// //         &lt;/Box>
+// //       &lt;/CardContent>
+// //     &lt;/Card>
+// //   );
+// // };
+
+// // export default Roadmap;
+
+// /**
+//  * @fileoverview Compact Roadmap component
+//  * @module components/Roadmap
+//  * @author Rakshana
+//  * @date 12/08/2025
+//  */
+// import React, { useRef, useState, useEffect } from "react";
+// import {
+//   Box,
+//   Typography,
+//   Card,
+//   CardContent,
+//   useMediaQuery,
+//   useTheme,
+//   Chip,
+//   LinearProgress,
+//   IconButton,
+// } from "@mui/material";
+// import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+// import ErrorIcon from "@mui/icons-material/Error";
+// import ScheduleIcon from "@mui/icons-material/Schedule";
+// import PendingActionsIcon from "@mui/icons-material/PendingActions";
+// import Cookies from "js-cookie";
+// import {
+//   decryptData,
+//   validateJsonData,
+//   isWebCryptoSupported,
+// } from "src/components/Decryption/Decrypt"; // Adjust path as needed
+
+// const customFontStyles = {
+//   fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+//   fontSize: "11px",
+//   fontWeight: 500,
+// };
+
+// const getAuthHeaders = async () => {
+//   const encryptedToken = Cookies.get("HRToken");
+//   return {
+//     "Content-Type": "application/json",
+//     Authorization: `Bearer ${encryptedToken}`,
+//   };
+// };
+
+// /**
+//  * Compact Process Roadmap Component with dynamic steps
+//  * Dynamically fetches flow data from API to determine steps, completed/rejected steps
+//  * @param {Object} props - Component props
+//  * @param {number} props.processId - Process ID for the workflow (default 1)
+//  * @param {number} props.currentActivity - Current active activity (1-based index from ActivitySeqNo)
+//  * @param {string} props.signingAuthority - Signing authority for conditions (default "Registrar")
+//  * @param {string} props.sessionId - Session ID for API calls
+//  * @returns {JSX.Element} The rendered roadmap component
+//  */
+// const Roadmap = ({
+//   processId = 1,
+//   currentActivity = 1,
+//   signingAuthority = "Registrar",
+//   sessionId,
+// }) => {
+//   const theme = useTheme();
+//   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+//   const scrollRef = useRef(null);
+
+//   const [roadmapSteps, setRoadmapSteps] = useState([]);
+//   const [completedSteps, setCompletedSteps] = useState([]);
+//   const [rejectedSteps, setRejectedSteps] = useState([]);
+//   const [loading, setLoading] = useState(true);
+
+//   const currentStep = currentActivity - 1; // Convert to 0-based for internal logic
+
+//   // Enhanced dynamic color palette for steps (cycled if more steps than palette)
+//   const stepsPalette = [
+//     {
+//       color: "#ef4444",
+//       bgColor:
+//         "linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.02))",
+//     },
+//     {
+//       color: "#10b981",
+//       bgColor:
+//         "linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(16, 185, 129, 0.02))",
+//     },
+//     {
+//       color: "#3b82f6",
+//       bgColor:
+//         "linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(59, 130, 246, 0.02))",
+//     },
+//     {
+//       color: "#8b5cf6",
+//       bgColor:
+//         "linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(139, 92, 246, 0.02))",
+//     },
+//     {
+//       color: "#f59e0b",
+//       bgColor:
+//         "linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(245, 158, 11, 0.02))",
+//     },
+//     {
+//       color: "#06b6d4",
+//       bgColor:
+//         "linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(6, 182, 212, 0.02))",
+//     },
+//     {
+//       color: "#84cc16",
+//       bgColor:
+//         "linear-gradient(135deg, rgba(132, 204, 22, 0.08), rgba(132, 204, 22, 0.02))",
+//     },
+//   ];
+
+//   useEffect(() => {
+//     const fetchFlow = async () => {
+//       if (!isWebCryptoSupported()) {
+//         console.warn("WebCrypto not supported, falling back to defaults");
+//         setLoading(false);
+//         // Fallback: Use a minimal dynamic structure if needed, but since dynamic, set empty
+//         setRoadmapSteps([]);
+//         setCompletedSteps([]);
+//         setRejectedSteps([]);
+//         return;
+//       }
+
+//       // Use provided sessionId, fallback to cookies
+//       const effectiveSessionId = sessionId || Cookies.get("session_id");
+//       if (!effectiveSessionId) {
+//         console.error("Session ID missing");
+//         setLoading(false);
+//         return;
+//       }
+
+//       try {
+//         setLoading(true);
+//         const role = Cookies.get("selectedRole") || signingAuthority;
+//         const payload = {
+//           token: "HRFGVJISOVp1fncC",
+//           session_id: effectiveSessionId,
+//           ProcessId: processId,
+//           Current_Activity: currentActivity,
+//           Conditions: {
+//             choice: signingAuthority,
+//           },
+//         };
+
+//         const headers = await getAuthHeaders();
+//         const response = await fetch(
+//           "https://wftest1.iitm.ac.in:5555/Getflow",
+//           {
+//             method: "POST",
+//             headers,
+//             body: JSON.stringify(payload),
+//           }
+//         );
+
+//         if (!response.ok) {
+//           throw new Error(`HTTP Error: ${response.status}`);
+//         }
+
+//         const encryptedResult = await response.json();
+//         if (!encryptedResult.Data) {
+//           throw new Error("No encrypted data received");
+//         }
+
+//         const decryptedData = await decryptData(encryptedResult.Data);
+//         const parsedData = validateJsonData(decryptedData);
+
+//         // Updated success check: Handle string success codes
+//         if (
+//           !parsedData.Status ||
+//           !parsedData.Status.startsWith("HRM-BUS-SUC")
+//         ) {
+//           throw new Error(
+//             parsedData.message || `API Error: ${parsedData.Status}`
+//           );
+//         }
+
+//         // Status mapping based on flags table (flgcode -> state)
+//         const statusMap = {
+//           1: "pending", // PENDING
+//           2: "completed", // APPROVED
+//           3: "current", // CURRENT
+//           4: "pending", // NEXT (treat as pending)
+//           5: "pending", // NO_REJECTION (no change)
+//           6: "rejected", // DEFAULT_REJECTION
+//           7: "rejected", // CUSTOM_REJECTION
+//         };
+
+//         const records = parsedData.Data.Records || [];
+//         console.log("Parsed flow records:", records); // Debug log
+
+//         // Dynamically build roadmapSteps from records (sorted by step_no)
+//         const sortedRecords = records.sort(
+//           (a, b) => (a.step_no || 0) - (b.step_no || 0)
+//         );
+//         const dynamicSteps = sortedRecords.map((r, index) => {
+//           const paletteIndex = index % stepsPalette.length;
+//           return {
+//             id: r.step_no || index + 1,
+//             title: r.activity_name || `Activity ${r.step_no || index + 1}`,
+//             description:
+//               r.role_name || `Step ${r.step_no || index + 1} details`,
+//             color: stepsPalette[paletteIndex].color,
+//             bgColor: stepsPalette[paletteIndex].bgColor,
+//           };
+//         });
+
+//         setRoadmapSteps(dynamicSteps);
+
+//         // Filter and map using lowercase field names and statusMap
+//         const completed = sortedRecords
+//           .filter((r) => statusMap[r.status] === "completed")
+//           .map((r) => (r.step_no || 1) - 1) // Use step_no (1-based)
+//           .filter((i) => i >= 0 &amp;&amp; i &lt; dynamicSteps.length);
+
+//         const rejected = sortedRecords
+//           .filter((r) => statusMap[r.status] === "rejected")
+//           .map((r) => (r.step_no || 1) - 1)
+//           .filter((i) => i >= 0 &amp;&amp; i &lt; dynamicSteps.length);
+
+//         // Override with API data; fallback assumes priors are completed if not specified
+//         setCompletedSteps(completed);
+//         setRejectedSteps(rejected);
+//       } catch (error) {
+//         console.error("Failed to fetch flow:", error);
+//         // Fallback: Assume all prior steps completed (but since steps are dynamic, use empty or minimal)
+//         setRoadmapSteps([]);
+//         setCompletedSteps(Array.from({ length: currentStep }, (_, i) => i));
+//         setRejectedSteps([]);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchFlow();
+//   }, [processId, currentActivity, signingAuthority, sessionId]);
+
+//   const getStepStatus = (stepIndex) => {
+//     if (rejectedSteps.includes(stepIndex)) return "rejected";
+//     if (completedSteps.includes(stepIndex)) return "completed";
+//     if (stepIndex === currentStep) return "current";
+//     if (stepIndex &lt; currentStep) return "completed"; // Fallback for prior steps
+//     return "pending";
+//   };
+
+//   const getStepStyles = (step, index, status) => {
+//     let borderColor = "#e5e7eb";
+//     let backgroundColor = "#ffffff";
+//     let shadowIntensity = "0 1px 3px rgba(0, 0, 0, 0.05)";
+
+//     switch (status) {
+//       case "completed":
+//         borderColor = "#10b981"; // Green for completed
+//         backgroundColor = "rgba(16, 185, 129, 0.05)";
+//         shadowIntensity = "0 2px 8px rgba(16, 185, 129, 0.15)";
+//         break;
+//       case "rejected":
+//         borderColor = "#ef4444";
+//         backgroundColor = "rgba(239, 68, 68, 0.02)";
+//         shadowIntensity = "0 2px 8px rgba(239, 68, 68, 0.15)";
+//         break;
+//       case "current":
+//         borderColor = "#f59e0b"; // Orange/Amber for ongoing
+//         backgroundColor = "rgba(245, 158, 11, 0.05)";
+//         shadowIntensity = "0 4px 12px rgba(245, 158, 11, 0.25)";
+//         break;
+//       case "pending":
+//         borderColor = "#3b82f6"; // Blue for future steps
+//         backgroundColor = "rgba(59, 130, 246, 0.02)";
+//         shadowIntensity = "0 1px 3px rgba(59, 130, 246, 0.1)";
+//         break;
+//     }
+
+//     return { borderColor, backgroundColor, shadowIntensity };
+//   };
+
+//   const getStepNumberColor = (status) => {
+//     switch (status) {
+//       case "completed":
+//         return "#10b981"; // Green for completed
+//       case "rejected":
+//         return "#ef4444";
+//       case "current":
+//         return "#f59e0b"; // Orange/Amber for ongoing
+//       default:
+//         return "#3b82f6"; // Blue for future steps
+//     }
+//   };
+
+//   const getStatusIcon = (status) => {
+//     switch (status) {
+//       case "completed":
+//         return &lt;CheckCircleIcon sx={{ fontSize: "18px", color: "#10b981" }} />;
+//       case "rejected":
+//         return &lt;ErrorIcon sx={{ fontSize: "18px", color: "#ef4444" }} />;
+//       case "current":
+//         return &lt;ScheduleIcon sx={{ fontSize: "18px", color: "#f59e0b" }} />;
+//       default:
+//         return (
+//           &lt;PendingActionsIcon sx={{ fontSize: "18px", color: "#3b82f6" }} />
+//         );
+//     }
+//   };
+
+//   const ConnectorLine = ({ status }) => {
+//     let lineColor = "#3b82f6"; // Blue for future steps
+//     if (status === "completed") lineColor = "#10b981"; // Green for completed
+//     if (status === "rejected") lineColor = "#ef4444";
+//     if (status === "current") lineColor = "#f59e0b"; // Orange for ongoing
+
+//     return (
+//       &lt;Box
+//         sx={{
+//           width: 24, // Slightly increased for better proportion with larger boxes
+//           height: 2,
+//           backgroundColor: lineColor,
+//           borderRadius: "1px",
+//           position: "relative",
+//           mx: 0.5,
+//           "&amp;::after": {
+//             content: '""',
+//             position: "absolute",
+//             right: -1,
+//             top: "50%",
+//             transform: "translateY(-50%)",
+//             width: 0,
+//             height: 0,
+//             borderLeft: `4px solid ${lineColor}`,
+//             borderTop: "1px solid transparent",
+//             borderBottom: "1px solid transparent",
+//           },
+//         }}
+//       />
+//     );
+//   };
+
+//   if (loading) {
+//     return (
+//       &lt;Card sx={{ mb: 1.5, p: 1.5, textAlign: "center", borderRadius: "8px" }}>
+//         &lt;Typography
+//           variant="body2"
+//           color="textSecondary"
+//           sx={{ fontSize: "0.75rem" }}
+//         >
+//           Loading roadmap...
+//         &lt;/Typography>
+//       &lt;/Card>
+//     );
+//   }
+
+//   if (roadmapSteps.length === 0) {
+//     return (
+//       &lt;Card sx={{ mb: 1.5, p: 1.5, textAlign: "center", borderRadius: "8px" }}>
+//         &lt;Typography
+//           variant="body2"
+//           color="textSecondary"
+//           sx={{ fontSize: "0.75rem" }}
+//         >
+//           No roadmap steps available.
+//         &lt;/Typography>
+//       &lt;/Card>
+//     );
+//   }
+
+//   // Calculate progress
+//   const totalSteps = roadmapSteps.length;
+//   const progress =
+//     ((completedSteps.length + (currentStep >= 0 ? 1 : 0)) / totalSteps) * 100;
+
+//   return (
+//     &lt;Card
+//       sx={{
+//         mb: 1.5,
+//         borderRadius: "10px",
+//         border: "1px solid #e2e8f0",
+//         boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+//         overflow: "hidden",
+//         background: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)",
+//       }}
+//     >
+//       {/* Progress Bar */}
+//       &lt;Box sx={{ px: 2, pt: 1.5, pb: 0.5 }}>
+//         &lt;LinearProgress
+//           variant="determinate"
+//           value={progress}
+//           sx={{
+//             height: 4,
+//             borderRadius: 2,
+//             backgroundColor: "rgba(0,0,0,0.08)",
+//             "&amp; .MuiLinearProgress-bar": {
+//               borderRadius: 2,
+//               background: "linear-gradient(90deg, #10b981, #3b82f6)",
+//             },
+//           }}
+//         />
+//         &lt;Typography
+//           variant="caption"
+//           sx={{
+//             color: "text.secondary",
+//             fontSize: "0.7rem",
+//             display: "block",
+//             textAlign: "right",
+//             mt: 0.25,
+//           }}
+//         >
+//           {Math.round(progress)}% Complete
+//         &lt;/Typography>
+//       &lt;/Box>
+
+//       &lt;CardContent sx={{ p: 0 }}>
+//         {/* Scrollable Steps Container */}
+//         &lt;Box sx={{ position: "relative", px: 1, py: 0.5 }}>
+//           {/* Steps Container */}
+//           &lt;Box
+//             ref={scrollRef}
+//             sx={{
+//               display: "flex",
+//               overflowX: "auto",
+//               scrollbarWidth: "none",
+//               msOverflowStyle: "none",
+//               "&amp;::-webkit-scrollbar": {
+//                 display: "none",
+//               },
+//               gap: 0.5,
+//               py: 2,
+//               pb: 1.5,
+//               px: 1.5,
+//             }}
+//           >
+//             {roadmapSteps.map((step, index) => {
+//               const status = getStepStatus(index);
+//               const styles = getStepStyles(step, index, status);
+
+//               return (
+//                 &lt;React.Fragment key={step.id}>
+//                   {/* Step Card */}
+//                   &lt;Box
+//                     sx={{
+//                       minWidth: isMobile ? 160 : 180, // Increased from 140/160
+//                       maxWidth: isMobile ? 160 : 180, // Increased from 140/160
+//                       position: "relative",
+//                     }}
+//                   >
+//                     {/* Step Number Badge */}
+//                     &lt;Box
+//                       sx={{
+//                         position: "absolute",
+//                         top: -8, // Slightly adjusted for larger card
+//                         left: 10,
+//                         zIndex: 2,
+//                         width: 28, // Increased from 24
+//                         height: 28, // Increased from 24
+//                         borderRadius: "50%",
+//                         backgroundColor: getStepNumberColor(status),
+//                         color: "white",
+//                         display: "flex",
+//                         alignItems: "center",
+//                         justifyContent: "center",
+//                         fontSize: "0.8rem", // Increased from 0.75rem
+//                         fontWeight: 700,
+//                         boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+//                         border: "2px solid white",
+//                       }}
+//                     >
+//                       {step.id}
+//                     &lt;/Box>
+
+//                     {/* Main Step Card */}
+//                     &lt;Card
+//                       sx={{
+//                         height: isMobile ? 70 : 75, // Increased from 60/65
+//                         border:
+//                           status === "current"
+//                             ? `2px solid ${styles.borderColor}`
+//                             : `1px solid ${styles.borderColor}`,
+//                         background: `linear-gradient(135deg, ${styles.backgroundColor}, rgba(255,255,255,0.8))`,
+//                         borderRadius: "10px",
+//                         transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+//                         transform:
+//                           status === "current" ? "scale(1.05)" : "scale(1)",
+//                         boxShadow:
+//                           status === "current"
+//                             ? `0 6px 20px rgba(${
+//                                 status === "current" ? "245, 158, 11" : "0,0,0"
+//                               }, 0.3)`
+//                             : styles.shadowIntensity,
+//                         position: "relative",
+//                         overflow: "visible",
+//                         "&amp;:hover": {
+//                           transform:
+//                             status === "current"
+//                               ? "scale(1.05)"
+//                               : "scale(1.02)",
+//                           boxShadow:
+//                             status === "current"
+//                               ? `0 10px 30px rgba(${
+//                                   status === "current"
+//                                     ? "245, 158, 11"
+//                                     : "0,0,0"
+//                                 }, 0.4)`
+//                               : "0 4px 12px rgba(0,0,0,0.1)",
+//                         },
+//                       }}
+//                     >
+//                       &lt;CardContent sx={{ p: 1.5, pt: 3, pb: 1.2 }}> {/* Increased padding */}
+//                         {/* Status Icon */}
+//                         &lt;Box
+//                           sx={{
+//                             position: "absolute",
+//                             top: -12, // Adjusted for larger card
+//                             right: 6,
+//                             zIndex: 1,
+//                           }}
+//                         >
+//                           {getStatusIcon(status)}
+//                         &lt;/Box>
+
+//                         &lt;Typography
+//                           variant="h6"
+//                           sx={{
+//                             ...customFontStyles,
+//                             fontWeight: status === "current" ? 700 : 600,
+//                             fontSize: isMobile ? "0.8rem" : "0.85rem", // Increased from 0.75rem/0.8rem
+//                             color:
+//                               status === "pending"
+//                                 ? "#1e40af"
+//                                 : status === "current"
+//                                 ? "#92400e"
+//                                 : "#065f46",
+//                             mb: 0.5, // Slightly increased margin
+//                             lineHeight: 1.2, // Adjusted for better fit
+//                             display: "-webkit-box",
+//                             WebkitLineClamp: 1,
+//                             WebkitBoxOrient: "vertical",
+//                             overflow: "hidden",
+//                           }}
+//                         >
+//                           {step.title}
+//                         &lt;/Typography>
+
+//                         &lt;Typography
+//                           variant="body2"
+//                           sx={{
+//                             ...customFontStyles,
+//                             fontSize: isMobile ? "0.7rem" : "0.75rem", // Increased from 0.65rem/0.7rem
+//                             color:
+//                               status === "pending"
+//                                 ? "#1e40af"
+//                                 : status === "current"
+//                                 ? "#92400e"
+//                                 : "#065f46",
+//                             lineHeight: 1.3, // Adjusted for better fit
+//                             display: "-webkit-box",
+//                             WebkitLineClamp: 1,
+//                             WebkitBoxOrient: "vertical",
+//                             overflow: "hidden",
+//                           }}
+//                         >
+//                           {step.description}
+//                         &lt;/Typography>
+
+//                         {/* Status Chip for rejected/current */}
+//                         {(status === "rejected" || status === "current") &amp;&amp; (
+//                           &lt;Chip
+//                             label={
+//                               status === "rejected" ? "Rejected" : "In Progress"
+//                             }
+//                             size="small"
+//                             sx={{
+//                               position: "absolute",
+//                               bottom: -8, // Adjusted for larger card
+//                               left: "50%",
+//                               transform: "translateX(-50%)",
+//                               fontSize: "0.65rem", // Slightly increased
+//                               height: 18, // Increased from 16
+//                               backgroundColor:
+//                                 status === "rejected" ? "#ef4444" : "#f59e0b",
+//                               "&amp; .MuiChip-label": { px: 0.5 },
+//                             }}
+//                           />
+//                         )}
+//                       &lt;/CardContent>
+//                     &lt;/Card>
+//                   &lt;/Box>
+
+//                   {/* Connector Line (except for last step) */}
+//                   {index &lt; roadmapSteps.length - 1 &amp;&amp; (
+//                     &lt;Box
+//                       sx={{ display: "flex", alignItems: "center", mt: 0.5 }}
+//                     >
+//                       &lt;ConnectorLine status={status} />
+//                     &lt;/Box>
+//                   )}
+//                 &lt;/React.Fragment>
+//               );
+//             })}
+//           &lt;/Box>
+//         &lt;/Box>
+//       &lt;/CardContent>
+//     &lt;/Card>
+//   );
+// };
+
+// export default Roadmap;
+
+/**
+ * @fileoverview Compact Roadmap component
+ * @module components/Roadmap
+ * @author Rakshana
+ * @date 12/08/2025
+ */
+import React, { useRef, useState, useEffect } from "react";
+import {
+  Box,
+  Typography,
+  Card,
+  CardContent,
+  useMediaQuery,
+  useTheme,
+  Chip,
+  LinearProgress,
+  IconButton,
+} from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import ErrorIcon from "@mui/icons-material/Error";
+import ScheduleIcon from "@mui/icons-material/Schedule";
+import PendingActionsIcon from "@mui/icons-material/PendingActions";
+import Cookies from "js-cookie";
+import {
+  decryptData,
+  validateJsonData,
+  isWebCryptoSupported,
+} from "src/components/Decryption/Decrypt"; // Adjust path as needed
+
+const customFontStyles = {
+  fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+  fontSize: "11px",
+  fontWeight: 500,
+};
+
+const getAuthHeaders = async () => {
+  const encryptedToken = Cookies.get("HRToken");
+  return {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${encryptedToken}`,
+  };
+};
+
+/**
+ * Compact Process Roadmap Component with dynamic steps
+ * Dynamically fetches flow data from API to determine steps, completed/rejected steps
+ * @param {Object} props - Component props
+ * @param {number} props.processId - Process ID for the workflow (default 1)
+ * @param {number} props.currentActivity - Current active activity (1-based index from ActivitySeqNo)
+ * @param {string} props.signingAuthority - Signing authority for conditions (default "Registrar")
+ * @param {string} props.sessionId - Session ID for API calls
+ * @returns {JSX.Element} The rendered roadmap component
+ */
+const Roadmap = ({
+  processId = 1,
+  currentActivity = 1,
+  signingAuthority = "Registrar",
+  sessionId,
+}) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const scrollRef = useRef(null);
+
+  const [roadmapSteps, setRoadmapSteps] = useState([]);
+  const [completedSteps, setCompletedSteps] = useState([]);
+  const [rejectedSteps, setRejectedSteps] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const currentStep = currentActivity - 1; // Convert to 0-based for internal logic
+
+  // Enhanced dynamic color palette for steps (cycled if more steps than palette)
+  const stepsPalette = [
+    {
+      color: "#ef4444",
+      bgColor:
+        "linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.02))",
+    },
+    {
+      color: "#10b981",
+      bgColor:
+        "linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(16, 185, 129, 0.02))",
+    },
+    {
+      color: "#3b82f6",
+      bgColor:
+        "linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(59, 130, 246, 0.02))",
+    },
+    {
+      color: "#8b5cf6",
+      bgColor:
+        "linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(139, 92, 246, 0.02))",
+    },
+    {
+      color: "#f59e0b",
+      bgColor:
+        "linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(245, 158, 11, 0.02))",
+    },
+    {
+      color: "#06b6d4",
+      bgColor:
+        "linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(6, 182, 212, 0.02))",
+    },
+    {
+      color: "#84cc16",
+      bgColor:
+        "linear-gradient(135deg, rgba(132, 204, 22, 0.08), rgba(132, 204, 22, 0.02))",
+    },
+  ];
+
+  useEffect(() => {
+    const fetchFlow = async () => {
+      if (!isWebCryptoSupported()) {
+        console.warn("WebCrypto not supported, falling back to defaults");
+        setLoading(false);
+        // Fallback: Use a minimal dynamic structure if needed, but since dynamic, set empty
+        setRoadmapSteps([]);
+        setCompletedSteps([]);
+        setRejectedSteps([]);
+        return;
+      }
+
+      // Use provided sessionId, fallback to cookies
+      const effectiveSessionId = sessionId || Cookies.get("session_id");
+      if (!effectiveSessionId) {
+        console.error("Session ID missing");
+        setLoading(false);
+        return;
+      }
+
+      try {
+        setLoading(true);
+        const role = Cookies.get("selectedRole") || signingAuthority;
+        const payload = {
+          token: "HRFGVJISOVp1fncC",
+          session_id: effectiveSessionId,
+          ProcessId: processId,
+          Current_Activity: currentActivity,
+          Conditions: {
+            choice: signingAuthority,
+          },
+        };
+
+        const headers = await getAuthHeaders();
+        const response = await fetch(
+          "https://wftest1.iitm.ac.in:5555/Getflow",
+          {
+            method: "POST",
+            headers,
+            body: JSON.stringify(payload),
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP Error: ${response.status}`);
+        }
+
+        const encryptedResult = await response.json();
+        if (!encryptedResult.Data) {
+          throw new Error("No encrypted data received");
+        }
+
+        const decryptedData = await decryptData(encryptedResult.Data);
+        const parsedData = validateJsonData(decryptedData);
+
+        // Updated success check: Handle string success codes
+        if (
+          !parsedData.Status ||
+          !parsedData.Status.startsWith("HRM-BUS-SUC")
+        ) {
+          throw new Error(
+            parsedData.message || `API Error: ${parsedData.Status}`
+          );
+        }
+
+        // Status mapping based on flags table (flgcode -> state)
+        const statusMap = {
+          1: "pending", // PENDING
+          2: "completed", // APPROVED
+          3: "current", // CURRENT
+          4: "pending", // NEXT (treat as pending)
+          5: "pending", // NO_REJECTION (no change)
+          6: "rejected", // DEFAULT_REJECTION
+          7: "rejected", // CUSTOM_REJECTION
+        };
+
+        const records = parsedData.Data.Records || [];
+        console.log("Parsed flow records:", records); // Debug log
+
+        // Dynamically build roadmapSteps from records (sorted by step_no)
+        const sortedRecords = records.sort(
+          (a, b) => (a.step_no || 0) - (b.step_no || 0)
+        );
+        const dynamicSteps = sortedRecords.map((r, index) => {
+          const paletteIndex = index % stepsPalette.length;
+          return {
+            id: r.step_no || index + 1,
+            title: r.activity_name || `Activity ${r.step_no || index + 1}`,
+            description:
+              r.role_name || `Step ${r.step_no || index + 1} details`,
+            color: stepsPalette[paletteIndex].color,
+            bgColor: stepsPalette[paletteIndex].bgColor,
+          };
+        });
+
+        setRoadmapSteps(dynamicSteps);
+
+        // Filter and map using lowercase field names and statusMap
+        const completed = sortedRecords
+          .filter((r) => statusMap[r.status] === "completed")
+          .map((r) => (r.step_no || 1) - 1) // Use step_no (1-based)
+          .filter((i) => i >= 0 &amp;&amp; i &lt; dynamicSteps.length);
+
+        const rejected = sortedRecords
+          .filter((r) => statusMap[r.status] === "rejected")
+          .map((r) => (r.step_no || 1) - 1)
+          .filter((i) => i >= 0 &amp;&amp; i &lt; dynamicSteps.length);
+
+        // Override with API data; fallback assumes priors are completed if not specified
+        setCompletedSteps(completed);
+        setRejectedSteps(rejected);
+      } catch (error) {
+        console.error("Failed to fetch flow:", error);
+        // Fallback: Assume all prior steps completed (but since steps are dynamic, use empty or minimal)
+        setRoadmapSteps([]);
+        setCompletedSteps(Array.from({ length: currentStep }, (_, i) => i));
+        setRejectedSteps([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFlow();
+  }, [processId, currentActivity, signingAuthority, sessionId]);
+
+  const getStepStatus = (stepIndex) => {
+    if (rejectedSteps.includes(stepIndex)) return "rejected";
+    if (completedSteps.includes(stepIndex)) return "completed";
+    if (stepIndex === currentStep) return "current";
+    if (stepIndex &lt; currentStep) return "completed"; // Fallback for prior steps
+    return "pending";
+  };
+
+  const getStepStyles = (step, index, status) => {
+    let borderColor = "#e5e7eb";
+    let backgroundColor = "#ffffff";
+    let shadowIntensity = "0 1px 3px rgba(0, 0, 0, 0.05)";
+
+    switch (status) {
+      case "completed":
+        borderColor = "#10b981"; // Green for completed
+        backgroundColor = "rgba(16, 185, 129, 0.05)";
+        shadowIntensity = "0 2px 8px rgba(16, 185, 129, 0.15)";
+        break;
+      case "rejected":
+        borderColor = "#ef4444";
+        backgroundColor = "rgba(239, 68, 68, 0.02)";
+        shadowIntensity = "0 2px 8px rgba(239, 68, 68, 0.15)";
+        break;
+      case "current":
+        borderColor = "#f59e0b"; // Orange/Amber for ongoing
+        backgroundColor = "rgba(245, 158, 11, 0.05)";
+        shadowIntensity = "0 4px 12px rgba(245, 158, 11, 0.25)";
+        break;
+      case "pending":
+        borderColor = "#3b82f6"; // Blue for future steps
+        backgroundColor = "rgba(59, 130, 246, 0.02)";
+        shadowIntensity = "0 1px 3px rgba(59, 130, 246, 0.1)";
+        break;
+    }
+
+    return { borderColor, backgroundColor, shadowIntensity };
+  };
+
+  const getStepNumberColor = (status) => {
+    switch (status) {
+      case "completed":
+        return "#10b981"; // Green for completed
+      case "rejected":
+        return "#ef4444";
+      case "current":
+        return "#f59e0b"; // Orange/Amber for ongoing
+      default:
+        return "#3b82f6"; // Blue for future steps
+    }
+  };
+
+  const getStatusIcon = (status) => {
+    switch (status) {
+      case "completed":
+        return &lt;CheckCircleIcon sx={{ fontSize: "18px", color: "#10b981" }} />;
+      case "rejected":
+        return &lt;ErrorIcon sx={{ fontSize: "18px", color: "#ef4444" }} />;
+      case "current":
+        return &lt;ScheduleIcon sx={{ fontSize: "18px", color: "#f59e0b" }} />;
+      default:
+        return (
+          &lt;PendingActionsIcon sx={{ fontSize: "18px", color: "#3b82f6" }} />
+        );
+    }
+  };
+
+  const ConnectorLine = ({ status }) => {
+    let lineColor = "#3b82f6"; // Blue for future steps
+    if (status === "completed") lineColor = "#10b981"; // Green for completed
+    if (status === "rejected") lineColor = "#ef4444";
+    if (status === "current") lineColor = "#f59e0b"; // Orange for ongoing
+
+    return (
+      &lt;Box
+        sx={{
+          width: 24, // Slightly increased for better proportion with larger boxes
+          height: 2,
+          backgroundColor: lineColor,
+          borderRadius: "1px",
+          position: "relative",
+          mx: 0.5,
+          "&amp;::after": {
+            content: '""',
+            position: "absolute",
+            right: -1,
+            top: "50%",
+            transform: "translateY(-50%)",
+            width: 0,
+            height: 0,
+            borderLeft: `4px solid ${lineColor}`,
+            borderTop: "1px solid transparent",
+            borderBottom: "1px solid transparent",
+          },
+        }}
+      />
+    );
+  };
+
+  if (loading) {
+    return (
+      &lt;Card sx={{ mb: 1.5, p: 1.5, textAlign: "center", borderRadius: "8px" }}>
+        &lt;Typography
+          variant="body2"
+          color="textSecondary"
+          sx={{ fontSize: "0.75rem" }}
+        >
+          Loading roadmap...
+        &lt;/Typography>
+      &lt;/Card>
+    );
+  }
+
+  if (roadmapSteps.length === 0) {
+    return (
+      &lt;Card sx={{ mb: 1.5, p: 1.5, textAlign: "center", borderRadius: "8px" }}>
+        &lt;Typography
+          variant="body2"
+          color="textSecondary"
+          sx={{ fontSize: "0.75rem" }}
+        >
+          No roadmap steps available.
+        &lt;/Typography>
+      &lt;/Card>
+    );
+  }
+
+  // Calculate progress
+  const totalSteps = roadmapSteps.length;
+  const progress =
+    ((completedSteps.length + (currentStep >= 0 ? 1 : 0)) / totalSteps) * 100;
+
+  return (
+    &lt;Card
+      sx={{
+        mb: 1.5,
+        borderRadius: "10px",
+        border: "1px solid #e2e8f0",
+        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+        overflow: "hidden",
+        background: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)",
+      }}
+    >
+      {/* Progress Bar */}
+      &lt;Box sx={{ px: 2, pt: 1.5, pb: 0.5 }}>
+        &lt;LinearProgress
+          variant="determinate"
+          value={progress}
+          sx={{
+            height: 4,
+            borderRadius: 2,
+            backgroundColor: "rgba(0,0,0,0.08)",
+            "&amp; .MuiLinearProgress-bar": {
+              borderRadius: 2,
+              background: "linear-gradient(90deg, #10b981, #3b82f6)",
+            },
+          }}
+        />
+        &lt;Typography
+          variant="caption"
+          sx={{
+            color: "text.secondary",
+            fontSize: "0.7rem",
+            display: "block",
+            textAlign: "right",
+            mt: 0.25,
+          }}
+        >
+          {Math.round(progress)}% Complete
+        &lt;/Typography>
+      &lt;/Box>
+
+      &lt;CardContent sx={{ p: 0 }}>
+        {/* Scrollable Steps Container */}
+        &lt;Box sx={{ position: "relative", px: 1, py: 0.5 }}>
+          {/* Steps Container */}
+          &lt;Box
+            ref={scrollRef}
+            sx={{
+              display: "flex",
+              justifyContent: "center", // Added for center alignment
+              overflowX: "auto",
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              "&amp;::-webkit-scrollbar": {
+                display: "none",
+              },
+              gap: 0.5,
+              py: 2,
+              pb: 1.5,
+              px: 1.5,
+            }}
+          >
+            {roadmapSteps.map((step, index) => {
+              const status = getStepStatus(index);
+              const styles = getStepStyles(step, index, status);
+
+              return (
+                &lt;React.Fragment key={step.id}>
+                  {/* Step Card */}
+                  &lt;Box
+                    sx={{
+                      minWidth: isMobile ? 160 : 180, // Increased from 140/160
+                      maxWidth: isMobile ? 160 : 180, // Increased from 140/160
+                      position: "relative",
+                    }}
+                  >
+                    {/* Step Number Badge */}
+                    &lt;Box
+                      sx={{
+                        position: "absolute",
+                        top: -8, // Slightly adjusted for larger card
+                        left: 10,
+                        zIndex: 2,
+                        width: 28, // Increased from 24
+                        height: 28, // Increased from 24
+                        borderRadius: "50%",
+                        backgroundColor: getStepNumberColor(status),
+                        color: "white",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "0.8rem", // Increased from 0.75rem
+                        fontWeight: 700,
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+                        border: "2px solid white",
+                      }}
+                    >
+                      {step.id}
+                    &lt;/Box>
+
+                    {/* Main Step Card */}
+                    &lt;Card
+                      sx={{
+                        height: isMobile ? 70 : 75, // Increased from 60/65
+                        border:
+                          status === "current"
+                            ? `2px solid ${styles.borderColor}`
+                            : `1px solid ${styles.borderColor}`,
+                        background: `linear-gradient(135deg, ${styles.backgroundColor}, rgba(255,255,255,0.8))`,
+                        borderRadius: "10px",
+                        transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                        transform:
+                          status === "current" ? "scale(1.05)" : "scale(1)",
+                        boxShadow:
+                          status === "current"
+                            ? `0 6px 20px rgba(${
+                                status === "current" ? "245, 158, 11" : "0,0,0"
+                              }, 0.3)`
+                            : styles.shadowIntensity,
+                        position: "relative",
+                        overflow: "visible",
+                        "&amp;:hover": {
+                          transform:
+                            status === "current"
+                              ? "scale(1.05)"
+                              : "scale(1.02)",
+                          boxShadow:
+                            status === "current"
+                              ? `0 10px 30px rgba(${
+                                  status === "current"
+                                    ? "245, 158, 11"
+                                    : "0,0,0"
+                                }, 0.4)`
+                              : "0 4px 12px rgba(0,0,0,0.1)",
+                        },
+                      }}
+                    >
+                      &lt;CardContent sx={{ p: 1.5, pt: 3, pb: 1.2 }}> {/* Increased padding */}
+                        {/* Status Icon */}
+                        &lt;Box
+                          sx={{
+                            position: "absolute",
+                            top: -12, // Adjusted for larger card
+                            right: 6,
+                            zIndex: 1,
+                          }}
+                        >
+                          {getStatusIcon(status)}
+                        &lt;/Box>
+
+                        &lt;Typography
+                          variant="h6"
+                          sx={{
+                            ...customFontStyles,
+                            fontWeight: status === "current" ? 700 : 600,
+                            fontSize: isMobile ? "0.8rem" : "0.85rem", // Increased from 0.75rem/0.8rem
+                            color:
+                              status === "pending"
+                                ? "#1e40af"
+                                : status === "current"
+                                ? "#92400e"
+                                : "#065f46",
+                            mb: 0.5, // Slightly increased margin
+                            lineHeight: 1.2, // Adjusted for better fit
+                            display: "-webkit-box",
+                            WebkitLineClamp: 1,
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden",
+                          }}
+                        >
+                          {step.title}
+                        &lt;/Typography>
+
+                        &lt;Typography
+                          variant="body2"
+                          sx={{
+                            ...customFontStyles,
+                            fontSize: isMobile ? "0.7rem" : "0.75rem", // Increased from 0.65rem/0.7rem
+                            color:
+                              status === "pending"
+                                ? "#1e40af"
+                                : status === "current"
+                                ? "#92400e"
+                                : "#065f46",
+                            lineHeight: 1.3, // Adjusted for better fit
+                            display: "-webkit-box",
+                            WebkitLineClamp: 1,
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden",
+                          }}
+                        >
+                          {step.description}
+                        &lt;/Typography>
+
+                        {/* Status Chip for rejected/current */}
+                        {(status === "rejected" || status === "current") &amp;&amp; (
+                          &lt;Chip
+                            label={
+                              status === "rejected" ? "Rejected" : "In Progress"
+                            }
+                            size="small"
+                            sx={{
+                              position: "absolute",
+                              bottom: -8, // Adjusted for larger card
+                              left: "50%",
+                              transform: "translateX(-50%)",
+                              fontSize: "0.65rem", // Slightly increased
+                              height: 18, // Increased from 16
+                              backgroundColor:
+                                status === "rejected" ? "#ef4444" : "#f59e0b",
+                              "&amp; .MuiChip-label": { px: 0.5 },
+                            }}
+                          />
+                        )}
+                      &lt;/CardContent>
+                    &lt;/Card>
+                  &lt;/Box>
+
+                  {/* Connector Line (except for last step) */}
+                  {index &lt; roadmapSteps.length - 1 &amp;&amp; (
+                    &lt;Box
+                      sx={{ display: "flex", alignItems: "center", mt: 0.5 }}
+                    >
+                      &lt;ConnectorLine status={status} />
+                    &lt;/Box>
+                  )}
+                &lt;/React.Fragment>
+              );
+            })}
+          &lt;/Box>
+        &lt;/Box>
+      &lt;/CardContent>
+    &lt;/Card>
+  );
+};
+
+export default Roadmap;</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Wed Nov 05 2025 11:24:43 GMT+0530 (India Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

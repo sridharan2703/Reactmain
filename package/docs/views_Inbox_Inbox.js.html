@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>views/Inbox/Inbox.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-AdditionalDetails.html">AdditionalDetails</a><ul class='methods'><li data-type='method'><a href="module-AdditionalDetails.html#~AdditionalDetails">AdditionalDetails</a></li><li data-type='method'><a href="module-AdditionalDetails.html#~AdditionalDetails">AdditionalDetails</a></li></ul></li><li></li><li><a href="module-ApprovalForm.html">ApprovalForm</a><ul class='methods'><li data-type='method'><a href="module-ApprovalForm.html#~ApprovalForm">ApprovalForm</a></li><li data-type='method'><a href="module-ApprovalForm.html#~ApprovalForm">ApprovalForm</a></li></ul></li><li></li><li><a href="module-EmployeeVisitForm.html">EmployeeVisitForm</a><ul class='methods'><li data-type='method'><a href="module-EmployeeVisitForm.html#~EmployeeVisitForm">EmployeeVisitForm</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~EmployeeVisitForm">EmployeeVisitForm</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~stripNonEnglish">stripNonEnglish</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~stripNonEnglish">stripNonEnglish</a></li></ul></li><li></li><li><a href="module-SaveandHold.html">SaveandHold</a><ul class='methods'><li data-type='method'><a href="module-SaveandHold.html#~SaveandHold">SaveandHold</a></li><li data-type='method'><a href="module-SaveandHold.html#~SaveandHold">SaveandHold</a></li><li data-type='method'><a href="module-SaveandHold.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-SaveandHold.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-SaveandHold.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-SaveandHold.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-SaveandHold.html#~getToColumnHtml">getToColumnHtml</a></li><li data-type='method'><a href="module-SaveandHold.html#~getToColumnHtml">getToColumnHtml</a></li></ul></li><li></li><li><a href="module-components_Roadmap.html">components/Roadmap</a><ul class='methods'><li data-type='method'><a href="module-components_Roadmap.html#~Roadmap">Roadmap</a></li></ul></li><li><a href="module-src_components_UIShowcase.html">src/components/UIShowcase</a><ul class='methods'><li data-type='method'><a href="module-src_components_UIShowcase.html#~UIShowcase">UIShowcase</a></li></ul></li><li><a href="module-src_components_authentication_OtpVerification.html">src/components/authentication/OtpVerification</a><ul class='methods'><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~addTrustedDevice">addTrustedDevice</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~generateDeviceFingerprint">generateDeviceFingerprint</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~getDeviceInfo">getDeviceInfo</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~removeTrustedDevice">removeTrustedDevice</a></li></ul></li><li><a href="module-src_components_ui.html">src/components/ui</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui.html#~AnimatedSlide">AnimatedSlide</a></li><li data-type='method'><a href="module-src_components_ui.html#~CardStyle">CardStyle</a></li></ul></li><li></li><li></li><li></li><li><a href="module-src_components_ui_Alerts.html">src/components/ui/Alerts</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Alerts.html#~Alerts">Alerts</a></li></ul></li><li><a href="module-src_components_ui_Avatar.html">src/components/ui/Avatar</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Avatar.html#~Avatar">Avatar</a></li></ul></li><li><a href="module-src_components_ui_Badge.html">src/components/ui/Badge</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Badge.html#~Badge">Badge</a></li></ul></li><li><a href="module-src_components_ui_Button.html">src/components/ui/Button</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Button.html#~Button">Button</a></li><li data-type='method'><a href="module-src_components_ui_Button.html#~ButtonGroup">ButtonGroup</a></li><li data-type='method'><a href="module-src_components_ui_Button.html#~NavigationContainer">NavigationContainer</a></li></ul></li><li><a href="module-src_components_ui_Card.html">src/components/ui/Card</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Card.html#~Card">Card</a></li></ul></li><li><a href="module-src_components_ui_Checkbox.html">src/components/ui/Checkbox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Checkbox.html#~Checkbox">Checkbox</a></li></ul></li><li><a href="module-src_components_ui_DialogBox.html">src/components/ui/DialogBox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_DialogBox.html#~DialogBox">DialogBox</a></li></ul></li><li><a href="module-src_components_ui_Dropdown.html">src/components/ui/Dropdown</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Dropdown.html#~Dropdown">Dropdown</a></li></ul></li><li><a href="module-src_components_ui_Input.html">src/components/ui/Input</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Input.html#~Input">Input</a></li></ul></li><li><a href="module-src_components_ui_Pagination.html">src/components/ui/Pagination</a></li><li><a href="module-src_components_ui_PriorityIcon.html">src/components/ui/PriorityIcon</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_PriorityIcon.html#~PriorityIcon">PriorityIcon</a></li></ul></li><li><a href="module-src_components_ui_TextArea.html">src/components/ui/TextArea</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_TextArea.html#~TextArea">TextArea</a></li></ul></li><li><a href="module-src_layouts_full_header_Profile.html">src/layouts/full/header/Profile</a></li><li><a href="module-src_pages_Inbox_Inbox.html">src/pages/Inbox/Inbox</a></li><li><a href="module-src_services_EnhancedDynamicDecryption.html">src/services/EnhancedDynamicDecryption</a><ul class='methods'><li data-type='method'><a href="module-src_services_EnhancedDynamicDecryption.html#~base64ToArrayBuffer">base64ToArrayBuffer</a></li><li data-type='method'><a href="module-src_services_EnhancedDynamicDecryption.html#~getAuthHeaders">getAuthHeaders</a></li></ul></li><li><a href="module-src_views_authentication_auth_AuthLogin.html">src/views/authentication/auth/AuthLogin</a></li><li><a href="module-src_views_authentication_auth_encryption.html">src/views/authentication/auth/encryption</a><ul class='methods'><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.authenticateUser">authenticateUser</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.decryptGCM">decryptGCM</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.encryptECB">encryptECB</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getDecryptKeyFromCookies">getDecryptKeyFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getSessionIdFromCookies">getSessionIdFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getUserFromCookies">getUserFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.isUserAuthenticated">isUserAuthenticated</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.logoutUser">logoutUser</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~deleteCookie">deleteCookie</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~generate256BitKey">generate256BitKey</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~getAuthHeaders">getAuthHeaders</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~getCookie">getCookie</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~insertSessionData">insertSessionData</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~saveUserToCookies">saveUserToCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~setCookie">setCookie</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#CommentsHistory">CommentsHistory</a></li><li><a href="global.html#DateInput">DateInput</a></li><li><a href="global.html#DatePicker">DatePicker</a></li><li><a href="global.html#DateRangePicker">DateRangePicker</a></li><li><a href="global.html#DocumentUpload">DocumentUpload</a></li><li><a href="global.html#DropZone">DropZone</a></li><li><a href="global.html#FileUpload">FileUpload</a></li><li><a href="global.html#ImageUpload">ImageUpload</a></li><li><a href="global.html#InlineDateRangePicker">InlineDateRangePicker</a></li><li><a href="global.html#Login2">Login2</a></li><li><a href="global.html#MultiFileUpload">MultiFileUpload</a></li><li><a href="global.html#TaskCard">TaskCard</a></li><li><a href="global.html#TaskSummaryPage">TaskSummaryPage</a></li><li><a href="global.html#base64ToArrayBuffer">base64ToArrayBuffer</a></li><li><a href="global.html#decrypt">decrypt</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">views/Inbox/Inbox.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// import React, { useState, useEffect, useCallback } from "react";
+// import InboxTable from "./InboxTable";
+// import Cookies from "js-cookie";
+// import {
+//   decryptData,
+//   validateJsonData,
+// } from "src/components/Decryption/Decrypt";
+// import { HostName } from "src/assets/host/Host";
+
+// const API_TOKEN = "HRFGVJISOVp1fncC";
+
+// const getCookie = (name) => {
+//   const value = `; ${document.cookie}`;
+//   const parts = value.split(`; ${name}=`);
+//   if (parts.length === 2) return parts.pop().split(";").shift();
+//   return null;
+// };
+
+// const getLoginName = () => {
+//   const loginName =
+//     sessionStorage.getItem("username") ||
+//     localStorage.getItem("username") ||
+//     getCookie("username");
+//   return loginName;
+// };
+
+// const getAuthHeaders = async () => {
+//   const encryptedToken = Cookies.get("HRToken");
+
+//   return {
+//     "Content-Type": "application/json",
+//     Authorization: `Bearer ${encryptedToken}`,
+//   };
+// };
+
+// const PageContainer = ({ children }) => (
+//   &lt;div style={{ width: "100%", height: "100vh", overflow: "hidden" }}>
+//     {children}
+//   &lt;/div>
+// );
+
+// const Inbox = () => {
+//   const [activeTab, setActiveTab] = useState(0);
+//   const [showMobileMenu, setShowMobileMenu] = useState(false);
+//   // Renaming to availableRoles to better reflect the state without IsActive filtering
+//   const [roleData, setRoleData] = useState([]); 
+//   const [loading, setLoading] = useState(false);
+//   const [error, setError] = useState(null);
+
+//   const isMobile = window.innerWidth &lt;= 768;
+
+//   const fetchRoleData = useCallback(async () => {
+//     if (!crypto?.subtle) {
+//       setError("Web Crypto API not supported in this browser");
+//       return;
+//     }
+
+//     setLoading(true);
+//     setError(null);
+
+//     try {
+//       const loginName = getLoginName();
+//       const sessionId = Cookies.get("session_id");
+//       const headers = await getAuthHeaders();
+//       const response = await fetch(`${HostName}/Defaultrole`, {
+//         method: "POST",
+//         headers: headers,
+//         body: JSON.stringify({
+//           token: API_TOKEN,
+//           session_id: sessionId,
+//           UserName: loginName,
+//         }),
+//       });
+
+//       if (!response.ok) {
+//         throw new Error(`HTTP error! status: ${response.status}`);
+//       }
+
+//       const encryptedData = await response.json();
+
+//       if (!encryptedData.Data) {
+//         throw new Error("No encrypted data received from API");
+//       }
+
+//       const decryptedData = await decryptData(encryptedData.Data);
+//       const parsedData = validateJsonData(decryptedData);
+
+//       if (parsedData.Status === 200 &amp;&amp; parsedData.Data) {
+//         // --- START: MODIFICATION FOR MOCK DATA STRUCTURE ---
+//         // Use all roles as 'active' since IsActive field is missing in the mock response
+//         const availableRoles = parsedData.Data.Records || []; 
+//         setRoleData(availableRoles);
+
+//         const savedRole = getCookie("selectedRole");
+        
+//         if (
+//           savedRole &amp;&amp;
+//           availableRoles.some((role) => role.RoleName === savedRole)
+//         ) {
+//           // Role index in availableRoles (0-indexed) + 1 for the 'All Task' tab
+//           const roleIndex = availableRoles.findIndex((role) => role.RoleName === savedRole);
+//           setActiveTab(roleIndex + 1); 
+//         } else if (availableRoles.length > 0) {
+//           const defaultRole = availableRoles[0].RoleName;
+//           // Default to the first role, which is at tab index 1
+//           setActiveTab(1); 
+//           Cookies.set("selectedRole", defaultRole);
+//         } else {
+//             // Default to 'All Task' if no roles available
+//             setActiveTab(0);
+//             Cookies.remove("selectedRole");
+//         }
+//         // --- END: MODIFICATION FOR MOCK DATA STRUCTURE ---
+        
+//       } else {
+//         throw new Error(parsedData.message || "Failed to fetch role data");
+//       }
+//     } catch (err) {
+//       setError(err.message);
+//     } finally {
+//       setLoading(false);
+//     }
+//   }, []);
+
+//   useEffect(() => {
+//     fetchRoleData();
+//   }, [fetchRoleData]);
+
+//   const tabs = [
+//     {
+//       name: "All Task",
+//       icon: "🗂️", 
+//       count: 0, 
+//     },
+//     ...roleData.map((role) => ({
+//       name: role.RoleName,
+//       icon: "📋", 
+//       count: 0, 
+//     })),
+//   ];
+
+//   return (
+//     &lt;PageContainer>
+//       &lt;div
+//         style={{
+//           background: "white",
+//           height: "90vh",
+//           display: "flex",
+//           flexDirection: "column",
+//         }}
+//       >
+//         &lt;div
+//           style={{
+//             background: "white",
+//             height: "100vh",
+//             display: "flex",
+//             flexDirection: "column",
+//           }}
+//         >
+//           {/* Header Section */}
+//           &lt;div
+//             style={{
+//               background: "white",
+//               borderBottom: "1px solid rgba(229, 231, 235, 0.8Wet )",
+//               padding: "0 16px",
+//               flexShrink: 0,
+//             }}
+//           >
+//             {/* Mobile Header */}
+//             {isMobile &amp;&amp; (
+//               &lt;div
+//                 style={{
+//                   display: "flex",
+//                   justifyContent: "space-between",
+//                   alignItems: "center",
+//                   padding: "12px 0",
+//                 }}
+//               >
+//                 &lt;button
+//                   onClick={() => setShowMobileMenu(!showMobileMenu)}
+//                   style={{
+//                     background: "none",
+//                     border: "none",
+//                     fontSize: "20px",
+//                     cursor: "pointer",
+//                   }}
+//                 >
+//                   {showMobileMenu ? "✕" : "☰"}
+//                 &lt;/button>
+//               &lt;/div>
+//             )}
+
+//             {/* Navigation Tabs */}
+//             {loading ? (
+//               &lt;div>Loading...&lt;/div>
+//             ) : error ? (
+//               &lt;div style={{ color: "red", padding: "12px" }}>{error}&lt;/div>
+//             ) : (
+//               &lt;div
+//                 style={{
+//                   display: "flex",
+//                   overflowX: "auto",
+//                   ...(isMobile &amp;&amp; showMobileMenu
+//                     ? {
+//                         flexDirection: "column",
+//                         position: "absolute",
+//                         top: "100%",
+//                         left: 0,
+//                         right: 0,
+//                         background: "white",
+//                         zIndex: 100,
+//                       }
+//                     : {}),
+//                 }}
+//               >
+//                 {tabs.map((tab, index) => (
+//                   &lt;button
+//                     key={index}
+//                     onClick={() => {
+//                       setActiveTab(index);
+//                       if (isMobile) setShowMobileMenu(false);
+//                       // Only set cookie for actual roles, not 'All Task'
+//                       if (index !== 0) {
+//                         Cookies.set("selectedRole", tab.name);
+//                       } else {
+//                         Cookies.remove("selectedRole");
+//                       }
+//                     }}
+//                     style={{
+//                       background: "none",
+//                       border: "none",
+//                       padding: isMobile ? "16px 20px" : "12px 16px",
+//                       fontSize: "14px",
+//                       fontWeight: "600",
+//                       cursor: "pointer",
+//                       borderBottom:
+//                         activeTab === index
+//                           ? "3px solid #20639b"
+//                           : "3px solid transparent",
+//                       color: activeTab === index ? "#20639b" : "#6B7280",
+//                       transition: "all 0.3s ease",
+//                     }}
+//                   >
+//                     &lt;span style={{ fontSize: "16px", marginRight: '5px' }}>{tab.icon}&lt;/span>
+//                     {tab.name}
+//                     {tab.count > 0 &amp;&amp; (
+//                       &lt;span
+//                         style={{
+//                           marginLeft: '8px',
+//                           background:
+//                             activeTab === index
+//                               ? "linear-gradient(135deg, #20639b, #764ba2)"
+//                               : "#9CA3AF",
+//                           color: "white",
+//                           fontSize: "10px",
+//                           fontWeight: "700",
+//                           padding: "2px 6px",
+//                           borderRadius: "10px",
+//                           minWidth: "16px",
+//                           textAlign: "center",
+//                         }}
+//                       >
+//                         {tab.count}
+//                       &lt;/span>
+//                     )}
+//                   &lt;/button>
+//                 ))}
+//               &lt;/div>
+//             )}
+//           &lt;/div>
+
+//           {/* Task Table lives fully inside InboxTable */}
+//           {!loading &amp;&amp; !error &amp;&amp; (
+//             &lt;InboxTable activeRole={tabs[activeTab]?.name} />
+//           )}
+//         &lt;/div>
+//       &lt;/div>
+//     &lt;/PageContainer>
+//   );
+// };
+
+// export default Inbox;
+
+
+// /**
+//  * @fileoverview Inbox component for displaying user-specific tasks and roles.
+//  * Handles cookie decoding, session validation, and role-based tab display.
+//  * @module src/pages/Inbox/Inbox
+//  * @author Rakshana
+//  * @date 27/10/2025
+//  * @since 1.0.0
+//  */
+
+// import React, { useState, useEffect, useCallback } from "react";
+// import Cookies from "js-cookie";
+// import InboxTable from "./InboxTable";
+// import {
+//   decryptData,
+//   validateJsonData,
+//   isWebCryptoSupported,
+// } from "src/components/Decryption/Decrypt";
+// import { HostName } from "src/assets/host/Host";
+
+// const API_TOKEN = "HRFGVJISOVp1fncC";
+
+// /* -----------------------------------------------------
+//  * Utility: Cookie Helpers (encode on set, decode on get)
+//  * ----------------------------------------------------- */
+// const getCookie = (name) => {
+//   const value = `; ${document.cookie}`;
+//   const parts = value.split(`; ${name}=`);
+//   if (parts.length === 2) {
+//     return decodeURIComponent(parts.pop().split(";").shift());
+//   }
+//   return null;
+// };
+
+// const setCookie = (name, value, days = 1) => {
+//   const date = new Date();
+//   date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+//   const expires = `expires=${date.toUTCString()}`;
+//   document.cookie = `${name}=${encodeURIComponent(value)};${expires};path=/`;
+// };
+
+// const deleteCookie = (name) => {
+//   document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+// };
+
+// /* -----------------------------------------------------
+//  * Utility: Authentication Helpers
+//  * ----------------------------------------------------- */
+// const getLoginName = () =>
+//   sessionStorage.getItem("username") ||
+//   localStorage.getItem("username") ||
+//   getCookie("username");
+
+// const getAuthHeaders = async () => {
+//   const encryptedToken = getCookie("HRToken");
+//   return {
+//     "Content-Type": "application/json",
+//     Authorization: `Bearer ${encryptedToken}`,
+//   };
+// };
+
+// /* -----------------------------------------------------
+//  * Component: Page Container
+//  * ----------------------------------------------------- */
+// const PageContainer = ({ children }) => (
+//   &lt;div style={{ width: "100%", height: "100vh", overflow: "hidden" }}>
+//     {children}
+//   &lt;/div>
+// );
+
+// /* -----------------------------------------------------
+//  * Component: Inbox
+//  * ----------------------------------------------------- */
+// const Inbox = () => {
+//   const [activeTab, setActiveTab] = useState(0);
+//   const [roleData, setRoleData] = useState([]);
+//   const [loading, setLoading] = useState(false);
+//   const [error, setError] = useState(null);
+//   const [showMobileMenu, setShowMobileMenu] = useState(false);
+//   const isMobile = window.innerWidth &lt;= 768;
+
+//   /* -----------------------------------------------------
+//    * Fetch Role Data
+//    * ----------------------------------------------------- */
+//   const fetchRoleData = useCallback(async () => {
+//     if (!isWebCryptoSupported()) {
+//       setError("Web Crypto API not supported in this browser");
+//       return;
+//     }
+
+//     setLoading(true);
+//     setError(null);
+
+//     try {
+//       const loginName = getLoginName();
+//       const sessionId = getCookie("session_id");
+//       const headers = await getAuthHeaders();
+
+//       const response = await fetch(`${HostName}/Defaultrole`, {
+//         method: "POST",
+//         headers: headers,
+//         body: JSON.stringify({
+//           token: API_TOKEN,
+//           session_id: sessionId,
+//           UserName: loginName,
+//         }),
+//       });
+
+//       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+//       const encryptedData = await response.json();
+//       if (!encryptedData.Data) throw new Error("No encrypted data received");
+
+//       const decryptedData = await decryptData(encryptedData.Data);
+//       const parsedData = validateJsonData(decryptedData);
+
+//       if (parsedData.Status === 200 &amp;&amp; parsedData.Data) {
+//         const availableRoles = parsedData.Data.Records || [];
+//         setRoleData(availableRoles);
+
+//         const savedRole = getCookie("selectedRole");
+//         if (savedRole &amp;&amp; availableRoles.some((r) => r.RoleName === savedRole)) {
+//           const roleIndex = availableRoles.findIndex(
+//             (r) => r.RoleName === savedRole
+//           );
+//           setActiveTab(roleIndex + 1);
+//         } else if (availableRoles.length > 0) {
+//           const defaultRole = availableRoles[0].RoleName;
+//           setActiveTab(1);
+//           setCookie("selectedRole", defaultRole);
+//         } else {
+//           setActiveTab(0);
+//           deleteCookie("selectedRole");
+//         }
+//       } else {
+//         throw new Error(parsedData.message || "Failed to fetch role data");
+//       }
+//     } catch (err) {
+//       setError(err.message);
+//     } finally {
+//       setLoading(false);
+//     }
+//   }, []);
+
+//   useEffect(() => {
+//     fetchRoleData();
+//   }, [fetchRoleData]);
+
+//   /* -----------------------------------------------------
+//    * Tab Data Construction
+//    * ----------------------------------------------------- */
+//   const tabs = [
+//     { name: "All Task", icon: "🗂️", count: 0 },
+//     ...roleData.map((role) => ({
+//       name: role.RoleName,
+//       icon: "📋",
+//       count: 0,
+//     })),
+//   ];
+
+//   /* -----------------------------------------------------
+//    * Render UI
+//    * ----------------------------------------------------- */
+//   return (
+//     &lt;PageContainer>
+//       &lt;div
+//         style={{
+//           background: "white",
+//           height: "100vh",
+//           display: "flex",
+//           flexDirection: "column",
+//         }}
+//       >
+//         {/* Header */}
+//         &lt;div
+//           style={{
+//             background: "white",
+//             borderBottom: "1px solid rgba(229, 231, 235, 0.8)",
+//             padding: "0 16px",
+//             flexShrink: 0,
+//           }}
+//         >
+//           {/* Mobile Header */}
+//           {isMobile &amp;&amp; (
+//             &lt;div
+//               style={{
+//                 display: "flex",
+//                 justifyContent: "space-between",
+//                 alignItems: "center",
+//                 padding: "12px 0",
+//               }}
+//             >
+//               &lt;button
+//                 onClick={() => setShowMobileMenu(!showMobileMenu)}
+//                 style={{
+//                   background: "none",
+//                   border: "none",
+//                   fontSize: "20px",
+//                   cursor: "pointer",
+//                 }}
+//               >
+//                 {showMobileMenu ? "✕" : "☰"}
+//               &lt;/button>
+//             &lt;/div>
+//           )}
+
+//           {/* Tabs */}
+//           {loading ? (
+//             &lt;div style={{ padding: "12px" }}>Loading...&lt;/div>
+//           ) : error ? (
+//             &lt;div style={{ color: "red", padding: "12px" }}>{error}&lt;/div>
+//           ) : (
+//             &lt;div
+//               style={{
+//                 display: "flex",
+//                 overflowX: "auto",
+//                 ...(isMobile &amp;&amp; showMobileMenu
+//                   ? {
+//                       flexDirection: "column",
+//                       position: "absolute",
+//                       top: "100%",
+//                       left: 0,
+//                       right: 0,
+//                       background: "white",
+//                       zIndex: 100,
+//                     }
+//                   : {}),
+//               }}
+//             >
+//               {tabs.map((tab, index) => (
+//                 &lt;button
+//                   key={index}
+//                   onClick={() => {
+//                     setActiveTab(index);
+//                     if (isMobile) setShowMobileMenu(false);
+
+//                     if (index !== 0) {
+//                       setCookie("selectedRole", tab.name);
+//                     } else {
+//                       deleteCookie("selectedRole");
+//                     }
+//                   }}
+//                   style={{
+//                     background: "none",
+//                     border: "none",
+//                     padding: isMobile ? "16px 20px" : "12px 16px",
+//                     fontSize: "14px",
+//                     fontWeight: "600",
+//                     cursor: "pointer",
+//                     borderBottom:
+//                       activeTab === index
+//                         ? "3px solid #20639b"
+//                         : "3px solid transparent",
+//                     color: activeTab === index ? "#20639b" : "#6B7280",
+//                     transition: "all 0.3s ease",
+//                   }}
+//                 >
+//                   &lt;span style={{ fontSize: "16px", marginRight: "5px" }}>
+//                     {tab.icon}
+//                   &lt;/span>
+//                   {tab.name}
+//                   {tab.count > 0 &amp;&amp; (
+//                     &lt;span
+//                       style={{
+//                         marginLeft: "8px",
+//                         background:
+//                           activeTab === index
+//                             ? "linear-gradient(135deg, #20639b, #764ba2)"
+//                             : "#9CA3AF",
+//                         color: "white",
+//                         fontSize: "10px",
+//                         fontWeight: "700",
+//                         padding: "2px 6px",
+//                         borderRadius: "10px",
+//                         minWidth: "16px",
+//                         textAlign: "center",
+//                       }}
+//                     >
+//                       {tab.count}
+//                     &lt;/span>
+//                   )}
+//                 &lt;/button>
+//               ))}
+//             &lt;/div>
+//           )}
+//         &lt;/div>
+
+//         {/* Table Section */}
+//         {!loading &amp;&amp; !error &amp;&amp; &lt;InboxTable activeRole={tabs[activeTab]?.name} />}
+//       &lt;/div>
+//     &lt;/PageContainer>
+//   );
+// };
+
+// export default Inbox;
+
+
+/**
+ * @fileoverview Inbox component for displaying user-specific tasks and roles.
+ * Handles cookie decoding, session validation, and role-based tab display.
+ * @module src/pages/Inbox/Inbox
+ * @author Rakshana
+ * @date 27/10/2025
+ * @since 1.0.0
+ */
+
+import React, { useState, useEffect, useCallback } from "react";
+import Cookies from "js-cookie";
+import InboxTable from "./InboxTable";
+import {
+  decryptData,
+  validateJsonData,
+  isWebCryptoSupported,
+} from "src/components/Decryption/Decrypt";
+import { HostName } from "src/assets/host/Host";
+
+const API_TOKEN = "HRFGVJISOVp1fncC";
+
+/* -----------------------------------------------------
+ * Utility: Cookie Helpers using js-cookie library
+ * This ensures proper encoding/decoding automatically
+ * ----------------------------------------------------- */
+const getCookie = (name) => {
+  return Cookies.get(name);
+};
+
+const setCookie = (name, value, days = 1) => {
+  Cookies.set(name, value, { expires: days, path: '/' });
+};
+
+const deleteCookie = (name) => {
+  Cookies.remove(name, { path: '/' });
+};
+
+/* -----------------------------------------------------
+ * Utility: Authentication Helpers
+ * ----------------------------------------------------- */
+const getLoginName = () =>
+  sessionStorage.getItem("username") ||
+  localStorage.getItem("username") ||
+  getCookie("username");
+
+const getAuthHeaders = async () => {
+  const encryptedToken = getCookie("HRToken");
+  return {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${encryptedToken}`,
+  };
+};
+
+/* -----------------------------------------------------
+ * Component: Page Container
+ * ----------------------------------------------------- */
+const PageContainer = ({ children }) => (
+  &lt;div style={{ width: "100%", height: "100vh", overflow: "hidden" }}>
+    {children}
+  &lt;/div>
+);
+
+/* -----------------------------------------------------
+ * Component: Inbox
+ * ----------------------------------------------------- */
+const Inbox = () => {
+  const [activeTab, setActiveTab] = useState(0);
+  const [roleData, setRoleData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const isMobile = window.innerWidth &lt;= 768;
+
+  /* -----------------------------------------------------
+   * Fetch Role Data
+   * ----------------------------------------------------- */
+  const fetchRoleData = useCallback(async () => {
+    if (!isWebCryptoSupported()) {
+      setError("Web Crypto API not supported in this browser");
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const loginName = getLoginName();
+      const sessionId = getCookie("session_id");
+      const headers = await getAuthHeaders();
+
+      const response = await fetch(`${HostName}/Defaultrole`, {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify({
+          token: API_TOKEN,
+          session_id: sessionId,
+          UserName: loginName,
+        }),
+      });
+
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+      const encryptedData = await response.json();
+      if (!encryptedData.Data) throw new Error("No encrypted data received");
+
+      const decryptedData = await decryptData(encryptedData.Data);
+      const parsedData = validateJsonData(decryptedData);
+
+      if (parsedData.Status === 200 &amp;&amp; parsedData.Data) {
+        const availableRoles = parsedData.Data.Records || [];
+        setRoleData(availableRoles);
+
+        const savedRole = getCookie("selectedRole");
+        
+        if (savedRole &amp;&amp; availableRoles.some((r) => r.RoleName === savedRole)) {
+          const roleIndex = availableRoles.findIndex(
+            (r) => r.RoleName === savedRole
+          );
+          setActiveTab(roleIndex + 1);
+        } else if (availableRoles.length > 0) {
+          const defaultRole = availableRoles[0].RoleName;
+          setActiveTab(1);
+          setCookie("selectedRole", defaultRole);
+        } else {
+          setActiveTab(0);
+          deleteCookie("selectedRole");
+        }
+      } else {
+        throw new Error(parsedData.message || "Failed to fetch role data");
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchRoleData();
+  }, [fetchRoleData]);
+
+  /* -----------------------------------------------------
+   * Tab Data Construction
+   * ----------------------------------------------------- */
+  const tabs = [
+    { name: "All Task", icon: "🗂️", count: 0 },
+    ...roleData.map((role) => ({
+      name: role.RoleName,
+      icon: "📋",
+      count: 0,
+    })),
+  ];
+
+  /* -----------------------------------------------------
+   * Handle Tab Click
+   * ----------------------------------------------------- */
+  const handleTabClick = (index, tabName) => {
+    setActiveTab(index);
+    if (isMobile) setShowMobileMenu(false);
+
+    if (index !== 0) {
+      // Clear any old encoded cookie first
+      deleteCookie("selectedRole");
+      
+      // Set the new cookie with proper encoding via js-cookie
+      setCookie("selectedRole", tabName);
+      
+      // Debug logs
+      console.log("Role set:", tabName);
+      console.log("Role retrieved:", getCookie("selectedRole"));
+      console.log("Cookies match:", tabName === getCookie("selectedRole"));
+    } else {
+      deleteCookie("selectedRole");
+    }
+  };
+
+  /* -----------------------------------------------------
+   * Render UI
+   * ----------------------------------------------------- */
+  return (
+    &lt;PageContainer>
+      &lt;div
+        style={{
+          background: "white",
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        {/* Header */}
+        &lt;div
+          style={{
+            background: "white",
+            borderBottom: "1px solid rgba(229, 231, 235, 0.8)",
+            padding: "0 16px",
+            flexShrink: 0,
+          }}
+        >
+          {/* Mobile Header */}
+          {isMobile &amp;&amp; (
+            &lt;div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "12px 0",
+              }}
+            >
+              &lt;button
+                onClick={() => setShowMobileMenu(!showMobileMenu)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  fontSize: "20px",
+                  cursor: "pointer",
+                }}
+              >
+                {showMobileMenu ? "✕" : "☰"}
+              &lt;/button>
+            &lt;/div>
+          )}
+
+          {/* Tabs */}
+          {loading ? (
+            &lt;div style={{ padding: "12px" }}>Loading...&lt;/div>
+          ) : error ? (
+            &lt;div style={{ color: "red", padding: "12px" }}>{error}&lt;/div>
+          ) : (
+            &lt;div
+              style={{
+                display: "flex",
+                overflowX: "auto",
+                ...(isMobile &amp;&amp; showMobileMenu
+                  ? {
+                      flexDirection: "column",
+                      position: "absolute",
+                      top: "100%",
+                      left: 0,
+                      right: 0,
+                      background: "white",
+                      zIndex: 100,
+                    }
+                  : {}),
+              }}
+            >
+              {tabs.map((tab, index) => (
+                &lt;button
+                  key={index}
+                  onClick={() => handleTabClick(index, tab.name)}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    padding: isMobile ? "16px 20px" : "12px 16px",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    cursor: "pointer",
+                    borderBottom:
+                      activeTab === index
+                        ? "3px solid #20639b"
+                        : "3px solid transparent",
+                    color: activeTab === index ? "#20639b" : "#6B7280",
+                    transition: "all 0.3s ease",
+                  }}
+                >
+                  &lt;span style={{ fontSize: "16px", marginRight: "5px" }}>
+                    {tab.icon}
+                  &lt;/span>
+                  {tab.name}
+                  {tab.count > 0 &amp;&amp; (
+                    &lt;span
+                      style={{
+                        marginLeft: "8px",
+                        background:
+                          activeTab === index
+                            ? "linear-gradient(135deg, #20639b, #764ba2)"
+                            : "#9CA3AF",
+                        color: "white",
+                        fontSize: "10px",
+                        fontWeight: "700",
+                        padding: "2px 6px",
+                        borderRadius: "10px",
+                        minWidth: "16px",
+                        textAlign: "center",
+                      }}
+                    >
+                      {tab.count}
+                    &lt;/span>
+                  )}
+                &lt;/button>
+              ))}
+            &lt;/div>
+          )}
+        &lt;/div>
+
+        {/* Table Section */}
+        {!loading &amp;&amp; !error &amp;&amp; &lt;InboxTable activeRole={tabs[activeTab]?.name} />}
+      &lt;/div>
+    &lt;/PageContainer>
+  );
+};
+
+export default Inbox;</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Wed Nov 05 2025 11:24:43 GMT+0530 (India Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

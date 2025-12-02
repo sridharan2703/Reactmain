@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/ui/Cards.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-AdditionalDetails.html">AdditionalDetails</a><ul class='methods'><li data-type='method'><a href="module-AdditionalDetails.html#~AdditionalDetails">AdditionalDetails</a></li><li data-type='method'><a href="module-AdditionalDetails.html#~AdditionalDetails">AdditionalDetails</a></li></ul></li><li></li><li><a href="module-ApprovalForm.html">ApprovalForm</a><ul class='methods'><li data-type='method'><a href="module-ApprovalForm.html#~ApprovalForm">ApprovalForm</a></li><li data-type='method'><a href="module-ApprovalForm.html#~ApprovalForm">ApprovalForm</a></li></ul></li><li></li><li><a href="module-EmployeeVisitForm.html">EmployeeVisitForm</a><ul class='methods'><li data-type='method'><a href="module-EmployeeVisitForm.html#~EmployeeVisitForm">EmployeeVisitForm</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~EmployeeVisitForm">EmployeeVisitForm</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~stripNonEnglish">stripNonEnglish</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~stripNonEnglish">stripNonEnglish</a></li></ul></li><li></li><li><a href="module-SaveandHold.html">SaveandHold</a><ul class='methods'><li data-type='method'><a href="module-SaveandHold.html#~SaveandHold">SaveandHold</a></li><li data-type='method'><a href="module-SaveandHold.html#~SaveandHold">SaveandHold</a></li><li data-type='method'><a href="module-SaveandHold.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-SaveandHold.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-SaveandHold.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-SaveandHold.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-SaveandHold.html#~getToColumnHtml">getToColumnHtml</a></li><li data-type='method'><a href="module-SaveandHold.html#~getToColumnHtml">getToColumnHtml</a></li></ul></li><li></li><li><a href="module-components_Roadmap.html">components/Roadmap</a><ul class='methods'><li data-type='method'><a href="module-components_Roadmap.html#~Roadmap">Roadmap</a></li></ul></li><li><a href="module-src_components_UIShowcase.html">src/components/UIShowcase</a><ul class='methods'><li data-type='method'><a href="module-src_components_UIShowcase.html#~UIShowcase">UIShowcase</a></li></ul></li><li><a href="module-src_components_authentication_OtpVerification.html">src/components/authentication/OtpVerification</a><ul class='methods'><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~addTrustedDevice">addTrustedDevice</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~generateDeviceFingerprint">generateDeviceFingerprint</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~getDeviceInfo">getDeviceInfo</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~removeTrustedDevice">removeTrustedDevice</a></li></ul></li><li><a href="module-src_components_ui.html">src/components/ui</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui.html#~AnimatedSlide">AnimatedSlide</a></li><li data-type='method'><a href="module-src_components_ui.html#~CardStyle">CardStyle</a></li></ul></li><li></li><li></li><li></li><li><a href="module-src_components_ui_Alerts.html">src/components/ui/Alerts</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Alerts.html#~Alerts">Alerts</a></li></ul></li><li><a href="module-src_components_ui_Avatar.html">src/components/ui/Avatar</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Avatar.html#~Avatar">Avatar</a></li></ul></li><li><a href="module-src_components_ui_Badge.html">src/components/ui/Badge</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Badge.html#~Badge">Badge</a></li></ul></li><li><a href="module-src_components_ui_Button.html">src/components/ui/Button</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Button.html#~Button">Button</a></li><li data-type='method'><a href="module-src_components_ui_Button.html#~ButtonGroup">ButtonGroup</a></li><li data-type='method'><a href="module-src_components_ui_Button.html#~NavigationContainer">NavigationContainer</a></li></ul></li><li><a href="module-src_components_ui_Card.html">src/components/ui/Card</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Card.html#~Card">Card</a></li></ul></li><li><a href="module-src_components_ui_Checkbox.html">src/components/ui/Checkbox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Checkbox.html#~Checkbox">Checkbox</a></li></ul></li><li><a href="module-src_components_ui_DialogBox.html">src/components/ui/DialogBox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_DialogBox.html#~DialogBox">DialogBox</a></li></ul></li><li><a href="module-src_components_ui_Dropdown.html">src/components/ui/Dropdown</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Dropdown.html#~Dropdown">Dropdown</a></li></ul></li><li><a href="module-src_components_ui_Input.html">src/components/ui/Input</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Input.html#~Input">Input</a></li></ul></li><li><a href="module-src_components_ui_Pagination.html">src/components/ui/Pagination</a></li><li><a href="module-src_components_ui_PriorityIcon.html">src/components/ui/PriorityIcon</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_PriorityIcon.html#~PriorityIcon">PriorityIcon</a></li></ul></li><li><a href="module-src_components_ui_TextArea.html">src/components/ui/TextArea</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_TextArea.html#~TextArea">TextArea</a></li></ul></li><li><a href="module-src_layouts_full_header_Profile.html">src/layouts/full/header/Profile</a></li><li><a href="module-src_pages_Inbox_Inbox.html">src/pages/Inbox/Inbox</a></li><li><a href="module-src_services_EnhancedDynamicDecryption.html">src/services/EnhancedDynamicDecryption</a><ul class='methods'><li data-type='method'><a href="module-src_services_EnhancedDynamicDecryption.html#~base64ToArrayBuffer">base64ToArrayBuffer</a></li><li data-type='method'><a href="module-src_services_EnhancedDynamicDecryption.html#~getAuthHeaders">getAuthHeaders</a></li></ul></li><li><a href="module-src_views_authentication_auth_AuthLogin.html">src/views/authentication/auth/AuthLogin</a></li><li><a href="module-src_views_authentication_auth_encryption.html">src/views/authentication/auth/encryption</a><ul class='methods'><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.authenticateUser">authenticateUser</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.decryptGCM">decryptGCM</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.encryptECB">encryptECB</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getDecryptKeyFromCookies">getDecryptKeyFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getSessionIdFromCookies">getSessionIdFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getUserFromCookies">getUserFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.isUserAuthenticated">isUserAuthenticated</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.logoutUser">logoutUser</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~deleteCookie">deleteCookie</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~generate256BitKey">generate256BitKey</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~getAuthHeaders">getAuthHeaders</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~getCookie">getCookie</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~insertSessionData">insertSessionData</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~saveUserToCookies">saveUserToCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~setCookie">setCookie</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#CommentsHistory">CommentsHistory</a></li><li><a href="global.html#DateInput">DateInput</a></li><li><a href="global.html#DatePicker">DatePicker</a></li><li><a href="global.html#DateRangePicker">DateRangePicker</a></li><li><a href="global.html#DocumentUpload">DocumentUpload</a></li><li><a href="global.html#DropZone">DropZone</a></li><li><a href="global.html#FileUpload">FileUpload</a></li><li><a href="global.html#ImageUpload">ImageUpload</a></li><li><a href="global.html#InlineDateRangePicker">InlineDateRangePicker</a></li><li><a href="global.html#Login2">Login2</a></li><li><a href="global.html#MultiFileUpload">MultiFileUpload</a></li><li><a href="global.html#TaskCard">TaskCard</a></li><li><a href="global.html#TaskSummaryPage">TaskSummaryPage</a></li><li><a href="global.html#base64ToArrayBuffer">base64ToArrayBuffer</a></li><li><a href="global.html#decrypt">decrypt</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/ui/Cards.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// /**
+//  * @fileoverview Styles and component for a generic Card UI element.
+//  * This card displays an optional image, a title, and a description.
+//  * The styles make the card visually appealing with shadows, rounded corners, and padding.
+//  * @module src/components/ui/Card
+//  * @author Rakshana
+//  * @date 12/09/2025
+//  * @since 1.0.0
+//  */
+
+// /**
+//  * Styles for the Card component.
+//  * The card can include an image at the top, followed by a title and description.
+//  *
+//  * 📝 Example usage of styles:
+//  * Input:
+//  * &lt;div style={cardStyles.card}>
+//  *   &lt;img src="example.jpg" alt="Example" style={cardStyles.image} />
+//  *   &lt;h3 style={cardStyles.title}>Card Title&lt;/h3>
+//  *   &lt;p style={cardStyles.description}>This is a description of the card.&lt;/p>
+//  * &lt;/div>
+//  *
+//  * Output:
+//  * A white card with rounded corners, a drop shadow, and a neatly displayed image,
+//  * title, and description.
+//  *
+//  * @type {Object&lt;string, React.CSSProperties>}
+//  */
+// const cardStyles = {
+//   card: {
+//     backgroundColor: "white",
+//     borderRadius: "8px",
+//     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+//     padding: "24px",
+//     maxWidth: "300px",
+//   },
+//   title: {
+//     fontSize: "20px",
+//     fontWeight: "600",
+//     marginBottom: "8px",
+//   },
+//   description: {
+//     fontSize: "16px",
+//     color: "#6B7280",
+//   },
+//   image: {
+//     width: "100%",
+//     height: "auto",
+//     borderRadius: "8px 8px 0 0",
+//     marginBottom: "16px",
+//   },
+// };
+
+// /**
+//  * Card component to display an optional image, a title, and a description.
+//  *
+//  * 📝 Example:
+//  * Input:
+//  * &lt;Card
+//  *   title="Card Title"
+//  *   description="This is a description of the card."
+//  *   imageUrl="example.jpg"
+//  * />
+//  *
+//  * Output:
+//  * A white card with rounded corners, drop shadow, displaying the image at the top
+//  * (if provided), the title below it in bold, and the description in smaller, gray text.
+//  *
+//  * @param {Object} props - Props passed to the Card component.
+//  * @param {string} props.title - The title text of the card.
+//  * @param {string} props.description - The description text of the card.
+//  * @param {string} [props.imageUrl] - Optional URL of the image to display at the top of the card.
+//  * @returns {JSX.Element} Rendered Card component.
+//  */
+// const Card = ({ title, description, imageUrl }) => {
+//   return (
+//     &lt;div style={cardStyles.card}>
+//       {imageUrl &amp;&amp; &lt;img src={imageUrl} alt={title} style={cardStyles.image} />}
+//       &lt;h3 style={cardStyles.title}>{title}&lt;/h3>
+//       &lt;p style={cardStyles.description}>{description}&lt;/p>
+//     &lt;/div>
+//   );
+// };
+
+// export default Card;
+
+// /**
+//  * @fileoverview Extended Card UI element with multiple variations.
+//  * Variations: default, outlined, hoverable, horizontal, withFooter, colored
+//  * @module src/components/ui/Card
+//  * @since 1.1.0
+//  */
+
+// import Button from "./Button"; // reuse your Button component if available
+
+// const cardStyles = {
+//   base: {
+//     backgroundColor: "white",
+//     borderRadius: "8px",
+//     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+//     padding: "16px",
+//     maxWidth: "320px",
+//     display: "flex",
+//     flexDirection: "column",
+//     transition: "all 0.3s ease-in-out",
+//   },
+//   image: {
+//     width: "100%",
+//     height: "auto",
+//     borderRadius: "8px 8px 0 0",
+//     marginBottom: "12px",
+//   },
+//   title: {
+//     fontSize: "18px",
+//     fontWeight: "600",
+//     marginBottom: "8px",
+//   },
+//   description: {
+//     fontSize: "14px",
+//     color: "#6B7280",
+//     flexGrow: 1,
+//   },
+//   footer: {
+//     marginTop: "16px",
+//     display: "flex",
+//     justifyContent: "flex-end",
+//     gap: "8px",
+//   },
+//   badge: {
+//     display: "inline-block",
+//     padding: "4px 8px",
+//     borderRadius: "12px",
+//     fontSize: "12px",
+//     fontWeight: "500",
+//     marginBottom: "8px",
+//     alignSelf: "flex-start",
+//   },
+
+//   variations: {
+//      filled: { backgroundColor: "#D1FAE5", color: "#065F46",boxShadow: "none",
+//       border: "1px solid #E5E7EB", },
+//     outlined: {
+//       boxShadow: "none",
+//       border: "1px solid #E5E7EB",
+//     },
+//     hoverable: {
+//       cursor: "pointer",
+//        backgroundColor: "#f7ac95ff",
+//     },
+//     horizontal: {
+//       flexDirection: "row",
+//       maxWidth: "500px",
+//     },
+//     colored: {
+//       backgroundColor: "#F0F9FF", // light blue
+//     },
+//   },
+// };
+
+// const badgeColors = {
+//   info: { backgroundColor: "#DBEAFE", color: "#2563EB" },
+//   success: { backgroundColor: "#DCFCE7", color: "#16A34A" },
+//   warning: { backgroundColor: "#FEF3C7", color: "#D97706" },
+//   danger: { backgroundColor: "#FEE2E2", color: "#DC2626" },
+
+// };
+
+// const Card = ({
+//   title,
+//   description,
+//   imageUrl,
+//   variant = "default",
+//   badge,
+//   badgeType = "info",
+//   withFooter = false,
+// }) => {
+//   const style = {
+//     ...cardStyles.base,
+//     ...(variant !== "default" &amp;&amp; cardStyles.variations[variant]),
+//   };
+
+//   return (
+//     &lt;div
+//       style={style}
+//       onMouseEnter={(e) =>
+//         variant === "hoverable" &amp;&amp;
+//         (e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.15)")
+//       }
+//       onMouseLeave={(e) =>
+//         variant === "hoverable" &amp;&amp;
+//         (e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)")
+//       }
+//     >
+//       {imageUrl &amp;&amp; variant !== "horizontal" &amp;&amp; (
+//         &lt;img src={imageUrl} alt={title} style={cardStyles.image} />
+//       )}
+
+//       {badge &amp;&amp; (
+//         &lt;span style={{ ...cardStyles.badge, ...badgeColors[badgeType] }}>
+//           {badge}
+//         &lt;/span>
+//       )}
+
+//       &lt;div style={{ flex: 1 }}>
+//         &lt;h3 style={cardStyles.title}>{title}&lt;/h3>
+//         &lt;p style={cardStyles.description}>{description}&lt;/p>
+//       &lt;/div>
+
+//       {variant === "horizontal" &amp;&amp; imageUrl &amp;&amp; (
+//         &lt;img
+//           src={imageUrl}
+//           alt={title}
+//           style={{ width: "40%", borderRadius: "8px", marginLeft: "16px" }}
+//         />
+//       )}
+
+//       {withFooter &amp;&amp; (
+//         &lt;div style={cardStyles.footer}>
+//           &lt;Button variant="secondary" styleType="light" size="sm">
+//             Cancel
+//           &lt;/Button>
+//           &lt;Button variant="primary" size="sm">
+//             Confirm
+//           &lt;/Button>
+//         &lt;/div>
+//       )}
+//     &lt;/div>
+//   );
+// };
+
+// export default Card;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//cards with tabs
+/**
+ * @fileoverview Styles and component for a generic Card UI element.
+ * This card displays an optional image, a title, and a description.
+ * The styles make the card visually appealing with shadows, rounded corners, and padding.
+ * @module src/components/ui/Card
+ * @author Rakshana
+ * @date 12/09/2025
+ * @since 1.0.0
+ */
+
+/**
+ * Styles for the Card component.
+ * The card can include an image at the top, followed by a title and description.
+ *
+ * 📝 Example usage of styles:
+ * Input:
+ * &lt;div style={cardStyles.card}>
+ *   &lt;img src="example.jpg" alt="Example" style={cardStyles.image} />
+ *   &lt;h3 style={cardStyles.title}>Card Title&lt;/h3>
+ *   &lt;p style={cardStyles.description}>This is a description of the card.&lt;/p>
+ * &lt;/div>
+ *
+ * Output:
+ * A white card with rounded corners, a drop shadow, and a neatly displayed image,
+ * title, and description.
+ *
+ * @type {Object&lt;string, React.CSSProperties>}
+ */
+import { useState } from "react";
+import Button from "./Button"; // reuse your Button component if available
+
+const cardStyles = {
+  base: {
+    backgroundColor: "white",
+    borderRadius: "8px",
+    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+    padding: "16px",
+    maxWidth: "320px",
+    display: "flex",
+    flexDirection: "column",
+    transition: "all 0.3s ease-in-out",
+  },
+  image: {
+    width: "100%",
+    height: "auto",
+    borderRadius: "8px 8px 0 0",
+    marginBottom: "12px",
+  },
+  title: {
+    fontSize: "18px",
+    fontWeight: "600",
+    marginBottom: "8px",
+  },
+  description: {
+    fontSize: "14px",
+    color: "#6B7280",
+    flexGrow: 1,
+  },
+  footer: {
+    marginTop: "16px",
+    display: "flex",
+    justifyContent: "flex-end",
+    gap: "8px",
+  },
+  badge: {
+    display: "inline-block",
+    padding: "4px 8px",
+    borderRadius: "12px",
+    fontSize: "12px",
+    fontWeight: "500",
+    marginBottom: "8px",
+    alignSelf: "flex-end",
+  },
+  tabButton: (isActive) => ({
+    padding: "8px 16px",
+    fontSize: "14px",
+    fontWeight: "500",
+    borderRadius: "6px",
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    gap: "6px",
+    border: "1px solid #E5E7EB",
+    backgroundColor: isActive ? "#065F46" : "#F9FAFB",
+    color: isActive ? "white" : "#374151",
+    transition: "all 0.2s ease-in-out",
+  }),
+  tabList: {
+    display: "flex",
+    gap: "8px",
+    marginTop: "16px",
+    flexWrap: "wrap",
+  },
+  variations: {
+    filled: {
+      backgroundColor: "#D1FAE5",
+      color: "#065F46",
+      boxShadow: "none",
+      border: "1px solid #E5E7EB",
+    },
+    outlined: {
+      boxShadow: "none",
+      border: "1px solid #E5E7EB",
+    },
+    hoverable: {
+      cursor: "pointer",
+      backgroundColor: "#f7ac95ff",
+    },
+    horizontal: {
+      flexDirection: "row",
+      maxWidth: "500px",
+    },
+    colored: {
+      backgroundColor: "#F0F9FF", // light blue
+    },
+  },
+};
+
+const badgeColors = {
+  info: { backgroundColor: "#DBEAFE", color: "#2563EB" },
+  success: { backgroundColor: "#DCFCE7", color: "#16A34A" },
+  warning: { backgroundColor: "#FEF3C7", color: "#D97706" },
+  danger: { backgroundColor: "#FEE2E2", color: "#DC2626" },
+};
+
+
+/**
+ * Card component to display optional image, title, description, badges, tabs, and footer actions.
+ *
+ * 📝 Example:
+ * Input:
+ * &lt;Card
+ *   title="User Profile"
+ *   description="This is a description of the card."
+ *   imageUrl="example.jpg"
+ *   variant="filled"
+ *   badge="Active"
+ *   badgeType="success"
+ *   withFooter
+ *   tabs={[
+ *     { label: "Details", content: "User details go here" },
+ *     { label: "Settings", content: "Settings content here" },
+ *   ]}
+ * />
+ *
+ * Output:
+ * A styled card with a success badge, image at the top, tabs for switching content,
+ * and footer buttons (Cancel/Confirm).
+ *
+ * @param {Object} props - Props passed to the Card component.
+ * @param {string} props.title - The title text of the card.
+ * @param {string} props.description - The description text of the card.
+ * @param {string} [props.imageUrl] - Optional URL of the image to display in the card.
+ * @param {'default' | 'filled' | 'outlined' | 'hoverable' | 'horizontal' | 'colored'} [props.variant='default'] - Visual style of the card.
+ * @param {string} [props.badge] - Optional badge text to display in the card.
+ * @param {'info' | 'success' | 'warning' | 'danger'} [props.badgeType='info'] - Badge color scheme.
+ * @param {boolean} [props.withFooter=false] - Whether to display footer action buttons.
+ * @param {Array&lt;{label: string, content: React.ReactNode, icon?: React.ReactNode}>} [props.tabs=[]] - Optional tabs to display inside the card.
+ * @returns {JSX.Element} Rendered Card component.
+ */
+
+
+const Card = ({
+  title,
+  description,
+  imageUrl,
+  variant = "default",
+  badge,
+  badgeType = "info",
+  withFooter = false,
+  tabs = [],
+}) => {
+  const [activeTab, setActiveTab] = useState(tabs[0]?.label || "");
+
+  const style = {
+    ...cardStyles.base,
+    ...(variant !== "default" &amp;&amp; cardStyles.variations[variant]),
+  };
+
+  return (
+    &lt;div
+      style={style}
+      onMouseEnter={(e) =>
+        variant === "hoverable" &amp;&amp;
+        (e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.15)")
+      }
+      onMouseLeave={(e) =>
+        variant === "hoverable" &amp;&amp;
+        (e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)")
+      }
+    >
+      {/* Image for vertical layout */}
+      {imageUrl &amp;&amp; variant !== "horizontal" &amp;&amp; (
+        &lt;img src={imageUrl} alt={title} style={cardStyles.image} />
+      )}
+
+      {/* Badge */}
+      {badge &amp;&amp; (
+        &lt;span style={{ ...cardStyles.badge, ...badgeColors[badgeType] }}>
+          {badge}
+        &lt;/span>
+      )}
+
+      &lt;div style={{ flex: 1 }}>
+        &lt;h3 style={cardStyles.title}>{title}&lt;/h3>
+        {/* If tabs exist, show content from active tab */}
+        {tabs.length > 0 ? (
+          &lt;div style={cardStyles.description}>
+            {tabs.find((tab) => tab.label === activeTab)?.content}
+          &lt;/div>
+        ) : (
+          &lt;p style={cardStyles.description}>{description}&lt;/p>
+        )}
+      &lt;/div>
+
+      {/* Horizontal image */}
+      {variant === "horizontal" &amp;&amp; imageUrl &amp;&amp; (
+        &lt;img
+          src={imageUrl}
+          alt={title}
+          style={{ width: "40%", borderRadius: "8px", marginLeft: "16px" }}
+        />
+      )}
+
+      {/* Tabs */}
+      {tabs.length > 0 &amp;&amp; (
+        &lt;div style={cardStyles.tabList}>
+          {tabs.map((tab) => (
+            &lt;button
+              key={tab.label}
+              style={cardStyles.tabButton(activeTab === tab.label)}
+              onClick={() => setActiveTab(tab.label)}
+            >
+              {tab.icon &amp;&amp; (
+                &lt;span style={{ display: "flex", alignItems: "center" }}>
+                  {tab.icon}
+                &lt;/span>
+              )}
+              &lt;span>{tab.label}&lt;/span>
+            &lt;/button>
+          ))}
+        &lt;/div>
+      )}
+
+      {/* Footer buttons */}
+      {withFooter &amp;&amp; (
+        &lt;div style={cardStyles.footer}>
+          &lt;Button variant="secondary" styleType="light" size="sm">
+            Cancel
+          &lt;/Button>
+          &lt;Button variant="primary" size="sm">
+            Confirm
+          &lt;/Button>
+        &lt;/div>
+      )}
+    &lt;/div>
+  );
+};
+
+export default Card;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Wed Nov 05 2025 11:24:43 GMT+0530 (India Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

@@ -1,7 +1,8 @@
-.css-lpesjx-MuiPaper-root-MuiDrawer-paper{
+/* .css-lpesjx-MuiPaper-root-MuiDrawer-paper {
     top: 65px !important;
 }
-.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation0.MuiDrawer-paper.MuiDrawer-paperAnchorLeft.MuiDrawer-paperAnchorDockedLeft.css-1bdav0j{
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation0.MuiDrawer-paper.MuiDrawer-paperAnchorLeft.MuiDrawer-paperAnchorDockedLeft.css-1bdav0j {
     top: 65px !important;
 }
 
@@ -12,5 +13,80 @@
 .MuiTypography-root,
 .MuiListSubheader-root,
 .MuiChip-label {
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 400 !important; 
+    font-style: normal !important;
+} */
+
+
+
+
+/* ----------------------------- */
+/* Sidebar Drawer Adjustments */
+/* ----------------------------- */
+.css-lpesjx-MuiPaper-root-MuiDrawer-paper {
+  top: 65px !important;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation0.MuiDrawer-paper.MuiDrawer-paperAnchorLeft.MuiDrawer-paperAnchorDockedLeft.css-1bdav0j {
+  top: 65px !important;
+}
+
+/* ----------------------------- */
+/* Input Border + Typography */
+/* ----------------------------- */
+.MuiOutlinedInput-notchedOutline {
+  border-color: #efefef !important;
+}
+
+.MuiTypography-root,
+.MuiListSubheader-root,
+.MuiChip-label {
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+/* ----------------------------- */
+/* 🔥 Full Layout Scrollbar Fix */
+/* ----------------------------- */
+
+/* Global Layout */
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden !important; /* ✅ Prevents right scrollbar */
+}
+
+/* Force all wrappers (esp. MUI layouts) to respect viewport width */
+.MuiBox-root,
+.MuiContainer-root,
+.MuiPaper-root {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+/* DataGrid Fix */
+.MuiDataGrid-root,
+.MuiDataGrid-main,
+.MuiDataGrid-virtualScroller {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+.MuiDataGrid-root {
+  border: none !important;
+}
+
+.MuiDataGrid-main {
+  overflow-x: clip !important; /* ✅ Newer CSS fix to fully clip overflow */
+}
+
+/* Optional: hide scrollbar visually everywhere */
+::-webkit-scrollbar {
+  display: none;
 }

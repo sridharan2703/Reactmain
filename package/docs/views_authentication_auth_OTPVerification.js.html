@@ -1,0 +1,4262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>views/authentication/auth/OTPVerification.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-AdditionalDetails.html">AdditionalDetails</a><ul class='methods'><li data-type='method'><a href="module-AdditionalDetails.html#~AdditionalDetails">AdditionalDetails</a></li><li data-type='method'><a href="module-AdditionalDetails.html#~AdditionalDetails">AdditionalDetails</a></li></ul></li><li></li><li><a href="module-ApprovalForm.html">ApprovalForm</a><ul class='methods'><li data-type='method'><a href="module-ApprovalForm.html#~ApprovalForm">ApprovalForm</a></li><li data-type='method'><a href="module-ApprovalForm.html#~ApprovalForm">ApprovalForm</a></li></ul></li><li></li><li><a href="module-EmployeeVisitForm.html">EmployeeVisitForm</a><ul class='methods'><li data-type='method'><a href="module-EmployeeVisitForm.html#~EmployeeVisitForm">EmployeeVisitForm</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~EmployeeVisitForm">EmployeeVisitForm</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~stripNonEnglish">stripNonEnglish</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~stripNonEnglish">stripNonEnglish</a></li></ul></li><li></li><li><a href="module-SaveandHold.html">SaveandHold</a><ul class='methods'><li data-type='method'><a href="module-SaveandHold.html#~SaveandHold">SaveandHold</a></li><li data-type='method'><a href="module-SaveandHold.html#~SaveandHold">SaveandHold</a></li><li data-type='method'><a href="module-SaveandHold.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-SaveandHold.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-SaveandHold.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-SaveandHold.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-SaveandHold.html#~getToColumnHtml">getToColumnHtml</a></li><li data-type='method'><a href="module-SaveandHold.html#~getToColumnHtml">getToColumnHtml</a></li></ul></li><li></li><li><a href="module-components_Roadmap.html">components/Roadmap</a><ul class='methods'><li data-type='method'><a href="module-components_Roadmap.html#~Roadmap">Roadmap</a></li></ul></li><li><a href="module-src_components_UIShowcase.html">src/components/UIShowcase</a><ul class='methods'><li data-type='method'><a href="module-src_components_UIShowcase.html#~UIShowcase">UIShowcase</a></li></ul></li><li><a href="module-src_components_authentication_OtpVerification.html">src/components/authentication/OtpVerification</a><ul class='methods'><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~addTrustedDevice">addTrustedDevice</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~generateDeviceFingerprint">generateDeviceFingerprint</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~getDeviceInfo">getDeviceInfo</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~removeTrustedDevice">removeTrustedDevice</a></li></ul></li><li><a href="module-src_components_ui.html">src/components/ui</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui.html#~AnimatedSlide">AnimatedSlide</a></li><li data-type='method'><a href="module-src_components_ui.html#~CardStyle">CardStyle</a></li></ul></li><li></li><li></li><li></li><li><a href="module-src_components_ui_Alerts.html">src/components/ui/Alerts</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Alerts.html#~Alerts">Alerts</a></li></ul></li><li><a href="module-src_components_ui_Avatar.html">src/components/ui/Avatar</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Avatar.html#~Avatar">Avatar</a></li></ul></li><li><a href="module-src_components_ui_Badge.html">src/components/ui/Badge</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Badge.html#~Badge">Badge</a></li></ul></li><li><a href="module-src_components_ui_Button.html">src/components/ui/Button</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Button.html#~Button">Button</a></li><li data-type='method'><a href="module-src_components_ui_Button.html#~ButtonGroup">ButtonGroup</a></li><li data-type='method'><a href="module-src_components_ui_Button.html#~NavigationContainer">NavigationContainer</a></li></ul></li><li><a href="module-src_components_ui_Card.html">src/components/ui/Card</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Card.html#~Card">Card</a></li></ul></li><li><a href="module-src_components_ui_Checkbox.html">src/components/ui/Checkbox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Checkbox.html#~Checkbox">Checkbox</a></li></ul></li><li><a href="module-src_components_ui_DialogBox.html">src/components/ui/DialogBox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_DialogBox.html#~DialogBox">DialogBox</a></li></ul></li><li><a href="module-src_components_ui_Dropdown.html">src/components/ui/Dropdown</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Dropdown.html#~Dropdown">Dropdown</a></li></ul></li><li><a href="module-src_components_ui_Input.html">src/components/ui/Input</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Input.html#~Input">Input</a></li></ul></li><li><a href="module-src_components_ui_Pagination.html">src/components/ui/Pagination</a></li><li><a href="module-src_components_ui_PriorityIcon.html">src/components/ui/PriorityIcon</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_PriorityIcon.html#~PriorityIcon">PriorityIcon</a></li></ul></li><li><a href="module-src_components_ui_TextArea.html">src/components/ui/TextArea</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_TextArea.html#~TextArea">TextArea</a></li></ul></li><li><a href="module-src_layouts_full_header_Profile.html">src/layouts/full/header/Profile</a></li><li><a href="module-src_pages_Inbox_Inbox.html">src/pages/Inbox/Inbox</a></li><li><a href="module-src_services_EnhancedDynamicDecryption.html">src/services/EnhancedDynamicDecryption</a><ul class='methods'><li data-type='method'><a href="module-src_services_EnhancedDynamicDecryption.html#~base64ToArrayBuffer">base64ToArrayBuffer</a></li><li data-type='method'><a href="module-src_services_EnhancedDynamicDecryption.html#~getAuthHeaders">getAuthHeaders</a></li></ul></li><li><a href="module-src_views_authentication_auth_AuthLogin.html">src/views/authentication/auth/AuthLogin</a></li><li><a href="module-src_views_authentication_auth_encryption.html">src/views/authentication/auth/encryption</a><ul class='methods'><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.authenticateUser">authenticateUser</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.decryptGCM">decryptGCM</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.encryptECB">encryptECB</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getDecryptKeyFromCookies">getDecryptKeyFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getSessionIdFromCookies">getSessionIdFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getUserFromCookies">getUserFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.isUserAuthenticated">isUserAuthenticated</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.logoutUser">logoutUser</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~deleteCookie">deleteCookie</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~generate256BitKey">generate256BitKey</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~getAuthHeaders">getAuthHeaders</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~getCookie">getCookie</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~insertSessionData">insertSessionData</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~saveUserToCookies">saveUserToCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~setCookie">setCookie</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#CommentsHistory">CommentsHistory</a></li><li><a href="global.html#DateInput">DateInput</a></li><li><a href="global.html#DatePicker">DatePicker</a></li><li><a href="global.html#DateRangePicker">DateRangePicker</a></li><li><a href="global.html#DocumentUpload">DocumentUpload</a></li><li><a href="global.html#DropZone">DropZone</a></li><li><a href="global.html#FileUpload">FileUpload</a></li><li><a href="global.html#ImageUpload">ImageUpload</a></li><li><a href="global.html#InlineDateRangePicker">InlineDateRangePicker</a></li><li><a href="global.html#Login2">Login2</a></li><li><a href="global.html#MultiFileUpload">MultiFileUpload</a></li><li><a href="global.html#TaskCard">TaskCard</a></li><li><a href="global.html#TaskSummaryPage">TaskSummaryPage</a></li><li><a href="global.html#base64ToArrayBuffer">base64ToArrayBuffer</a></li><li><a href="global.html#decrypt">decrypt</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">views/authentication/auth/OTPVerification.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// // // // /**
+// // // //  * @fileoverview OTP Verification component for two-factor authentication
+// // // //  * @module src/components/authentication/OtpVerification
+// // // //  * @author Rakshana
+// // // //  * @date 22/07/2025
+// // // //  * @since 1.0.0
+// // // //  */
+
+// // // // import React, { useState, useEffect, useRef } from 'react';
+// // // // import {
+// // // //   Box,
+// // // //   TextField,
+// // // //   Button,
+// // // //   Alert,
+// // // //   CircularProgress,
+// // // //   Typography,
+// // // //   Checkbox,
+// // // //   FormControlLabel
+// // // // } from '@mui/material';
+// // // // import { Shield, Timer } from '@mui/icons-material';
+// // // // import Cookies from 'js-cookie';
+// // // // import {
+// // // //   decryptData,
+// // // //   validateJsonData,
+// // // //   isWebCryptoSupported,
+// // // // } from 'src/components/Decryption/Decrypt';
+// // // // import { HostName } from "src/assets/host/Host";
+
+// // // // const getAuthHeaders = async () => {
+// // // //   const encryptedToken = Cookies.get('HRToken');
+// // // //   return {
+// // // //     'Content-Type': 'application/json',
+// // // //     'Authorization': `Bearer ${encryptedToken}`,
+// // // //   };
+// // // // };
+
+// // // // const OtpVerification = ({
+// // // //   verifiedUser,
+// // // //   onOtpSuccess,
+// // // //   onResendOtp,
+// // // //   phoneNumber,
+// // // //   generatedOtp,
+// // // //   otpLoading = false,
+// // // //   trustDurationDays = 30,
+// // // //   sessionId
+// // // // }) => {
+// // // //   const [otp, setOtp] = useState('');
+// // // //   const [error, setError] = useState('');
+// // // //   const [success, setSuccess] = useState(false);
+// // // //   const [trustDevice, setTrustDevice] = useState(false);
+// // // //   const [isVerifying, setIsVerifying] = useState(false);
+// // // //   const [timeLeft, setTimeLeft] = useState(45);
+// // // //   const [isOtpExpired, setIsOtpExpired] = useState(false);
+// // // //   const [otpSentTime, setOtpSentTime] = useState(Date.now());
+// // // //   const timerRef = useRef(null);
+// // // //   //const HostName = 'https://wftest1.iitm.ac.in:7000';
+// // // //   const API_TOKEN = 'HRFGVJISOVp1fncC';
+
+// // // //   const getUsername = () => {
+// // // //     const username = sessionStorage.getItem('username') ||
+// // // //                     localStorage.getItem('username') ||
+// // // //                     Cookies.get('username');
+// // // //     return username || '';
+// // // //   };
+
+// // // //   const startOtpTimer = () => {
+// // // //     setTimeLeft(45);
+// // // //     setIsOtpExpired(false);
+// // // //     setOtpSentTime(Date.now());
+
+// // // //     if (timerRef.current) {
+// // // //       clearInterval(timerRef.current);
+// // // //     }
+
+// // // //     timerRef.current = setInterval(() => {
+// // // //       setTimeLeft((prevTime) => {
+// // // //         if (prevTime &lt;= 1) {
+// // // //           setIsOtpExpired(true);
+// // // //           clearInterval(timerRef.current);
+// // // //           return 0;
+// // // //         }
+// // // //         return prevTime - 1;
+// // // //       });
+// // // //     }, 1000);
+// // // //   };
+
+// // // //   useEffect(() => {
+// // // //     startOtpTimer();
+// // // //     return () => {
+// // // //       if (timerRef.current) {
+// // // //         clearInterval(timerRef.current);
+// // // //       }
+// // // //     };
+// // // //   }, []);
+
+// // // //   const handleOtpSubmit = async () => {
+// // // //     if (otp.trim() === '') {
+// // // //       setError('Please enter the OTP');
+// // // //       return;
+// // // //     }
+
+// // // //     if (otp.length !== 6) {
+// // // //       setError('OTP must be 6 digits');
+// // // //       return;
+// // // //     }
+
+// // // //     if (isOtpExpired) {
+// // // //       setError('OTP has expired. Please request a new OTP.');
+// // // //       return;
+// // // //     }
+
+// // // //     if (!isWebCryptoSupported()) {
+// // // //       setError('Web Crypto API not supported in this browser');
+// // // //       return;
+// // // //     }
+
+// // // //     setIsVerifying(true);
+// // // //     setError('');
+
+// // // //     try {
+// // // //       const username = getUsername();
+// // // //       if (!username) {
+// // // //         throw new Error('Username not found. Please login again.');
+// // // //       }
+
+// // // //       if (!sessionId) {
+// // // //         throw new Error('Session ID not found. Please login again.');
+// // // //       }
+
+// // // //       const headers = await getAuthHeaders();
+
+// // // //       const requestBody = {
+// // // //         token: API_TOKEN,
+// // // //         username: username,
+// // // //         mobileno: parseInt(phoneNumber?.replace(/\D/g, '') || '0'),
+// // // //         session_id: sessionId,
+// // // //         otp: parseInt(otp),
+// // // //         otpsendon: new Date(otpSentTime).toISOString(),
+// // // //         otpverifiedon: new Date().toISOString(),
+// // // //         status: 1,
+// // // //         updatedon: new Date().toISOString()
+// // // //       };
+
+// // // //       const response = await fetch(`${HostName}/Loginotpupdate`, {
+// // // //         method: 'POST',
+// // // //         headers: headers,
+// // // //         body: JSON.stringify(requestBody)
+// // // //       });
+
+// // // //       if (!response.ok) {
+// // // //         throw new Error(`HTTP error! status: ${response.status}`);
+// // // //       }
+
+// // // //       const encryptedData = await response.json();
+// // // //       if (!encryptedData.Data) {
+// // // //         throw new Error('No encrypted data received from API');
+// // // //       }
+
+// // // //       const decryptedData = await decryptData(encryptedData.Data);
+// // // //       const result = validateJsonData(decryptedData);
+
+// // // //       console.log('Decrypted OTP verification response:', result);
+
+// // // //       if (result.success &amp;&amp; result.validcheck === '1' &amp;&amp; result.message &amp;&amp; result.message.includes('successfully') &amp;&amp; result.session_id) {
+// // // //         setSuccess(true);
+// // // //         setError('');
+// // // //         Cookies.set('session_id', result.session_id, { expires: 7 });
+// // // //         if (timerRef.current) {
+// // // //           clearInterval(timerRef.current);
+// // // //         }
+
+// // // //         if (onOtpSuccess) {
+// // // //           onOtpSuccess({
+// // // //             user: {
+// // // //               ...verifiedUser,
+// // // //               username: username,
+// // // //               mobileNo: phoneNumber
+// // // //             },
+// // // //             trustDevice: trustDevice,
+// // // //             sessionId: result.session_id,
+// // // //             apiResponse: result
+// // // //           });
+// // // //         }
+// // // //       } else {
+// // // //         setError(result.message || 'OTP verification failed. Please try again.');
+// // // //       }
+// // // //     } catch (error) {
+// // // //       console.error('OTP verification error:', error);
+// // // //       setError(error.message || 'Network error occurred. Please check your connection and try again.');
+// // // //     } finally {
+// // // //       setIsVerifying(false);
+// // // //     }
+// // // //   };
+
+// // // //   const handleResendOtp = async () => {
+// // // //     try {
+// // // //       setError('');
+// // // //       setOtp('');
+// // // //       setSuccess(false);
+
+// // // //       if (!sessionId) {
+// // // //         throw new Error('Session ID not available. Please login again.');
+// // // //       }
+
+// // // //       await onResendOtp();
+// // // //       startOtpTimer();
+// // // //       setSuccess(true);
+// // // //       setTimeout(() => setSuccess(false), 3000);
+// // // //     } catch (error) {
+// // // //       setError(error.message || 'Failed to resend OTP. Please try again.');
+// // // //     }
+// // // //   };
+
+// // // //   const handleOtpChange = (e) => {
+// // // //     const value = e.target.value.replace(/\D/g, '');
+// // // //     setOtp(value);
+// // // //     if (error) setError('');
+// // // //   };
+
+// // // //   return (
+// // // //     &lt;Box sx={{ mt: 2 }}>
+// // // //       {error &amp;&amp; (
+// // // //         &lt;Alert severity="error" sx={{ mb: 2, borderRadius: 2 }}>
+// // // //           {error}
+// // // //         &lt;/Alert>
+// // // //       )}
+
+// // // //       {success &amp;&amp; (
+// // // //         &lt;Alert severity="success" sx={{ mb: 2, borderRadius: 2 }}>
+// // // //           OTP sent successfully!
+// // // //         &lt;/Alert>
+// // // //       )}
+
+// // // //       {isOtpExpired &amp;&amp; (
+// // // //         &lt;Alert severity="warning" sx={{ mb: 2, borderRadius: 2 }}>
+// // // //           OTP has expired. Please click "Resend OTP" to get a new code.
+// // // //         &lt;/Alert>
+// // // //       )}
+
+// // // //       &lt;Alert severity="info" sx={{ mb: 3, borderRadius: 2 }}>
+// // // //         Welcome, {verifiedUser?.username || getUsername()}. Please enter the OTP sent to your registered mobile number ending with ****{phoneNumber?.slice(-4) || ''}.
+// // // //       &lt;/Alert>
+
+// // // //       &lt;Box sx={{ mb: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+// // // //         &lt;Timer sx={{ mr: 1, fontSize: '1.2rem', color: isOtpExpired ? '#ef4444' : '#3b82f6' }} />
+// // // //         &lt;Typography
+// // // //           variant="body2"
+// // // //           sx={{
+// // // //             fontWeight: 600,
+// // // //             color: isOtpExpired ? '#ef4444' : '#3b82f6'
+// // // //           }}
+// // // //         >
+// // // //           {isOtpExpired ? 'OTP Expired' : `OTP expires in: ${timeLeft}s`}
+// // // //         &lt;/Typography>
+// // // //       &lt;/Box>
+
+// // // //       &lt;Box sx={{ mb: 3 }}>
+// // // //         &lt;Typography variant="body2" sx={{ mb: 1, fontWeight: 500 }}>
+// // // //           Enter OTP
+// // // //         &lt;/Typography>
+// // // //         &lt;TextField
+// // // //           fullWidth
+// // // //           value={otp}
+// // // //           onChange={handleOtpChange}
+// // // //           placeholder="Enter 6-digit OTP"
+// // // //           disabled={isOtpExpired}
+// // // //           inputProps={{
+// // // //             maxLength: 6,
+// // // //             pattern: '[0-9]*',
+// // // //             inputMode: 'numeric'
+// // // //           }}
+// // // //           sx={{
+// // // //             '&amp; .MuiOutlinedInput-root': {
+// // // //               borderRadius: 2,
+// // // //               '&amp;.Mui-disabled': {
+// // // //                 backgroundColor: '#f3f4f6'
+// // // //               }
+// // // //             }
+// // // //           }}
+// // // //         />
+// // // //       &lt;/Box>
+
+// // // //       &lt;Box sx={{ mb: 3 }}>
+// // // //         &lt;FormControlLabel
+// // // //           control={
+// // // //             &lt;Checkbox
+// // // //               checked={trustDevice}
+// // // //               onChange={(e) => setTrustDevice(e.target.checked)}
+// // // //               sx={{
+// // // //                 color: '#3b82f6',
+// // // //                 '&amp;.Mui-checked': {
+// // // //                   color: '#3b82f6',
+// // // //                 },
+// // // //               }}
+// // // //             />
+// // // //           }
+// // // //           label={
+// // // //             &lt;Box sx={{ display: 'flex', alignItems: 'center' }}>
+// // // //               &lt;Shield sx={{ mr: 0.5, fontSize: '1rem', color: '#3b82f6' }} />
+// // // //               &lt;Typography variant="body2">
+// // // //                 Trust this device for {trustDurationDays} days
+// // // //               &lt;/Typography>
+// // // //             &lt;/Box>
+// // // //           }
+// // // //         />
+// // // //         &lt;Typography variant="caption" sx={{ color: '#6b7280', ml: 4, display: 'block' }}>
+// // // //           Skip OTP verification on this device. Only enable on your personal devices.
+// // // //         &lt;/Typography>
+// // // //       &lt;/Box>
+
+// // // //       &lt;Button
+// // // //         variant="contained"
+// // // //         fullWidth
+// // // //         onClick={handleOtpSubmit}
+// // // //         disabled={otp.length !== 6 || isVerifying || isOtpExpired}
+// // // //         sx={{
+// // // //           py: 1.5,
+// // // //           borderRadius: 2,
+// // // //           background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+// // // //           color: 'white',
+// // // //           fontWeight: 600,
+// // // //           fontSize: '0.875rem',
+// // // //           textTransform: 'none',
+// // // //           mb: 2,
+// // // //           '&amp;:disabled': {
+// // // //             background: '#9ca3af',
+// // // //             color: 'white'
+// // // //           }
+// // // //         }}
+// // // //       >
+// // // //         {isVerifying ? (
+// // // //           &lt;Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+// // // //             &lt;CircularProgress size={20} sx={{ color: 'white' }} />
+// // // //             &lt;span>Verifying...&lt;/span>
+// // // //           &lt;/Box>
+// // // //         ) : isOtpExpired ? 'OTP Expired' : 'Verify OTP'}
+// // // //       &lt;/Button>
+
+// // // //       &lt;Button
+// // // //         variant="outlined"
+// // // //         fullWidth
+// // // //         onClick={handleResendOtp}
+// // // //         disabled={otpLoading || isVerifying || (!isOtpExpired &amp;&amp; timeLeft > 0)}
+// // // //         sx={{
+// // // //           py: 1.5,
+// // // //           borderRadius: 2,
+// // // //           borderColor: '#3b82f6',
+// // // //           color: '#3b82f6',
+// // // //           fontWeight: 600,
+// // // //           fontSize: '0.875rem',
+// // // //           textTransform: 'none',
+// // // //           '&amp;:hover': {
+// // // //             borderColor: '#1d4ed8',
+// // // //             backgroundColor: 'rgba(59, 130, 246, 0.04)'
+// // // //           },
+// // // //           '&amp;:disabled': {
+// // // //             borderColor: '#9ca3af',
+// // // //             color: '#9ca3af'
+// // // //           }
+// // // //         }}
+// // // //       >
+// // // //         {otpLoading ? (
+// // // //           &lt;Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+// // // //             &lt;CircularProgress size={20} sx={{ color: '#3b82f6' }} />
+// // // //             &lt;span>Sending...&lt;/span>
+// // // //           &lt;/Box>
+// // // //         ) : 'Resend OTP'}
+// // // //       &lt;/Button>
+// // // //     &lt;/Box>
+// // // //   );
+// // // // };
+
+// // // // export default OtpVerification;
+
+
+
+
+
+// // // // /**
+// // // //  * @fileoverview Enhanced OTP Verification component for two-factor authentication with navigation
+// // // //  * @module src/components/authentication/OtpVerification
+// // // //  * @author Rakshana
+// // // //  * @date 22/07/2025
+// // // //  * @since 1.0.0
+// // // //  */
+
+// // // // import React, { useState, useEffect, useRef } from 'react';
+// // // // import { useNavigate } from 'react-router-dom';
+// // // // import {
+// // // //   Box,
+// // // //   TextField,
+// // // //   Button,
+// // // //   Alert,
+// // // //   CircularProgress,
+// // // //   Typography,
+// // // //   Checkbox,
+// // // //   FormControlLabel
+// // // // } from '@mui/material';
+// // // // import { Shield, Timer } from '@mui/icons-material';
+// // // // import Cookies from 'js-cookie';
+// // // // import {
+// // // //   decryptData,
+// // // //   validateJsonData,
+// // // //   isWebCryptoSupported,
+// // // // } from 'src/components/Decryption/Decrypt';
+
+// // // // const getAuthHeaders = async () => {
+// // // //   const encryptedToken = Cookies.get('HRToken');
+// // // //   return {
+// // // //     'Content-Type': 'application/json',
+// // // //     'Authorization': `Bearer ${encryptedToken}`,
+// // // //   };
+// // // // };
+
+// // // // const OtpVerification = ({
+// // // //   verifiedUser,
+// // // //   onOtpSuccess,
+// // // //   onResendOtp,
+// // // //   phoneNumber,
+// // // //   generatedOtp,
+// // // //   otpLoading = false,
+// // // //   trustDurationDays = 30,
+// // // //   sessionId
+// // // // }) => {
+// // // //   const [otp, setOtp] = useState('');
+// // // //   const [error, setError] = useState('');
+// // // //   const [success, setSuccess] = useState(false);
+// // // //   const [trustDevice, setTrustDevice] = useState(false);
+// // // //   const [isVerifying, setIsVerifying] = useState(false);
+// // // //   const [timeLeft, setTimeLeft] = useState(45);
+// // // //   const [isOtpExpired, setIsOtpExpired] = useState(false);
+// // // //   const [otpSentTime, setOtpSentTime] = useState(Date.now());
+// // // //   const [resendAttempts, setResendAttempts] = useState(3);
+// // // //   const timerRef = useRef(null);
+// // // //   const navigate = useNavigate();
+// // // //   const HostName = 'https://wftest1.iitm.ac.in:7000';
+// // // //   const API_TOKEN = 'HRFGVJISOVp1fncC';
+
+// // // //   const getUsername = () => {
+// // // //     const username = sessionStorage.getItem('username') ||
+// // // //                     localStorage.getItem('username') ||
+// // // //                     Cookies.get('username');
+// // // //     return username || '';
+// // // //   };
+
+// // // //   const startOtpTimer = () => {
+// // // //     setTimeLeft(45);
+// // // //     setIsOtpExpired(false);
+// // // //     setOtpSentTime(Date.now());
+
+// // // //     if (timerRef.current) {
+// // // //       clearInterval(timerRef.current);
+// // // //     }
+
+// // // //     timerRef.current = setInterval(() => {
+// // // //       setTimeLeft((prevTime) => {
+// // // //         if (prevTime &lt;= 1) {
+// // // //           setIsOtpExpired(true);
+// // // //           clearInterval(timerRef.current);
+// // // //           return 0;
+// // // //         }
+// // // //         return prevTime - 1;
+// // // //       });
+// // // //     }, 1000);
+// // // //   };
+
+// // // //   useEffect(() => {
+// // // //     startOtpTimer();
+// // // //     return () => {
+// // // //       if (timerRef.current) {
+// // // //         clearInterval(timerRef.current);
+// // // //       }
+// // // //     };
+// // // //   }, []);
+
+// // // //   const handleOtpSubmit = async () => {
+// // // //     if (otp.trim() === '') {
+// // // //       setError('Please enter the OTP');
+// // // //       return;
+// // // //     }
+
+// // // //     if (otp.length !== 6) {
+// // // //       setError('OTP must be 6 digits');
+// // // //       return;
+// // // //     }
+
+// // // //     if (isOtpExpired) {
+// // // //       setError('OTP has expired. Please request a new OTP.');
+// // // //       return;
+// // // //     }
+
+// // // //     if (!isWebCryptoSupported()) {
+// // // //       setError('Web Crypto API not supported in this browser');
+// // // //       return;
+// // // //     }
+
+// // // //     setIsVerifying(true);
+// // // //     setError('');
+
+// // // //     try {
+// // // //       const username = getUsername();
+// // // //       if (!username) {
+// // // //         throw new Error('Username not found. Please login again.');
+// // // //       }
+
+// // // //       if (!sessionId) {
+// // // //         throw new Error('Session ID not found. Please login again.');
+// // // //       }
+
+// // // //       const headers = await getAuthHeaders();
+
+// // // //       const requestBody = {
+// // // //         token: API_TOKEN,
+// // // //         username: username,
+// // // //         mobileno: parseInt(phoneNumber?.replace(/\D/g, '') || '0'),
+// // // //         session_id: sessionId,
+// // // //         otp: parseInt(otp),
+// // // //         otpsendon: new Date(otpSentTime).toISOString(),
+// // // //         otpverifiedon: new Date().toISOString(),
+// // // //         status: 1,
+// // // //         updatedon: new Date().toISOString()
+// // // //       };
+
+// // // //       const response = await fetch(`${HostName}/Loginotpupdate`, {
+// // // //         method: 'POST',
+// // // //         headers: headers,
+// // // //         body: JSON.stringify(requestBody)
+// // // //       });
+
+// // // //       if (!response.ok) {
+// // // //         throw new Error(`HTTP error! status: ${response.status}`);
+// // // //       }
+
+// // // //       const encryptedData = await response.json();
+// // // //       if (!encryptedData.Data) {
+// // // //         throw new Error('No encrypted data received from API');
+// // // //       }
+
+// // // //       const decryptedData = await decryptData(encryptedData.Data);
+// // // //       const result = validateJsonData(decryptedData);
+
+// // // //       console.log('Decrypted OTP verification response:', result);
+
+// // // //       if (result.success &amp;&amp; result.validcheck === '1' &amp;&amp; result.message &amp;&amp; result.message.includes('successfully') &amp;&amp; result.session_id) {
+// // // //         setSuccess(true);
+// // // //         setError('');
+// // // //         Cookies.set('session_id', result.session_id, { expires: 7 });
+// // // //         if (timerRef.current) {
+// // // //           clearInterval(timerRef.current);
+// // // //         }
+
+// // // //         if (onOtpSuccess) {
+// // // //           onOtpSuccess({
+// // // //             user: {
+// // // //               ...verifiedUser,
+// // // //               username: username,
+// // // //               mobileNo: phoneNumber
+// // // //             },
+// // // //             trustDevice: trustDevice,
+// // // //             sessionId: result.session_id,
+// // // //             apiResponse: result
+// // // //           });
+// // // //         }
+// // // //       } else {
+// // // //         setError(result.message || 'OTP verification failed. Please try again.');
+// // // //       }
+// // // //     } catch (error) {
+// // // //       console.error('OTP verification error:', error);
+// // // //       setError(error.message || 'Network error occurred. Please check your connection and try again.');
+// // // //     } finally {
+// // // //       setIsVerifying(false);
+// // // //     }
+// // // //   };
+
+// // // //   const handleResendOtp = async () => {
+// // // //     if (resendAttempts &lt;= 0) {
+// // // //       setError('Maximum resend attempts reached. Redirecting to login screen...');
+// // // //       setTimeout(() => {
+// // // //         navigate('/login'); // Navigate back to AuthLogin screen
+// // // //       }, 2000);
+// // // //       return;
+// // // //     }
+
+// // // //     try {
+// // // //       setError('');
+// // // //       setOtp('');
+// // // //       setSuccess(false);
+
+// // // //       if (!sessionId) {
+// // // //         throw new Error('Session ID not available. Please login again.');
+// // // //       }
+
+// // // //       await onResendOtp();
+// // // //       setResendAttempts((prev) => prev - 1);
+// // // //       startOtpTimer();
+// // // //       setSuccess(true);
+// // // //       setTimeout(() => setSuccess(false), 3000);
+// // // //     } catch (error) {
+// // // //       setError(error.message || 'Failed to resend OTP. Please try again.');
+// // // //     }
+// // // //   };
+
+// // // //   const handleOtpChange = (e) => {
+// // // //     const value = e.target.value.replace(/\D/g, '');
+// // // //     setOtp(value);
+// // // //     if (error) setError('');
+// // // //   };
+
+// // // //   return (
+// // // //     &lt;Box className="max-w-md mx-auto p-6 bg-white rounded-2xl shadow-lg transform transition-all duration-300 hover:shadow-xl">
+// // // //       {error &amp;&amp; (
+// // // //         &lt;Alert severity="error" className="mb-4 rounded-lg animate-pulse">
+// // // //           {error}
+// // // //         &lt;/Alert>
+// // // //       )}
+
+// // // //       {success &amp;&amp; (
+// // // //         &lt;Alert severity="success" className="mb-4 rounded-lg animate-pulse">
+// // // //           OTP sent successfully! {resendAttempts} attempts remaining.
+// // // //         &lt;/Alert>
+// // // //       )}
+
+// // // //       {isOtpExpired &amp;&amp; (
+// // // //         &lt;Alert severity="warning" className="mb-4 rounded-lg animate-pulse">
+// // // //           OTP has expired. {resendAttempts > 0 ? `Please click "Resend OTP" to get a new code (${resendAttempts} attempts left).` : 'No resend attempts left. Redirecting to login screen...'}
+// // // //         &lt;/Alert>
+// // // //       )}
+
+// // // //       &lt;Alert severity="info" className="mb-6 rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50">
+// // // //         Welcome, {verifiedUser?.username || getUsername()}. Please enter the OTP sent to your registered mobile number ending with ****{phoneNumber?.slice(-4) || ''}.
+// // // //       &lt;/Alert>
+
+// // // //       &lt;Box className="mb-4 flex items-center justify-center">
+// // // //         &lt;Timer className={`mr-2 ${isOtpExpired ? 'text-red-500' : 'text-blue-500'}`} />
+// // // //         &lt;Typography
+// // // //           variant="body2"
+// // // //           className={`font-semibold ${isOtpExpired ? 'text-red-500' : 'text-blue-500'}`}
+// // // //         >
+// // // //           {isOtpExpired ? 'OTP Expired' : `OTP expires in: ${timeLeft}s`}
+// // // //         &lt;/Typography>
+// // // //       &lt;/Box>
+
+// // // //       &lt;Box className="mb-6">
+// // // //         &lt;Typography variant="body2" className="mb-2 font-medium text-gray-700">
+// // // //           Enter OTP
+// // // //         &lt;/Typography>
+// // // //         &lt;TextField
+// // // //           fullWidth
+// // // //           value={otp}
+// // // //           onChange={handleOtpChange}
+// // // //           placeholder="Enter 6-digit OTP"
+// // // //           disabled={isOtpExpired}
+// // // //           inputProps={{
+// // // //             maxLength: 6,
+// // // //             pattern: '[0-9]*',
+// // // //             inputMode: 'numeric'
+// // // //           }}
+// // // //           className="rounded-lg transition-all duration-200 hover:ring-2 hover:ring-blue-200 focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
+// // // //         />
+// // // //       &lt;/Box>
+
+// // // //       &lt;Box className="mb-6">
+// // // //         &lt;FormControlLabel
+// // // //           control={
+// // // //             &lt;Checkbox
+// // // //               checked={trustDevice}
+// // // //               onChange={(e) => setTrustDevice(e.target.checked)}
+// // // //               className="text-blue-500"
+// // // //             />
+// // // //           }
+// // // //           label={
+// // // //             &lt;Box className="flex items-center">
+// // // //               &lt;Shield className="mr-1 text-blue-500 text-sm" />
+// // // //               &lt;Typography variant="body2" className="text-gray-700">
+// // // //                 Trust this device for {trustDurationDays} days
+// // // //               &lt;/Typography>
+// // // //             &lt;/Box>
+// // // //           }
+// // // //         />
+// // // //         &lt;Typography variant="caption" className="ml-8 block text-gray-500">
+// // // //           Skip OTP verification on this device. Only enable on your personal devices.
+// // // //         &lt;/Typography>
+// // // //       &lt;/Box>
+
+// // // //       &lt;Button
+// // // //         variant="contained"
+// // // //         fullWidth
+// // // //         onClick={handleOtpSubmit}
+// // // //         disabled={otp.length !== 6 || isVerifying || isOtpExpired}
+// // // //         className="py-3 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold text-sm uppercase tracking-wide transform transition-all duration-200 hover:scale-105 disabled:bg-gray-400 disabled:scale-100"
+// // // //       >
+// // // //         {isVerifying ? (
+// // // //           &lt;Box className="flex items-center gap-2">
+// // // //             &lt;CircularProgress size={20} className="text-white" />
+// // // //             &lt;span>Verifying...&lt;/span>
+// // // //           &lt;/Box>
+// // // //         ) : isOtpExpired ? 'OTP Expired' : 'Verify OTP'}
+// // // //       &lt;/Button>
+
+// // // //       &lt;Button
+// // // //         variant="outlined"
+// // // //         fullWidth
+// // // //         onClick={handleResendOtp}
+// // // //         disabled={otpLoading || isVerifying || (!isOtpExpired &amp;&amp; timeLeft > 0) || resendAttempts &lt;= 0}
+// // // //         className="mt-4 py-3 rounded-lg border-blue-500 text-blue-500 font-semibold text-sm uppercase tracking-wide transform transition-all duration-200 hover:bg-blue-50 hover:scale-105 disabled:border-gray-400 disabled:text-gray-400 disabled:hover:bg-transparent disabled:hover:scale-100"
+// // // //       >
+// // // //         {otpLoading ? (
+// // // //           &lt;Box className="flex items-center gap-2">
+// // // //             &lt;CircularProgress size={20} className="text-blue-500" />
+// // // //             &lt;span>Sending...&lt;/span>
+// // // //           &lt;/Box>
+// // // //         ) : `Resend OTP (${resendAttempts} left)`}
+// // // //       &lt;/Button>
+// // // //     &lt;/Box>
+// // // //   );
+// // // // };
+
+// // // // export default OtpVerification;
+
+
+// // // /**
+// // //  * @fileoverview Professional OTP Verification component with modern UI design
+// // //  * @module src/components/authentication/OtpVerification
+// // //  * @author Rakshana
+// // //  * @date 22/07/2025
+// // //  * @since 2.0.0
+// // //  */
+
+// // // import React, { useState, useEffect, useRef } from 'react';
+// // // import { useNavigate } from 'react-router-dom';
+// // // import {
+// // //   Box,
+// // //   TextField,
+// // //   Button,
+// // //   Alert,
+// // //   CircularProgress,
+// // //   Typography,
+// // //   Checkbox,
+// // //   FormControlLabel,
+// // //   Paper,
+// // //   Stack,
+// // //   Chip,
+// // //   IconButton,
+// // //   InputAdornment
+// // // } from '@mui/material';
+// // // import { 
+// // //   Shield, 
+// // //   Timer, 
+// // //   Security, 
+// // //   PhoneAndroid, 
+// // //   CheckCircle, 
+// // //   Error,
+// // //   Refresh,
+// // //   Lock,
+// // //   ArrowBack,
+// // //   Visibility,
+// // //   VisibilityOff
+// // // } from '@mui/icons-material';
+// // // import Cookies from 'js-cookie';
+// // // import {
+// // //   decryptData,
+// // //   validateJsonData,
+// // //   isWebCryptoSupported,
+// // // } from 'src/components/Decryption/Decrypt';
+
+// // // const getAuthHeaders = async () => {
+// // //   const encryptedToken = Cookies.get('HRToken');
+// // //   return {
+// // //     'Content-Type': 'application/json',
+// // //     'Authorization': `Bearer ${encryptedToken}`,
+// // //   };
+// // // };
+
+// // // // Individual OTP Input Component
+// // // const OtpInput = ({ value, onChange, disabled, autoFocus }) => {
+// // //   const inputRef = useRef(null);
+
+// // //   useEffect(() => {
+// // //     if (autoFocus &amp;&amp; inputRef.current) {
+// // //       inputRef.current.focus();
+// // //     }
+// // //   }, [autoFocus]);
+
+// // //   const handleChange = (e) => {
+// // //     const val = e.target.value.replace(/\D/g, '');
+// // //     onChange(val);
+    
+// // //     // Move to next input if value is entered
+// // //     if (val &amp;&amp; e.target.nextElementSibling) {
+// // //       e.target.nextElementSibling.focus();
+// // //     }
+// // //   };
+
+// // //   const handleKeyDown = (e) => {
+// // //     // Move to previous input on backspace if current input is empty
+// // //     if (e.key === 'Backspace' &amp;&amp; !value &amp;&amp; e.target.previousElementSibling) {
+// // //       e.target.previousElementSibling.focus();
+// // //     }
+// // //   };
+
+// // //   return (
+// // //     &lt;TextField
+// // //       ref={inputRef}
+// // //       value={value}
+// // //       onChange={handleChange}
+// // //       onKeyDown={handleKeyDown}
+// // //       disabled={disabled}
+// // //       inputProps={{
+// // //         maxLength: 1,
+// // //         style: {
+// // //           textAlign: 'center',
+// // //           fontSize: '2rem',
+// // //           fontWeight: 'bold',
+// // //           height: '60px',
+// // //           padding: 0
+// // //         }
+// // //       }}
+// // //       sx={{
+// // //         width: '60px',
+// // //         height: '60px',
+// // //         '&amp; .MuiOutlinedInput-root': {
+// // //           borderRadius: '12px',
+// // //           backgroundColor: disabled ? '#f5f5f5' : 'white',
+// // //           transition: 'all 0.2s ease',
+// // //           '&amp; fieldset': {
+// // //             borderColor: '#e0e0e0',
+// // //             borderWidth: '2px'
+// // //           },
+// // //           '&amp;:hover fieldset': {
+// // //             borderColor: disabled ? '#e0e0e0' : '#2196f3'
+// // //           },
+// // //           '&amp;.Mui-focused fieldset': {
+// // //             borderColor: '#2196f3',
+// // //             borderWidth: '2px'
+// // //           },
+// // //           '&amp;.Mui-error fieldset': {
+// // //             borderColor: '#f44336'
+// // //           }
+// // //         }
+// // //       }}
+// // //     />
+// // //   );
+// // // };
+
+// // // const OtpVerification = ({
+// // //   verifiedUser,
+// // //   onOtpSuccess,
+// // //   onResendOtp,
+// // //   phoneNumber,
+// // //   generatedOtp,
+// // //   otpLoading = false,
+// // //   trustDurationDays = 30,
+// // //   sessionId
+// // // }) => {
+// // //   const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']);
+// // //   const [error, setError] = useState('');
+// // //   const [success, setSuccess] = useState('');
+// // //   const [trustDevice, setTrustDevice] = useState(false);
+// // //   const [isVerifying, setIsVerifying] = useState(false);
+// // //   const [timeLeft, setTimeLeft] = useState(45);
+// // //   const [isOtpExpired, setIsOtpExpired] = useState(false);
+// // //   const [otpSentTime, setOtpSentTime] = useState(Date.now());
+// // //   const [resendAttempts, setResendAttempts] = useState(3);
+// // //   const [showRefreshCountdown, setShowRefreshCountdown] = useState(false);
+// // //   const [refreshCountdown, setRefreshCountdown] = useState(5);
+// // //   const timerRef = useRef(null);
+// // //   const refreshTimerRef = useRef(null);
+// // //   const navigate = useNavigate();
+// // //   const HostName = 'https://wftest1.iitm.ac.in:7000';
+// // //   const API_TOKEN = 'HRFGVJISOVp1fncC';
+
+// // //   const getUsername = () => {
+// // //     const username = sessionStorage.getItem('username') ||
+// // //                     localStorage.getItem('username') ||
+// // //                     Cookies.get('username');
+// // //     return username || '';
+// // //   };
+
+// // //   const otp = otpValues.join('');
+
+// // //   const startRefreshCountdown = () => {
+// // //     setShowRefreshCountdown(true);
+// // //     setRefreshCountdown(5);
+// // //     setError(''); // Clear any existing errors
+
+// // //     refreshTimerRef.current = setInterval(() => {
+// // //       setRefreshCountdown((prevCount) => {
+// // //         if (prevCount &lt;= 1) {
+// // //           clearInterval(refreshTimerRef.current);
+// // //           // Force page refresh using multiple methods to ensure it works
+// // //           try {
+// // //             window.location.reload(true); // Force reload from server
+// // //           } catch (e) {
+// // //             window.location.href = window.location.href; // Fallback method
+// // //           }
+// // //           return 0;
+// // //         }
+// // //         return prevCount - 1;
+// // //       });
+// // //     }, 1000);
+// // //   };
+
+// // // const startOtpTimer = () => {
+// // //   setTimeLeft(45);
+// // //   setIsOtpExpired(false);
+// // //   setOtpSentTime(Date.now());
+
+// // //   if (timerRef.current) {
+// // //     clearInterval(timerRef.current);
+// // //   }
+
+// // //   timerRef.current = setInterval(() => {
+// // //     setTimeLeft((prevTime) => {
+// // //       if (prevTime &lt;= 1) {
+// // //         setIsOtpExpired(true);
+// // //         clearInterval(timerRef.current);
+        
+// // //         // Check if no resend attempts are left and refresh the page
+// // //         if (resendAttempts &lt;= 0) {
+// // //           setTimeout(() => {
+// // //             window.location.reload(); // Refresh the entire page
+// // //           }, 1000); // Small delay to show the expired message
+// // //         }
+        
+// // //         return 0;
+// // //       }
+// // //       return prevTime - 1;
+// // //     });
+// // //   }, 1000);
+// // // };
+
+// // //   useEffect(() => {
+// // //     startOtpTimer();
+// // //     return () => {
+// // //       if (timerRef.current) {
+// // //         clearInterval(timerRef.current);
+// // //       }
+// // //       if (refreshTimerRef.current) {
+// // //         clearInterval(refreshTimerRef.current);
+// // //       }
+// // //     };
+// // //   }, []);
+
+// // //   const handleOtpChange = (index, value) => {
+// // //     const newOtpValues = [...otpValues];
+// // //     newOtpValues[index] = value;
+// // //     setOtpValues(newOtpValues);
+// // //     if (error) setError('');
+// // //   };
+
+// // //   const handleOtpSubmit = async () => {
+// // //     if (otp.length !== 6) {
+// // //       setError('Please enter all 6 digits of the OTP');
+// // //       return;
+// // //     }
+
+// // //     if (isOtpExpired) {
+// // //       setError('OTP has expired. Please request a new OTP.');
+// // //       return;
+// // //     }
+
+// // //     if (!isWebCryptoSupported()) {
+// // //       setError('Web Crypto API not supported in this browser');
+// // //       return;
+// // //     }
+
+// // //     setIsVerifying(true);
+// // //     setError('');
+
+// // //     try {
+// // //       const username = getUsername();
+// // //       if (!username) {
+// // //         throw new Error('Username not found. Please login again.');
+// // //       }
+
+// // //       if (!sessionId) {
+// // //         throw new Error('Session ID not found. Please login again.');
+// // //       }
+
+// // //       const headers = await getAuthHeaders();
+
+// // //       const requestBody = {
+// // //         token: API_TOKEN,
+// // //         username: username,
+// // //         mobileno: parseInt(phoneNumber?.replace(/\D/g, '') || '0'),
+// // //         session_id: sessionId,
+// // //         otp: parseInt(otp),
+// // //         otpsendon: new Date(otpSentTime).toISOString(),
+// // //         otpverifiedon: new Date().toISOString(),
+// // //         status: 1,
+// // //         updatedon: new Date().toISOString()
+// // //       };
+
+// // //       const response = await fetch(`${HostName}/Loginotpupdate`, {
+// // //         method: 'POST',
+// // //         headers: headers,
+// // //         body: JSON.stringify(requestBody)
+// // //       });
+
+// // //       if (!response.ok) {
+// // //         throw new Error(`HTTP error! status: ${response.status}`);
+// // //       }
+
+// // //       const encryptedData = await response.json();
+// // //       if (!encryptedData.Data) {
+// // //         throw new Error('No encrypted data received from API');
+// // //       }
+
+// // //       const decryptedData = await decryptData(encryptedData.Data);
+// // //       const result = validateJsonData(decryptedData);
+
+// // //       if (result.success &amp;&amp; result.validcheck === '1' &amp;&amp; result.message &amp;&amp; result.message.includes('successfully') &amp;&amp; result.session_id) {
+// // //         setSuccess('OTP verified successfully! Redirecting...');
+// // //         setError('');
+// // //         Cookies.set('session_id', result.session_id, { expires: 7 });
+// // //         if (timerRef.current) {
+// // //           clearInterval(timerRef.current);
+// // //         }
+
+// // //         if (onOtpSuccess) {
+// // //           onOtpSuccess({
+// // //             user: {
+// // //               ...verifiedUser,
+// // //               username: username,
+// // //               mobileNo: phoneNumber
+// // //             },
+// // //             trustDevice: trustDevice,
+// // //             sessionId: result.session_id,
+// // //             apiResponse: result
+// // //           });
+// // //         }
+// // //       } else {
+// // //         setError(result.message || 'OTP verification failed. Please try again.');
+// // //       }
+// // //     } catch (error) {
+// // //       console.error('OTP verification error:', error);
+// // //       setError(error.message || 'Network error occurred. Please check your connection and try again.');
+// // //     } finally {
+// // //       setIsVerifying(false);
+// // //     }
+// // //   };
+
+// // // // const handleResendOtp = async () => {
+// // // //   if (resendAttempts &lt;= 0) {
+// // // //     setError('Maximum resend attempts reached. Page will refresh when timer expires...');
+// // // //     return; // Remove the navigation logic, let the timer handle the refresh
+// // // //   }
+
+// // // //   try {
+// // // //     setError('');
+// // // //     setOtpValues(['', '', '', '', '', '']); // Clear OTP inputs - FIXED
+// // // //     setSuccess('');
+
+// // // //     if (!sessionId) {
+// // // //       throw new Error('Session ID not available. Please login again.');
+// // // //     }
+
+// // // //     await onResendOtp();
+// // // //     setResendAttempts((prev) => prev - 1);
+// // // //     startOtpTimer();
+// // // //     setSuccess('New verification code sent successfully!');
+// // // //     setTimeout(() => setSuccess(''), 3000);
+// // // //   } catch (error) {
+// // // //     setError(error.message || 'Failed to resend OTP. Please try again.');
+// // // //   }
+// // // // };
+
+
+
+// // // const handleResendOtp = async () => {
+// // //   if (resendAttempts &lt;= 0) {
+// // //     setError('Maximum resend attempts reached. Page will refresh shortly...');
+// // //     startRefreshCountdown(); // Trigger immediate page refresh
+// // //     return;
+// // //   }
+
+// // //   try {
+// // //     setError('');
+// // //     setOtpValues(['', '', '', '', '', '']); // Clear OTP inputs - FIXED
+// // //     setSuccess('');
+
+// // //     if (!sessionId) {
+// // //       throw new Error('Session ID not available. Please login again.');
+// // //     }
+
+// // //     await onResendOtp();
+// // //     const newAttempts = resendAttempts - 1;
+// // //     setResendAttempts(newAttempts);
+    
+// // //     // Check if this was the last attempt
+// // //     if (newAttempts &lt;= 0) {
+// // //       setError('This was your last resend attempt. Page will refresh shortly...');
+// // //       setTimeout(() => {
+// // //         startRefreshCountdown();
+// // //       }, 2000); // Give user time to read the message
+// // //       return;
+// // //     }
+    
+// // //     startOtpTimer();
+// // //     setSuccess('New verification code sent successfully!');
+// // //     setTimeout(() => setSuccess(''), 3000);
+// // //   } catch (error) {
+// // //     setError(error.message || 'Failed to resend OTP. Please try again.');
+// // //   }
+// // // };
+// // //   const getTimerChipColor = () => {
+// // //     if (isOtpExpired) return 'error';
+// // //     if (timeLeft &lt;= 10) return 'error';
+// // //     if (timeLeft &lt;= 20) return 'warning';
+// // //     return 'primary';
+// // //   };
+
+// // //   const formatTime = (seconds) => {
+// // //     const mins = Math.floor(seconds / 60);
+// // //     const secs = seconds % 60;
+// // //     return `${mins}:${secs.toString().padStart(2, '0')}`;
+// // //   };
+
+// // //   return (
+// // //     &lt;Box
+// // //       sx={{
+// // //         minHeight: '50vh',
+// // //         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+// // //         display: 'flex',
+// // //         alignItems: 'center',
+// // //         justifyContent: 'center',
+// // //         p: 2
+// // //       }}
+// // //     >
+// // //       &lt;Paper
+// // //         elevation={24}
+// // //         sx={{
+// // //           width: '100%',
+// // //           maxWidth: 500,
+// // //           borderRadius: 4,
+// // //           overflow: 'hidden',
+// // //           background: 'rgba(255, 255, 255, 0.95)',
+// // //           backdropFilter: 'blur(20px)'
+// // //         }}
+// // //       >
+// // //         {/* Header */}
+// // //         &lt;Box
+// // //           sx={{
+// // //             background: 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)',
+// // //             color: 'white',
+// // //             p: 4,
+// // //             textAlign: 'center',
+// // //             position: 'relative'
+// // //           }}
+// // //         >
+// // //           &lt;Box
+// // //             sx={{
+// // //               width: 80,
+// // //               height: 70,
+// // //               borderRadius: '50%',
+// // //               background: 'rgba(255, 255, 255, 0.15)',
+// // //               display: 'flex',
+// // //               alignItems: 'center',
+// // //               justifyContent: 'center',
+// // //               mx: 'auto',
+// // //               mb: 2,
+// // //               backdropFilter: 'blur(10px)'
+// // //             }}
+// // //           >
+// // //             &lt;Security sx={{ fontSize: 40 }} />
+// // //           &lt;/Box>
+// // //           &lt;Typography variant="h5" fontWeight="bold" gutterBottom>
+// // //             Two-Factor Authentication
+// // //           &lt;/Typography>
+// // //           &lt;Typography variant="body2" sx={{ opacity: 0.9 }}>
+// // //             Enter the verification code sent to your mobile device
+// // //           &lt;/Typography>
+// // //         &lt;/Box>
+
+// // //         &lt;Box sx={{ p: 4 }}>
+// // //           {/* User Info */}
+// // //           &lt;Paper
+// // //             elevation={0}
+// // //             sx={{
+// // //               p: 3,
+// // //               mb: 3,
+// // //               background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
+// // //               borderRadius: 2
+// // //             }}
+// // //           >
+// // //             &lt;Box display="flex" alignItems="center" mb={1}>
+// // //               &lt;PhoneAndroid sx={{ color: '#1976d2', mr: 1 }} />
+// // //               &lt;Typography variant="h6" fontWeight="600">
+// // //                 Welcome, {verifiedUser?.username || getUsername()}
+// // //               &lt;/Typography>
+// // //             &lt;/Box>
+// // //             &lt;Typography variant="body2" color="text.secondary">
+// // //               Verification code sent to ••••••{phoneNumber?.slice(-4) || ''}
+// // //             &lt;/Typography>
+// // //           &lt;/Paper>
+
+// // //           {/* Timer */}
+// // //           &lt;Box display="flex" justifyContent="center" mb={3}>
+// // //             &lt;Chip
+// // //               icon={&lt;Timer />}
+// // //               label={isOtpExpired ? 'Code Expired' : `${formatTime(timeLeft)}`}
+// // //               color={getTimerChipColor()}
+// // //               variant={isOtpExpired ? 'filled' : 'outlined'}
+// // //               sx={{
+// // //                 fontSize: '1rem',
+// // //                 height: 40,
+// // //                 '&amp; .MuiChip-icon': {
+// // //                   fontSize: '1.2rem'
+// // //                 }
+// // //               }}
+// // //             />
+// // //           &lt;/Box>
+
+// // //           {/* Alerts */}
+// // //           {error &amp;&amp; (
+// // //             &lt;Alert 
+// // //               severity="error" 
+// // //               sx={{ mb: 3, borderRadius: 2 }}
+// // //               icon={&lt;Error />}
+// // //             >
+// // //               {error}
+// // //             &lt;/Alert>
+// // //           )}
+
+// // //           {success &amp;&amp; (
+// // //             &lt;Alert 
+// // //               severity="success" 
+// // //               sx={{ mb: 3, borderRadius: 2 }}
+// // //               icon={&lt;CheckCircle />}
+// // //             >
+// // //               {success}
+// // //             &lt;/Alert>
+// // //           )}
+
+// // //           {showRefreshCountdown &amp;&amp; (
+// // //             &lt;Alert 
+// // //               severity="info" 
+// // //               sx={{ mb: 3, borderRadius: 2 }}
+// // //               icon={&lt;Refresh />}
+// // //             >
+// // //               Page will refresh in {refreshCountdown} seconds...
+// // //             &lt;/Alert>
+// // //           )}
+
+// // //           {/* OTP Input */}
+// // //           &lt;Box sx={{ mb: 4 }}>
+// // //             &lt;Typography 
+// // //               variant="body1" 
+// // //               fontWeight="600" 
+// // //               gutterBottom
+// // //               sx={{ display: 'flex', alignItems: 'center', mb: 2 }}
+// // //             >
+// // //               &lt;Lock sx={{ mr: 1, color: 'text.secondary' }} />
+// // //               Enter 6-Digit Code
+// // //             &lt;/Typography>
+            
+// // //             &lt;Stack direction="row" spacing={1} justifyContent="center">
+// // //               {otpValues.map((value, index) => (
+// // //                 &lt;OtpInput
+// // //                   key={index}
+// // //                   value={value}
+// // //                   onChange={(val) => handleOtpChange(index, val)}
+// // //                   disabled={isOtpExpired || isVerifying}
+// // //                   autoFocus={index === 0}
+// // //                 />
+// // //               ))}
+// // //             &lt;/Stack>
+// // //           &lt;/Box>
+
+// // //           {/* Trust Device */}
+// // //           &lt;Paper
+// // //             elevation={0}
+// // //             sx={{
+// // //               p: 2.5,
+// // //               mb: 4,
+// // //               backgroundColor: '#f8f9fa',
+// // //               borderRadius: 2,
+// // //               border: '1px solid #e9ecef'
+// // //             }}
+// // //           >
+// // //             &lt;FormControlLabel
+// // //               control={
+// // //                 &lt;Checkbox
+// // //                   checked={trustDevice}
+// // //                   onChange={(e) => setTrustDevice(e.target.checked)}
+// // //                   sx={{ color: '#1976d2' }}
+// // //                 />
+// // //               }
+// // //               label={
+// // //                 &lt;Box>
+// // //                   &lt;Box display="flex" alignItems="center" mb={0.5}>
+// // //                     &lt;Shield sx={{ mr: 1, color: '#1976d2', fontSize: 20 }} />
+// // //                     &lt;Typography variant="body1" fontWeight="500">
+// // //                       Trust this device for {trustDurationDays} days
+// // //                     &lt;/Typography>
+// // //                   &lt;/Box>
+// // //                   &lt;Typography variant="caption" color="text.secondary">
+// // //                     Skip verification on this device. Only use on personal devices.
+// // //                   &lt;/Typography>
+// // //                 &lt;/Box>
+// // //               }
+// // //             />
+// // //           &lt;/Paper>
+
+// // //           {/* Action Buttons */}
+// // //           &lt;Stack spacing={2}>
+// // //             &lt;Button
+// // //               variant="contained"
+// // //               size="large"
+// // //               onClick={handleOtpSubmit}
+// // //               disabled={otp.length !== 6 || isVerifying || isOtpExpired}
+// // //               startIcon={isVerifying ? &lt;CircularProgress size={20} /> : &lt;CheckCircle />}
+// // //               sx={{
+// // //                 py: 2,
+// // //                 borderRadius: 2,
+// // //                 background: 'linear-gradient(135deg, #1976d2 0%, #1565c0 100%)',
+// // //                 fontSize: '1rem',
+// // //                 fontWeight: 'bold',
+// // //                 textTransform: 'none',
+// // //                 boxShadow: '0 8px 24px rgba(25, 118, 210, 0.3)',
+// // //                 '&amp;:hover': {
+// // //                   background: 'linear-gradient(135deg, #1565c0 0%, #0d47a1 100%)',
+// // //                   boxShadow: '0 12px 32px rgba(25, 118, 210, 0.4)',
+// // //                 },
+// // //                 '&amp;:disabled': {
+// // //                   background: '#bdbdbd',
+// // //                   boxShadow: 'none'
+// // //                 }
+// // //               }}
+// // //             >
+// // //               {isVerifying ? 'Verifying...' : 'Verify Code'}
+// // //             &lt;/Button>
+
+// // //             &lt;Button
+// // //               variant="outlined"
+// // //               size="large"
+// // //               onClick={handleResendOtp}
+// // //               disabled={otpLoading || isVerifying || (!isOtpExpired &amp;&amp; timeLeft > 0) || resendAttempts &lt;= 0 || showRefreshCountdown}
+// // //               startIcon={otpLoading ? &lt;CircularProgress size={20} /> : &lt;Refresh />}
+// // //               sx={{
+// // //                 py: 2,
+// // //                 borderRadius: 2,
+// // //                 borderWidth: 2,
+// // //                 fontSize: '1rem',
+// // //                 fontWeight: 'bold',
+// // //                 textTransform: 'none',
+// // //                 '&amp;:hover': {
+// // //                   borderWidth: 2,
+// // //                 }
+// // //               }}
+// // //             >
+// // //               {otpLoading ? 'Sending...' : `Resend Code (${resendAttempts} left)`}
+// // //             &lt;/Button>
+// // //           &lt;/Stack>
+
+// // //           {/* Footer */}
+// // //           &lt;Box sx={{ mt: 4, textAlign: 'center' }}>
+// // //             &lt;Typography variant="caption" color="text.secondary" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+// // //               &lt;Lock sx={{ fontSize: 16, mr: 0.5 }} />
+// // //               Your session is secured with end-to-end encryption
+// // //             &lt;/Typography>
+// // //           &lt;/Box>
+// // //         &lt;/Box>
+// // //       &lt;/Paper>
+// // //     &lt;/Box>
+// // //   );
+// // // };
+
+// // // export default OtpVerification;
+
+
+
+// // // /**
+// // //  * @fileoverview Simplified OTP Verification component
+// // //  * @module src/components/authentication/OtpVerification
+// // //  * @author Rakshana
+// // //  * @date 22/07/2025
+// // //  * @since 2.0.0
+// // //  */
+
+// // // import React, { useState, useEffect, useRef } from 'react';
+// // // import { useNavigate } from 'react-router-dom';
+// // // import {
+// // //   Box,
+// // //   TextField,
+// // //   Button,
+// // //   Alert,
+// // //   CircularProgress,
+// // //   Typography,
+// // //   Paper,
+// // //   Stack
+// // // } from '@mui/material';
+// // // import { Security, Timer } from '@mui/icons-material';
+// // // import Cookies from 'js-cookie';
+// // // import {
+// // //   decryptData,
+// // //   validateJsonData,
+// // //   isWebCryptoSupported,
+// // // } from 'src/components/Decryption/Decrypt';
+
+// // // const getAuthHeaders = async () => {
+// // //   const encryptedToken = Cookies.get('HRToken');
+// // //   return {
+// // //     'Content-Type': 'application/json',
+// // //     'Authorization': `Bearer ${encryptedToken}`,
+// // //   };
+// // // };
+
+// // // // Simplified OTP Input Component
+// // // const OtpInput = ({ value, onChange, disabled, autoFocus }) => {
+// // //   const inputRef = useRef(null);
+
+// // //   useEffect(() => {
+// // //     if (autoFocus &amp;&amp; inputRef.current) {
+// // //       inputRef.current.focus();
+// // //     }
+// // //   }, [autoFocus]);
+
+// // //   const handleChange = (e) => {
+// // //     const val = e.target.value.replace(/\D/g, '');
+// // //     onChange(val);
+    
+// // //     if (val &amp;&amp; e.target.nextElementSibling) {
+// // //       e.target.nextElementSibling.focus();
+// // //     }
+// // //   };
+
+// // //   const handleKeyDown = (e) => {
+// // //     if (e.key === 'Backspace' &amp;&amp; !value &amp;&amp; e.target.previousElementSibling) {
+// // //       e.target.previousElementSibling.focus();
+// // //     }
+// // //   };
+
+// // //   return (
+// // //     &lt;TextField
+// // //       ref={inputRef}
+// // //       value={value}
+// // //       onChange={handleChange}
+// // //       onKeyDown={handleKeyDown}
+// // //       disabled={disabled}
+// // //       inputProps={{
+// // //         maxLength: 1,
+// // //         style: { textAlign: 'center', fontSize: '1.5rem', fontWeight: '500' }
+// // //       }}
+// // //       sx={{
+// // //         width: '50px',
+// // //         '&amp; .MuiOutlinedInput-root': {
+// // //           borderRadius: '8px',
+// // //           '&amp;:hover fieldset': { borderColor: disabled ? '#e0e0e0' : '#1976d2' },
+// // //           '&amp;.Mui-focused fieldset': { borderColor: '#1976d2' }
+// // //         }
+// // //       }}
+// // //     />
+// // //   );
+// // // };
+
+// // // const OtpVerification = ({
+// // //   verifiedUser,
+// // //   onOtpSuccess,
+// // //   onResendOtp,
+// // //   phoneNumber,
+// // //   generatedOtp,
+// // //   otpLoading = false,
+// // //   sessionId
+// // // }) => {
+// // //   const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']);
+// // //   const [error, setError] = useState('');
+// // //   const [success, setSuccess] = useState('');
+// // //   const [isVerifying, setIsVerifying] = useState(false);
+// // //   const [timeLeft, setTimeLeft] = useState(45);
+// // //   const [isOtpExpired, setIsOtpExpired] = useState(false);
+// // //   const [otpSentTime, setOtpSentTime] = useState(Date.now());
+// // //   const [resendAttempts, setResendAttempts] = useState(3);
+// // //   const timerRef = useRef(null);
+// // //   const navigate = useNavigate();
+  
+// // //   const HostName = 'https://wftest1.iitm.ac.in:7000';
+// // //   const API_TOKEN = 'HRFGVJISOVp1fncC';
+
+// // //   const getUsername = () => {
+// // //     const username = sessionStorage.getItem('username') ||
+// // //                     localStorage.getItem('username') ||
+// // //                     Cookies.get('username');
+// // //     return username || '';
+// // //   };
+
+// // //   const otp = otpValues.join('');
+
+// // //   const startOtpTimer = () => {
+// // //     setTimeLeft(45);
+// // //     setIsOtpExpired(false);
+// // //     setOtpSentTime(Date.now());
+
+// // //     if (timerRef.current) {
+// // //       clearInterval(timerRef.current);
+// // //     }
+
+// // //     timerRef.current = setInterval(() => {
+// // //       setTimeLeft((prevTime) => {
+// // //         if (prevTime &lt;= 1) {
+// // //           setIsOtpExpired(true);
+// // //           clearInterval(timerRef.current);
+// // //           if (resendAttempts &lt;= 0) {
+// // //             setTimeout(() => window.location.reload(), 1000);
+// // //           }
+// // //           return 0;
+// // //         }
+// // //         return prevTime - 1;
+// // //       });
+// // //     }, 1000);
+// // //   };
+
+// // //   useEffect(() => {
+// // //     startOtpTimer();
+// // //     return () => {
+// // //       if (timerRef.current) {
+// // //         clearInterval(timerRef.current);
+// // //       }
+// // //     };
+// // //   }, []);
+
+// // //   const handleOtpChange = (index, value) => {
+// // //     const newOtpValues = [...otpValues];
+// // //     newOtpValues[index] = value;
+// // //     setOtpValues(newOtpValues);
+// // //     if (error) setError('');
+// // //   };
+
+// // //   const handleOtpSubmit = async () => {
+// // //     if (otp.length !== 6) {
+// // //       setError('Please enter all 6 digits');
+// // //       return;
+// // //     }
+
+// // //     if (isOtpExpired) {
+// // //       setError('OTP has expired. Please request a new one.');
+// // //       return;
+// // //     }
+
+// // //     if (!isWebCryptoSupported()) {
+// // //       setError('Web Crypto API not supported');
+// // //       return;
+// // //     }
+
+// // //     setIsVerifying(true);
+// // //     setError('');
+
+// // //     try {
+// // //       const username = getUsername();
+// // //       if (!username) {
+// // //         throw new Error('Username not found. Please login again.');
+// // //       }
+
+// // //       if (!sessionId) {
+// // //         throw new Error('Session ID not found. Please login again.');
+// // //       }
+
+// // //       const headers = await getAuthHeaders();
+// // //       const requestBody = {
+// // //         token: API_TOKEN,
+// // //         username: username,
+// // //         mobileno: parseInt(phoneNumber?.replace(/\D/g, '') || '0'),
+// // //         session_id: sessionId,
+// // //         otp: parseInt(otp),
+// // //         otpsendon: new Date(otpSentTime).toISOString(),
+// // //         otpverifiedon: new Date().toISOString(),
+// // //         status: 1,
+// // //         updatedon: new Date().toISOString()
+// // //       };
+
+// // //       const response = await fetch(`${HostName}/Loginotpupdate`, {
+// // //         method: 'POST',
+// // //         headers: headers,
+// // //         body: JSON.stringify(requestBody)
+// // //       });
+
+// // //       if (!response.ok) {
+// // //         throw new Error(`HTTP error! status: ${response.status}`);
+// // //       }
+
+// // //       const encryptedData = await response.json();
+// // //       if (!encryptedData.Data) {
+// // //         throw new Error('No data received from server');
+// // //       }
+
+// // //       const decryptedData = await decryptData(encryptedData.Data);
+// // //       const result = validateJsonData(decryptedData);
+
+// // //       if (result.success &amp;&amp; result.validcheck === '1' &amp;&amp; result.message?.includes('successfully') &amp;&amp; result.session_id) {
+// // //         setSuccess('OTP verified successfully!');
+// // //         setError('');
+// // //         Cookies.set('session_id', result.session_id, { expires: 7 });
+        
+// // //         if (timerRef.current) {
+// // //           clearInterval(timerRef.current);
+// // //         }
+
+// // //         if (onOtpSuccess) {
+// // //           onOtpSuccess({
+// // //             user: {
+// // //               ...verifiedUser,
+// // //               username: username,
+// // //               mobileNo: phoneNumber
+// // //             },
+// // //             sessionId: result.session_id,
+// // //             apiResponse: result
+// // //           });
+// // //         }
+// // //       } else {
+// // //         setError(result.message || 'OTP verification failed. Please try again.');
+// // //       }
+// // //     } catch (error) {
+// // //       console.error('OTP verification error:', error);
+// // //       setError(error.message || 'Network error. Please try again.');
+// // //     } finally {
+// // //       setIsVerifying(false);
+// // //     }
+// // //   };
+
+// // //   const handleResendOtp = async () => {
+// // //     if (resendAttempts &lt;= 0) {
+// // //       setError('Maximum resend attempts reached. Page will refresh shortly...');
+// // //       setTimeout(() => window.location.reload(), 3000);
+// // //       return;
+// // //     }
+
+// // //     try {
+// // //       setError('');
+// // //       setOtpValues(['', '', '', '', '', '']);
+// // //       setSuccess('');
+
+// // //       if (!sessionId) {
+// // //         throw new Error('Session ID not available. Please login again.');
+// // //       }
+
+// // //       await onResendOtp();
+// // //       const newAttempts = resendAttempts - 1;
+// // //       setResendAttempts(newAttempts);
+      
+// // //       if (newAttempts &lt;= 0) {
+// // //         setError('This was your last resend attempt. Page will refresh shortly...');
+// // //         setTimeout(() => window.location.reload(), 3000);
+// // //         return;
+// // //       }
+      
+// // //       startOtpTimer();
+// // //       setSuccess('New verification code sent!');
+// // //       setTimeout(() => setSuccess(''), 3000);
+// // //     } catch (error) {
+// // //       setError(error.message || 'Failed to resend OTP. Please try again.');
+// // //     }
+// // //   };
+
+// // //   const formatTime = (seconds) => {
+// // //     const mins = Math.floor(seconds / 60);
+// // //     const secs = seconds % 60;
+// // //     return `${mins}:${secs.toString().padStart(2, '0')}`;
+// // //   };
+
+// // //   return (
+// // //     &lt;Box
+// // //       sx={{
+// // //         backgroundColor: 'rgb(255, 255, 255)',
+// // //         display: 'flex',
+// // //         alignItems: 'center',
+// // //         justifyContent: 'center',
+// // //         p: 2
+// // //       }}
+// // //     >
+// // // &lt;Paper
+// // //   elevation={3}
+// // //   sx={{
+// // //     width: 380,
+// // //     minHeight: 440,
+// // //     borderRadius: 3,
+// // //     p: 4,
+// // //     display: 'flex',
+// // //     flexDirection: 'column',
+// // //     alignItems: 'center',
+// // //     justifyContent: 'space-between'
+// // //   }}
+// // // >
+// // //   {/* Header */}
+// // //   &lt;Box sx={{ textAlign: 'center' }}>
+// // //     &lt;Box
+// // //       sx={{
+// // //         width: 56,
+// // //         height: 56,
+// // //         borderRadius: '50%',
+// // //         backgroundColor: '#e3f2fd',
+// // //         display: 'flex',
+// // //         alignItems: 'center',
+// // //         justifyContent: 'center',
+// // //         mx: 'auto',
+// // //         mb: 2
+// // //       }}
+// // //     >
+// // //       &lt;Security sx={{ fontSize: 28, color: '#1976d2' }} />
+// // //     &lt;/Box>
+// // //     &lt;Typography variant="h6" fontWeight="600">
+// // //       Verify OTP
+// // //     &lt;/Typography>
+// // //     &lt;Typography variant="body2" color="text.secondary">
+// // //       Code sent to ••••••{phoneNumber?.slice(-4) || ''}
+// // //     &lt;/Typography>
+// // //   &lt;/Box>
+
+// // //   {/* Timer */}
+// // //   &lt;Box display="flex" alignItems="center" justifyContent="center" mt={3} mb={1}>
+// // //     &lt;Timer
+// // //       sx={{ mr: 1, color: timeLeft &lt;= 10 ? '#f44336' : '#1976d2', fontSize: 20 }}
+// // //     />
+// // //     &lt;Typography
+// // //       variant="body2"
+// // //       color={timeLeft &lt;= 10 ? 'error' : 'primary'}
+// // //       fontWeight="500"
+// // //     >
+// // //       {isOtpExpired ? 'Code Expired' : formatTime(timeLeft)}
+// // //     &lt;/Typography>
+// // //   &lt;/Box>
+
+// // //   {/* Alerts */}
+// // //   &lt;Box sx={{ width: '100%', mb: 2 }}>
+// // //     {error &amp;&amp; (
+// // //       &lt;Alert severity="error" sx={{ borderRadius: 2, mb: 2 }}>
+// // //         {error}
+// // //       &lt;/Alert>
+// // //     )}
+// // //     {success &amp;&amp; (
+// // //       &lt;Alert severity="success" sx={{ borderRadius: 2 }}>
+// // //         {success}
+// // //       &lt;/Alert>
+// // //     )}
+// // //   &lt;/Box>
+
+// // //   {/* OTP Input */}
+// // //   &lt;Box sx={{ width: '100%', mb: 3 }}>
+// // //     &lt;Typography variant="body1" fontWeight="500" gutterBottom textAlign="center">
+// // //       Enter Code
+// // //     &lt;/Typography>
+
+// // //     &lt;Stack
+// // //       direction="row"
+// // //       spacing={1.5}
+// // //       justifyContent="center"
+// // //       alignItems="center"
+// // //     >
+// // //       {otpValues.map((value, index) => (
+// // //         &lt;OtpInput
+// // //           key={index}
+// // //           value={value}
+// // //           onChange={(val) => handleOtpChange(index, val)}
+// // //           disabled={isOtpExpired || isVerifying}
+// // //           autoFocus={index === 0}
+// // //         />
+// // //       ))}
+// // //     &lt;/Stack>
+// // //   &lt;/Box>
+
+// // //   {/* Buttons */}
+// // //   &lt;Stack spacing={2} sx={{ width: '100%' }}>
+// // //     &lt;Button
+// // //       variant="contained"
+// // //       size="large"
+// // //       onClick={handleOtpSubmit}
+// // //       disabled={otp.length !== 6 || isVerifying || isOtpExpired}
+// // //       sx={{
+// // //         py: 1.5,
+// // //         borderRadius: 2,
+// // //         textTransform: 'none',
+// // //         fontWeight: '600'
+// // //       }}
+// // //     >
+// // //       {isVerifying ? (
+// // //         &lt;CircularProgress size={20} sx={{ mr: 1 }} />
+// // //       ) : null}
+// // //       {isVerifying ? 'Verifying...' : 'Verify Code'}
+// // //     &lt;/Button>
+
+// // //     &lt;Button
+// // //       variant="outlined"
+// // //       size="large"
+// // //       onClick={handleResendOtp}
+// // //       disabled={
+// // //         otpLoading || isVerifying || (!isOtpExpired &amp;&amp; timeLeft > 0) || resendAttempts &lt;= 0
+// // //       }
+// // //       sx={{
+// // //         py: 1.5,
+// // //         borderRadius: 2,
+// // //         textTransform: 'none',
+// // //         fontWeight: '600'
+// // //       }}
+// // //     >
+// // //       {otpLoading ? (
+// // //         &lt;CircularProgress size={20} sx={{ mr: 1 }} />
+// // //       ) : null}
+// // //       {otpLoading ? 'Sending...' : `Resend Code (${resendAttempts} left)`}
+// // //     &lt;/Button>
+// // //   &lt;/Stack>
+// // // &lt;/Paper>
+
+// // //     &lt;/Box>
+// // //   );
+// // // };
+
+// // // export default OtpVerification;
+
+
+// // /**
+// //  * @fileoverview Enhanced OTP Verification component with smooth UX
+// //  * @module src/components/authentication/OtpVerification
+// //  * @author Rakshana
+// //  * @date 22/07/2025
+// //  * @since 2.0.0
+// //  */
+
+// // import React, { useState, useEffect, useRef, forwardRef } from 'react';
+// // import { useNavigate } from 'react-router-dom';
+// // import {
+// //   Box,
+// //   TextField,
+// //   Button,
+// //   Alert,
+// //   CircularProgress,
+// //   Typography,
+// //   Paper,
+// //   Stack
+// // } from '@mui/material';
+// // import { Security, Timer } from '@mui/icons-material';
+// // import Cookies from 'js-cookie';
+// // import {
+// //   decryptData,
+// //   validateJsonData,
+// //   isWebCryptoSupported,
+// // } from 'src/components/Decryption/Decrypt';
+
+// // const getAuthHeaders = async () => {
+// //   const encryptedToken = Cookies.get('HRToken');
+// //   return {
+// //     'Content-Type': 'application/json',
+// //     'Authorization': `Bearer ${encryptedToken}`,
+// //   };
+// // };
+
+// // // Enhanced OTP Input Component with corrected ref forwarding
+// // const OtpInput = forwardRef(({ value, onChange, disabled, index, onKeyDown, onPaste }, ref) => {
+// //   const handleChange = (e) => {
+// //     // Only allow a single digit
+// //     const val = e.target.value.replace(/\D/g, '').slice(0, 1);
+// //     onChange(index, val);
+// //   };
+
+// //   const handleKeyDown = (e) => {
+// //     onKeyDown(e, index);
+// //   };
+
+// //   const handlePaste = (e) => {
+// //     onPaste(e, index);
+// //   };
+
+// //   return (
+// //     &lt;TextField
+// //       // Correctly assign the forwarded ref to the input element
+// //       inputRef={ref}
+// //       value={value}
+// //       onChange={handleChange}
+// //       onKeyDown={handleKeyDown}
+// //       onPaste={handlePaste}
+// //       disabled={disabled}
+// //       inputProps={{
+// //         maxLength: 1,
+// //         style: {
+// //           textAlign: 'center',
+// //           fontSize: '1.5rem',
+// //           fontWeight: '500',
+// //           padding: '12px 0'
+// //         },
+// //         autoComplete: 'one-time-code'
+// //       }}
+// //       sx={{
+// //         width: '50px',
+// //         '&amp; .MuiOutlinedInput-root': {
+// //           borderRadius: '8px',
+// //           transition: 'all 0.2s ease-in-out',
+// //           '&amp;:hover fieldset': {
+// //             borderColor: disabled ? '#e0e0e0' : '#1976d2',
+// //             borderWidth: '2px'
+// //           },
+// //           '&amp;.Mui-focused fieldset': {
+// //             borderColor: '#1976d2',
+// //             borderWidth: '2px',
+// //             boxShadow: '0 0 0 3px rgba(25, 118, 210, 0.12)'
+// //           },
+// //           '&amp; fieldset': {
+// //             transition: 'all 0.2s ease-in-out'
+// //           }
+// //         },
+// //         '&amp; .MuiInputBase-input': {
+// //           transition: 'all 0.2s ease-in-out'
+// //         }
+// //       }}
+// //     />
+// //   );
+// // });
+
+
+// // const OtpVerification = ({
+// //   verifiedUser,
+// //   onOtpSuccess,
+// //   onResendOtp,
+// //   phoneNumber,
+// //   generatedOtp,
+// //   otpLoading = false,
+// //   sessionId
+// // }) => {
+// //   const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']);
+// //   const [error, setError] = useState('');
+// //   const [success, setSuccess] = useState('');
+// //   const [isVerifying, setIsVerifying] = useState(false);
+// //   const [timeLeft, setTimeLeft] = useState(45);
+// //   const [isOtpExpired, setIsOtpExpired] = useState(false);
+// //   const [otpSentTime, setOtpSentTime] = useState(Date.now());
+// //   const [resendAttempts, setResendAttempts] = useState(3);
+// //   const timerRef = useRef(null);
+  
+// //   // Create an array of refs, one for each input
+// //   const inputRefs = useRef([]);
+// //   inputRefs.current = otpValues.map((_, i) => inputRefs.current[i] ?? React.createRef());
+
+// //   const navigate = useNavigate();
+  
+// //   const HostName = 'https://wftest1.iitm.ac.in:7000';
+// //   const API_TOKEN = 'HRFGVJISOVp1fncC';
+
+// //   const getUsername = () => {
+// //     const username = sessionStorage.getItem('username') ||
+// //                     localStorage.getItem('username') ||
+// //                     Cookies.get('username');
+// //     return username || '';
+// //   };
+
+// //   const otp = otpValues.join('');
+
+// //   // Correctly focus the input using the ref
+// //   const focusInput = (index) => {
+// //     if (index >= 0 &amp;&amp; index &lt; 6 &amp;&amp; inputRefs.current[index]?.current) {
+// //       inputRefs.current[index].current.focus();
+// //     }
+// //   };
+  
+// //   const startOtpTimer = () => {
+// //     setTimeLeft(45);
+// //     setIsOtpExpired(false);
+// //     setOtpSentTime(Date.now());
+
+// //     if (timerRef.current) {
+// //       clearInterval(timerRef.current);
+// //     }
+
+// //     timerRef.current = setInterval(() => {
+// //       setTimeLeft((prevTime) => {
+// //         if (prevTime &lt;= 1) {
+// //           setIsOtpExpired(true);
+// //           clearInterval(timerRef.current);
+// //           if (resendAttempts &lt;= 0) {
+// //             setTimeout(() => window.location.reload(), 1000);
+// //           }
+// //           return 0;
+// //         }
+// //         return prevTime - 1;
+// //       });
+// //     }, 1000);
+// //   };
+
+// //   useEffect(() => {
+// //     startOtpTimer();
+// //     // Focus first input on mount
+// //     setTimeout(() => focusInput(0), 100);
+    
+// //     return () => {
+// //       if (timerRef.current) {
+// //         clearInterval(timerRef.current);
+// //       }
+// //     };
+// //   }, []);
+
+// //   useEffect(() => {
+// //     if (otp.length === 6 &amp;&amp; !isVerifying &amp;&amp; !isOtpExpired) {
+// //       handleOtpSubmit();
+// //     }
+// //   }, [otp]);
+
+// //   const handleOtpChange = (index, value) => {
+// //     const newOtpValues = [...otpValues];
+// //     newOtpValues[index] = value;
+// //     setOtpValues(newOtpValues);
+    
+// //     if (error) setError('');
+// //     if (success) setSuccess('');
+
+// //     // This logic now works correctly because refs are properly handled.
+// //     if (value &amp;&amp; index &lt; 5) {
+// //       setTimeout(() => focusInput(index + 1), 10);
+// //     }
+// //   };
+
+// //   const handleKeyDown = (e, index) => {
+// //     switch (e.key) {
+// //       case 'Backspace':
+// //         e.preventDefault();
+// //         const newValues = [...otpValues];
+        
+// //         if (otpValues[index]) {
+// //           newValues[index] = '';
+// //           setOtpValues(newValues);
+// //         } else if (index > 0) {
+// //           newValues[index - 1] = '';
+// //           setOtpValues(newValues);
+// //           focusInput(index - 1);
+// //         }
+// //         break;
+
+// //       case 'Delete':
+// //         e.preventDefault();
+// //         const deleteValues = [...otpValues];
+// //         deleteValues[index] = '';
+// //         setOtpValues(deleteValues);
+// //         break;
+
+// //       case 'ArrowLeft':
+// //         e.preventDefault();
+// //         focusInput(Math.max(0, index - 1));
+// //         break;
+
+// //       case 'ArrowRight':
+// //         e.preventDefault();
+// //         focusInput(Math.min(5, index + 1));
+// //         break;
+
+// //       case 'Home':
+// //         e.preventDefault();
+// //         focusInput(0);
+// //         break;
+
+// //       case 'End':
+// //         e.preventDefault();
+// //         focusInput(5);
+// //         break;
+
+// //       case 'Enter':
+// //         if (otp.length === 6) {
+// //           handleOtpSubmit();
+// //         }
+// //         break;
+
+// //       case '0': case '1': case '2': case '3': case '4':
+// //       case '5': case '6': case '7': case '8': case '9':
+// //         e.preventDefault();
+// //         handleOtpChange(index, e.key);
+// //         break;
+
+// //       default:
+// //         if (!/^\d$/.test(e.key) &amp;&amp; !['Tab', 'Shift'].includes(e.key)) {
+// //           e.preventDefault();
+// //         }
+// //         break;
+// //     }
+// //   };
+
+// //   const handlePaste = (e, index) => {
+// //     e.preventDefault();
+// //     const pastedData = e.clipboardData.getData('text').replace(/\D/g, '');
+    
+// //     if (pastedData.length > 0) {
+// //       const newOtpValues = [...otpValues];
+// //       const availableSlots = 6 - index;
+// //       const digitsToPaste = pastedData.slice(0, availableSlots);
+      
+// //       for (let i = 0; i &lt; digitsToPaste.length; i++) {
+// //         if (index + i &lt; 6) {
+// //           newOtpValues[index + i] = digitsToPaste[i];
+// //         }
+// //       }
+      
+// //       setOtpValues(newOtpValues);
+      
+// //       const nextFocusIndex = Math.min(index + digitsToPaste.length, 5);
+// //       setTimeout(() => focusInput(nextFocusIndex), 10);
+// //     }
+// //   };
+
+// //   const clearOtpInputs = () => {
+// //     setOtpValues(['', '', '', '', '', '']);
+// //     setTimeout(() => focusInput(0), 100);
+// //   };
+
+// //   const handleOtpSubmit = async () => {
+// //     if (otp.length !== 6) {
+// //       setError('Please enter all 6 digits');
+// //       return;
+// //     }
+
+// //     if (isOtpExpired) {
+// //       setError('OTP has expired. Please request a new one.');
+// //       return;
+// //     }
+
+// //     if (!isWebCryptoSupported()) {
+// //       setError('Web Crypto API not supported');
+// //       return;
+// //     }
+
+// //     setIsVerifying(true);
+// //     setError('');
+
+// //     try {
+// //       const username = getUsername();
+// //       if (!username) {
+// //         throw new Error('Username not found. Please login again.');
+// //       }
+
+// //       if (!sessionId) {
+// //         throw new Error('Session ID not found. Please login again.');
+// //       }
+
+// //       const headers = await getAuthHeaders();
+// //       const requestBody = {
+// //         token: API_TOKEN,
+// //         username: username,
+// //         mobileno: parseInt(phoneNumber?.replace(/\D/g, '') || '0'),
+// //         session_id: sessionId,
+// //         otp: parseInt(otp),
+// //         otpsendon: new Date(otpSentTime).toISOString(),
+// //         otpverifiedon: new Date().toISOString(),
+// //         status: 1,
+// //         updatedon: new Date().toISOString()
+// //       };
+
+// //       const response = await fetch(`${HostName}/Loginotpupdate`, {
+// //         method: 'POST',
+// //         headers: headers,
+// //         body: JSON.stringify(requestBody)
+// //       });
+
+// //       if (!response.ok) {
+// //         throw new Error(`HTTP error! status: ${response.status}`);
+// //       }
+
+// //       const encryptedData = await response.json();
+// //       if (!encryptedData.Data) {
+// //         throw new Error('No data received from server');
+// //       }
+
+// //       const decryptedData = await decryptData(encryptedData.Data);
+// //       const result = validateJsonData(decryptedData);
+
+// //       if (result.success &amp;&amp; result.validcheck === '1' &amp;&amp; result.message?.includes('successfully') &amp;&amp; result.session_id) {
+// //         setSuccess('OTP verified successfully!');
+// //         setError('');
+// //         Cookies.set('session_id', result.session_id, { expires: 7 });
+        
+// //         if (timerRef.current) {
+// //           clearInterval(timerRef.current);
+// //         }
+
+// //         if (onOtpSuccess) {
+// //           onOtpSuccess({
+// //             user: {
+// //               ...verifiedUser,
+// //               username: username,
+// //               mobileNo: phoneNumber
+// //             },
+// //             sessionId: result.session_id,
+// //             apiResponse: result
+// //           });
+// //         }
+// //       } else {
+// //         setError(result.message || 'OTP verification failed. Please try again.');
+// //         clearOtpInputs();
+// //       }
+// //     } catch (error) {
+// //       console.error('OTP verification error:', error);
+// //       setError(error.message || 'Network error. Please try again.');
+// //       clearOtpInputs();
+// //     } finally {
+// //       setIsVerifying(false);
+// //     }
+// //   };
+
+// //   const handleResendOtp = async () => {
+// //     if (resendAttempts &lt;= 0) {
+// //       setError('Maximum resend attempts reached. Page will refresh shortly...');
+// //       setTimeout(() => window.location.reload(), 3000);
+// //       return;
+// //     }
+
+// //     try {
+// //       setError('');
+// //       clearOtpInputs();
+// //       setSuccess('');
+
+// //       if (!sessionId) {
+// //         throw new Error('Session ID not available. Please login again.');
+// //       }
+
+// //       await onResendOtp();
+// //       const newAttempts = resendAttempts - 1;
+// //       setResendAttempts(newAttempts);
+      
+// //       if (newAttempts &lt;= 0) {
+// //         setError('This was your last resend attempt. Page will refresh shortly...');
+// //         setTimeout(() => window.location.reload(), 3000);
+// //         return;
+// //       }
+      
+// //       startOtpTimer();
+// //       setSuccess('New verification code sent!');
+// //       setTimeout(() => setSuccess(''), 3000);
+// //     } catch (error) {
+// //       setError(error.message || 'Failed to resend OTP. Please try again.');
+// //     }
+// //   };
+
+// //   const formatTime = (seconds) => {
+// //     const mins = Math.floor(seconds / 60);
+// //     const secs = seconds % 60;
+// //     return `${mins}:${secs.toString().padStart(2, '0')}`;
+// //   };
+
+// //   return (
+// //     &lt;Box
+// //       sx={{
+// //         backgroundColor: 'rgb(255, 255, 255)',
+// //         display: 'flex',
+// //         alignItems: 'center',
+// //         justifyContent: 'center',
+// //         p: 2
+// //       }}
+// //     >
+// //       &lt;Paper
+// //         elevation={3}
+// //         sx={{
+// //           width: 400,
+// //           minHeight: 480,
+// //           borderRadius: 3,
+// //           p: 4,
+// //           display: 'flex',
+// //           flexDirection: 'column',
+// //           alignItems: 'center',
+// //           justifyContent: 'space-between'
+// //         }}
+// //       >
+// //         {/* Header */}
+// //         &lt;Box sx={{ textAlign: 'center' }}>
+// //           &lt;Box
+// //             sx={{
+// //               width: 64,
+// //               height: 64,
+// //               borderRadius: '50%',
+// //               backgroundColor: '#e3f2fd',
+// //               display: 'flex',
+// //               alignItems: 'center',
+// //               justifyContent: 'center',
+// //               mx: 'auto',
+// //               mb: 2,
+// //               transition: 'all 0.3s ease'
+// //             }}
+// //           >
+// //             &lt;Security sx={{ fontSize: 32, color: '#1976d2' }} />
+// //           &lt;/Box>
+// //           &lt;Typography variant="h5" fontWeight="600" gutterBottom>
+// //             Verify OTP
+// //           &lt;/Typography>
+// //           &lt;Typography variant="body1" color="text.secondary" sx={{ mb: 1 }}>
+// //             Code sent to ••••••{phoneNumber?.slice(-4) || ''}
+// //           &lt;/Typography>
+// //           &lt;Typography variant="caption" color="text.secondary">
+// //             Enter the 6-digit code or paste it from your messages
+// //           &lt;/Typography>
+// //         &lt;/Box>
+
+// //         {/* Timer */}
+// //         &lt;Box display="flex" alignItems="center" justifyContent="center" mt={3} mb={2}>
+// //           &lt;Timer
+// //             sx={{ 
+// //               mr: 1, 
+// //               color: timeLeft &lt;= 10 ? '#f44336' : '#1976d2', 
+// //               fontSize: 22,
+// //               animation: timeLeft &lt;= 10 ? 'pulse 1s infinite' : 'none',
+// //               '@keyframes pulse': {
+// //                 '0%': { opacity: 1 },
+// //                 '50%': { opacity: 0.5 },
+// //                 '100%': { opacity: 1 }
+// //               }
+// //             }}
+// //           />
+// //           &lt;Typography
+// //             variant="body1"
+// //             color={timeLeft &lt;= 10 ? 'error' : 'primary'}
+// //             fontWeight="600"
+// //             sx={{ fontSize: '1.1rem' }}
+// //           >
+// //             {isOtpExpired ? 'Code Expired' : formatTime(timeLeft)}
+// //           &lt;/Typography>
+// //         &lt;/Box>
+
+// //         {/* Alerts */}
+// //         &lt;Box sx={{ width: '100%', mb: 2, minHeight: '60px' }}>
+// //           {error &amp;&amp; (
+// //             &lt;Alert 
+// //               severity="error" 
+// //               sx={{ 
+// //                 borderRadius: 2, 
+// //                 mb: 1,
+// //                 animation: 'slideIn 0.3s ease-out',
+// //                 '@keyframes slideIn': {
+// //                   '0%': { opacity: 0, transform: 'translateY(-10px)' },
+// //                   '100%': { opacity: 1, transform: 'translateY(0)' }
+// //                 }
+// //               }}
+// //             >
+// //               {error}
+// //             &lt;/Alert>
+// //           )}
+// //           {success &amp;&amp; (
+// //             &lt;Alert 
+// //               severity="success" 
+// //               sx={{ 
+// //                 borderRadius: 2,
+// //                 animation: 'slideIn 0.3s ease-out'
+// //               }}
+// //             >
+// //               {success}
+// //             &lt;/Alert>
+// //           )}
+// //         &lt;/Box>
+
+// //         {/* OTP Input */}
+// //         &lt;Box sx={{ width: '100%', mb: 3 }}>
+// //           &lt;Typography variant="body1" fontWeight="600" gutterBottom textAlign="center" sx={{ mb: 3 }}>
+// //             Enter Verification Code
+// //           &lt;/Typography>
+
+// //           &lt;Stack
+// //             direction="row"
+// //             spacing={2}
+// //             justifyContent="center"
+// //             alignItems="center"
+// //             sx={{ mb: 2 }}
+// //           >
+// //             {otpValues.map((value, index) => (
+// //               &lt;OtpInput
+// //                 key={index}
+// //                 // Pass the correct ref to each input
+// //                 ref={inputRefs.current[index]}
+// //                 value={value}
+// //                 onChange={handleOtpChange}
+// //                 onKeyDown={handleKeyDown}
+// //                 onPaste={handlePaste}
+// //                 disabled={isOtpExpired || isVerifying}
+// //                 index={index}
+// //               />
+// //             ))}
+// //           &lt;/Stack>
+
+// //           &lt;Typography 
+// //             variant="caption" 
+// //             color="text.secondary" 
+// //             textAlign="center" 
+// //             display="block"
+// //             sx={{ mt: 2 }}
+// //           >
+// //             {otp.length}/6 digits entered
+// //             {otp.length === 6 &amp;&amp; ' • Auto-verifying...'}
+// //           &lt;/Typography>
+// //         &lt;/Box>
+
+// //         {/* Buttons */}
+// //         &lt;Stack spacing={2} sx={{ width: '100%' }}>
+// //           &lt;Button
+// //             variant="contained"
+// //             size="large"
+// //             onClick={handleOtpSubmit}
+// //             disabled={otp.length !== 6 || isVerifying || isOtpExpired}
+// //             sx={{
+// //               py: 1.5,
+// //               borderRadius: 2,
+// //               textTransform: 'none',
+// //               fontWeight: '600',
+// //               fontSize: '1rem',
+// //               transition: 'all 0.3s ease',
+// //               '&amp;:hover': {
+// //                 transform: 'translateY(-1px)',
+// //                 boxShadow: '0 4px 12px rgba(25, 118, 210, 0.3)'
+// //               }
+// //             }}
+// //           >
+// //             {isVerifying ? (
+// //               &lt;>
+// //                 &lt;CircularProgress size={20} sx={{ mr: 1 }} />
+// //                 Verifying...
+// //               &lt;/>
+// //             ) : (
+// //               'Verify Code'
+// //             )}
+// //           &lt;/Button>
+
+// //           &lt;Button
+// //             variant="outlined"
+// //             size="large"
+// //             onClick={handleResendOtp}
+// //             disabled={
+// //               otpLoading || isVerifying || (!isOtpExpired &amp;&amp; timeLeft > 0) || resendAttempts &lt;= 0
+// //             }
+// //             sx={{
+// //               py: 1.5,
+// //               borderRadius: 2,
+// //               textTransform: 'none',
+// //               fontWeight: '600',
+// //               fontSize: '1rem',
+// //               transition: 'all 0.3s ease',
+// //               '&amp;:hover': {
+// //                 transform: 'translateY(-1px)',
+// //                 borderWidth: '2px'
+// //               }
+// //             }}
+// //           >
+// //             {otpLoading ? (
+// //               &lt;>
+// //                 &lt;CircularProgress size={20} sx={{ mr: 1 }} />
+// //                 Sending...
+// //               &lt;/>
+// //             ) : (
+// //               `Resend Code (${resendAttempts} left)`
+// //             )}
+// //           &lt;/Button>
+
+// //           &lt;Button
+// //             variant="text"
+// //             size="small"
+// //             onClick={clearOtpInputs}
+// //             disabled={isVerifying || otp.length === 0}
+// //             sx={{
+// //               textTransform: 'none',
+// //               color: 'text.secondary',
+// //               '&amp;:hover': {
+// //                 backgroundColor: 'rgba(0, 0, 0, 0.04)'
+// //               }
+// //             }}
+// //           >
+// //             Clear Code
+// //           &lt;/Button>
+// //         &lt;/Stack>
+// //       &lt;/Paper>
+// //     &lt;/Box>
+// //   );
+// // };
+
+// // export default OtpVerification;
+
+
+// /**
+//  * @fileoverview Enhanced OTP Verification component with trusted device support and smooth UX
+//  * @module src/components/authentication/OtpVerification
+//  * @author Rakshana
+//  * @date 22/07/2025
+//  * @since 2.0.0
+//  */
+
+// import React, { useState, useEffect, useRef, forwardRef } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import {
+//   Box,
+//   TextField,
+//   Button,
+//   Alert,
+//   CircularProgress,
+//   Typography,
+//   Paper,
+//   Stack,
+//   Checkbox,
+//   FormControlLabel,
+//   Divider,
+//   Chip
+// } from '@mui/material';
+// import { Security, Timer, DevicesOther, VerifiedUser } from '@mui/icons-material';
+// import Cookies from 'js-cookie';
+// import {
+//   decryptData,
+//   validateJsonData,
+//   isWebCryptoSupported,
+// } from 'src/components/Decryption/Decrypt';
+
+// // Constants for trusted device functionality
+// const TRUST_DURATION_DAYS = 30;
+
+// const getAuthHeaders = async () => {
+//   const encryptedToken = Cookies.get('HRToken');
+//   return {
+//     'Content-Type': 'application/json',
+//     'Authorization': `Bearer ${encryptedToken}`,
+//   };
+// };
+
+// /**
+//  * Generates a unique device fingerprint based on browser and device characteristics
+//  * @returns {string} A unique device fingerprint
+//  */
+// const generateDeviceFingerprint = () => {
+//   const canvas = document.createElement('canvas');
+//   const ctx = canvas.getContext('2d');
+//   ctx.textBaseline = 'top';
+//   ctx.font = '14px Arial';
+//   ctx.fillText('Device fingerprint', 2, 2);
+
+//   const fingerprint = [
+//     navigator.userAgent,
+//     navigator.language,
+//     screen.width + 'x' + screen.height,
+//     new Date().getTimezoneOffset(),
+//     navigator.hardwareConcurrency || 0,
+//     navigator.deviceMemory || 0,
+//     canvas.toDataURL()
+//   ].join('|');
+
+//   // Simple hash function
+//   let hash = 0;
+//   for (let i = 0; i &lt; fingerprint.length; i++) {
+//     const char = fingerprint.charCodeAt(i);
+//     hash = ((hash &lt;&lt; 5) - hash) + char;
+//     hash = hash &amp; hash; // Convert to 32-bit integer
+//   }
+//   return hash.toString();
+// };
+
+// /**
+//  * Gets readable device information
+//  * @returns {Object} Device information object
+//  */
+// const getDeviceInfo = () => {
+//   const userAgent = navigator.userAgent;
+//   let browser = 'Unknown';
+//   let os = 'Unknown';
+
+//   // Detect browser
+//   if (userAgent.includes('Chrome')) browser = 'Chrome';
+//   else if (userAgent.includes('Firefox')) browser = 'Firefox';
+//   else if (userAgent.includes('Safari')) browser = 'Safari';
+//   else if (userAgent.includes('Edge')) browser = 'Edge';
+
+//   // Detect OS
+//   if (userAgent.includes('Windows')) os = 'Windows';
+//   else if (userAgent.includes('Mac')) os = 'macOS';
+//   else if (userAgent.includes('Linux')) os = 'Linux';
+//   else if (userAgent.includes('Android')) os = 'Android';
+//   else if (userAgent.includes('iOS')) os = 'iOS';
+
+//   return {
+//     browser,
+//     os,
+//     screen: `${screen.width}x${screen.height}`,
+//     language: navigator.language
+//   };
+// };
+
+// // Enhanced OTP Input Component with corrected ref forwarding
+// const OtpInput = forwardRef(({ value, onChange, disabled, index, onKeyDown, onPaste }, ref) => {
+//   const handleChange = (e) => {
+//     // Only allow a single digit
+//     const val = e.target.value.replace(/\D/g, '').slice(0, 1);
+//     onChange(index, val);
+//   };
+
+//   const handleKeyDown = (e) => {
+//     onKeyDown(e, index);
+//   };
+
+//   const handlePaste = (e) => {
+//     onPaste(e, index);
+//   };
+
+//   return (
+//     &lt;TextField
+//       // Correctly assign the forwarded ref to the input element
+//       inputRef={ref}
+//       value={value}
+//       onChange={handleChange}
+//       onKeyDown={handleKeyDown}
+//       onPaste={handlePaste}
+//       disabled={disabled}
+//       inputProps={{
+//         maxLength: 1,
+//         style: {
+//           textAlign: 'center',
+//           fontSize: '1.5rem',
+//           fontWeight: '500',
+//           padding: '12px 0'
+//         },
+//         autoComplete: 'one-time-code'
+//       }}
+//       sx={{
+//         width: '50px',
+//         '&amp; .MuiOutlinedInput-root': {
+//           borderRadius: '8px',
+//           transition: 'all 0.2s ease-in-out',
+//           '&amp;:hover fieldset': {
+//             borderColor: disabled ? '#e0e0e0' : '#1976d2',
+//             borderWidth: '2px'
+//           },
+//           '&amp;.Mui-focused fieldset': {
+//             borderColor: '#1976d2',
+//             borderWidth: '2px',
+//             boxShadow: '0 0 0 3px rgba(25, 118, 210, 0.12)'
+//           },
+//           '&amp; fieldset': {
+//             transition: 'all 0.2s ease-in-out'
+//           }
+//         },
+//         '&amp; .MuiInputBase-input': {
+//           transition: 'all 0.2s ease-in-out'
+//         }
+//       }}
+//     />
+//   );
+// });
+
+// const OtpVerification = ({
+//   verifiedUser,
+//   onOtpSuccess,
+//   onResendOtp,
+//   phoneNumber,
+//   generatedOtp,
+//   otpLoading = false,
+//   sessionId
+// }) => {
+//   const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']);
+//   const [error, setError] = useState('');
+//   const [success, setSuccess] = useState('');
+//   const [isVerifying, setIsVerifying] = useState(false);
+//   const [timeLeft, setTimeLeft] = useState(45);
+//   const [isOtpExpired, setIsOtpExpired] = useState(false);
+//   const [otpSentTime, setOtpSentTime] = useState(Date.now());
+//   const [resendAttempts, setResendAttempts] = useState(3);
+  
+//   // Trusted device states
+//   const [trustThisDevice, setTrustThisDevice] = useState(false);
+//   const [trustedDevices, setTrustedDevices] = useState([]);
+//   const [isCurrentDeviceTrusted, setIsCurrentDeviceTrusted] = useState(false);
+  
+//   const timerRef = useRef(null);
+  
+//   // Create an array of refs, one for each input
+//   const inputRefs = useRef([]);
+//   inputRefs.current = otpValues.map((_, i) => inputRefs.current[i] ?? React.createRef());
+
+//   const navigate = useNavigate();
+  
+//   const HostName = 'https://wftest1.iitm.ac.in:7000';
+//   const API_TOKEN = 'HRFGVJISOVp1fncC';
+
+//   const getUsername = () => {
+//     const username = sessionStorage.getItem('username') ||
+//                     localStorage.getItem('username') ||
+//                     Cookies.get('username');
+//     return username || '';
+//   };
+
+//   /**
+//    * Checks if the current device is trusted for the given username
+//    * @param {string} username - The username to check trusted devices for
+//    * @returns {boolean} True if the device is trusted, false otherwise
+//    */
+//   const checkTrustedDevice = (username) => {
+//     const deviceFingerprint = generateDeviceFingerprint();
+//     const trustedDevicesData = localStorage.getItem(`trusted_devices_${username}`);
+
+//     if (trustedDevicesData) {
+//       const devices = JSON.parse(trustedDevicesData);
+//       const currentTime = new Date().getTime();
+//       const validDevices = devices.filter(device =>
+//         currentTime &lt; device.expiresAt
+//       );
+//       localStorage.setItem(`trusted_devices_${username}`, JSON.stringify(validDevices));
+//       setTrustedDevices(validDevices);
+//       const trustedDevice = validDevices.find(device =>
+//         device.fingerprint === deviceFingerprint
+//       );
+
+//       return !!trustedDevice;
+//     }
+
+//     return false;
+//   };
+
+//   /**
+//    * Adds the current device to the trusted devices list for the given username.
+//    * @function addTrustedDevice
+//    * @param {string} username - The username to add the trusted device for
+//    */
+//   const addTrustedDevice = (username) => {
+//     const deviceFingerprint = generateDeviceFingerprint();
+//     const deviceInfo = getDeviceInfo();
+//     const currentTime = new Date().getTime();
+//     const expiresAt = currentTime + (TRUST_DURATION_DAYS * 24 * 60 * 60 * 1000);
+
+//     const existingDevices = JSON.parse(localStorage.getItem(`trusted_devices_${username}`) || '[]');
+//     const filteredDevices = existingDevices.filter(device =>
+//       device.fingerprint !== deviceFingerprint
+//     );
+
+//     const newDevice = {
+//       fingerprint: deviceFingerprint,
+//       deviceInfo,
+//       trustedAt: currentTime,
+//       expiresAt,
+//       location: 'Current Location' // You can integrate with geolocation API
+//     };
+
+//     const updatedDevices = [...filteredDevices, newDevice];
+//     localStorage.setItem(`trusted_devices_${username}`, JSON.stringify(updatedDevices));
+//     setTrustedDevices(updatedDevices);
+//   };
+
+//   /**
+//    * Removes a trusted device from the list for the given username.
+//    * @function removeTrustedDevice
+//    * @param {string} username - The username to remove the trusted device for
+//    * @param {string} fingerprint - The fingerprint of the device to remove
+//    */
+//   const removeTrustedDevice = (username, fingerprint) => {
+//     const existingDevices = JSON.parse(localStorage.getItem(`trusted_devices_${username}`) || '[]');
+//     const updatedDevices = existingDevices.filter(device =>
+//       device.fingerprint !== fingerprint
+//     );
+//     localStorage.setItem(`trusted_devices_${username}`, JSON.stringify(updatedDevices));
+//     setTrustedDevices(updatedDevices);
+//   };
+
+//   const otp = otpValues.join('');
+
+//   // Correctly focus the input using the ref
+//   const focusInput = (index) => {
+//     if (index >= 0 &amp;&amp; index &lt; 6 &amp;&amp; inputRefs.current[index]?.current) {
+//       inputRefs.current[index].current.focus();
+//     }
+//   };
+  
+//   const startOtpTimer = () => {
+//     setTimeLeft(45);
+//     setIsOtpExpired(false);
+//     setOtpSentTime(Date.now());
+
+//     if (timerRef.current) {
+//       clearInterval(timerRef.current);
+//     }
+
+//     timerRef.current = setInterval(() => {
+//       setTimeLeft((prevTime) => {
+//         if (prevTime &lt;= 1) {
+//           setIsOtpExpired(true);
+//           clearInterval(timerRef.current);
+//           if (resendAttempts &lt;= 0) {
+//             setTimeout(() => window.location.reload(), 1000);
+//           }
+//           return 0;
+//         }
+//         return prevTime - 1;
+//       });
+//     }, 1000);
+//   };
+
+//   useEffect(() => {
+//     startOtpTimer();
+//     // Focus first input on mount
+//     setTimeout(() => focusInput(0), 100);
+    
+//     // Check if current device is trusted
+//     const username = getUsername();
+//     if (username) {
+//       const isTrusted = checkTrustedDevice(username);
+//       setIsCurrentDeviceTrusted(isTrusted);
+//     }
+    
+//     return () => {
+//       if (timerRef.current) {
+//         clearInterval(timerRef.current);
+//       }
+//     };
+//   }, []);
+
+//   useEffect(() => {
+//     if (otp.length === 6 &amp;&amp; !isVerifying &amp;&amp; !isOtpExpired) {
+//       handleOtpSubmit();
+//     }
+//   }, [otp]);
+
+//   const handleOtpChange = (index, value) => {
+//     const newOtpValues = [...otpValues];
+//     newOtpValues[index] = value;
+//     setOtpValues(newOtpValues);
+    
+//     if (error) setError('');
+//     if (success) setSuccess('');
+
+//     // This logic now works correctly because refs are properly handled.
+//     if (value &amp;&amp; index &lt; 5) {
+//       setTimeout(() => focusInput(index + 1), 10);
+//     }
+//   };
+
+//   const handleKeyDown = (e, index) => {
+//     switch (e.key) {
+//       case 'Backspace':
+//         e.preventDefault();
+//         const newValues = [...otpValues];
+        
+//         if (otpValues[index]) {
+//           newValues[index] = '';
+//           setOtpValues(newValues);
+//         } else if (index > 0) {
+//           newValues[index - 1] = '';
+//           setOtpValues(newValues);
+//           focusInput(index - 1);
+//         }
+//         break;
+
+//       case 'Delete':
+//         e.preventDefault();
+//         const deleteValues = [...otpValues];
+//         deleteValues[index] = '';
+//         setOtpValues(deleteValues);
+//         break;
+
+//       case 'ArrowLeft':
+//         e.preventDefault();
+//         focusInput(Math.max(0, index - 1));
+//         break;
+
+//       case 'ArrowRight':
+//         e.preventDefault();
+//         focusInput(Math.min(5, index + 1));
+//         break;
+
+//       case 'Home':
+//         e.preventDefault();
+//         focusInput(0);
+//         break;
+
+//       case 'End':
+//         e.preventDefault();
+//         focusInput(5);
+//         break;
+
+//       case 'Enter':
+//         if (otp.length === 6) {
+//           handleOtpSubmit();
+//         }
+//         break;
+
+//       case '0': case '1': case '2': case '3': case '4':
+//       case '5': case '6': case '7': case '8': case '9':
+//         e.preventDefault();
+//         handleOtpChange(index, e.key);
+//         break;
+
+//       default:
+//         if (!/^\d$/.test(e.key) &amp;&amp; !['Tab', 'Shift'].includes(e.key)) {
+//           e.preventDefault();
+//         }
+//         break;
+//     }
+//   };
+
+//   const handlePaste = (e, index) => {
+//     e.preventDefault();
+//     const pastedData = e.clipboardData.getData('text').replace(/\D/g, '');
+    
+//     if (pastedData.length > 0) {
+//       const newOtpValues = [...otpValues];
+//       const availableSlots = 6 - index;
+//       const digitsToPaste = pastedData.slice(0, availableSlots);
+      
+//       for (let i = 0; i &lt; digitsToPaste.length; i++) {
+//         if (index + i &lt; 6) {
+//           newOtpValues[index + i] = digitsToPaste[i];
+//         }
+//       }
+      
+//       setOtpValues(newOtpValues);
+      
+//       const nextFocusIndex = Math.min(index + digitsToPaste.length, 5);
+//       setTimeout(() => focusInput(nextFocusIndex), 10);
+//     }
+//   };
+
+//   const clearOtpInputs = () => {
+//     setOtpValues(['', '', '', '', '', '']);
+//     setTimeout(() => focusInput(0), 100);
+//   };
+
+//   const handleOtpSubmit = async () => {
+//     if (otp.length !== 6) {
+//       setError('Please enter all 6 digits');
+//       return;
+//     }
+
+//     if (isOtpExpired) {
+//       setError('OTP has expired. Please request a new one.');
+//       return;
+//     }
+
+//     if (!isWebCryptoSupported()) {
+//       setError('Web Crypto API not supported');
+//       return;
+//     }
+
+//     setIsVerifying(true);
+//     setError('');
+
+//     try {
+//       const username = getUsername();
+//       if (!username) {
+//         throw new Error('Username not found. Please login again.');
+//       }
+
+//       if (!sessionId) {
+//         throw new Error('Session ID not found. Please login again.');
+//       }
+
+//       const headers = await getAuthHeaders();
+//       const requestBody = {
+//         token: API_TOKEN,
+//         username: username,
+//         mobileno: parseInt(phoneNumber?.replace(/\D/g, '') || '0'),
+//         session_id: sessionId,
+//         otp: parseInt(otp),
+//         otpsendon: new Date(otpSentTime).toISOString(),
+//         otpverifiedon: new Date().toISOString(),
+//         status: 1,
+//         updatedon: new Date().toISOString()
+//       };
+
+//       const response = await fetch(`${HostName}/Loginotpupdate`, {
+//         method: 'POST',
+//         headers: headers,
+//         body: JSON.stringify(requestBody)
+//       });
+
+//       if (!response.ok) {
+//         throw new Error(`HTTP error! status: ${response.status}`);
+//       }
+
+//       const encryptedData = await response.json();
+//       if (!encryptedData.Data) {
+//         throw new Error('No data received from server');
+//       }
+
+//       const decryptedData = await decryptData(encryptedData.Data);
+//       const result = validateJsonData(decryptedData);
+
+//       if (result.success &amp;&amp; result.validcheck === '1' &amp;&amp; result.message?.includes('successfully') &amp;&amp; result.session_id) {
+//         setSuccess('OTP verified successfully!');
+//         setError('');
+//         Cookies.set('session_id', result.session_id, { expires: 7 });
+        
+//         // Add device to trusted list if checkbox is checked
+//         if (trustThisDevice &amp;&amp; !isCurrentDeviceTrusted) {
+//           addTrustedDevice(username);
+//           setSuccess('OTP verified successfully! Device trusted for 30 days.');
+//         }
+        
+//         if (timerRef.current) {
+//           clearInterval(timerRef.current);
+//         }
+
+//         if (onOtpSuccess) {
+//           onOtpSuccess({
+//             user: {
+//               ...verifiedUser,
+//               username: username,
+//               mobileNo: phoneNumber
+//             },
+//             sessionId: result.session_id,
+//             apiResponse: result,
+//             deviceTrusted: trustThisDevice || isCurrentDeviceTrusted
+//           });
+//         }
+//       } else {
+//         setError(result.message || 'OTP verification failed. Please try again.');
+//         clearOtpInputs();
+//       }
+//     } catch (error) {
+//       console.error('OTP verification error:', error);
+//       setError(error.message || 'Network error. Please try again.');
+//       clearOtpInputs();
+//     } finally {
+//       setIsVerifying(false);
+//     }
+//   };
+
+//   const handleResendOtp = async () => {
+//     if (resendAttempts &lt;= 0) {
+//       setError('Maximum resend attempts reached. Page will refresh shortly...');
+//       setTimeout(() => window.location.reload(), 3000);
+//       return;
+//     }
+
+//     try {
+//       setError('');
+//       clearOtpInputs();
+//       setSuccess('');
+
+//       if (!sessionId) {
+//         throw new Error('Session ID not available. Please login again.');
+//       }
+
+//       await onResendOtp();
+//       const newAttempts = resendAttempts - 1;
+//       setResendAttempts(newAttempts);
+      
+//       if (newAttempts &lt;= 0) {
+//         setError('This was your last resend attempt. Page will refresh shortly...');
+//         setTimeout(() => window.location.reload(), 3000);
+//         return;
+//       }
+      
+//       startOtpTimer();
+//       setSuccess('New verification code sent!');
+//       setTimeout(() => setSuccess(''), 3000);
+//     } catch (error) {
+//       setError(error.message || 'Failed to resend OTP. Please try again.');
+//     }
+//   };
+
+//   const formatTime = (seconds) => {
+//     const mins = Math.floor(seconds / 60);
+//     const secs = seconds % 60;
+//     return `${mins}:${secs.toString().padStart(2, '0')}`;
+//   };
+
+//   return (
+//     &lt;Box
+//       sx={{
+//         backgroundColor: 'rgb(255, 255, 255)',
+//         display: 'flex',
+//         alignItems: 'center',
+//         justifyContent: 'center',
+//         p: 2
+//       }}
+//     >
+//       &lt;Paper
+//         elevation={3}
+//         sx={{
+//           width: 400,
+//           minHeight: 520,
+//           borderRadius: 3,
+//           p: 4,
+//           display: 'flex',
+//           flexDirection: 'column',
+//           alignItems: 'center',
+//           justifyContent: 'space-between'
+//         }}
+//       >
+//         {/* Header */}
+//         &lt;Box sx={{ textAlign: 'center' }}>
+//           &lt;Box
+//             sx={{
+//               width: 64,
+//               height: 64,
+//               borderRadius: '50%',
+//               backgroundColor: '#e3f2fd',
+//               display: 'flex',
+//               alignItems: 'center',
+//               justifyContent: 'center',
+//               mx: 'auto',
+//               mb: 2,
+//               transition: 'all 0.3s ease'
+//             }}
+//           >
+//             &lt;Security sx={{ fontSize: 32, color: '#1976d2' }} />
+//           &lt;/Box>
+//           &lt;Typography variant="h5" fontWeight="600" gutterBottom>
+//             Verify OTP
+//           &lt;/Typography>
+//           &lt;Typography variant="body1" color="text.secondary" sx={{ mb: 1 }}>
+//             Code sent to ••••••{phoneNumber?.slice(-4) || ''}
+//           &lt;/Typography>
+//           &lt;Typography variant="caption" color="text.secondary">
+//             Enter the 6-digit code or paste it from your messages
+//           &lt;/Typography>
+
+//           {/* Device Status */}
+//           {isCurrentDeviceTrusted &amp;&amp; (
+//             &lt;Box sx={{ mt: 2 }}>
+//               &lt;Chip
+//                 icon={&lt;VerifiedUser />}
+//                 label="Trusted Device"
+//                 color="success"
+//                 variant="outlined"
+//                 size="small"
+//                 sx={{
+//                   fontWeight: 500,
+//                   animation: 'pulse 2s ease-in-out',
+//                   '@keyframes pulse': {
+//                     '0%, 100%': { opacity: 1 },
+//                     '50%': { opacity: 0.7 }
+//                   }
+//                 }}
+//               />
+//             &lt;/Box>
+//           )}
+//         &lt;/Box>
+
+//         {/* Timer */}
+//         &lt;Box display="flex" alignItems="center" justifyContent="center" mt={3} mb={2}>
+//           &lt;Timer
+//             sx={{ 
+//               mr: 1, 
+//               color: timeLeft &lt;= 10 ? '#f44336' : '#1976d2', 
+//               fontSize: 22,
+//               animation: timeLeft &lt;= 10 ? 'pulse 1s infinite' : 'none',
+//               '@keyframes pulse': {
+//                 '0%': { opacity: 1 },
+//                 '50%': { opacity: 0.5 },
+//                 '100%': { opacity: 1 }
+//               }
+//             }}
+//           />
+//           &lt;Typography
+//             variant="body1"
+//             color={timeLeft &lt;= 10 ? 'error' : 'primary'}
+//             fontWeight="600"
+//             sx={{ fontSize: '1.1rem' }}
+//           >
+//             {isOtpExpired ? 'Code Expired' : formatTime(timeLeft)}
+//           &lt;/Typography>
+//         &lt;/Box>
+
+//         {/* Alerts */}
+//         &lt;Box sx={{ width: '100%', mb: 2, minHeight: '60px' }}>
+//           {error &amp;&amp; (
+//             &lt;Alert 
+//               severity="error" 
+//               sx={{ 
+//                 borderRadius: 2, 
+//                 mb: 1,
+//                 animation: 'slideIn 0.3s ease-out',
+//                 '@keyframes slideIn': {
+//                   '0%': { opacity: 0, transform: 'translateY(-10px)' },
+//                   '100%': { opacity: 1, transform: 'translateY(0)' }
+//                 }
+//               }}
+//             >
+//               {error}
+//             &lt;/Alert>
+//           )}
+//           {success &amp;&amp; (
+//             &lt;Alert 
+//               severity="success" 
+//               sx={{ 
+//                 borderRadius: 2,
+//                 animation: 'slideIn 0.3s ease-out'
+//               }}
+//             >
+//               {success}
+//             &lt;/Alert>
+//           )}
+//         &lt;/Box>
+
+//         {/* OTP Input */}
+//         &lt;Box sx={{ width: '100%', mb: 3 }}>
+//           &lt;Typography variant="body1" fontWeight="600" gutterBottom textAlign="center" sx={{ mb: 3 }}>
+//             Enter Verification Code
+//           &lt;/Typography>
+
+//           &lt;Stack
+//             direction="row"
+//             spacing={2}
+//             justifyContent="center"
+//             alignItems="center"
+//             sx={{ mb: 2 }}
+//           >
+//             {otpValues.map((value, index) => (
+//               &lt;OtpInput
+//                 key={index}
+//                 // Pass the correct ref to each input
+//                 ref={inputRefs.current[index]}
+//                 value={value}
+//                 onChange={handleOtpChange}
+//                 onKeyDown={handleKeyDown}
+//                 onPaste={handlePaste}
+//                 disabled={isOtpExpired || isVerifying}
+//                 index={index}
+//               />
+//             ))}
+//           &lt;/Stack>
+
+//           &lt;Typography 
+//             variant="caption" 
+//             color="text.secondary" 
+//             textAlign="center" 
+//             display="block"
+//             sx={{ mt: 2 }}
+//           >
+//             {otp.length}/6 digits entered
+//             {otp.length === 6 &amp;&amp; ' • Auto-verifying...'}
+//           &lt;/Typography>
+
+//           {/* Trust Device Option */}
+//           {!isCurrentDeviceTrusted &amp;&amp; (
+//             &lt;>
+//               &lt;Divider sx={{ my: 2 }} />
+//               &lt;Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+//                 &lt;FormControlLabel
+//                   control={
+//                     &lt;Checkbox
+//                       checked={trustThisDevice}
+//                       onChange={(e) => setTrustThisDevice(e.target.checked)}
+//                       color="primary"
+//                       size="small"
+//                     />
+//                   }
+//                   label={
+//                     &lt;Box sx={{ display: 'flex', alignItems: 'center' }}>
+//                       &lt;DevicesOther sx={{ fontSize: 16, mr: 0.5, color: 'text.secondary' }} />
+//                       &lt;Typography variant="body2" color="text.secondary">
+//                         Trust this device for 30 days
+//                       &lt;/Typography>
+//                     &lt;/Box>
+//                   }
+//                   sx={{ m: 0 }}
+//                 />
+//               &lt;/Box>
+//               &lt;Typography
+//                 variant="caption"
+//                 color="text.secondary"
+//                 textAlign="center"
+//                 display="block"
+//                 sx={{ mt: 1 }}
+//               >
+//                 Skip OTP verification on this device
+//               &lt;/Typography>
+//             &lt;/>
+//           )}
+//         &lt;/Box>
+
+//         {/* Buttons */}
+//         &lt;Stack spacing={2} sx={{ width: '100%' }}>
+//           &lt;Button
+//             variant="contained"
+//             size="large"
+//             onClick={handleOtpSubmit}
+//             disabled={otp.length !== 6 || isVerifying || isOtpExpired}
+//             sx={{
+//               py: 1.5,
+//               borderRadius: 2,
+//               textTransform: 'none',
+//               fontWeight: '600',
+//               fontSize: '1rem',
+//               transition: 'all 0.3s ease',
+//               '&amp;:hover': {
+//                 transform: 'translateY(-1px)',
+//                 boxShadow: '0 4px 12px rgba(25, 118, 210, 0.3)'
+//               }
+//             }}
+//           >
+//             {isVerifying ? (
+//               &lt;>
+//                 &lt;CircularProgress size={20} sx={{ mr: 1 }} />
+//                 Verifying...
+//               &lt;/>
+//             ) : (
+//               'Verify Code'
+//             )}
+//           &lt;/Button>
+
+//           &lt;Button
+//             variant="outlined"
+//             size="large"
+//             onClick={handleResendOtp}
+//             disabled={
+//               otpLoading || isVerifying || (!isOtpExpired &amp;&amp; timeLeft > 0) || resendAttempts &lt;= 0
+//             }
+//             sx={{
+//               py: 1.5,
+//               borderRadius: 2,
+//               textTransform: 'none',
+//               fontWeight: '600',
+//               fontSize: '1rem',
+//               transition: 'all 0.3s ease',
+//               '&amp;:hover': {
+//                 transform: 'translateY(-1px)',
+//                 borderWidth: '2px'
+//               }
+//             }}
+//           >
+//             {otpLoading ? (
+//               &lt;>
+//                 &lt;CircularProgress size={20} sx={{ mr: 1 }} />
+//                 Sending...
+//               &lt;/>
+//             ) : (
+//               `Resend Code (${resendAttempts} left)`
+//             )}
+//           &lt;/Button>
+
+//           &lt;Button
+//             variant="text"
+//             size="small"
+//             onClick={clearOtpInputs}
+//             disabled={isVerifying || otp.length === 0}
+//             sx={{
+//               textTransform: 'none',
+//               color: 'text.secondary',
+//               '&amp;:hover': {
+//                 backgroundColor: 'rgba(0, 0, 0, 0.04)'
+//               }
+//             }}
+//           >
+//             Clear Code
+//           &lt;/Button>
+//         &lt;/Stack>
+//       &lt;/Paper>
+//     &lt;/Box>
+//   );
+// };
+
+// export default OtpVerification;
+
+
+
+/**
+ * @fileoverview Enhanced OTP Verification component with trusted device support and smooth UX
+ * @module src/components/authentication/OtpVerification
+ * @author Rakshana
+ * @date 22/07/2025
+ * @since 2.0.0
+ */
+
+import React, { useState, useEffect, useRef, forwardRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {
+  Box,
+  TextField,
+  Button,
+  Alert,
+  CircularProgress,
+  Typography,
+  Paper,
+  Stack,
+  Checkbox,
+  FormControlLabel,
+  Divider,
+  Chip
+} from '@mui/material';
+import { Security, Timer, DevicesOther, VerifiedUser } from '@mui/icons-material';
+import Cookies from 'js-cookie';
+import {
+  decryptData,
+  validateJsonData,
+  isWebCryptoSupported,
+} from 'src/components/Decryption/Decrypt';
+import { HostName } from "src/assets/host/Host";
+
+
+// Constants for trusted device functionality
+const TRUST_DURATION_DAYS = 30;
+
+const getAuthHeaders = async () => {
+  const encryptedToken = Cookies.get('HRToken');
+  return {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${encryptedToken}`,
+  };
+};
+
+/**
+ * Generates a unique device fingerprint based on browser and device characteristics
+ * @returns {string} A unique device fingerprint
+ */
+const generateDeviceFingerprint = () => {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  ctx.textBaseline = 'top';
+  ctx.font = '14px Arial';
+  ctx.fillText('Device fingerprint', 2, 2);
+    const fingerprint = [
+      navigator.userAgent,
+      navigator.language,
+      screen.width + 'x' + screen.height,
+      new Date().getTimezoneOffset(),
+      canvas.toDataURL(),
+      navigator.hardwareConcurrency || 'unknown',
+      navigator.deviceMemory || 'unknown'
+    ].join('|');
+    let hash = 0;
+    for (let i = 0; i &lt; fingerprint.length; i++) {
+      const char = fingerprint.charCodeAt(i);
+      hash = ((hash &lt;&lt; 5) - hash) + char;
+      hash = hash &amp; hash; // Convert to 32-bit integer
+    }
+    return Math.abs(hash).toString(16);
+  };
+
+/**
+ * FIX: Gets readable device information as a formatted string instead of an object.
+ * @returns {string} A string describing the device, browser, and OS.
+ */
+  const getDeviceInfo = () => {
+    const ua = navigator.userAgent;
+    let deviceType = 'Unknown Device';
+    let browser = 'Unknown Browser';
+    if (/Mobile|Android|iPhone|iPad/.test(ua)) {
+      if (/iPhone/.test(ua)) deviceType = 'iPhone';
+      else if (/iPad/.test(ua)) deviceType = 'iPad';
+      else if (/Android/.test(ua)) deviceType = 'Android Device';
+      else deviceType = 'Mobile Device';
+    } else {
+      deviceType = 'Desktop';
+    }
+    if (/Chrome/.test(ua)) browser = 'Chrome';
+    else if (/Firefox/.test(ua)) browser = 'Firefox';
+    else if (/Safari/.test(ua)) browser = 'Safari';
+    else if (/Edge/.test(ua)) browser = 'Edge';
+
+    return `${deviceType} - ${browser}`;
+  };
+
+// Enhanced OTP Input Component with corrected ref forwarding
+const OtpInput = forwardRef(({ value, onChange, disabled, index, onKeyDown, onPaste }, ref) => {
+  const handleChange = (e) => {
+    // Only allow a single digit
+    const val = e.target.value.replace(/\D/g, '').slice(0, 1);
+    onChange(index, val);
+  };
+
+  const handleKeyDown = (e) => {
+    onKeyDown(e, index);
+  };
+
+  const handlePaste = (e) => {
+    onPaste(e, index);
+  };
+
+  return (
+    &lt;TextField
+      // Correctly assign the forwarded ref to the input element
+      inputRef={ref}
+      value={value}
+      onChange={handleChange}
+      onKeyDown={handleKeyDown}
+      onPaste={handlePaste}
+      disabled={disabled}
+      inputProps={{
+        maxLength: 1,
+        style: {
+          textAlign: 'center',
+          fontSize: '1.5rem',
+          fontWeight: '500',
+          padding: '12px 0'
+        },
+        autoComplete: 'one-time-code'
+      }}
+      sx={{
+        width: '50px',
+        '&amp; .MuiOutlinedInput-root': {
+          borderRadius: '8px',
+          transition: 'all 0.2s ease-in-out',
+          '&amp;:hover fieldset': {
+            borderColor: disabled ? '#e0e0e0' : '#1976d2',
+            borderWidth: '2px'
+          },
+          '&amp;.Mui-focused fieldset': {
+            borderColor: '#1976d2',
+            borderWidth: '2px',
+            boxShadow: '0 0 0 3px rgba(25, 118, 210, 0.12)'
+          },
+          '&amp; fieldset': {
+            transition: 'all 0.2s ease-in-out'
+          }
+        },
+        '&amp; .MuiInputBase-input': {
+          transition: 'all 0.2s ease-in-out'
+        }
+      }}
+    />
+  );
+});
+
+const OtpVerification = ({
+  verifiedUser,
+  onOtpSuccess,
+  onResendOtp,
+  phoneNumber,
+  generatedOtp,
+  otpLoading = false,
+  sessionId
+}) => {
+  const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const [isVerifying, setIsVerifying] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(45);
+  const [isOtpExpired, setIsOtpExpired] = useState(false);
+  const [otpSentTime, setOtpSentTime] = useState(Date.now());
+  const [resendAttempts, setResendAttempts] = useState(3);
+  
+  // Trusted device states
+  const [trustThisDevice, setTrustThisDevice] = useState(false);
+  const [trustedDevices, setTrustedDevices] = useState([]);
+  const [isCurrentDeviceTrusted, setIsCurrentDeviceTrusted] = useState(false);
+  
+  const timerRef = useRef(null);
+  
+  // Create an array of refs, one for each input
+  const inputRefs = useRef([]);
+  inputRefs.current = otpValues.map((_, i) => inputRefs.current[i] ?? React.createRef());
+
+  const navigate = useNavigate();
+  
+  //const HostName = 'https://wftest1.iitm.ac.in:7000';
+  const API_TOKEN = 'HRFGVJISOVp1fncC';
+
+  const getUsername = () => {
+    const username = sessionStorage.getItem('username') ||
+                    localStorage.getItem('username') ||
+                    Cookies.get('username');
+    return username || '';
+  };
+
+  /**
+   * Checks if the current device is trusted for the given username
+   * @param {string} username - The username to check trusted devices for
+   * @returns {boolean} True if the device is trusted, false otherwise
+   */
+  const checkTrustedDevice = (username) => {
+    const deviceFingerprint = generateDeviceFingerprint();
+    const trustedDevicesData = localStorage.getItem(`trusted_devices_${username}`);
+
+    if (trustedDevicesData) {
+      const devices = JSON.parse(trustedDevicesData);
+      const currentTime = new Date().getTime();
+      const validDevices = devices.filter(device =>
+        currentTime &lt; device.expiresAt
+      );
+      localStorage.setItem(`trusted_devices_${username}`, JSON.stringify(validDevices));
+      setTrustedDevices(validDevices);
+      const trustedDevice = validDevices.find(device =>
+        device.fingerprint === deviceFingerprint
+      );
+
+      return !!trustedDevice;
+    }
+
+    return false;
+  };
+
+  /**
+   * Adds the current device to the trusted devices list for the given username.
+   * @function addTrustedDevice
+   * @param {string} username - The username to add the trusted device for
+   */
+  const addTrustedDevice = (username) => {
+    const deviceFingerprint = generateDeviceFingerprint();
+    const deviceInfo = getDeviceInfo(); // This now returns a string
+    const currentTime = new Date().getTime();
+    const expiresAt = currentTime + (TRUST_DURATION_DAYS * 24 * 60 * 60 * 1000);
+
+    const existingDevices = JSON.parse(localStorage.getItem(`trusted_devices_${username}`) || '[]');
+    const filteredDevices = existingDevices.filter(device =>
+      device.fingerprint !== deviceFingerprint
+    );
+
+    const newDevice = {
+      fingerprint: deviceFingerprint,
+      deviceInfo, // This is now a string, which is safe to store and render
+      trustedAt: currentTime,
+      expiresAt,
+      location: 'Current Location' // You can integrate with geolocation API
+    };
+
+    const updatedDevices = [...filteredDevices, newDevice];
+    localStorage.setItem(`trusted_devices_${username}`, JSON.stringify(updatedDevices));
+    setTrustedDevices(updatedDevices);
+  };
+
+  /**
+   * Removes a trusted device from the list for the given username.
+   * @function removeTrustedDevice
+   * @param {string} username - The username to remove the trusted device for
+   * @param {string} fingerprint - The fingerprint of the device to remove
+   */
+  const removeTrustedDevice = (username, fingerprint) => {
+    const existingDevices = JSON.parse(localStorage.getItem(`trusted_devices_${username}`) || '[]');
+    const updatedDevices = existingDevices.filter(device =>
+      device.fingerprint !== fingerprint
+    );
+    localStorage.setItem(`trusted_devices_${username}`, JSON.stringify(updatedDevices));
+    setTrustedDevices(updatedDevices);
+  };
+
+  const otp = otpValues.join('');
+
+  // Correctly focus the input using the ref
+  const focusInput = (index) => {
+    if (index >= 0 &amp;&amp; index &lt; 6 &amp;&amp; inputRefs.current[index]?.current) {
+      inputRefs.current[index].current.focus();
+    }
+  };
+  
+  const startOtpTimer = () => {
+    setTimeLeft(45);
+    setIsOtpExpired(false);
+    setOtpSentTime(Date.now());
+
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+
+    timerRef.current = setInterval(() => {
+      setTimeLeft((prevTime) => {
+        if (prevTime &lt;= 1) {
+          setIsOtpExpired(true);
+          clearInterval(timerRef.current);
+          if (resendAttempts &lt;= 0) {
+            setTimeout(() => window.location.reload(), 1000);
+          }
+          return 0;
+        }
+        return prevTime - 1;
+      });
+    }, 1000);
+  };
+
+  useEffect(() => {
+    startOtpTimer();
+    // Focus first input on mount
+    setTimeout(() => focusInput(0), 100);
+    
+    // Check if current device is trusted
+    const username = getUsername();
+    if (username) {
+      const isTrusted = checkTrustedDevice(username);
+      setIsCurrentDeviceTrusted(isTrusted);
+    }
+    
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (otp.length === 6 &amp;&amp; !isVerifying &amp;&amp; !isOtpExpired) {
+      handleOtpSubmit();
+    }
+  }, [otp]);
+
+  const handleOtpChange = (index, value) => {
+    const newOtpValues = [...otpValues];
+    newOtpValues[index] = value;
+    setOtpValues(newOtpValues);
+    
+    if (error) setError('');
+    if (success) setSuccess('');
+
+    // This logic now works correctly because refs are properly handled.
+    if (value &amp;&amp; index &lt; 5) {
+      setTimeout(() => focusInput(index + 1), 10);
+    }
+  };
+
+  const handleKeyDown = (e, index) => {
+    switch (e.key) {
+      case 'Backspace':
+        e.preventDefault();
+        const newValues = [...otpValues];
+        
+        if (otpValues[index]) {
+          newValues[index] = '';
+          setOtpValues(newValues);
+        } else if (index > 0) {
+          newValues[index - 1] = '';
+          setOtpValues(newValues);
+          focusInput(index - 1);
+        }
+        break;
+
+      case 'Delete':
+        e.preventDefault();
+        const deleteValues = [...otpValues];
+        deleteValues[index] = '';
+        setOtpValues(deleteValues);
+        break;
+
+      case 'ArrowLeft':
+        e.preventDefault();
+        focusInput(Math.max(0, index - 1));
+        break;
+
+      case 'ArrowRight':
+        e.preventDefault();
+        focusInput(Math.min(5, index + 1));
+        break;
+
+      case 'Home':
+        e.preventDefault();
+        focusInput(0);
+        break;
+
+      case 'End':
+        e.preventDefault();
+        focusInput(5);
+        break;
+
+      case 'Enter':
+        if (otp.length === 6) {
+          handleOtpSubmit();
+        }
+        break;
+
+      case '0': case '1': case '2': case '3': case '4':
+      case '5': case '6': case '7': case '8': case '9':
+        e.preventDefault();
+        handleOtpChange(index, e.key);
+        break;
+
+      default:
+        if (!/^\d$/.test(e.key) &amp;&amp; !['Tab', 'Shift'].includes(e.key)) {
+          e.preventDefault();
+        }
+        break;
+    }
+  };
+
+  const handlePaste = (e, index) => {
+    e.preventDefault();
+    const pastedData = e.clipboardData.getData('text').replace(/\D/g, '');
+    
+    if (pastedData.length > 0) {
+      const newOtpValues = [...otpValues];
+      const availableSlots = 6 - index;
+      const digitsToPaste = pastedData.slice(0, availableSlots);
+      
+      for (let i = 0; i &lt; digitsToPaste.length; i++) {
+        if (index + i &lt; 6) {
+          newOtpValues[index + i] = digitsToPaste[i];
+        }
+      }
+      
+      setOtpValues(newOtpValues);
+      
+      const nextFocusIndex = Math.min(index + digitsToPaste.length, 5);
+      setTimeout(() => focusInput(nextFocusIndex), 10);
+    }
+  };
+
+  const clearOtpInputs = () => {
+    setOtpValues(['', '', '', '', '', '']);
+    setTimeout(() => focusInput(0), 100);
+  };
+
+  const handleOtpSubmit = async () => {
+    if (otp.length !== 6) {
+      setError('Please enter all 6 digits');
+      return;
+    }
+
+    if (isOtpExpired) {
+      setError('OTP has expired. Please request a new one.');
+      return;
+    }
+
+    if (!isWebCryptoSupported()) {
+      setError('Web Crypto API not supported');
+      return;
+    }
+
+    setIsVerifying(true);
+    setError('');
+
+    try {
+      const username = getUsername();
+      if (!username) {
+        throw new Error('Username not found. Please login again.');
+      }
+
+      if (!sessionId) {
+        throw new Error('Session ID not found. Please login again.');
+      }
+
+      const headers = await getAuthHeaders();
+      const requestBody = {
+        token: API_TOKEN,
+        username: username,
+        mobileno: parseInt(phoneNumber?.replace(/\D/g, '') || '0'),
+        session_id: sessionId,
+        otp: parseInt(otp),
+        otpsendon: new Date(otpSentTime).toISOString(),
+        otpverifiedon: new Date().toISOString(),
+        status: 1,
+        updatedon: new Date().toISOString()
+      };
+
+      const response = await fetch(`${HostName}/Loginotpupdate`, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(requestBody)
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const encryptedData = await response.json();
+      if (!encryptedData.Data) {
+        throw new Error('No data received from server');
+      }
+
+      const decryptedData = await decryptData(encryptedData.Data);
+      const result = validateJsonData(decryptedData);
+
+      if (result.success &amp;&amp; result.validcheck === '1' &amp;&amp; result.message?.includes('successfully') &amp;&amp; result.session_id) {
+        setSuccess('OTP verified successfully!');
+        setError('');
+        Cookies.set('session_id', result.session_id, { expires: 7 });
+        
+        // Add device to trusted list if checkbox is checked
+        if (trustThisDevice &amp;&amp; !isCurrentDeviceTrusted) {
+          addTrustedDevice(username);
+          setSuccess('OTP verified successfully! Device trusted for 30 days.');
+        }
+        
+        if (timerRef.current) {
+          clearInterval(timerRef.current);
+        }
+
+        if (onOtpSuccess) {
+          onOtpSuccess({
+            user: {
+              ...verifiedUser,
+              username: username,
+              mobileNo: phoneNumber
+            },
+            sessionId: result.session_id,
+            apiResponse: result,
+            deviceTrusted: trustThisDevice || isCurrentDeviceTrusted
+          });
+        }
+      } else {
+        setError(result.message || 'OTP verification failed. Please try again.');
+        clearOtpInputs();
+      }
+    } catch (error) {
+      console.error('OTP verification error:', error);
+      setError(error.message || 'Network error. Please try again.');
+      clearOtpInputs();
+    } finally {
+      setIsVerifying(false);
+    }
+  };
+
+  const handleResendOtp = async () => {
+    if (resendAttempts &lt;= 0) {
+      setError('Maximum resend attempts reached. Page will refresh shortly...');
+      setTimeout(() => window.location.reload(), 3000);
+      return;
+    }
+
+    try {
+      setError('');
+      clearOtpInputs();
+      setSuccess('');
+
+      if (!sessionId) {
+        throw new Error('Session ID not available. Please login again.');
+      }
+
+      await onResendOtp();
+      const newAttempts = resendAttempts - 1;
+      setResendAttempts(newAttempts);
+      
+      if (newAttempts &lt;= 0) {
+        setError('This was your last resend attempt. Page will refresh shortly...');
+        setTimeout(() => window.location.reload(), 3000);
+        return;
+      }
+      
+      startOtpTimer();
+      setSuccess('New verification code sent!');
+      setTimeout(() => setSuccess(''), 3000);
+    } catch (error) {
+      setError(error.message || 'Failed to resend OTP. Please try again.');
+    }
+  };
+
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
+
+  return (
+    &lt;Box
+      sx={{
+        backgroundColor: 'rgb(255, 255, 255)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        p: 2
+      }}
+    >
+      &lt;Paper
+        elevation={3}
+        sx={{
+          width: 400,
+          minHeight: 520,
+          borderRadius: 3,
+          p: 4,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'space-between'
+        }}
+      >
+        {/* Header */}
+        &lt;Box sx={{ textAlign: 'center' }}>
+          &lt;Box
+            sx={{
+              width: 64,
+              height: 64,
+              borderRadius: '50%',
+              backgroundColor: '#e3f2fd',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              mx: 'auto',
+              mb: 2,
+              transition: 'all 0.3s ease'
+            }}
+          >
+            &lt;Security sx={{ fontSize: 32, color: '#1976d2' }} />
+          &lt;/Box>
+          &lt;Typography variant="h5" fontWeight="600" gutterBottom>
+            Verify OTP
+          &lt;/Typography>
+          &lt;Typography variant="body1" color="text.secondary" sx={{ mb: 1 }}>
+            Code sent to ••••••{phoneNumber?.slice(-4) || ''}
+          &lt;/Typography>
+          &lt;Typography variant="caption" color="text.secondary">
+            Enter the 6-digit code or paste it from your messages
+          &lt;/Typography>
+
+          {/* Device Status */}
+          {isCurrentDeviceTrusted &amp;&amp; (
+            &lt;Box sx={{ mt: 2 }}>
+              &lt;Chip
+                icon={&lt;VerifiedUser />}
+                label="Trusted Device"
+                color="success"
+                variant="outlined"
+                size="small"
+                sx={{
+                  fontWeight: 500,
+                  animation: 'pulse 2s ease-in-out',
+                  '@keyframes pulse': {
+                    '0%, 100%': { opacity: 1 },
+                    '50%': { opacity: 0.7 }
+                  }
+                }}
+              />
+            &lt;/Box>
+          )}
+        &lt;/Box>
+
+        {/* Timer */}
+        &lt;Box display="flex" alignItems="center" justifyContent="center" mt={3} mb={2}>
+          &lt;Timer
+            sx={{ 
+              mr: 1, 
+              color: timeLeft &lt;= 10 ? '#f44336' : '#1976d2', 
+              fontSize: 22,
+              animation: timeLeft &lt;= 10 ? 'pulse 1s infinite' : 'none',
+              '@keyframes pulse': {
+                '0%': { opacity: 1 },
+                '50%': { opacity: 0.5 },
+                '100%': { opacity: 1 }
+              }
+            }}
+          />
+          &lt;Typography
+            variant="body1"
+            color={timeLeft &lt;= 10 ? 'error' : 'primary'}
+            fontWeight="600"
+            sx={{ fontSize: '1.1rem' }}
+          >
+            {isOtpExpired ? 'Code Expired' : formatTime(timeLeft)}
+          &lt;/Typography>
+        &lt;/Box>
+
+        {/* Alerts */}
+        &lt;Box sx={{ width: '100%', mb: 2, minHeight: '60px' }}>
+          {error &amp;&amp; (
+            &lt;Alert 
+              severity="error" 
+              sx={{ 
+                borderRadius: 2, 
+                mb: 1,
+                animation: 'slideIn 0.3s ease-out',
+                '@keyframes slideIn': {
+                  '0%': { opacity: 0, transform: 'translateY(-10px)' },
+                  '100%': { opacity: 1, transform: 'translateY(0)' }
+                }
+              }}
+            >
+              {error}
+            &lt;/Alert>
+          )}
+          {success &amp;&amp; (
+            &lt;Alert 
+              severity="success" 
+              sx={{ 
+                borderRadius: 2,
+                animation: 'slideIn 0.3s ease-out'
+              }}
+            >
+              {success}
+            &lt;/Alert>
+          )}
+        &lt;/Box>
+
+        {/* OTP Input */}
+        &lt;Box sx={{ width: '100%', mb: 3 }}>
+          &lt;Typography variant="body1" fontWeight="600" gutterBottom textAlign="center" sx={{ mb: 3 }}>
+            Enter Verification Code
+          &lt;/Typography>
+
+          &lt;Stack
+            direction="row"
+            spacing={2}
+            justifyContent="center"
+            alignItems="center"
+            sx={{ mb: 2 }}
+          >
+            {otpValues.map((value, index) => (
+              &lt;OtpInput
+                key={index}
+                // Pass the correct ref to each input
+                ref={inputRefs.current[index]}
+                value={value}
+                onChange={handleOtpChange}
+                onKeyDown={handleKeyDown}
+                onPaste={handlePaste}
+                disabled={isOtpExpired || isVerifying}
+                index={index}
+              />
+            ))}
+          &lt;/Stack>
+
+          &lt;Typography 
+            variant="caption" 
+            color="text.secondary" 
+            textAlign="center" 
+            display="block"
+            sx={{ mt: 2 }}
+          >
+            {otp.length}/6 digits entered
+            {otp.length === 6 &amp;&amp; ' • Auto-verifying...'}
+          &lt;/Typography>
+
+          {/* Trust Device Option */}
+          {!isCurrentDeviceTrusted &amp;&amp; (
+            &lt;>
+              &lt;Divider sx={{ my: 2 }} />
+              &lt;Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                &lt;FormControlLabel
+                  control={
+                    &lt;Checkbox
+                      checked={trustThisDevice}
+                      onChange={(e) => setTrustThisDevice(e.target.checked)}
+                      color="primary"
+                      size="small"
+                    />
+                  }
+                  label={
+                    &lt;Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      &lt;DevicesOther sx={{ fontSize: 16, mr: 0.5, color: 'text.secondary' }} />
+                      &lt;Typography variant="body2" color="text.secondary">
+                        Trust this device for 30 days
+                      &lt;/Typography>
+                    &lt;/Box>
+                  }
+                  sx={{ m: 0 }}
+                />
+              &lt;/Box>
+              &lt;Typography
+                variant="caption"
+                color="text.secondary"
+                textAlign="center"
+                display="block"
+                sx={{ mt: 1 }}
+              >
+                Skip OTP verification on this device
+              &lt;/Typography>
+            &lt;/>
+          )}
+        &lt;/Box>
+
+        {/* Buttons */}
+        &lt;Stack spacing={2} sx={{ width: '100%' }}>
+          &lt;Button
+            variant="contained"
+            size="large"
+            onClick={handleOtpSubmit}
+            disabled={otp.length !== 6 || isVerifying || isOtpExpired}
+            sx={{
+              py: 1.5,
+              borderRadius: 2,
+              textTransform: 'none',
+              fontWeight: '600',
+              fontSize: '1rem',
+              transition: 'all 0.3s ease',
+              '&amp;:hover': {
+                transform: 'translateY(-1px)',
+                boxShadow: '0 4px 12px rgba(25, 118, 210, 0.3)'
+              }
+            }}
+          >
+            {isVerifying ? (
+              &lt;>
+                &lt;CircularProgress size={20} sx={{ mr: 1 }} />
+                Verifying...
+              &lt;/>
+            ) : (
+              'Verify Code'
+            )}
+          &lt;/Button>
+
+          &lt;Button
+            variant="outlined"
+            size="large"
+            onClick={handleResendOtp}
+            disabled={
+              otpLoading || isVerifying || (!isOtpExpired &amp;&amp; timeLeft > 0) || resendAttempts &lt;= 0
+            }
+            sx={{
+              py: 1.5,
+              borderRadius: 2,
+              textTransform: 'none',
+              fontWeight: '600',
+              fontSize: '1rem',
+              transition: 'all 0.3s ease',
+              '&amp;:hover': {
+                transform: 'translateY(-1px)',
+                borderWidth: '2px'
+              }
+            }}
+          >
+            {otpLoading ? (
+              &lt;>
+                &lt;CircularProgress size={20} sx={{ mr: 1 }} />
+                Sending...
+              &lt;/>
+            ) : (
+              `Resend Code (${resendAttempts} left)`
+            )}
+          &lt;/Button>
+
+          &lt;Button
+            variant="text"
+            size="small"
+            onClick={clearOtpInputs}
+            disabled={isVerifying || otp.length === 0}
+            sx={{
+              textTransform: 'none',
+              color: 'text.secondary',
+              '&amp;:hover': {
+                backgroundColor: 'rgba(0, 0, 0, 0.04)'
+              }
+            }}
+          >
+            Clear Code
+          &lt;/Button>
+        &lt;/Stack>
+      &lt;/Paper>
+    &lt;/Box>
+  );
+};
+
+export default OtpVerification;</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Wed Nov 05 2025 11:24:43 GMT+0530 (India Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

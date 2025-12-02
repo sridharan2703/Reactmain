@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/ui/Upload.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-AdditionalDetails.html">AdditionalDetails</a><ul class='methods'><li data-type='method'><a href="module-AdditionalDetails.html#~AdditionalDetails">AdditionalDetails</a></li><li data-type='method'><a href="module-AdditionalDetails.html#~AdditionalDetails">AdditionalDetails</a></li></ul></li><li></li><li><a href="module-ApprovalForm.html">ApprovalForm</a><ul class='methods'><li data-type='method'><a href="module-ApprovalForm.html#~ApprovalForm">ApprovalForm</a></li><li data-type='method'><a href="module-ApprovalForm.html#~ApprovalForm">ApprovalForm</a></li></ul></li><li></li><li><a href="module-EmployeeVisitForm.html">EmployeeVisitForm</a><ul class='methods'><li data-type='method'><a href="module-EmployeeVisitForm.html#~EmployeeVisitForm">EmployeeVisitForm</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~EmployeeVisitForm">EmployeeVisitForm</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~stripNonEnglish">stripNonEnglish</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~stripNonEnglish">stripNonEnglish</a></li></ul></li><li></li><li><a href="module-SaveandHold.html">SaveandHold</a><ul class='methods'><li data-type='method'><a href="module-SaveandHold.html#~SaveandHold">SaveandHold</a></li><li data-type='method'><a href="module-SaveandHold.html#~SaveandHold">SaveandHold</a></li><li data-type='method'><a href="module-SaveandHold.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-SaveandHold.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-SaveandHold.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-SaveandHold.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-SaveandHold.html#~getToColumnHtml">getToColumnHtml</a></li><li data-type='method'><a href="module-SaveandHold.html#~getToColumnHtml">getToColumnHtml</a></li></ul></li><li></li><li><a href="module-components_Roadmap.html">components/Roadmap</a><ul class='methods'><li data-type='method'><a href="module-components_Roadmap.html#~Roadmap">Roadmap</a></li></ul></li><li><a href="module-src_components_UIShowcase.html">src/components/UIShowcase</a><ul class='methods'><li data-type='method'><a href="module-src_components_UIShowcase.html#~UIShowcase">UIShowcase</a></li></ul></li><li><a href="module-src_components_authentication_OtpVerification.html">src/components/authentication/OtpVerification</a><ul class='methods'><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~addTrustedDevice">addTrustedDevice</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~generateDeviceFingerprint">generateDeviceFingerprint</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~getDeviceInfo">getDeviceInfo</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~removeTrustedDevice">removeTrustedDevice</a></li></ul></li><li><a href="module-src_components_ui.html">src/components/ui</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui.html#~AnimatedSlide">AnimatedSlide</a></li><li data-type='method'><a href="module-src_components_ui.html#~CardStyle">CardStyle</a></li></ul></li><li></li><li></li><li></li><li><a href="module-src_components_ui_Alerts.html">src/components/ui/Alerts</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Alerts.html#~Alerts">Alerts</a></li></ul></li><li><a href="module-src_components_ui_Avatar.html">src/components/ui/Avatar</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Avatar.html#~Avatar">Avatar</a></li></ul></li><li><a href="module-src_components_ui_Badge.html">src/components/ui/Badge</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Badge.html#~Badge">Badge</a></li></ul></li><li><a href="module-src_components_ui_Button.html">src/components/ui/Button</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Button.html#~Button">Button</a></li><li data-type='method'><a href="module-src_components_ui_Button.html#~ButtonGroup">ButtonGroup</a></li><li data-type='method'><a href="module-src_components_ui_Button.html#~NavigationContainer">NavigationContainer</a></li></ul></li><li><a href="module-src_components_ui_Card.html">src/components/ui/Card</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Card.html#~Card">Card</a></li></ul></li><li><a href="module-src_components_ui_Checkbox.html">src/components/ui/Checkbox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Checkbox.html#~Checkbox">Checkbox</a></li></ul></li><li><a href="module-src_components_ui_DialogBox.html">src/components/ui/DialogBox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_DialogBox.html#~DialogBox">DialogBox</a></li></ul></li><li><a href="module-src_components_ui_Dropdown.html">src/components/ui/Dropdown</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Dropdown.html#~Dropdown">Dropdown</a></li></ul></li><li><a href="module-src_components_ui_Input.html">src/components/ui/Input</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Input.html#~Input">Input</a></li></ul></li><li><a href="module-src_components_ui_Pagination.html">src/components/ui/Pagination</a></li><li><a href="module-src_components_ui_PriorityIcon.html">src/components/ui/PriorityIcon</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_PriorityIcon.html#~PriorityIcon">PriorityIcon</a></li></ul></li><li><a href="module-src_components_ui_TextArea.html">src/components/ui/TextArea</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_TextArea.html#~TextArea">TextArea</a></li></ul></li><li><a href="module-src_layouts_full_header_Profile.html">src/layouts/full/header/Profile</a></li><li><a href="module-src_pages_Inbox_Inbox.html">src/pages/Inbox/Inbox</a></li><li><a href="module-src_services_EnhancedDynamicDecryption.html">src/services/EnhancedDynamicDecryption</a><ul class='methods'><li data-type='method'><a href="module-src_services_EnhancedDynamicDecryption.html#~base64ToArrayBuffer">base64ToArrayBuffer</a></li><li data-type='method'><a href="module-src_services_EnhancedDynamicDecryption.html#~getAuthHeaders">getAuthHeaders</a></li></ul></li><li><a href="module-src_views_authentication_auth_AuthLogin.html">src/views/authentication/auth/AuthLogin</a></li><li><a href="module-src_views_authentication_auth_encryption.html">src/views/authentication/auth/encryption</a><ul class='methods'><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.authenticateUser">authenticateUser</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.decryptGCM">decryptGCM</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.encryptECB">encryptECB</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getDecryptKeyFromCookies">getDecryptKeyFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getSessionIdFromCookies">getSessionIdFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getUserFromCookies">getUserFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.isUserAuthenticated">isUserAuthenticated</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.logoutUser">logoutUser</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~deleteCookie">deleteCookie</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~generate256BitKey">generate256BitKey</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~getAuthHeaders">getAuthHeaders</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~getCookie">getCookie</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~insertSessionData">insertSessionData</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~saveUserToCookies">saveUserToCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~setCookie">setCookie</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#CommentsHistory">CommentsHistory</a></li><li><a href="global.html#DateInput">DateInput</a></li><li><a href="global.html#DatePicker">DatePicker</a></li><li><a href="global.html#DateRangePicker">DateRangePicker</a></li><li><a href="global.html#DocumentUpload">DocumentUpload</a></li><li><a href="global.html#DropZone">DropZone</a></li><li><a href="global.html#FileUpload">FileUpload</a></li><li><a href="global.html#ImageUpload">ImageUpload</a></li><li><a href="global.html#InlineDateRangePicker">InlineDateRangePicker</a></li><li><a href="global.html#Login2">Login2</a></li><li><a href="global.html#MultiFileUpload">MultiFileUpload</a></li><li><a href="global.html#TaskCard">TaskCard</a></li><li><a href="global.html#TaskSummaryPage">TaskSummaryPage</a></li><li><a href="global.html#base64ToArrayBuffer">base64ToArrayBuffer</a></li><li><a href="global.html#decrypt">decrypt</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/ui/Upload.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @fileoverview
+ * Generic File Upload Component Suite
+ * 
+ * This file provides a set of reusable, easy-to-use file upload components using Material-UI:
+ *  - FileUpload: A single file input with label, preview (for images), and validation states.
+ *    Supports a `type` prop to handle photo vs. document uploads differently based on parent input.
+ *  - MultiFileUpload: Multiple file inputs for selecting and managing several files.
+ *  - ImageUpload: A specialized single image upload with automatic preview (wrapper for FileUpload with type='photo').
+ *  - DocumentUpload: A single document upload with file type restrictions and name display (wrapper for FileUpload with type='document').
+ * 
+ * These components are styled using Material-UI for visual consistency and flexibility.
+ * Supports drag-and-drop, file previews (images), removal, and error handling.
+ * The `type` prop in FileUpload allows parents to specify 'photo' (images only, preview always), 
+ * 'document' (docs only, no preview), or 'general' (any file, preview if image).
+ */
+
+import React, { useState, useRef, useEffect } from 'react';
+import {
+  Box,
+  Button,
+  FormControl,
+  FormHelperText,
+  InputLabel,
+  Typography,
+  Chip,
+  IconButton,
+  Paper,
+  useTheme,
+  styled,
+} from '@mui/material';
+import {
+  CloudUpload as CloudUploadIcon,
+  Delete as DeleteIcon,
+  InsertDriveFile as InsertDriveFileIcon,
+  Image as ImageIcon,
+  PictureAsPdf as PictureAsPdfIcon,
+} from '@mui/icons-material';
+
+/**
+ * Styled drop zone for drag-and-drop functionality.
+ */
+const DropZone = styled(Paper)(({ theme, isDragOver }) => ({
+  border: `2px dashed ${isDragOver ? theme.palette.primary.main : theme.palette.grey[400]}`,
+  borderRadius: theme.shape.borderRadius,
+  padding: theme.spacing(2),
+  textAlign: 'center',
+  backgroundColor: isDragOver ? theme.palette.action.hover : 'transparent',
+  transition: 'all 0.2s ease-in-out',
+  cursor: 'pointer',
+  '&amp;:hover': {
+    borderColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.action.hover,
+  },
+}));
+
+/**
+ * ✅ Single File Upload Component
+ * 
+ * Displays a file input with optional label, preview (for images), error message, and helper text.
+ * Supports drag-and-drop. Behavior changes based on `type` prop from parent:
+ * - 'photo': Accepts images only, always shows preview.
+ * - 'document': Accepts documents only, shows file name with icon, no preview.
+ * - 'general': Accepts any file, preview if image, else file name.
+ * Parent can pass separate onChange handlers for photo vs. document logic if needed.
+ *
+ * @param {Object} props - Component props.
+ * @param {string} [props.label] - The label text displayed above the upload area.
+ * @param {File|null} [props.value] - The currently uploaded file (for controlled component).
+ * @param {Function} props.onChange - Function called with the new File when a file is selected.
+ * @param {string} [props.type='general'] - 'photo', 'document', or 'general' to handle diff upload behaviors.
+ * @param {string} [props.accept] - Accepted file types (overridden by type if not provided).
+ * @param {boolean} [props.error=false] - If true, shows error styling and helper text.
+ * @param {string} [props.helperText] - Text shown below the input (e.g., error message or hint).
+ * @param {boolean} [props.fullWidth=false] - Makes the component expand to full container width.
+ * @param {boolean} [props.required=false] - Marks the upload as required.
+ * @param {boolean} [props.disabled=false] - Disables the upload area.
+ * @param {string} [props.className] - Additional CSS classes for customization.
+ * @param {Object} [props.sx] - MUI sx prop for styling overrides.
+ */
+export const FileUpload = ({
+  label,
+  value,
+  onChange,
+  type = 'general',
+  accept,
+  error = false,
+  helperText,
+  fullWidth = false,
+  required = false,
+  disabled = false,
+  className = '',
+  sx,
+}) => {
+  const [previewUrl, setPreviewUrl] = useState(null);
+  const [isDragOver, setIsDragOver] = useState(false);
+  const fileInputRef = useRef(null);
+
+  // Define accept types based on type prop from parent
+  const acceptTypes = {
+    photo: 'image/*',
+    document: '.pdf,.doc,.docx,.txt',
+    general: '*/*',
+  };
+  const effectiveAccept = accept || acceptTypes[type];
+
+  // Determine if preview should be shown
+  const shouldShowPreview = (file) => {
+    if (type === 'document') return false;
+    return file?.type.startsWith('image/');
+  };
+
+  // Separate handling for photo vs. document in preview logic
+  const handleFileChange = (file) => {
+    if (file &amp;&amp; onChange) {
+      onChange(file);
+      if (shouldShowPreview(file)) {
+        const url = URL.createObjectURL(file);
+        setPreviewUrl(url);
+      } else {
+        setPreviewUrl(null);
+      }
+    }
+  };
+
+  const handleRemove = () => {
+    if (onChange) onChange(null);
+    setPreviewUrl(null);
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setIsDragOver(false);
+    const file = e.dataTransfer.files[0];
+    if (file &amp;&amp; (effectiveAccept === '*' || effectiveAccept.split(',').some(t => file.type.includes(t.trim().replace('*', ''))))) {
+      handleFileChange(file);
+    }
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setIsDragOver(true);
+  };
+
+  const handleDragLeave = () => setIsDragOver(false);
+
+  useEffect(() => {
+    return () => {
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+    };
+  }, [previewUrl]);
+
+  const hasFile = value;
+  const showPreview = hasFile &amp;&amp; shouldShowPreview(value);
+
+  // Get icon based on type
+  const getFileIcon = () => {
+    if (showPreview) return &lt;ImageIcon />;
+    if (type === 'document' &amp;&amp; value?.name.toLowerCase().endsWith('.pdf')) return &lt;PictureAsPdfIcon />;
+    return &lt;InsertDriveFileIcon />;
+  };
+
+  return (
+    &lt;FormControl
+      fullWidth={fullWidth}
+      error={error}
+      disabled={disabled}
+      sx={{ width: fullWidth ? '100%' : 'auto', ...sx }}
+      className={className}
+    >
+      {label &amp;&amp; (
+        &lt;InputLabel shrink>
+          {label}
+          {required &amp;&amp; &lt;sup style={{ color: 'red' }}>*&lt;/sup>}
+        &lt;/InputLabel>
+      )}
+
+      &lt;Box
+        component="label"
+        onDrop={handleDrop}
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        sx={{
+          cursor: disabled ? 'not-allowed' : 'pointer',
+          opacity: disabled ? 0.6 : 1,
+        }}
+      >
+        &lt;input
+          ref={fileInputRef}
+          type="file"
+          accept={effectiveAccept}
+          onChange={(e) => handleFileChange(e.target.files?.[0] || null)}
+          disabled={disabled}
+          style={{ display: 'none' }}
+        />
+        {hasFile ? (
+          &lt;Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1, p: 2 }}>
+            {showPreview &amp;&amp; (
+              &lt;Box
+                component="img"
+                src={previewUrl}
+                alt="Preview"
+                sx={{ maxWidth: 200, maxHeight: 200, borderRadius: 1, objectFit: 'cover' }}
+              />
+            )}
+            &lt;Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              {getFileIcon()}
+              &lt;Typography variant="body2" color="text.secondary" noWrap sx={{ maxWidth: 150 }}>
+                {value?.name || 'File selected'}
+              &lt;/Typography>
+            &lt;/Box>
+            &lt;IconButton onClick={handleRemove} size="small" disabled={disabled}>
+              &lt;DeleteIcon fontSize="small" />
+            &lt;/IconButton>
+          &lt;/Box>
+        ) : (
+          &lt;DropZone isDragOver={isDragOver} elevation={isDragOver ? 2 : 0}>
+            &lt;CloudUploadIcon sx={{ fontSize: 48, color: 'grey.400', mb: 1 }} />
+            &lt;Typography variant="body1" color="text.secondary">
+              Drag &amp; drop or click to upload
+            &lt;/Typography>
+            &lt;Typography variant="caption" color="grey.500">
+              {type === 'photo' ? 'Images' : type === 'document' ? 'Documents' : 'Any file'} supported
+            &lt;/Typography>
+          &lt;/DropZone>
+        )}
+      &lt;/Box>
+
+      {helperText &amp;&amp; &lt;FormHelperText>{helperText}&lt;/FormHelperText>}
+    &lt;/FormControl>
+  );
+};
+
+/**
+ * ✅ Multi File Upload Component
+ * 
+ * Allows uploading multiple files with previews (for images) and individual removal.
+ * Supports `type` prop for consistent behavior across files (e.g., only photos or documents).
+ * Parent can use separate onChange for batch photo vs. document handling.
+ *
+ * Common use case: Attaching multiple documents or photos (e.g., gallery, attachments).
+ *
+ * @param {Object} props - Component props.
+ * @param {File[]} [props.value=[]] - Array of currently uploaded files.
+ * @param {Function} props.onChange - Called with the updated File[] array.
+ * @param {string} [props.type='general'] - 'photo', 'document', or 'general' for diff behaviors.
+ * @param {string} [props.accept] - Accepted file types (overridden by type).
+ * @param {number} [props.maxFiles=5] - Maximum number of files allowed.
+ * @param {boolean} [props.error=false] - Error state for the entire component.
+ * @param {string} [props.helperText] - Helper or error text.
+ * @param {boolean} [props.fullWidth=false] - Full width layout.
+ * @param {boolean} [props.required=false] - Required indicator.
+ * @param {boolean} [props.disabled=false] - Disabled state.
+ * @param {Object} [props.sx] - MUI sx overrides.
+ */
+export const MultiFileUpload = ({
+  value = [],
+  onChange,
+  type = 'general',
+  accept,
+  maxFiles = 5,
+  error = false,
+  helperText,
+  fullWidth = false,
+  required = false,
+  disabled = false,
+  sx,
+}) => {
+  const [previewUrls, setPreviewUrls] = useState([]);
+  const [isDragOver, setIsDragOver] = useState(false);
+  const fileInputRef = useRef(null);
+
+  // Define accept types based on type prop
+  const acceptTypes = {
+    photo: 'image/*',
+    document: '.pdf,.doc,.docx,.txt',
+    general: '*/*',
+  };
+  const effectiveAccept = accept || acceptTypes[type];
+
+  // Determine if preview should be shown for a file
+  const shouldShowPreview = (file) => {
+    if (type === 'document') return false;
+    return file?.type.startsWith('image/');
+  };
+
+  const handleFilesChange = (files) => {
+    const newFiles = Array.from(files).filter(
+      (file) => effectiveAccept === '*' || effectiveAccept.split(',').some(t => file.type.includes(t.trim().replace('*', '')))
+    );
+    const updatedFiles = [...value, ...newFiles].slice(0, maxFiles);
+    if (onChange) onChange(updatedFiles);
+  };
+
+  const handleRemove = (indexToRemove) => {
+    const updated = value.filter((_, index) => index !== indexToRemove);
+    if (onChange) onChange(updated);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setIsDragOver(false);
+    handleFilesChange(e.dataTransfer.files);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setIsDragOver(true);
+  };
+
+  const handleDragLeave = () => setIsDragOver(false);
+
+  useEffect(() => {
+    const urls = value
+      .map((file, index) => shouldShowPreview(file) ? URL.createObjectURL(file) : null)
+      .filter(Boolean);
+    setPreviewUrls(urls);
+
+    return () => {
+      urls.forEach(url => URL.revokeObjectURL(url));
+    };
+  }, [value, type]);
+
+  const canUploadMore = value.length &lt; maxFiles;
+
+  // Get icon for each file
+  const getFileIcon = (file, index) => {
+    if (shouldShowPreview(file)) return &lt;ImageIcon key={index} />;
+    if (type === 'document' &amp;&amp; file?.name.toLowerCase().endsWith('.pdf')) return &lt;PictureAsPdfIcon key={index} />;
+    return &lt;InsertDriveFileIcon key={index} />;
+  };
+
+  return (
+    &lt;Box sx={{ width: fullWidth ? '100%' : 'auto', ...sx }}>
+      &lt;Box
+        component="label"
+        onDrop={handleDrop}
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        sx={{ cursor: disabled ? 'not-allowed' : 'pointer', opacity: disabled ? 0.6 : 1 }}
+      >
+        &lt;input
+          ref={fileInputRef}
+          type="file"
+          accept={effectiveAccept}
+          multiple
+          onChange={(e) => handleFilesChange(e.target.files)}
+          disabled={disabled || !canUploadMore}
+          style={{ display: 'none' }}
+        />
+        {value.length === 0 ? (
+          &lt;DropZone isDragOver={isDragOver} elevation={isDragOver ? 2 : 0}>
+            &lt;CloudUploadIcon sx={{ fontSize: 48, color: 'grey.400', mb: 1 }} />
+            &lt;Typography variant="body1" color="text.secondary">
+              Drag &amp; drop or click to upload {maxFiles > 1 ? `up to ${maxFiles} files` : 'a file'}
+            &lt;/Typography>
+            &lt;Typography variant="caption" color="grey.500">
+              {type === 'photo' ? 'Images' : type === 'document' ? 'Documents' : 'Any file'} supported
+            &lt;/Typography>
+          &lt;/DropZone>
+        ) : (
+          &lt;Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, p: 2 }}>
+            {value.map((file, index) => (
+              &lt;Chip
+                key={index}
+                label={file.name}
+                icon={getFileIcon(file, index)}
+                onDelete={() => handleRemove(index)}
+                color={error ? 'error' : 'default'}
+                variant="outlined"
+                size="small"
+                sx={{ maxWidth: 200, overflow: 'hidden' }}
+              />
+            ))}
+            {canUploadMore &amp;&amp; (
+              &lt;Button
+                variant="outlined"
+                startIcon={&lt;CloudUploadIcon />}
+                onClick={() => fileInputRef.current?.click()}
+                disabled={disabled}
+              >
+                Add More
+              &lt;/Button>
+            )}
+          &lt;/Box>
+        )}
+      &lt;/Box>
+      {value.length > 0 &amp;&amp; previewUrls.length > 0 &amp;&amp; type !== 'document' &amp;&amp; (
+        &lt;Box sx={{ mt: 2, display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+          {previewUrls.map((url, index) => (
+            &lt;Box key={index} sx={{ position: 'relative' }}>
+              &lt;Box
+                component="img"
+                src={url}
+                sx={{ width: 100, height: 100, objectFit: 'cover', borderRadius: 1 }}
+              />
+              &lt;IconButton
+                size="small"
+                onClick={() => handleRemove(index)}
+                sx={{ position: 'absolute', top: 0, right: 0, bgcolor: 'white' }}
+                disabled={disabled}
+              >
+                &lt;DeleteIcon fontSize="small" />
+              &lt;/IconButton>
+            &lt;/Box>
+          ))}
+        &lt;/Box>
+      )}
+      {helperText &amp;&amp; (
+        &lt;FormHelperText error={error} sx={{ mt: 1 }}>
+          {helperText} {required &amp;&amp; value.length === 0 &amp;&amp; &lt;sup style={{ color: 'red' }}>*&lt;/sup>}
+        &lt;/FormHelperText>
+      )}
+    &lt;/Box>
+  );
+};
+
+/**
+ * ✅ Image Upload Component
+ * 
+ * Wrapper for FileUpload with type='photo' for photo-specific handling.
+ * Parent can pass photo-specific onChange.
+ *
+ * @param {Object} props - Props passed to FileUpload.
+ */
+export const ImageUpload = (props) => &lt;FileUpload type="photo" {...props} />;
+
+/**
+ * ✅ Document Upload Component
+ * 
+ * Wrapper for FileUpload with type='document' for document-specific handling (no preview).
+ * Parent can pass document-specific onChange.
+ *
+ * @param {Object} props - Props passed to FileUpload.
+ */
+export const DocumentUpload = (props) => &lt;FileUpload type="document" {...props} />;
+
+/** ✅ Default export: The main FileUpload component */
+export default FileUpload;</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Wed Nov 05 2025 11:24:43 GMT+0530 (India Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/ui/Dropdown.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-AdditionalDetails.html">AdditionalDetails</a><ul class='methods'><li data-type='method'><a href="module-AdditionalDetails.html#~AdditionalDetails">AdditionalDetails</a></li><li data-type='method'><a href="module-AdditionalDetails.html#~AdditionalDetails">AdditionalDetails</a></li></ul></li><li></li><li><a href="module-ApprovalForm.html">ApprovalForm</a><ul class='methods'><li data-type='method'><a href="module-ApprovalForm.html#~ApprovalForm">ApprovalForm</a></li><li data-type='method'><a href="module-ApprovalForm.html#~ApprovalForm">ApprovalForm</a></li></ul></li><li></li><li><a href="module-EmployeeVisitForm.html">EmployeeVisitForm</a><ul class='methods'><li data-type='method'><a href="module-EmployeeVisitForm.html#~EmployeeVisitForm">EmployeeVisitForm</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~EmployeeVisitForm">EmployeeVisitForm</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~stripNonEnglish">stripNonEnglish</a></li><li data-type='method'><a href="module-EmployeeVisitForm.html#~stripNonEnglish">stripNonEnglish</a></li></ul></li><li></li><li><a href="module-SaveandHold.html">SaveandHold</a><ul class='methods'><li data-type='method'><a href="module-SaveandHold.html#~SaveandHold">SaveandHold</a></li><li data-type='method'><a href="module-SaveandHold.html#~SaveandHold">SaveandHold</a></li><li data-type='method'><a href="module-SaveandHold.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-SaveandHold.html#~calculateDuration">calculateDuration</a></li><li data-type='method'><a href="module-SaveandHold.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-SaveandHold.html#~formatTimestamp">formatTimestamp</a></li><li data-type='method'><a href="module-SaveandHold.html#~getToColumnHtml">getToColumnHtml</a></li><li data-type='method'><a href="module-SaveandHold.html#~getToColumnHtml">getToColumnHtml</a></li></ul></li><li></li><li><a href="module-components_Roadmap.html">components/Roadmap</a><ul class='methods'><li data-type='method'><a href="module-components_Roadmap.html#~Roadmap">Roadmap</a></li></ul></li><li><a href="module-src_components_UIShowcase.html">src/components/UIShowcase</a><ul class='methods'><li data-type='method'><a href="module-src_components_UIShowcase.html#~UIShowcase">UIShowcase</a></li></ul></li><li><a href="module-src_components_authentication_OtpVerification.html">src/components/authentication/OtpVerification</a><ul class='methods'><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~addTrustedDevice">addTrustedDevice</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~generateDeviceFingerprint">generateDeviceFingerprint</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~getDeviceInfo">getDeviceInfo</a></li><li data-type='method'><a href="module-src_components_authentication_OtpVerification.html#~removeTrustedDevice">removeTrustedDevice</a></li></ul></li><li><a href="module-src_components_ui.html">src/components/ui</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui.html#~AnimatedSlide">AnimatedSlide</a></li><li data-type='method'><a href="module-src_components_ui.html#~CardStyle">CardStyle</a></li></ul></li><li></li><li></li><li></li><li><a href="module-src_components_ui_Alerts.html">src/components/ui/Alerts</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Alerts.html#~Alerts">Alerts</a></li></ul></li><li><a href="module-src_components_ui_Avatar.html">src/components/ui/Avatar</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Avatar.html#~Avatar">Avatar</a></li></ul></li><li><a href="module-src_components_ui_Badge.html">src/components/ui/Badge</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Badge.html#~Badge">Badge</a></li></ul></li><li><a href="module-src_components_ui_Button.html">src/components/ui/Button</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Button.html#~Button">Button</a></li><li data-type='method'><a href="module-src_components_ui_Button.html#~ButtonGroup">ButtonGroup</a></li><li data-type='method'><a href="module-src_components_ui_Button.html#~NavigationContainer">NavigationContainer</a></li></ul></li><li><a href="module-src_components_ui_Card.html">src/components/ui/Card</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Card.html#~Card">Card</a></li></ul></li><li><a href="module-src_components_ui_Checkbox.html">src/components/ui/Checkbox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Checkbox.html#~Checkbox">Checkbox</a></li></ul></li><li><a href="module-src_components_ui_DialogBox.html">src/components/ui/DialogBox</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_DialogBox.html#~DialogBox">DialogBox</a></li></ul></li><li><a href="module-src_components_ui_Dropdown.html">src/components/ui/Dropdown</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Dropdown.html#~Dropdown">Dropdown</a></li></ul></li><li><a href="module-src_components_ui_Input.html">src/components/ui/Input</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_Input.html#~Input">Input</a></li></ul></li><li><a href="module-src_components_ui_Pagination.html">src/components/ui/Pagination</a></li><li><a href="module-src_components_ui_PriorityIcon.html">src/components/ui/PriorityIcon</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_PriorityIcon.html#~PriorityIcon">PriorityIcon</a></li></ul></li><li><a href="module-src_components_ui_TextArea.html">src/components/ui/TextArea</a><ul class='methods'><li data-type='method'><a href="module-src_components_ui_TextArea.html#~TextArea">TextArea</a></li></ul></li><li><a href="module-src_layouts_full_header_Profile.html">src/layouts/full/header/Profile</a></li><li><a href="module-src_pages_Inbox_Inbox.html">src/pages/Inbox/Inbox</a></li><li><a href="module-src_services_EnhancedDynamicDecryption.html">src/services/EnhancedDynamicDecryption</a><ul class='methods'><li data-type='method'><a href="module-src_services_EnhancedDynamicDecryption.html#~base64ToArrayBuffer">base64ToArrayBuffer</a></li><li data-type='method'><a href="module-src_services_EnhancedDynamicDecryption.html#~getAuthHeaders">getAuthHeaders</a></li></ul></li><li><a href="module-src_views_authentication_auth_AuthLogin.html">src/views/authentication/auth/AuthLogin</a></li><li><a href="module-src_views_authentication_auth_encryption.html">src/views/authentication/auth/encryption</a><ul class='methods'><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.authenticateUser">authenticateUser</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.decryptGCM">decryptGCM</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.encryptECB">encryptECB</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getDecryptKeyFromCookies">getDecryptKeyFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getSessionIdFromCookies">getSessionIdFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.getUserFromCookies">getUserFromCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.isUserAuthenticated">isUserAuthenticated</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#.logoutUser">logoutUser</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~deleteCookie">deleteCookie</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~generate256BitKey">generate256BitKey</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~getAuthHeaders">getAuthHeaders</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~getCookie">getCookie</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~insertSessionData">insertSessionData</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~saveUserToCookies">saveUserToCookies</a></li><li data-type='method'><a href="module-src_views_authentication_auth_encryption.html#~setCookie">setCookie</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#CommentsHistory">CommentsHistory</a></li><li><a href="global.html#DateInput">DateInput</a></li><li><a href="global.html#DatePicker">DatePicker</a></li><li><a href="global.html#DateRangePicker">DateRangePicker</a></li><li><a href="global.html#DocumentUpload">DocumentUpload</a></li><li><a href="global.html#DropZone">DropZone</a></li><li><a href="global.html#FileUpload">FileUpload</a></li><li><a href="global.html#ImageUpload">ImageUpload</a></li><li><a href="global.html#InlineDateRangePicker">InlineDateRangePicker</a></li><li><a href="global.html#Login2">Login2</a></li><li><a href="global.html#MultiFileUpload">MultiFileUpload</a></li><li><a href="global.html#TaskCard">TaskCard</a></li><li><a href="global.html#TaskSummaryPage">TaskSummaryPage</a></li><li><a href="global.html#base64ToArrayBuffer">base64ToArrayBuffer</a></li><li><a href="global.html#decrypt">decrypt</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/ui/Dropdown.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// // /**
+// //  * @fileoverview Styles and component for a customizable Dropdown select input.
+// //  * Supports rendering a list of options and custom styling for consistent UI.
+// //  * @module src/components/ui/Dropdown
+// //  * @author Rakshana
+// //  * @date 12/09/2025
+// //  * @since 1.0.0
+// //  */
+
+// // import React from "react";
+
+// // /**
+// //  * Styles for the Dropdown component.
+// //  * Includes base styles for width, padding, border, font, background, and cursor.
+// //  *
+// //  * 📝 Example usage of styles:
+// //  * Input:
+// //  * &lt;select style={dropdownStyles.base}>
+// //  *   &lt;option value="1">Option 1&lt;/option>
+// //  *   &lt;option value="2">Option 2&lt;/option>
+// //  * &lt;/select>
+// //  *
+// //  * Output:
+// //  * A white select input with rounded corners, padding, and a pointer cursor.
+// //  *
+// //  * @type {Object&lt;string, React.CSSProperties>}
+// //  */
+// // const dropdownStyles = {
+// //   base: {
+// //     width: "100%",
+// //     padding: "10px 14px",
+// //     borderRadius: "8px",
+// //     border: "1px solid #D1D5DB",
+// //     fontSize: "16px",
+// //     backgroundColor: "white",
+// //     cursor: "pointer",
+// //   },
+// // };
+
+// // /**
+// //  * Dropdown component for rendering a select input with options.
+// //  *
+// //  * 📝 Example:
+// //  * Input:
+// //  * &lt;Dropdown
+// //  *   options={[
+// //  *     { value: "1", label: "Option 1" },
+// //  *     { value: "2", label: "Option 2" }
+// //  *   ]}
+// //  * />
+// //  *
+// //  * Output:
+// //  * A white dropdown select box displaying "Option 1" and "Option 2".
+// //  *
+// //  * @param {Object} props - Props passed to the Dropdown component.
+// //  * @param {Array&lt;{ value: string | number, label: string }>} props.options - List of options to display.
+// //  * @returns {JSX.Element} Rendered Dropdown component.
+// //  */
+// // const Dropdown = ({ options, ...props }) => {
+// //   return (
+// //     &lt;select style={dropdownStyles.base} {...props}>
+// //       {options.map((option) => (
+// //         &lt;option key={option.value} value={option.value}>
+// //           {option.label}
+// //         &lt;/option>
+// //       ))}
+// //     &lt;/select>
+// //   );
+// // };
+
+// // export default Dropdown;
+
+
+
+
+
+
+
+
+
+// /**
+//  * @fileoverview A versatile Dropdown component.
+//  * Supports standard, searchable, multi-select, grouped, custom-rendered,
+//  * and async-loaded dropdowns.
+//  * @module src/components/ui/Dropdown
+//  * @author Rakshana
+//  * @date 15/09/2025
+//  * @since 2.0.0
+//  */
+
+// import React, { useState, useRef, useEffect } from "react";
+// import {
+//   FormControl,
+//   InputLabel,
+//   Select,
+//   MenuItem,
+//   OutlinedInput,
+//   Checkbox,
+//   ListItemText,
+// } from "@mui/material";
+
+// // --- STYLES ---
+// const baseInputStyle = {
+//   width: "100%",
+//   padding: "10px 14px",
+//   borderRadius: "8px",
+//   border: "1px solid #D1D5DB",
+//   fontSize: "16px",
+//   boxSizing: "border-box",
+// };
+
+// const dropdownStyles = {
+//   container: { position: "relative", width: "100%", fontFamily: "sans-serif" },
+//   select: {
+//     ...baseInputStyle,
+//     cursor: "pointer",
+//     appearance: "none",
+//     backgroundColor: "white",
+//     backgroundImage: `url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%236B7280%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22/%3E%3C/svg%3E')`,
+//     backgroundRepeat: "no-repeat",
+//     backgroundPosition: "right 14px top 50%",
+//     backgroundSize: "12px",
+//   },
+//   input: baseInputStyle,
+//   disabled: {
+//     backgroundColor: "#F3F4F6",
+//     cursor: "not-allowed",
+//     color: "#9CA3AF",
+//   },
+//   error: { borderColor: "#EF4444" },
+//   optionsList: {
+//     position: "absolute",
+//     top: "100%",
+//     left: 0,
+//     right: 0,
+//     backgroundColor: "white",
+//     border: "1px solid #D1D5DB",
+//     borderRadius: "8px",
+//     marginTop: "4px",
+//     maxHeight: "200px",
+//     overflowY: "auto",
+//     listStyle: "none",
+//     padding: 0,
+//     margin: 0,
+//     zIndex: 1000,
+//     boxShadow:
+//       "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+//   },
+//   optionItem: {
+//     padding: "10px 14px",
+//     cursor: "pointer",
+//     borderBottom: "1px solid #F3F4F6",
+//   },
+//   optionItemHover: { backgroundColor: "#F3F4F6" },
+// };
+
+// const errorMessageStyle = {
+//   color: "#D32F2F",
+//   fontSize: "14px",
+//   marginTop: "4px",
+// };
+
+// /**
+//  * Dropdown Component Variants
+//  *
+//  * @param {Object} props
+//  * @param {boolean} [props.isSearchable=false] - Enables searchable input.
+//  * @param {boolean} [props.isMulti=false] - Enables multi-select.
+//  * @param {boolean} [props.isGrouped=false] - Enables grouped options.
+//  * @param {Array&lt;{value:any,label:string,group?:string,icon?:React.ReactNode}>} props.options - Options.
+//  * @param {any|any[]} props.value - Selected value(s).
+//  * @param {Function} props.onChange - Callback when value changes.
+//  * @param {boolean} [props.disabled] - Disables dropdown.
+//  * @param {string} [props.error] - Error message.
+//  * @param {string} [props.placeholder] - Placeholder text.
+//  * @param {() => Promise&lt;any[]>} [props.asyncLoadOptions] - Async options fetcher.
+//  * @param {(option:any,isSelected:boolean)=>React.ReactNode} [props.renderOption] - Custom renderer.
+//  */
+
+// const Dropdown = ({
+//   isSearchable = false,
+//   isMulti = false,
+//   isGrouped = false,
+//   options: initialOptions = [],
+//   value,
+//   onChange,
+//   disabled,
+//   error,
+//   placeholder,
+//   asyncLoadOptions,
+//   renderOption,
+//   label,
+//   ...props
+// }) => {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const [searchTerm, setSearchTerm] = useState("");
+//   const [hoveredIndex, setHoveredIndex] = useState(null);
+//   const [options, setOptions] = useState(initialOptions);
+//   const dropdownRef = useRef(null);
+
+//   // --- Async Loader ---
+//   useEffect(() => {
+//     if (asyncLoadOptions) {
+//       asyncLoadOptions().then((data) => setOptions(data));
+//     }
+//   }, [asyncLoadOptions]);
+
+//   // --- Outside click close ---
+//   useEffect(() => {
+//     const handleOutsideClick = (event) => {
+//       if (dropdownRef.current &amp;&amp; !dropdownRef.current.contains(event.target)) {
+//         setIsOpen(false);
+//       }
+//     };
+//     document.addEventListener("mousedown", handleOutsideClick);
+//     return () => document.removeEventListener("mousedown", handleOutsideClick);
+//   }, []);
+
+//   // --- Filter Options ---
+//   const filteredOptions = isSearchable
+//     ? options.filter((opt) =>
+//         opt.label.toLowerCase().includes(searchTerm.toLowerCase())
+//       )
+//     : options;
+
+//   // --- Handle Select ---
+//   const handleSelect = (option) => {
+//     if (isMulti) {
+//       const isSelected = Array.isArray(value)
+//         ? value.some((v) => v.value === option.value)
+//         : false;
+//       let newValue;
+//       if (isSelected) {
+//         newValue = value.filter((v) => v.value !== option.value);
+//       } else {
+//         newValue = [...(value || []), option];
+//       }
+//       onChange(newValue);
+//     } else {
+//       onChange(option);
+//       setIsOpen(false);
+//     }
+//   };
+
+//   // --- Render Option ---
+//   const renderOptionItem = (option, index) => {
+//     const isSelected = isMulti
+//       ? Array.isArray(value) &amp;&amp; value.some((v) => v.value === option.value)
+//       : value?.value === option.value || value === option.value;
+
+//     return (
+//       &lt;li
+//         key={option.value}
+//         style={{
+//           ...dropdownStyles.optionItem,
+//           ...(hoveredIndex === index ? dropdownStyles.optionItemHover : {}),
+//         }}
+//         onMouseEnter={() => setHoveredIndex(index)}
+//         onMouseLeave={() => setHoveredIndex(null)}
+//         onClick={() => handleSelect(option)}
+//       >
+//         {renderOption ? (
+//           renderOption(option, isSelected)
+//         ) : (
+//           &lt;>
+//             {option.icon &amp;&amp; &lt;span style={{ marginRight: 8 }}>{option.icon}&lt;/span>}
+//             {option.label}
+//             {isSelected &amp;&amp; &lt;span style={{ float: "right" }}>✔&lt;/span>}
+//           &lt;/>
+//         )}
+//       &lt;/li>
+//     );
+//   };
+
+//   // --- MUI-based Standard Select (to match TO Section style) ---
+//   if (!isSearchable &amp;&amp; !isMulti &amp;&amp; !isGrouped &amp;&amp; !asyncLoadOptions) {
+//     const displayValue = value?.value || value || "";
+
+//     return (
+//       &lt;FormControl fullWidth error={!!error}>
+//         &lt;InputLabel>{label}&lt;/InputLabel>
+//         &lt;Select
+//           value={displayValue}
+//           onChange={(e) => {
+//             const selectedValue = e.target.value;
+//             const selectedOption = options.find(opt => opt.value === selectedValue);
+//             onChange(selectedOption || selectedValue);
+//           }}
+//           input={&lt;OutlinedInput label={label} />}
+//           MenuProps={{
+//             PaperProps: {
+//               style: {
+//                 maxHeight: 224,
+//                 width: 300,
+//                 maxWidth: '100%',
+//               },
+//             },
+//           }}
+//           disabled={disabled}
+//           {...props}
+//         >
+//           {options.map((option) => (
+//             &lt;MenuItem key={option.value} value={option.value}>
+//               {option.label}
+//             &lt;/MenuItem>
+//           ))}
+//         &lt;/Select>
+//         {error &amp;&amp; &lt;p style={errorMessageStyle}>{error}&lt;/p>}
+//       &lt;/FormControl>
+//     );
+//   }
+
+//   // --- Searchable &amp; Multi/Grouped ---
+//   if (isSearchable || isMulti || isGrouped || asyncLoadOptions) {
+//     const displayLabel = isMulti
+//       ? Array.isArray(value) &amp;&amp; value.length > 0
+//         ? value.map((v) => v.label).join(", ")
+//         : ""
+//       : value?.label || value || "";
+
+//     return (
+//       &lt;div>
+//         &lt;div style={dropdownStyles.container} ref={dropdownRef}>
+//           &lt;input
+//             type="text"
+//             style={{
+//               ...dropdownStyles.input,
+//               ...(disabled &amp;&amp; dropdownStyles.disabled),
+//               ...(error &amp;&amp; dropdownStyles.error),
+//             }}
+//             placeholder={placeholder || "Select an option..."}
+//             value={isOpen ? searchTerm : displayLabel}
+//             onChange={(e) => {
+
+
+//               setSearchTerm(e.target.value);
+//               if (!isOpen) setIsOpen(true);
+//             }}
+//             onClick={() => setIsOpen(!isOpen)}
+//             onFocus={() => setIsOpen(true)}
+//             disabled={disabled}
+//             readOnly={!isSearchable}
+//             {...props}
+//           />
+//           {isOpen &amp;&amp; !disabled &amp;&amp; (
+//             &lt;ul style={dropdownStyles.optionsList}>
+//               {isGrouped ? (
+//                 [...new Set(filteredOptions.map((o) => o.group || "Ungrouped"))].map(
+//                   (group) => (
+//                     &lt;li key={group} style={{ fontWeight: "bold", padding: "6px 14px" }}>
+//                       {group}
+//                       &lt;ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+//                         {filteredOptions
+//                           .filter((o) => (o.group || "Ungrouped") === group)
+//                           .map((opt, idx) => renderOptionItem(opt, idx))}
+//                       &lt;/ul>
+//                     &lt;/li>
+//                   )
+//                 )
+//               ) : filteredOptions.length > 0 ? (
+//                 filteredOptions.map((option, index) =>
+//                   renderOptionItem(option, index)
+//                 )
+//               ) : (
+//                 &lt;li style={{ ...dropdownStyles.optionItem, cursor: "default" }}>
+//                   No options found
+//                 &lt;/li>
+//               )}
+//             &lt;/ul>
+//           )}
+//         &lt;/div>
+//         {error &amp;&amp; &lt;p style={errorMessageStyle}>{error}&lt;/p>}
+//       &lt;/div>
+//     );
+//   }
+
+//   // --- Fallback Standard Select ---
+//   const style = {
+//     ...dropdownStyles.select,
+//     ...(disabled &amp;&amp; dropdownStyles.disabled),
+//     ...(error &amp;&amp; dropdownStyles.error),
+//   };
+
+//   return (
+//     &lt;div>
+//       &lt;select
+//         style={style}
+//         value={value}
+//         onChange={onChange}
+//         disabled={disabled}
+//         {...props}
+//       >
+//         {options.map((option) => (
+//           &lt;option key={option.value} value={option.value}>
+//             {option.label}
+//           &lt;/option>
+//         ))}
+//       &lt;/select>
+//       {error &amp;&amp; &lt;p style={errorMessageStyle}>{error}&lt;/p>}
+//     &lt;/div>
+//   );
+// };
+
+// export default Dropdown;
+
+
+// /**
+//  * @fileoverview A versatile Dropdown component.
+//  * Supports standard, searchable, multi-select, grouped, custom-rendered,
+//  * and async-loaded dropdowns.
+//  * @module src/components/ui/Dropdown
+//  * @author Rakshana
+//  * @date 31/10/2025
+//  * @since 2.0.0
+//  */
+
+// import React, { useState, useRef, useEffect } from "react";
+// import {
+//   FormControl,
+//   InputLabel,
+//   Select,
+//   MenuItem,
+//   OutlinedInput,
+//   Checkbox,
+//   ListItemText,
+//   TextField,
+//   ListSubheader,
+// } from "@mui/material";
+
+// // --- STYLES ---
+// const baseInputStyle = {
+//   width: "100%",
+//   padding: "10px 14px",
+//   borderRadius: "8px",
+//   border: "1px solid #D1D5DB",
+//   fontSize: "16px",
+//   boxSizing: "border-box",
+// };
+
+// const dropdownStyles = {
+//   container: { position: "relative", width: "100%", fontFamily: "sans-serif" },
+//   select: {
+//     ...baseInputStyle,
+//     cursor: "pointer",
+//     appearance: "none",
+//     backgroundColor: "white",
+//     backgroundImage: `url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%236B7280%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22/%3E%3C/svg%3E')`,
+//     backgroundRepeat: "no-repeat",
+//     backgroundPosition: "right 14px top 50%",
+//     backgroundSize: "12px",
+//   },
+//   input: baseInputStyle,
+//   disabled: {
+//     backgroundColor: "#F3F4F6",
+//     cursor: "not-allowed",
+//     color: "#9CA3AF",
+//   },
+//   error: { borderColor: "#EF4444" },
+//   optionsList: {
+//     position: "absolute",
+//     top: "100%",
+//     left: 0,
+//     right: 0,
+//     backgroundColor: "white",
+//     border: "1px solid #D1D5DB",
+//     borderRadius: "8px",
+//     marginTop: "4px",
+//     maxHeight: "200px",
+//     overflowY: "auto",
+//     listStyle: "none",
+//     padding: 0,
+//     margin: 0,
+//     zIndex: 1000,
+//     boxShadow:
+//       "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+//   },
+//   optionItem: {
+//     padding: "10px 14px",
+//     cursor: "pointer",
+//     borderBottom: "1px solid #F3F4F6",
+//   },
+//   optionItemHover: { backgroundColor: "#F3F4F6" },
+// };
+
+// const errorMessageStyle = {
+//   color: "#D32F2F",
+//   fontSize: "14px",
+//   marginTop: "4px",
+// };
+
+// /**
+//  * Dropdown Component Variants
+//  *
+//  * @param {Object} props
+//  * @param {boolean} [props.isSearchable=false] - Enables searchable input.
+//  * @param {boolean} [props.isMulti=false] - Enables multi-select.
+//  * @param {boolean} [props.isGrouped=false] - Enables grouped options.
+//  * @param {Array&lt;{value:any,label:string,group?:string,icon?:React.ReactNode}>} props.options - Options.
+//  * @param {any|any[]} props.value - Selected value(s).
+//  * @param {Function} props.onChange - Callback when value changes.
+//  * @param {boolean} [props.disabled] - Disables dropdown.
+//  * @param {string} [props.error] - Error message.
+//  * @param {string} [props.placeholder] - Placeholder text.
+//  * @param {() => Promise&lt;any[]>} [props.asyncLoadOptions] - Async options fetcher.
+//  * @param {(option:any,isSelected:boolean)=>React.ReactNode} [props.renderOption] - Custom renderer.
+//  */
+
+// const Dropdown = ({
+//   isSearchable = false,
+//   isMulti = false,
+//   isGrouped = false,
+//   options: initialOptions = [],
+//   value,
+//   onChange,
+//   disabled,
+//   error,
+//   placeholder,
+//   asyncLoadOptions,
+//   renderOption,
+//   label,
+//   ...props
+// }) => {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const [searchTerm, setSearchTerm] = useState("");
+//   const [hoveredIndex, setHoveredIndex] = useState(null);
+//   const [options, setOptions] = useState(initialOptions);
+//   const dropdownRef = useRef(null);
+//   const searchInputRef = useRef(null);
+
+//   // --- Async Loader ---
+//   useEffect(() => {
+//     if (asyncLoadOptions) {
+//       asyncLoadOptions().then((data) => setOptions(data));
+//     }
+//   }, [asyncLoadOptions]);
+
+//   // --- Outside click close ---
+//   useEffect(() => {
+//     const handleOutsideClick = (event) => {
+//       if (dropdownRef.current &amp;&amp; !dropdownRef.current.contains(event.target)) {
+//         setIsOpen(false);
+//       }
+//     };
+//     document.addEventListener("mousedown", handleOutsideClick);
+//     return () => document.removeEventListener("mousedown", handleOutsideClick);
+//   }, []);
+
+//   // --- Filter Options ---
+//   const filteredOptions = isSearchable
+//     ? options.filter((opt) =>
+//         opt.label.toLowerCase().includes(searchTerm.toLowerCase())
+//       )
+//     : options;
+
+//   // --- Handle Select ---
+//   const handleSelect = (option) => {
+//     if (isMulti) {
+//       const isSelected = Array.isArray(value)
+//         ? value.some((v) => v.value === option.value)
+//         : false;
+//       let newValue;
+//       if (isSelected) {
+//         newValue = value.filter((v) => v.value !== option.value);
+//       } else {
+//         newValue = [...(value || []), option];
+//       }
+//       onChange(newValue);
+//     } else {
+//       onChange(option);
+//       setIsOpen(false);
+//     }
+//   };
+
+//   // --- Render Option ---
+//   const renderOptionItem = (option, index) => {
+//     const isSelected = isMulti
+//       ? Array.isArray(value) &amp;&amp; value.some((v) => v.value === option.value)
+//       : value?.value === option.value || value === option.value;
+
+//     return (
+//       &lt;li
+//         key={option.value}
+//         style={{
+//           ...dropdownStyles.optionItem,
+//           ...(hoveredIndex === index ? dropdownStyles.optionItemHover : {}),
+//         }}
+//         onMouseEnter={() => setHoveredIndex(index)}
+//         onMouseLeave={() => setHoveredIndex(null)}
+//         onClick={() => handleSelect(option)}
+//       >
+//         {renderOption ? (
+//           renderOption(option, isSelected)
+//         ) : (
+//           &lt;>
+//             {option.icon &amp;&amp; &lt;span style={{ marginRight: 8 }}>{option.icon}&lt;/span>}
+//             {option.label}
+//             {isSelected &amp;&amp; &lt;span style={{ float: "right" }}>✔&lt;/span>}
+//           &lt;/>
+//         )}
+//       &lt;/li>
+//     );
+//   };
+
+//   // --- MUI-based Standard Select (to match TO Section style) ---
+//   if (!isSearchable &amp;&amp; !isMulti &amp;&amp; !isGrouped &amp;&amp; !asyncLoadOptions) {
+//     const displayValue = value?.value || value || "";
+
+//     return (
+//       &lt;FormControl fullWidth error={!!error}>
+//         &lt;InputLabel>{label}&lt;/InputLabel>
+//         &lt;Select
+//           value={displayValue}
+//           onChange={(e) => {
+//             const selectedValue = e.target.value;
+//             const selectedOption = options.find(opt => opt.value === selectedValue);
+//             onChange(selectedOption || selectedValue);
+//           }}
+//           input={&lt;OutlinedInput label={label} />}
+//           MenuProps={{
+//             PaperProps: {
+//               style: {
+//                 maxHeight: 300,
+//                 width: 400,
+//                 maxWidth: '100%',
+//               },
+//             },
+//             anchorOrigin: {
+//               vertical: 'bottom',
+//               horizontal: 'left',
+//             },
+//             transformOrigin: {
+//               vertical: 'top',
+//               horizontal: 'left',
+//             },
+//             sx: {
+//               marginTop: '8px',
+//             }
+//           }}
+//           disabled={disabled}
+//           {...props}
+//         >
+//           {options.map((option) => (
+//             &lt;MenuItem 
+//               key={option.value} 
+//               value={option.value}
+//               sx={{
+//                 '&amp; .MuiListItemText-root': {
+//                   wordWrap: 'break-word',
+//                   whiteSpace: 'normal'
+//                 }
+//               }}
+//             >
+//               {option.label}
+//             &lt;/MenuItem>
+//           ))}
+//         &lt;/Select>
+//         {error &amp;&amp; &lt;p style={errorMessageStyle}>{error}&lt;/p>}
+//       &lt;/FormControl>
+//     );
+//   }
+
+//   // --- Searchable &amp; Multi/Grouped with MUI ---
+//   if (isSearchable || isMulti || isGrouped || asyncLoadOptions) {
+//     // For multi-select with checkboxes using MUI
+//     if (isMulti &amp;&amp; isSearchable) {
+//       return (
+//         &lt;FormControl fullWidth error={!!error}>
+//           &lt;InputLabel>{label}&lt;/InputLabel>
+//           &lt;Select
+//             multiple
+//             value={Array.isArray(value) ? value.map(v => v.value || v) : []}
+//             onChange={(e) => {
+//               const selectedValues = e.target.value;
+//               const selectedOptions = options.filter(opt => 
+//                 selectedValues.includes(opt.value)
+//               );
+//               onChange(selectedOptions);
+//             }}
+//             onOpen={() => setSearchTerm("")}
+//             onClose={() => setSearchTerm("")}
+//             input={&lt;OutlinedInput label={label} />}
+//             renderValue={(selected) => {
+//               if (selected.length === 0) {
+//                 return &lt;em>{placeholder || "Select options"}&lt;/em>;
+//               }
+//               const labels = selected.map(val => {
+//                 const opt = options.find(o => o.value === val);
+//                 return opt ? opt.label : val;
+//               });
+//               return labels.join(", ");
+//             }}
+//             MenuProps={{
+//               disableAutoFocusItem: true,
+//               PaperProps: {
+//                 style: {
+//                   maxHeight: 300,
+//                   width: 400,
+//                   maxWidth: '100%',
+//                 },
+//               },
+//               anchorOrigin: {
+//                 vertical: 'bottom',
+//                 horizontal: 'left',
+//               },
+//               transformOrigin: {
+//                 vertical: 'top',
+//                 horizontal: 'left',
+//               },
+//               sx: {
+//                 marginTop: '8px',
+//               }
+//             }}
+//             disabled={disabled}
+//             {...props}
+//           >
+//             &lt;ListSubheader>
+//               &lt;TextField
+//                 inputRef={searchInputRef}
+//                 placeholder="Search options..."
+//                 size="small"
+//                 fullWidth
+//                 onChange={(e) => setSearchTerm(e.target.value)}
+//                 onKeyDown={(event) => event.stopPropagation()}
+//                 autoFocus
+//               />
+//             &lt;/ListSubheader>
+//             {filteredOptions.map((option) => (
+//               &lt;MenuItem key={option.value} value={option.value}>
+//                 &lt;Checkbox 
+//                   checked={Array.isArray(value) &amp;&amp; value.some(v => (v.value || v) === option.value)} 
+//                 />
+//                 &lt;ListItemText 
+//                   primary={option.label}
+//                   primaryTypographyProps={{ 
+//                     style: { 
+//                       wordWrap: 'break-word',
+//                       whiteSpace: 'normal',
+//                       paddingTop: "5px"
+//                     } 
+//                   }}
+//                 />
+//               &lt;/MenuItem>
+//             ))}
+//           &lt;/Select>
+//           {error &amp;&amp; &lt;p style={errorMessageStyle}>{error}&lt;/p>}
+//         &lt;/FormControl>
+//       );
+//     }
+
+//     // For other searchable/grouped variants (custom dropdown)
+//     const displayLabel = isMulti
+//       ? Array.isArray(value) &amp;&amp; value.length > 0
+//         ? value.map((v) => v.label).join(", ")
+//         : ""
+//       : value?.label || value || "";
+
+//     return (
+//       &lt;div>
+//         &lt;div style={dropdownStyles.container} ref={dropdownRef}>
+//           &lt;input
+//             type="text"
+//             style={{
+//               ...dropdownStyles.input,
+//               ...(disabled &amp;&amp; dropdownStyles.disabled),
+//               ...(error &amp;&amp; dropdownStyles.error),
+//             }}
+//             placeholder={placeholder || "Select an option..."}
+//             value={isOpen ? searchTerm : displayLabel}
+//             onChange={(e) => {
+//               setSearchTerm(e.target.value);
+//               if (!isOpen) setIsOpen(true);
+//             }}
+//             onClick={() => setIsOpen(!isOpen)}
+//             onFocus={() => setIsOpen(true)}
+//             disabled={disabled}
+//             readOnly={!isSearchable}
+//             {...props}
+//           />
+//           {isOpen &amp;&amp; !disabled &amp;&amp; (
+//             &lt;ul style={dropdownStyles.optionsList}>
+//               {isGrouped ? (
+//                 [...new Set(filteredOptions.map((o) => o.group || "Ungrouped"))].map(
+//                   (group) => (
+//                     &lt;li key={group} style={{ fontWeight: "bold", padding: "6px 14px" }}>
+//                       {group}
+//                       &lt;ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+//                         {filteredOptions
+//                           .filter((o) => (o.group || "Ungrouped") === group)
+//                           .map((opt, idx) => renderOptionItem(opt, idx))}
+//                       &lt;/ul>
+//                     &lt;/li>
+//                   )
+//                 )
+//               ) : filteredOptions.length > 0 ? (
+//                 filteredOptions.map((option, index) =>
+//                   renderOptionItem(option, index)
+//                 )
+//               ) : (
+//                 &lt;li style={{ ...dropdownStyles.optionItem, cursor: "default" }}>
+//                   No options found
+//                 &lt;/li>
+//               )}
+//             &lt;/ul>
+//           )}
+//         &lt;/div>
+//         {error &amp;&amp; &lt;p style={errorMessageStyle}>{error}&lt;/p>}
+//       &lt;/div>
+//     );
+//   }
+
+//   // --- Fallback Standard Select ---
+//   const style = {
+//     ...dropdownStyles.select,
+//     ...(disabled &amp;&amp; dropdownStyles.disabled),
+//     ...(error &amp;&amp; dropdownStyles.error),
+//   };
+
+//   return (
+//     &lt;div>
+//       &lt;select
+//         style={style}
+//         value={value}
+//         onChange={onChange}
+//         disabled={disabled}
+//         {...props}
+//       >
+//         {options.map((option) => (
+//           &lt;option key={option.value} value={option.value}>
+//             {option.label}
+//           &lt;/option>
+//         ))}
+//       &lt;/select>
+//       {error &amp;&amp; &lt;p style={errorMessageStyle}>{error}&lt;/p>}
+//     &lt;/div>
+//   );
+// };
+
+// export default Dropdown;
+
+/**
+ * @fileoverview A versatile Dropdown component.
+ * Supports standard, searchable, multi-select, grouped, custom-rendered,
+ * and async-loaded dropdowns.
+ * @module src/components/ui/Dropdown
+ * @author Rakshana
+ * @date 31/10/2025
+ * @since 2.0.0
+ */
+
+import React, { useState, useRef, useEffect } from "react";
+import {
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  OutlinedInput,
+  Checkbox,
+  ListItemText,
+  TextField,
+  ListSubheader,
+  useTheme,
+} from "@mui/material";
+
+// --- STYLES --- (Enhanced with responsive considerations)
+const baseInputStyle = {
+  width: "100%",
+  padding: "10px 14px",
+  borderRadius: "8px",
+  border: "1px solid #D1D5DB",
+  fontSize: "16px",
+  boxSizing: "border-box",
+};
+
+const dropdownStyles = {
+  container: { position: "relative", width: "100%", fontFamily: "sans-serif" },
+  select: {
+    ...baseInputStyle,
+    cursor: "pointer",
+    appearance: "none",
+    backgroundColor: "white",
+    backgroundImage: `url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%236B7280%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22/%3E%3C/svg%3E')`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "right 14px top 50%",
+    backgroundSize: "12px",
+  },
+  input: baseInputStyle,
+  disabled: {
+    backgroundColor: "#F3F4F6",
+    cursor: "not-allowed",
+    color: "#9CA3AF",
+  },
+  error: { borderColor: "#EF4444" },
+  optionsList: {
+    position: "absolute",
+    top: "100%",
+    left: 0,
+    right: 0,
+    backgroundColor: "white",
+    border: "1px solid #D1D5DB",
+    borderRadius: "8px",
+    marginTop: "4px",
+    maxHeight: { xs: '40vh', sm: '200px' }, // Responsive max height: viewport-based on mobile
+    overflowY: "auto",
+    listStyle: "none",
+    padding: 0,
+    margin: 0,
+    zIndex: 1000,
+    boxShadow:
+      "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+  },
+  optionItem: {
+    padding: { xs: '8px 12px', sm: '10px 14px' }, // Responsive padding: smaller touch targets on mobile
+    cursor: "pointer",
+    borderBottom: "1px solid #F3F4F6",
+    fontSize: { xs: '0.875rem', sm: '1rem' }, // Responsive font size
+  },
+  optionItemHover: { backgroundColor: "#F3F4F6" },
+};
+
+const errorMessageStyle = {
+  color: "#D32F2F",
+  fontSize: "14px",
+  marginTop: "4px",
+};
+
+/**
+ * Dropdown Component Variants
+ *
+ * @param {Object} props
+ * @param {boolean} [props.isSearchable=false] - Enables searchable input.
+ * @param {boolean} [props.isMulti=false] - Enables multi-select.
+ * @param {boolean} [props.isGrouped=false] - Enables grouped options.
+ * @param {Array&lt;{value:any,label:string,group?:string,icon?:React.ReactNode}>} props.options - Options.
+ * @param {any|any[]} props.value - Selected value(s).
+ * @param {Function} props.onChange - Callback when value changes.
+ * @param {boolean} [props.disabled] - Disables dropdown.
+ * @param {string} [props.error] - Error message.
+ * @param {string} [props.placeholder] - Placeholder text.
+ * @param {() => Promise&lt;any[]>} [props.asyncLoadOptions] - Async options fetcher.
+ * @param {(option:any,isSelected:boolean)=>React.ReactNode} [props.renderOption] - Custom renderer.
+ */
+
+const Dropdown = ({
+  isSearchable = false,
+  isMulti = false,
+  isGrouped = false,
+  options: initialOptions = [],
+  value,
+  onChange,
+  disabled,
+  error,
+  placeholder,
+  asyncLoadOptions,
+  renderOption,
+  label,
+  ...props
+}) => {
+  const theme = useTheme();
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [options, setOptions] = useState(initialOptions);
+  const dropdownRef = useRef(null);
+  const searchInputRef = useRef(null);
+
+  // --- Async Loader ---
+  useEffect(() => {
+    if (asyncLoadOptions) {
+      asyncLoadOptions().then((data) => setOptions(data));
+    }
+  }, [asyncLoadOptions]);
+
+  // --- Outside click close ---
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (dropdownRef.current &amp;&amp; !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, []);
+
+  // --- Filter Options ---
+  const filteredOptions = isSearchable
+    ? options.filter((opt) =>
+        opt.label.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : options;
+
+  // --- Handle Select ---
+  const handleSelect = (option) => {
+    if (isMulti) {
+      const isSelected = Array.isArray(value)
+        ? value.some((v) => v.value === option.value)
+        : false;
+      let newValue;
+      if (isSelected) {
+        newValue = value.filter((v) => v.value !== option.value);
+      } else {
+        newValue = [...(value || []), option];
+      }
+      onChange(newValue);
+    } else {
+      onChange(option);
+      setIsOpen(false);
+    }
+  };
+
+  // --- Render Option ---
+  const renderOptionItem = (option, index) => {
+    const isSelected = isMulti
+      ? Array.isArray(value) &amp;&amp; value.some((v) => v.value === option.value)
+      : value?.value === option.value || value === option.value;
+
+    return (
+      &lt;li
+        key={option.value}
+        style={{
+          ...dropdownStyles.optionItem,
+          ...(hoveredIndex === index ? dropdownStyles.optionItemHover : {}),
+        }}
+        onMouseEnter={() => setHoveredIndex(index)}
+        onMouseLeave={() => setHoveredIndex(null)}
+        onClick={() => handleSelect(option)}
+      >
+        {renderOption ? (
+          renderOption(option, isSelected)
+        ) : (
+          &lt;>
+            {option.icon &amp;&amp; &lt;span style={{ marginRight: 8 }}>{option.icon}&lt;/span>}
+            {option.label}
+            {isSelected &amp;&amp; &lt;span style={{ float: "right" }}>✔&lt;/span>}
+          &lt;/>
+        )}
+      &lt;/li>
+    );
+  };
+
+  // --- MUI-based Standard Select (to match TO Section style) ---
+  if (!isSearchable &amp;&amp; !isMulti &amp;&amp; !isGrouped &amp;&amp; !asyncLoadOptions) {
+    const displayValue = value?.value || value || "";
+
+    return (
+      &lt;FormControl fullWidth error={!!error}>
+        &lt;InputLabel>{label}&lt;/InputLabel>
+        &lt;Select
+          value={displayValue}
+          onChange={(e) => {
+            const selectedValue = e.target.value;
+            const selectedOption = options.find(opt => opt.value === selectedValue);
+            onChange(selectedOption || selectedValue);
+          }}
+          input={&lt;OutlinedInput label={label} />}
+          MenuProps={{
+            PaperProps: {
+              sx: { // Enhanced responsive styling
+                maxHeight: { xs: 250, sm: 300 }, // Responsive max height
+                minWidth: { xs: '100%', sm: 300 },
+                width: { xs: '100%', sm: 400 },
+                maxWidth: 'calc(100vw - 32px)', // Prevent viewport overflow
+                mt: { xs: 0.5, sm: 1 }, // Responsive margin
+                overflowX: 'hidden',
+              },
+            },
+            anchorOrigin: {
+              vertical: 'bottom',
+              horizontal: 'left',
+            },
+            transformOrigin: {
+              vertical: 'top',
+              horizontal: 'left',
+            },
+          }}
+          disabled={disabled}
+          {...props}
+        >
+          {options.map((option) => (
+            &lt;MenuItem 
+              key={option.value} 
+              value={option.value}
+              sx={{
+                px: { xs: 1.5, sm: 2 }, // Responsive horizontal padding for touch
+                '&amp; .MuiListItemText-root': {
+                  wordWrap: 'break-word',
+                  whiteSpace: 'normal',
+                  fontSize: { xs: '0.875rem', sm: '1rem' }, // Responsive font
+                }
+              }}
+            >
+              {option.label}
+            &lt;/MenuItem>
+          ))}
+        &lt;/Select>
+        {error &amp;&amp; &lt;p style={errorMessageStyle}>{error}&lt;/p>}
+      &lt;/FormControl>
+    );
+  }
+
+  // --- Searchable &amp; Multi/Grouped with MUI ---
+  if (isSearchable || isMulti || isGrouped || asyncLoadOptions) {
+    // For multi-select with checkboxes using MUI
+    if (isMulti &amp;&amp; isSearchable) {
+      return (
+        &lt;FormControl fullWidth error={!!error}>
+          &lt;InputLabel>{label}&lt;/InputLabel>
+          &lt;Select
+            multiple
+            value={Array.isArray(value) ? value.map(v => v.value || v) : []}
+            onChange={(e) => {
+              const selectedValues = e.target.value;
+              const selectedOptions = options.filter(opt => 
+                selectedValues.includes(opt.value)
+              );
+              onChange(selectedOptions);
+            }}
+            onOpen={() => setSearchTerm("")}
+            onClose={() => setSearchTerm("")}
+            input={&lt;OutlinedInput label={label} />}
+            renderValue={(selected) => {
+              if (selected.length === 0) {
+                return &lt;em>{placeholder || "Select options"}&lt;/em>;
+              }
+              const labels = selected.map(val => {
+                const opt = options.find(o => o.value === val);
+                return opt ? opt.label : val;
+              });
+              return labels.join(", ");
+            }}
+            MenuProps={{
+              disableAutoFocusItem: true,
+              PaperProps: {
+                sx: { // Enhanced responsive styling
+                  maxHeight: { xs: 250, sm: 300 },
+                  minWidth: { xs: '100%', sm: 300 },
+                  width: { xs: '100%', sm: 400 },
+                  maxWidth: 'calc(100vw - 32px)',
+                  mt: { xs: 0.5, sm: 1 },
+                  overflowX: 'hidden',
+                },
+              },
+              anchorOrigin: {
+                vertical: 'bottom',
+                horizontal: 'left',
+              },
+              transformOrigin: {
+                vertical: 'top',
+                horizontal: 'left',
+              },
+            }}
+            disabled={disabled}
+            {...props}
+          >
+            &lt;ListSubheader sx={{ p: { xs: 0.75, sm: 1 } }}> {/* Responsive padding */}
+              &lt;TextField
+                inputRef={searchInputRef}
+                placeholder="Search options..."
+                size="small"
+                fullWidth
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={(event) => event.stopPropagation()}
+                autoFocus
+                sx={{
+                  '&amp; .MuiInputBase-input': {
+                    py: { xs: 0.25, sm: 0.5 },
+                    fontSize: { xs: '0.75rem', sm: '0.875rem' },
+                  },
+                }}
+              />
+            &lt;/ListSubheader>
+            {filteredOptions.map((option) => (
+              &lt;MenuItem key={option.value} value={option.value} sx={{ px: { xs: 1.5, sm: 2 } }}>
+                &lt;Checkbox 
+                  checked={Array.isArray(value) &amp;&amp; value.some(v => (v.value || v) === option.value)} 
+                />
+                &lt;ListItemText 
+                  primary={option.label}
+                  primaryTypographyProps={{ 
+                    style: { 
+                      wordWrap: 'break-word',
+                      whiteSpace: 'normal',
+                      paddingTop: { xs: '2px', sm: '5px' }, // Responsive top padding
+                      fontSize: { xs: '0.75rem', sm: '0.875rem' },
+                    } 
+                  }}
+                />
+              &lt;/MenuItem>
+            ))}
+          &lt;/Select>
+          {error &amp;&amp; &lt;p style={errorMessageStyle}>{error}&lt;/p>}
+        &lt;/FormControl>
+      );
+    }
+
+    // For other searchable/grouped variants (custom dropdown)
+    const displayLabel = isMulti
+      ? Array.isArray(value) &amp;&amp; value.length > 0
+        ? value.map((v) => v.label).join(", ")
+        : ""
+      : value?.label || value || "";
+
+    return (
+      &lt;div>
+        &lt;div style={dropdownStyles.container} ref={dropdownRef}>
+          &lt;input
+            type="text"
+            style={{
+              ...dropdownStyles.input,
+              ...(disabled &amp;&amp; dropdownStyles.disabled),
+              ...(error &amp;&amp; dropdownStyles.error),
+            }}
+            placeholder={placeholder || "Select an option..."}
+            value={isOpen ? searchTerm : displayLabel}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              if (!isOpen) setIsOpen(true);
+            }}
+            onClick={() => setIsOpen(!isOpen)}
+            onFocus={() => setIsOpen(true)}
+            disabled={disabled}
+            readOnly={!isSearchable}
+            {...props}
+          />
+          {isOpen &amp;&amp; !disabled &amp;&amp; (
+            &lt;ul style={dropdownStyles.optionsList}>
+              {isGrouped ? (
+                [...new Set(filteredOptions.map((o) => o.group || "Ungrouped"))].map(
+                  (group) => (
+                    &lt;li key={group} style={{ fontWeight: "bold", padding: { xs: '4px 12px', sm: '6px 14px' } }}>
+                      {group}
+                      &lt;ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                        {filteredOptions
+                          .filter((o) => (o.group || "Ungrouped") === group)
+                          .map((opt, idx) => renderOptionItem(opt, idx))}
+                      &lt;/ul>
+                    &lt;/li>
+                  )
+                )
+              ) : filteredOptions.length > 0 ? (
+                filteredOptions.map((option, index) =>
+                  renderOptionItem(option, index)
+                )
+              ) : (
+                &lt;li style={{ ...dropdownStyles.optionItem, cursor: "default" }}>
+                  No options found
+                &lt;/li>
+              )}
+            &lt;/ul>
+          )}
+        &lt;/div>
+        {error &amp;&amp; &lt;p style={errorMessageStyle}>{error}&lt;/p>}
+      &lt;/div>
+    );
+  }
+
+  // --- Fallback Standard Select ---
+  const style = {
+    ...dropdownStyles.select,
+    ...(disabled &amp;&amp; dropdownStyles.disabled),
+    ...(error &amp;&amp; dropdownStyles.error),
+  };
+
+  return (
+    &lt;div>
+      &lt;select
+        style={style}
+        value={value}
+        onChange={onChange}
+        disabled={disabled}
+        {...props}
+      >
+        {options.map((option) => (
+          &lt;option key={option.value} value={option.value}>
+            {option.label}
+          &lt;/option>
+        ))}
+      &lt;/select>
+      {error &amp;&amp; &lt;p style={errorMessageStyle}>{error}&lt;/p>}
+    &lt;/div>
+  );
+};
+
+export default Dropdown;</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Wed Nov 05 2025 11:24:43 GMT+0530 (India Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>
